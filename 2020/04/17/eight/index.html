@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>分类 | 阿清的小站</title>
+  <title>细谈apply()与call() | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿清的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+  <meta name="description" content="两者使用的目的：改变调用的函数体内部的this的指向。&amp;emsp;&amp;emsp;相同点：均是调用某对象的方法，格式：obj.函数名.call()&amp;emsp;&amp;emsp;call(obj,参数1，参数2）:两个参数,前者将代替Function类里this对象，后者（多个元素）作为参数传递给被调用的函数。 12345678910var foo &#x3D; &amp;#123;  name:&quot;name1&quot;,  logNa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="细谈apply()与call()">
+<meta property="og:url" content="http://yoursite.com/2020/04/17/eight/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="阿清的博客">
+<meta property="og:description" content="两者使用的目的：改变调用的函数体内部的this的指向。&amp;emsp;&amp;emsp;相同点：均是调用某对象的方法，格式：obj.函数名.call()&amp;emsp;&amp;emsp;call(obj,参数1，参数2）:两个参数,前者将代替Function类里this对象，后者（多个元素）作为参数传递给被调用的函数。 12345678910var foo &#x3D; &amp;#123;  name:&quot;name1&quot;,  logNa">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-09T07:44:55.000Z">
-<meta property="article:modified_time" content="2020-04-09T07:47:17.908Z">
+<meta property="article:published_time" content="2020-04-17T03:22:48.000Z">
+<meta property="article:modified_time" content="2020-04-17T03:24:20.676Z">
 <meta property="article:author" content="阿清そ">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
@@ -177,7 +178,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-eight" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -186,18 +187,18 @@
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      分类
+      细谈apply()与call()
     </h1>
   
 </p></center>
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2020-04-09T07:44:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
+        <a href="/2020/04/17/eight/" class="archive-article-date">
+  	<time datetime="2020-04-17T03:22:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
 </a>
         
       </header>
 	  <div align="center" class="post-count">
-	      字数：0字 | 预计阅读时长：1分钟
+	      字数：297字 | 预计阅读时长：1分钟
 	  </div>
 
 
@@ -205,21 +206,69 @@
     <div class="article-entry" itemprop="articleBody">
       
       
-      <div class="category-all-page">
-      	<div class="category-all-title">
-      	counter.categories
-      	</div>
       	
-      	<div class="category-all">
-      	<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/git/Hexo%E6%90%AD%E5%BB%BA/">Hexo搭建</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a><span class="category-list-count">1</span></li></ul>
-      	</div>
+      		<p><strong>两者使用的目的</strong>：改变调用的函数体内部的this的指向。<br>&emsp;&emsp;相同点：均是调用某对象的方法，格式：obj.函数名.call()<br>&emsp;&emsp;call(obj,参数1，参数2）:两个参数,前者将代替Function类里this对象，后者（多个元素）作为参数传递给被调用的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  name:<span class="string">"name1"</span>,</span><br><span class="line">  logName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bar=&#123;</span><br><span class="line">  name:<span class="string">"name2"</span></span><br><span class="line">&#125;;</span><br><span class="line">foo.logName.call(bar);<span class="comment">//name2</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;apply（obj，[参数1，参数2]），同上，不同点是第二个参数是数组。（将数组的每个元素作为一个个参数传递给被调用的函数，性质与call（）方法一样）</p>
+<p>&emsp;&emsp;利用apply（）这一特性的一些小场景：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求数组的最大值</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">34</span>,<span class="number">8</span>]     </span><br><span class="line"><span class="keyword">var</span> max=<span class="built_in">Math</span>.max.apply(<span class="literal">null</span>,arr)  <span class="comment">//34   Math.max（）参数不能为数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//求数组的最小值</span></span><br><span class="line"><span class="keyword">var</span> max=<span class="built_in">Math</span>.min.apply(<span class="literal">null</span>,arr)  <span class="comment">//1   </span></span><br><span class="line"><span class="comment">//合并数组并返回新数组的长度</span></span><br><span class="line"><span class="keyword">var</span> arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>);</span><br><span class="line"><span class="keyword">var</span> arr2=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>);</span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr1,arr2); <span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+
+
+<br>
+<br>
+没事可以来看看，万一有收获呢。
+
+<p><a href="https://aqingya.cn" target="_blank" rel="noopener">个人博客地址https://aqingya.cn</a><br><br><br>愿你的坚持终有回报。</p>
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      阿清そ
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-04-17
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-04-17
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+      <a href="#" title="细谈apply()与call()" target="_blank">细谈apply()与call()</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    
+  </div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
       	
-      </div>
-      
       
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -270,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/categories/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/17/eight/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -282,6 +331,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/15/seven/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript基础---原型对象概念详解(仔细理解一下)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -338,7 +397,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
