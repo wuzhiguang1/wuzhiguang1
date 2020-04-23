@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>标签 | 阿清的小站</title>
+  <title>JavaScript---检测滚动条是否到底 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿清的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="disabled 属性可设置或返回是否禁用 checkbox。语法：Object.disabled&#x3D;true|falsetrue表示禁用 false表示可用 clientWidth clientHeight这两个属性都可以获取元素的可见高度和宽度会获取元素的宽度和高度，包括内容区和内边距 offsetWidth offsetHeight获取元素的整个宽度和高度，包括内容区和内边距，边框 scrol">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript---检测滚动条是否到底">
+<meta property="og:url" content="http://yoursite.com/2020/04/23/eleven/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="阿清的博客">
+<meta property="og:description" content="disabled 属性可设置或返回是否禁用 checkbox。语法：Object.disabled&#x3D;true|falsetrue表示禁用 false表示可用 clientWidth clientHeight这两个属性都可以获取元素的可见高度和宽度会获取元素的宽度和高度，包括内容区和内边距 offsetWidth offsetHeight获取元素的整个宽度和高度，包括内容区和内边距，边框 scrol">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-09T07:45:11.000Z">
-<meta property="article:modified_time" content="2020-04-09T07:46:39.228Z">
+<meta property="article:published_time" content="2020-04-23T10:22:54.000Z">
+<meta property="article:modified_time" content="2020-04-23T10:25:10.537Z">
 <meta property="article:author" content="阿清そ">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
@@ -177,7 +178,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-eleven" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -186,38 +187,85 @@
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      标签
+      JavaScript---检测滚动条是否到底
     </h1>
   
 </p></center>
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2020-04-09T07:45:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
+        <a href="/2020/04/23/eleven/" class="archive-article-date">
+  	<time datetime="2020-04-23T10:22:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
 </a>
         
       </header>
 	  <div align="center" class="post-count">
-	      字数：0字 | 预计阅读时长：1分钟
+	      字数：1.6k字 | 预计阅读时长：5分钟
 	  </div>
 
 
     
     <div class="article-entry" itemprop="articleBody">
       
-      <div class="tag-cloud">
-      	<div class="tag-cloud-title">
-      	counter.tag_cloud
-      	</div>
       
-      	<div class="tag-cloud-tags">
-      	<a href="/tags/CSS/" style="font-size: 12px; color: #ccc">CSS</a> <a href="/tags/Hexo%E6%90%AD%E5%BB%BA/" style="font-size: 12px; color: #ccc">Hexo搭建</a> <a href="/tags/JavaScript/" style="font-size: 30px; color: #111">JavaScript</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 12px; color: #ccc">随笔</a>
-      	</div>
-      </div>
-      
+      	
+      		<p>disabled 属性可设置或返回是否禁用 checkbox。<br>语法：Object.disabled=true|false<br>true表示禁用 false表示可用</p>
+<p>clientWidth clientHeight<br>这两个属性都可以获取元素的可见高度和宽度<br>会获取元素的宽度和高度，包括内容区和内边距</p>
+<p>offsetWidth offsetHeight<br>获取元素的整个宽度和高度，包括内容区和内边距，边框</p>
+<p>scrollLeft 可以获取水平滚动条的距离<br>scrollTop 可以获取垂直滚动条的距离</p>
+<p>scrollWidth scrollHeight<br>可以获取元素整个滚动区域的宽度和高度</p>
+<p>等式成立时表示垂直滚动条到达最底部<br>Object.scrollHeight-Object.scrollTop==Object.clientHeight</p>
+<p>等式成立时表示水平滚动条到达最右端<br>当满足Object.scrollWidth-Object.scrollLeft==Object.clientWidth</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;滚动条练习&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;style&gt;</span></span><br><span class="line"><span class="regexp">        #info &#123;</span></span><br><span class="line"><span class="regexp">            width: 300px;</span></span><br><span class="line"><span class="regexp">            height: 500px;</span></span><br><span class="line"><span class="regexp">            background-color: #bfa;</span></span><br><span class="line"><span class="regexp">            overflow: auto;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>style&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">            当垂直滚动条到底时使表单项可用</span></span><br><span class="line"><span class="comment">            onscroll</span></span><br><span class="line"><span class="comment">            	该事件会在元素的滚动的时候触发</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="comment">//获取id为info的p元素</span></span><br><span class="line">            <span class="keyword">var</span> info = <span class="built_in">document</span>.getElementById(<span class="string">"info"</span>);</span><br><span class="line">            <span class="keyword">var</span> btn01 = <span class="built_in">document</span>.getElementById(<span class="string">"btn01"</span>);</span><br><span class="line">            <span class="keyword">var</span> btn02 = <span class="built_in">document</span>.getElementById(<span class="string">"btn02"</span>);</span><br><span class="line">            <span class="comment">//为info绑定一个滚动条滚动事件</span></span><br><span class="line">            info.onscroll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">//检查垂直滚动条是否到底部</span></span><br><span class="line">                <span class="keyword">if</span> (info.scrollHeight - info.scrollTop == info.clientHeight) &#123;</span><br><span class="line">                    <span class="comment">//到底部使表单项可用</span></span><br><span class="line">                    btn01.disabled = <span class="literal">false</span>;</span><br><span class="line">                    btn02.disabled = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//我们还要实现必须要勾选第一个按钮，才能按下提交按钮</span></span><br><span class="line">            btn02.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (btn01.checked == <span class="literal">true</span>) &#123;</span><br><span class="line">                    alert(<span class="string">"恭喜您注册成功！"</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    alert(<span class="string">"请勾选前面的协议条款，谢谢！"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;欢迎亲爱的用户注册&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p id="info"&gt;</span></span><br><span class="line"><span class="regexp">        巷口灯光忽明忽灭 手中甜咖啡已冷却 嘴角不经意泄露想念 在发呆的窗前凝结 其实不爱漫漫长夜 因为你才多了情结 可是蜷缩的回忆不热烈 我如何把孤单融解 你看啊春日的蝴蝶 你看它颤抖着飞越 和风与暖阳倾斜 却冰冷 的季节 你看啊仲夏的弯月 你看它把欢愉偷窃 倒挂天际的笑靥 故事里的最后一页 过往和光阴都重叠 我用尽所有字眼去描写 无法留你片刻停歇 你听啊秋末的落叶 你听它叹息着离别 只剩我独自领略 海与山 风和月 你听啊冬至的白雪 你听它掩饰着哽咽 在没有你的世界 你听啊秋末的落叶 你听它叹息着离别</span></span><br><span class="line"><span class="regexp">        只剩我独自领略 海与山 风和月 你听啊冬至的白雪 你听它掩饰着哽咽 在没有你的世界 再没有你的冬眠巷口灯光忽明忽灭 手中甜咖啡已冷却 嘴角不经意泄露想念 在发呆的窗前凝结 其实不爱漫漫长夜 因为你才多了情结 可是蜷缩的回忆不热烈 我如何把孤单融解 你看啊春日的蝴蝶 你看它颤抖着飞越 和风与暖阳倾斜 却冰冷 的季节 你看啊仲夏的弯月 你看它把欢愉偷窃 倒挂天际的笑靥 故事里的最后一页 过往和光阴都重叠 我用尽所有字眼去描写 无法留你片刻停歇 你听啊秋末的落叶 你听它叹息着离别 只剩我独自领略</span></span><br><span class="line"><span class="regexp">        海与山 风和月 你听啊冬至的白雪 你听它掩饰着哽咽 在没有你的世界 你听啊秋末的落叶 你听它叹息着离别 只剩我独自领略 海与山 风和月 你听啊冬至的白雪 你听它掩饰着哽咽 在没有你的世界 再没有你的冬眠巷口灯光忽明忽灭 手中甜咖啡已冷却 嘴角不经意泄露想念 在发呆的窗前凝结 其实不爱漫漫长夜 因为你才多了情结 可是蜷缩的回忆不热烈 我如何把孤单融解 你看啊春日的蝴蝶 你看它颤抖着飞越 和风与暖阳倾斜 却冰冷 的季节 你看啊仲夏的弯月 你看它把欢愉偷窃 倒挂天际的笑靥 故事里的最后一页</span></span><br><span class="line"><span class="regexp">        过往和光阴都重叠 我用尽所有字眼去描写 无法留你片刻停歇 你听啊秋末的落叶 你听它叹息着离别 只剩我独自领略 海与山 风和月 你听啊冬至的白雪 你听它掩饰着哽咽 在没有你的世界 你听啊秋末的落叶 你听它叹息着离别 只剩我独自领略 海与山 风和月 你听啊冬至的白雪 你听它掩饰着哽咽 在没有你的世界 再没有你的冬眠说巷口灯光忽明忽灭 手中甜咖啡已冷却 嘴角不经意泄露想念 在发呆的窗前凝结 其实不爱漫漫长夜 因为你才多了情结 可是蜷缩的回忆不热烈 我如何把孤单融解 你看啊春日的蝴蝶 你看它颤抖着飞越</span></span><br><span class="line"><span class="regexp">        和风与暖阳倾斜 却冰冷 的季节 你看啊仲夏的弯月 你看它把欢愉偷窃 倒挂天际的笑靥 故事里的最后一页 过往和光阴都重叠 我用尽所有字眼去描写 无法留你片刻停歇 你听啊秋末的落叶 你听它叹息着离别 只剩我独自领略 海与山 风和月 你听啊冬至的白雪 你听它掩饰着哽咽 在没有你的世界 你听啊秋末的落叶 你听它叹息着离别 只剩我独自领略 海与山 风和月 你听啊冬至的白雪 你听它掩饰着哽咽 在没有你的世界 再没有你的冬眠</span></span><br><span class="line"><span class="regexp">    &lt;/</span>p&gt;</span><br><span class="line">    &lt;!--如果表单项添加	disabled=<span class="string">"disabled"</span>，则表单项将变为不可用状态--&gt;</span><br><span class="line">    &lt;input type=<span class="string">"checkbox"</span> disabled=<span class="string">"disabled"</span> id=<span class="string">"btn01"</span>&gt;我已仔细阅读该协议并遵守</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span> disabled=<span class="string">"disabled"</span> value=<span class="string">"注册"</span> id=<span class="string">"btn02"</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+<p>其他浏览器都可以除了chrome<br><br><br>愿你的坚持终有收获<br><br></p>
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      阿清そ
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-04-23
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-04-23
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+      <a href="#" title="JavaScript---检测滚动条是否到底" target="_blank">JavaScript---检测滚动条是否到底</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    
+  </div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
       
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -268,7 +316,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/tags/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/23/eleven/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -280,6 +328,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2020/04/23/twelve/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          用CSS来解决“高度塌陷”问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/23/ten/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js中如何获取元素的当前显示样式----简单总结。</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -336,7 +403,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
