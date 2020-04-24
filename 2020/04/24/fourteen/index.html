@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaScript ---div跟随鼠标移动 | 阿清的小站</title>
+  <title>JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;    &amp;">
+  <meta name="description" content="&amp;emsp;&amp;emsp;为一个元素绑定多事件有两种方法：addEventListener（）和  attachEvent()  addEventListener（）  —IE8及以下不支持  通过这个方法也可以为元素绑定响应函数   参数：&amp;emsp;&amp;emsp;1.事件的字符串，不要on&amp;emsp;&amp;emsp;2.回调函数，当事件触发时该函数会被调用&amp;emsp;&amp;emsp;3.是否在捕获阶段">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript ---div跟随鼠标移动">
-<meta property="og:url" content="http://yoursite.com/2020/04/23/thirteen/index.html">
+<meta property="og:title" content="JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。">
+<meta property="og:url" content="http://yoursite.com/2020/04/24/fourteen/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;    &amp;">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;为一个元素绑定多事件有两种方法：addEventListener（）和  attachEvent()  addEventListener（）  —IE8及以下不支持  通过这个方法也可以为元素绑定响应函数   参数：&amp;emsp;&amp;emsp;1.事件的字符串，不要on&amp;emsp;&amp;emsp;2.回调函数，当事件触发时该函数会被调用&amp;emsp;&amp;emsp;3.是否在捕获阶段">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200423212604230.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-04-23T13:29:05.000Z">
-<meta property="article:modified_time" content="2020-04-23T13:42:41.989Z">
+<meta property="article:published_time" content="2020-04-24T03:41:35.000Z">
+<meta property="article:modified_time" content="2020-04-24T03:43:20.382Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200423212604230.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -180,7 +178,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-thirteen" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-fourteen" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -189,18 +187,18 @@
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      JavaScript ---div跟随鼠标移动
+      JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。
     </h1>
   
 </p></center>
         
-        <a href="/2020/04/23/thirteen/" class="archive-article-date">
-  	<time datetime="2020-04-23T13:29:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+        <a href="/2020/04/24/fourteen/" class="archive-article-date">
+  	<time datetime="2020-04-24T03:41:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
 </a>
         
       </header>
 	  <div align="center" class="post-count">
-	      字数：268字 | 预计阅读时长：1分钟
+	      字数：569字 | 预计阅读时长：2分钟
 	  </div>
 
 
@@ -211,18 +209,29 @@
       	
       		<br>
 <br>
+&emsp;&emsp;为一个元素绑定多事件有两种方法：addEventListener（）和  attachEvent()
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;style&gt;</span></span><br><span class="line"><span class="regexp">        body &#123;</span></span><br><span class="line"><span class="regexp">            height: 3000px;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">        </span></span><br><span class="line"><span class="regexp">        #box &#123;</span></span><br><span class="line"><span class="regexp">            width: 100px;</span></span><br><span class="line"><span class="regexp">            height: 100px;</span></span><br><span class="line"><span class="regexp">            background-color: #bfa;</span></span><br><span class="line"><span class="regexp">            /</span>* 开启box的绝对定位 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">            position: absolute;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>style&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 获取box元素</span></span><br><span class="line">            <span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 为window绑定鼠标事件</span></span><br><span class="line">            <span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                <span class="comment">// 解决兼容性问题</span></span><br><span class="line">                event = event || <span class="built_in">window</span>.event;</span><br><span class="line">                <span class="comment">//获取滚动条滚动的距离</span></span><br><span class="line">                <span class="comment">//chromer认为浏览器的滚动条是body的，可以通过Body.scrollTop来获取</span></span><br><span class="line">                <span class="comment">// 火狐等浏览器认为浏览器的滚动条是html的</span></span><br><span class="line">                <span class="comment">// 所以我们就提前进行一个判断</span></span><br><span class="line">                <span class="keyword">var</span> st = <span class="built_in">document</span>.body.scrollTop || <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">                <span class="keyword">var</span> sl = <span class="built_in">document</span>.body.scrollLeft || <span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//获取鼠标的位置</span></span><br><span class="line">                <span class="keyword">var</span> top = event.clientY;</span><br><span class="line">                <span class="keyword">var</span> left = event.clientX;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//设置偏移量</span></span><br><span class="line">                box.style.top = top + st + <span class="string">"px"</span>;</span><br><span class="line">                box.style.left = left + sl + <span class="string">"px"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"box"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></table></figure>
+<p>addEventListener（）  —IE8及以下不支持</p>
+<ul>
+<li>通过这个方法也可以为元素绑定响应函数  </li>
+<li>参数：<br>&emsp;&emsp;1.事件的字符串，不要on<br>&emsp;&emsp;2.回调函数，当事件触发时该函数会被调用<br>&emsp;&emsp;3.是否在捕获阶段触发事件，需要一个布尔值，一般都传false</li>
+<li>使用addEventListener () 可以同时为一个元素的相同事件同时绑定多个响应函数，这样当事件被触发时，响应函数将会按照函数的绑定顺序执行。</li>
+</ul>
+<p>attachEvent()</p>
+<ul>
+<li>在IE8中可以使用attachEvent()来绑定事件</li>
+<li>参数：<br>&emsp;&emsp;1.事件的字符串，要on。<br>&emsp;&emsp;2.回调函数。</li>
+<li>这个方法也可以同时为一个事件绑定多个处理函数。<br>不同的是它是后绑定的先执行，执行顺序和addEventListener()相反。br</li>
+</ul>
+<br>
+&emsp;&emsp;但是这样就出现了浏览器不兼容的问题，我们可以自己定义一个方法来解决该问题。
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">        window.onload = function() &#123;</span></span><br><span class="line"><span class="regexp">            var btn = document.getElementById("btn");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.onclick = function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("1");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.onclick = function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("2");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.addEventListener("click", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("1");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;, false);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.addEventListener("click", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("2");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;, false);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("1");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("2");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.addEventListener("click", function () &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert(this);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;, false);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert(this);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ 测试this是指向的谁</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ bing(btn, "click", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert(this);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            bing(btn, "click", function() &#123;</span></span><br><span class="line"><span class="regexp">                alert("1");</span></span><br><span class="line"><span class="regexp">            &#125;);</span></span><br><span class="line"><span class="regexp">            bing(btn, "click", function() &#123;</span></span><br><span class="line"><span class="regexp">                alert("2");</span></span><br><span class="line"><span class="regexp">            &#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 我们可以自己定义一个函数，来兼容这个问题：</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/     addEventListener()中的this，是绑定事件的对象。</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/     attachEvent()    中的this，是window。</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 参数：</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/       obj       绑定的事件对象</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/       eventStr  事件的字符串(不要on)</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/       callback  回调函数</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        function bing(obj, eventStr, callback) &#123;</span></span><br><span class="line"><span class="regexp">            if (obj.addEventListener) &#123;</span></span><br><span class="line"><span class="regexp">                obj.addEventListener(eventStr, callback, false)</span></span><br><span class="line"><span class="regexp">            &#125; else &#123;</span></span><br><span class="line"><span class="regexp">            	/</span><span class="regexp">/ 创建一个匿名函数来调用callback，去指定this指向的元素</span></span><br><span class="line"><span class="regexp">                obj.attachEvent("on" + eventStr, function() &#123;</span></span><br><span class="line"><span class="regexp">                    callback.call(obj);</span></span><br><span class="line"><span class="regexp">                &#125;);</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        &#125;;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>script&gt;</span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button id="btn"&gt;点击&lt;/</span>button&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
 
 <br>
-
-<p>为什么要获取滚动条长度：如下<br><img src="https://img-blog.csdnimg.cn/20200423212604230.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <br>
 愿你的坚持终有收获。
 <br>
-<br>
-
-
 
 
 			<!-- 《添加版权声明 -->
@@ -240,13 +249,13 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-04-23
+    2020-04-24
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-04-23
+    2020-04-24
     <br>
     <strong class="article-titles">本文标题：</strong>
-      <a href="#" title="JavaScript ---div跟随鼠标移动" target="_blank">JavaScript ---div跟随鼠标移动</a>
+      <a href="#" title="JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。" target="_blank">JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用国际信息安全许可协议进行许可。转载请注明出处！
@@ -335,7 +344,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/23/thirteen/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/24/fourteen/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -349,18 +358,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/24/fourteen/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/23/twelve/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">用CSS来解决“高度塌陷”问题</div>
+    <a href="/2020/04/23/thirteen/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript ---div跟随鼠标移动</div>
       <i class="icon-circle-right"></i>
     </a>
   
