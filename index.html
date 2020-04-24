@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 14</a>
-			<a>总字数 <span class="post-count">12.9k</span></a>
+			<a>总文章数 15</a>
+			<a>总字数 <span class="post-count">13.4k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -177,6 +177,128 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-fifteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/04/24/fifteen/">JavaScript ---事件的委派</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/04/24/fifteen/" class="archive-article-date">
+  	<time datetime="2020-04-24T04:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：446字 | 预计阅读时长：2分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<br>
+<br>
+
+<ul>
+<li>指将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的时间触发时，会一直冒泡到祖先元素。从而通过祖先元素的响应事件来处理事件。</li>
+<li>事件委派是利用了冒泡，通过委派可以减少事件的绑定次数，提高程序的性能。</li>
+</ul>
+<p>target：<br>target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">        window.onload = function() &#123;</span></span><br><span class="line"><span class="regexp">            var lis = document.getElementsByTagName("li");</span></span><br><span class="line"><span class="regexp">            var u1 = document.getElementById("u1");</span></span><br><span class="line"><span class="regexp">            var btn = document.getElementById("btn");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ for (var i = 0; i &lt; lis.length; i++) &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     lis[i].onclick = function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/         alert("我是超链接");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     &#125;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            u1.onclick = function(event) &#123;</span></span><br><span class="line"><span class="regexp">                /</span><span class="regexp">/解决event浏览器兼容性问题</span></span><br><span class="line"><span class="regexp">                event = event || window.event;</span></span><br><span class="line"><span class="regexp">                /</span><span class="regexp">/如果触发的事件是我们期望的元素，否则不执行。</span></span><br><span class="line"><span class="regexp">                /</span><span class="regexp">/创建一个正则表达式，判断一下含有link的class才能被触发。</span></span><br><span class="line"><span class="regexp">                var patt1 = /</span>[link]/ig;</span><br><span class="line">                <span class="keyword">if</span> (patt1.test(event.target.className)) &#123;</span><br><span class="line">                    alert(<span class="string">"我是超链接"</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</span><br><span class="line">                li.innerHTML = <span class="string">"&lt;a href='javascript: ;'class='link'&gt;新的超链接&lt;/a&gt;"</span>;</span><br><span class="line">                u1.appendChild(li);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id=<span class="string">"btn"</span>&gt;点击&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">    &lt;ul id="u1"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li&gt;&lt;a href="javascript:;" class="s link s"&gt;超链接&lt;/</span>a&gt;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/</span>a&gt;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/</span>a&gt;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/</span>a&gt;&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/u</span>l&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/24/fifteen/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-fourteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -225,7 +347,7 @@
 <br>
 &emsp;&emsp;但是这样就出现了浏览器不兼容的问题，我们可以自己定义一个方法来解决该问题。
 
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() &#123;</span><br><span class="line">            <span class="keyword">var</span> btn = document.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">            <span class="comment">// btn.onclick = function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("1");</span></span><br><span class="line">            <span class="comment">// &#125;;</span></span><br><span class="line">            <span class="comment">// btn.onclick = function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("2");</span></span><br><span class="line">            <span class="comment">// &#125;;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// btn.addEventListener("click", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("1");</span></span><br><span class="line">            <span class="comment">// &#125;, false);</span></span><br><span class="line">            <span class="comment">// btn.addEventListener("click", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("2");</span></span><br><span class="line">            <span class="comment">// &#125;, false);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">// btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("1");</span></span><br><span class="line">            <span class="comment">// &#125;);</span></span><br><span class="line">            <span class="comment">// btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("2");</span></span><br><span class="line">            <span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// btn.addEventListener("click", function () &#123;</span></span><br><span class="line">            <span class="comment">//     alert(this);</span></span><br><span class="line">            <span class="comment">// &#125;, false);</span></span><br><span class="line">            <span class="comment">// btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert(this);</span></span><br><span class="line">            <span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 测试this是指向的谁</span></span><br><span class="line">            <span class="comment">// bing(btn, "click", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert(this);</span></span><br><span class="line">            <span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">            bing(btn, <span class="string">"click"</span>, function() &#123;</span><br><span class="line">                alert(<span class="string">"1"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            bing(btn, <span class="string">"click"</span>, function() &#123;</span><br><span class="line">                alert(<span class="string">"2"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 我们可以自己定义一个函数，来兼容这个问题：</span></span><br><span class="line">        <span class="comment">//     addEventListener()中的this，是绑定事件的对象。</span></span><br><span class="line">        <span class="comment">//     attachEvent()    中的this，是window。</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 参数：</span></span><br><span class="line">        <span class="comment">//       obj       绑定的事件对象</span></span><br><span class="line">        <span class="comment">//       eventStr  事件的字符串(不要on)</span></span><br><span class="line">        <span class="comment">//       callback  回调函数</span></span><br><span class="line"></span><br><span class="line">        <span class="function">function <span class="title">bing</span><span class="params">(obj, eventStr, callback)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (obj.addEventListener) &#123;</span><br><span class="line">                obj.addEventListener(eventStr, callback, <span class="keyword">false</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            	<span class="comment">// 创建一个匿名函数来调用callback，去指定this指向的元素</span></span><br><span class="line">                obj.attachEvent(<span class="string">"on"</span> + eventStr, function() &#123;</span><br><span class="line">                    callback.call(obj);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id="btn"&gt;点击&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">        window.onload = function() &#123;</span></span><br><span class="line"><span class="regexp">            var btn = document.getElementById("btn");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.onclick = function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("1");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.onclick = function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("2");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.addEventListener("click", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("1");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;, false);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.addEventListener("click", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("2");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;, false);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("1");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert("2");</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.addEventListener("click", function () &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert(this);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;, false);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert(this);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ 测试this是指向的谁</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ bing(btn, "click", function() &#123;</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/     alert(this);</span></span><br><span class="line"><span class="regexp">            /</span><span class="regexp">/ &#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            bing(btn, "click", function() &#123;</span></span><br><span class="line"><span class="regexp">                alert("1");</span></span><br><span class="line"><span class="regexp">            &#125;);</span></span><br><span class="line"><span class="regexp">            bing(btn, "click", function() &#123;</span></span><br><span class="line"><span class="regexp">                alert("2");</span></span><br><span class="line"><span class="regexp">            &#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 我们可以自己定义一个函数，来兼容这个问题：</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/     addEventListener()中的this，是绑定事件的对象。</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/     attachEvent()    中的this，是window。</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/ 参数：</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/       obj       绑定的事件对象</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/       eventStr  事件的字符串(不要on)</span></span><br><span class="line"><span class="regexp">        /</span><span class="regexp">/       callback  回调函数</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        function bing(obj, eventStr, callback) &#123;</span></span><br><span class="line"><span class="regexp">            if (obj.addEventListener) &#123;</span></span><br><span class="line"><span class="regexp">                obj.addEventListener(eventStr, callback, false)</span></span><br><span class="line"><span class="regexp">            &#125; else &#123;</span></span><br><span class="line"><span class="regexp">            	/</span><span class="regexp">/ 创建一个匿名函数来调用callback，去指定this指向的元素</span></span><br><span class="line"><span class="regexp">                obj.attachEvent("on" + eventStr, function() &#123;</span></span><br><span class="line"><span class="regexp">                    callback.call(obj);</span></span><br><span class="line"><span class="regexp">                &#125;);</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">        &#125;;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>script&gt;</span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">    &lt;button id="btn"&gt;点击&lt;/</span>button&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
 
 <br>
 <br>
@@ -1386,140 +1508,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/14/six/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-fives" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/11/fives/">JavaScript中基本数据类型和引用数据类型的区别？</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/04/11/fives/" class="archive-article-date">
-  	<time datetime="2020-04-11T14:44:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1.1k字 | 预计阅读时长：4分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>&nbsp;&nbsp;&nbsp;&nbsp;基本类型：String、Number、Boolean、Null、Undefined<br>&nbsp;&nbsp;&nbsp;&nbsp;应用数据类型：Object<br>他们有什么区别呢？<br><br><br>&nbsp;&nbsp;我们先看一个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a++;                         修改a的值</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"a="</span> + a);      <span class="comment">//a=11</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"b="</span> + b);      <span class="comment">//b=10</span></span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;我们发现a的值发生了改变，但是b的值并没有发生改变。这是就说明a和b是完全独立的，一个值的改变不会影响其他值。<br><br><br>&nbsp;&nbsp;我们再看一个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">var</span> obj1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">      obj1.name = <span class="string">"阿清"</span>;</span><br><span class="line">      <span class="keyword">var</span> obj2 = obj1;</span><br><span class="line">      <span class="built_in">console</span>.log(obj1.name);		<span class="comment">// 阿清</span></span><br><span class="line">      <span class="built_in">console</span>.log(obj2.name); 	<span class="comment">// 阿清</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//修改obj1对象中name中的值</span></span><br><span class="line">	obj1.name = <span class="string">"大大怪将军"</span></span><br><span class="line">      <span class="built_in">console</span>.log(obj1.name); 	<span class="comment">// 大大怪将军</span></span><br><span class="line">      <span class="built_in">console</span>.log(obj2.name); 	<span class="comment">// 大大怪将军</span></span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;修改之前输出了相同的结果，但是修改之后还是输出相同的结果，我们只是修改了obj1中name的值，并没有修改obj2中name的值，此时输出还是相同的。这是为什么呢？<br>&nbsp;&nbsp;&nbsp;&nbsp;这就是基本数据类型和引用数据类型的区别。为了方便说明，我们画一个图。</p>
-<p>&nbsp;&nbsp;JS中的变量和值都是保存到内存中存储。我们可大致理解为 把内存分为栈内存和堆内存。</p>
-<ol>
-<li>基本数据类型的值直接在栈内存中存储</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20200411213852525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;图中可以看出我们声明了两个变量，将a的值复制给b，值都是123，但是a和b的123他们没有关系，互不干扰，是相互独立的。<br><img src="https://img-blog.csdnimg.cn/20200411214348602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;当我们进行a++的时候，a的值变为124，此时b的值并没有受到影响。只要不动b，a不管怎么变，都不会影响到b。<br>&nbsp;&nbsp;由此可见，基本数据类型的值直接在栈内存中存储，值与值之间都是独立存在的，修改变量不会影响到其他的变量。<br><br></p>
-<ol start="2">
-<li>对象是保存到堆内存中的。<br><img src="https://img-blog.csdnimg.cn/2020041121541617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;对象是保存到堆内存中的，每创建一个新的对象，就会在堆内存中开辟一个新的空间。而变量保存的是对象的内存地址（对象的引用），他们两个保存的是同一个地址，指向相同的内存。</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20200411215718841.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>&nbsp;&nbsp;当改变obj中name的值时，因为他们是指向相同的地址，所以obj1中的name也会跟着改变。<br>&nbsp;&nbsp;这就说明了，如果两个变量保存的是同一个对象的引用，当一个变量通过一个变量修改属性时，另一个也会受到影响。<br><br></p>
-<p>我再在看一种情况：<img src="https://img-blog.csdnimg.cn/20200411220621872.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;我们将obj2的值修改为null，也就是我们将变量obj2和内存的联系给断开了，这样并不会影响受到obj1. </p>
-<br>
-&nbsp;&nbsp;接下来再看：
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> d = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c == d);    <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;当比较两个基本数据类型的值时，就是比较他们的值。毫无疑问，这两个是相等了，结果为true。</p>
-<br>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj3 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> obj4 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj3.name = <span class="string">"shs"</span></span><br><span class="line">obj4.name = <span class="string">"shs"</span></span><br><span class="line"><span class="built_in">console</span>.log(obj3);				 <span class="comment">//&#123;name:"shs"&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj4);   			 <span class="comment">//&#123;name:"shs"&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj3 == obj4);       <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;当我们声明两个变量的时候，name值一样。输出都为{name:”shs”}，但是当他们进行比较的时候，结果就是false。<br>&nbsp;&nbsp;例如：这就像一对双胞胎，长的一模一样，但是还是两个人，他们是不相同。<br>&nbsp;&nbsp;我们画图来解释一下。<br><img src="https://img-blog.csdnimg.cn/20200411222754350.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;当看见new时，就是在堆内存里开辟一个新的空间。<br>&nbsp;&nbsp;比较两个引用数据类型时，它就是比较对象的内存地址，，如果两个对象是一模一样的，但是地址不同，它会返回false。<br>&nbsp;&nbsp;例如:人的身份证，就算两个人再像，名字一样，一看身份证不一样，你们其他的就不用看了。</p>
-<br>
-&nbsp;&nbsp;总结一下，基本数据类型和引用数据类型根本区别：基本数据类型保存的是值，而引用数据类型保存的是地址（引用）。
-
-<p>&nbsp;&nbsp;我们一定要捋清楚他们的概念。好好消化一下吧。<br><br><br>&nbsp;&nbsp;愿你的坚持终有收获。</p>
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/11/fives/">展开全文 >></a>
         </p>
       
 
