@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: git | 阿清的小站</title>
+  <title>JavaScript ---鼠标拖拽元素问题总结 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿清的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿清的小站">
-<meta property="og:url" content="http://yoursite.com/categories/git/index.html">
+  <meta name="description" content="大致分为三个步骤：  鼠标摁下       onmousedown 鼠标移动    onmousemove 鼠标抬起    onmouseup   注意的一点是 onmousemove事件和onmouseup事件是在onmousedown事件里面的 代码如下（不支持IE8及以下浏览器）：代码一12345678910111213141516171819202122232425262728293031">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript ---鼠标拖拽元素问题总结">
+<meta property="og:url" content="http://yoursite.com/2020/04/25/sixteen/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="阿清的博客">
+<meta property="og:description" content="大致分为三个步骤：  鼠标摁下       onmousedown 鼠标移动    onmousemove 鼠标抬起    onmouseup   注意的一点是 onmousemove事件和onmouseup事件是在onmousedown事件里面的 代码如下（不支持IE8及以下浏览器）：代码一12345678910111213141516171819202122232425262728293031">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-25T05:04:44.000Z">
+<meta property="article:modified_time" content="2020-04-25T05:05:42.645Z">
 <meta property="article:author" content="阿清そ">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
@@ -175,79 +178,214 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-sixteen" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/10/four/" class="archive-article-date">
-  	<time datetime="2020-04-10T02:32:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
+        
+        <center><p>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/10/four/">搭建Hexo博客时，在git上执行 hexo d _hexo g 报错_ERROR Local hexo not found in D__blog 解决方法</a>
+    <h1 class="article-title_code_ant" itemprop="name">
+      JavaScript ---鼠标拖拽元素问题总结
     </h1>
   
+</p></center>
+        
+        <a href="/2020/04/25/sixteen/" class="archive-article-date">
+  	<time datetime="2020-04-25T05:04:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：508字 | 预计阅读时长：2分钟
+	  </div>
 
-        <div class="article-info info-on-right">
-          
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<p>大致分为三个步骤：</p>
+<ol>
+<li>鼠标摁下       onmousedown</li>
+<li>鼠标移动    onmousemove</li>
+<li>鼠标抬起    onmouseup</li>
+</ol>
+<p> <strong>注意的一点是 onmousemove事件和onmouseup事件是在onmousedown事件里面的</strong></p>
+<h2 id="代码如下（不支持IE8及以下浏览器）：代码一"><a href="#代码如下（不支持IE8及以下浏览器）：代码一" class="headerlink" title="代码如下（不支持IE8及以下浏览器）：代码一"></a>代码如下（不支持IE8及以下浏览器）：代码一</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body &#123;</span><br><span class="line">            height: <span class="number">3000</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        #box1 &#123;</span><br><span class="line">            width: <span class="number">100</span>px;</span><br><span class="line">            height: <span class="number">100</span>px;</span><br><span class="line">            background-color: #bbffaa;</span><br><span class="line">            position: absolute;</span><br><span class="line">            margin-left: <span class="number">100</span>px;</span><br><span class="line">            z-index: <span class="number">33</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        #box2 &#123;</span><br><span class="line">            width: <span class="number">100</span>px;</span><br><span class="line">            height: <span class="number">100</span>px;</span><br><span class="line">            background-color: red;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: <span class="number">300</span>px;</span><br><span class="line">            left: <span class="number">300</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> box1 = document.getElementById(<span class="string">"box1"</span>);</span><br><span class="line">            dary(box1);</span><br><span class="line">            dary(box2);</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="function">function <span class="title">dary</span><span class="params">(obj)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 为box设置鼠标按下事件  </span></span><br><span class="line">            obj.onmousedown = function(event) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 解决 event兼容性</span></span><br><span class="line">                event = event || window.event;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//元素上偏移量 = 鼠标.clientY-元素。offsetTop +元素的上外边距 </span></span><br><span class="line">                <span class="comment">//元素左偏移量 = 鼠标.clientX-元素。offsetleft +元素的下外边距</span></span><br><span class="line">                <span class="keyword">var</span> ot = event.pageY - obj.offsetTop + parseInt(getComputedStyle(obj, <span class="keyword">null</span>)[<span class="string">"margin-top"</span>]);</span><br><span class="line">                <span class="keyword">var</span> ol = event.pageX - obj.offsetLeft + parseInt(getComputedStyle(obj, <span class="keyword">null</span>)[<span class="string">"margin-left"</span>]);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 设置鼠标在box上的移动事件</span></span><br><span class="line">                document.onmousemove = function(event) &#123;</span><br><span class="line">                    event = event || window.event;</span><br><span class="line">                    <span class="comment">// 获取鼠标的位置坐标</span></span><br><span class="line">                    <span class="keyword">var</span> top = event.pageY - ot;</span><br><span class="line">                    <span class="keyword">var</span> left = event.pageX - ol;</span><br><span class="line">                    <span class="comment">// 设置元素的位置</span></span><br><span class="line">                    obj.style.top = top + <span class="string">"px"</span>;</span><br><span class="line">                    obj.style.left = left + <span class="string">"px"</span>;</span><br><span class="line">                &#125;;</span><br><span class="line">                <span class="comment">// 设置鼠标在box上的抬起事件</span></span><br><span class="line">                document.onmouseup = function() &#123;</span><br><span class="line">                    <span class="comment">// 当鼠标抬起时，取消onmousemove事件</span></span><br><span class="line">                    document.onmousemove = <span class="keyword">null</span>;</span><br><span class="line">                    <span class="comment">// 当鼠标抬起时，取消onmouseup事件</span></span><br><span class="line">                    document.onmouseup = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">                &#125;;</span><br><span class="line"></span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                        当我们拖拽一个网页中的内容时，浏览器会默认去搜索引擎汇总的搜索内容，</span></span><br><span class="line"><span class="comment">                        此时会导致拖拽功能的异常，这个是浏览器提供的默认行为，</span></span><br><span class="line"><span class="comment">                        如果不希望发生这个行为 ，则可以通过return false来取消默认行为</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">                        该方法解决对IE8及以下浏览器 不适用， 其他都好使</span></span><br><span class="line"><span class="comment">                    */</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt;asdfasd&lt;/p&gt;</span><br><span class="line">    &lt;div id="box1"&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div id="box2"&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<br>
+
+<hr>
+<br>
+<br>
+<br>
+愿你的坚持终有收获。
+
+
+
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      阿清そ
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-04-25
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-04-25
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+      <a href="#" title="JavaScript ---鼠标拖拽元素问题总结" target="_blank">JavaScript ---鼠标拖拽元素问题总结</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    
+  </div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hexo搭建</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/git//" class="article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/git/Hexo搭建//" class="article-tag-list-link color2">Hexo搭建</a>
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/25/sixteen/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/04/24/fifteen/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript ---事件的委派</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -276,10 +414,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
