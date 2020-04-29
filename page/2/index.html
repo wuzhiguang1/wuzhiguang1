@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 18</a>
-			<a>总字数 <span class="post-count">15k</span></a>
+			<a>总文章数 19</a>
+			<a>总字数 <span class="post-count">15.9k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,186 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-nine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/04/20/nine/">JavaScript中正则表达式的常用总结</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/04/20/nine/" class="archive-article-date">
+  	<time datetime="2020-04-20T02:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：2.4k字 | 预计阅读时长：11分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<p>正则表达式的思维导图：<br><img src="https://img-blog.csdnimg.cn/20200420100401772.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="正则的捕获exec"><a href="#正则的捕获exec" class="headerlink" title="正则的捕获exec()"></a>正则的捕获exec()</h2><p>&emsp;&emsp;exec() 方法用于检索字符串中的正则表达式的匹配。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RegExpObject.exec(string)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>string</td>
+<td>必需。要检索的字符串。</td>
+</tr>
+<tr>
+<td>返回值：返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="（1）懒惰性"><a href="#（1）懒惰性" class="headerlink" title="（1）懒惰性"></a>（1）懒惰性</h2><p>&emsp;&emsp;我们先看一个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d+/</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'112hello456world789'</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;上述三个打印输出的都是一样的：<br><img src="https://img-blog.csdnimg.cn/20200420101034504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>&emsp;&emsp;我们可以发现，每次匹配到的结果都是相同的，而且索引index的值一直没变，始终指向第一次匹配到的字符串的起始位置，这就是正则的懒惰性，只匹配第一次匹配到的结果，不再向后匹配。<br><br><br>&emsp;&emsp;怎么解决懒惰性问题呢？很容易，加个全局修饰符即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d+/g</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'112hello456world789'</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;如上，我们加上全局修饰符之后，再来看输出结果：<br><img src="https://img-blog.csdnimg.cn/2020042010115215.png" alt="在这里插入图片描述"><br>&emsp;&emsp;我们可以看到，112，456，789这三个数字在原始字符串中都被捕获到了，并且每次的index值也发生了变化；第四个输出为null，表示捕获结束，后面再没有可以捕获的内容了。如此就解决了正则的懒惰性问题。</p>
+<h2 id="（2）贪婪性"><a href="#（2）贪婪性" class="headerlink" title="（2）贪婪性"></a>（2）贪婪性</h2><p>&emsp;&emsp;还是以上述例子来讲：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d+/g</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'112hello456world789'</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;如果，我们现在想单独捕获到每一个数字，即1，1，2，4，5，6，7，8，9，此时该怎么办呢？</p>
+<p>&emsp;&emsp;若像上述例子中那样捕获到，则捕获到的内容是数字112，456，789，这三个三位数，显然这把满足要求的连续数字都给一次性捕获到了，这其实就是正则的贪婪性。</p>
+<p>&emsp;&emsp;那么，如何解决正则的贪婪性呢？即，我们要单独获取到1，1，2，4，5，6，7，8，9这些单个数字：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> reg = <span class="regexp">/\d+?/g</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'112hello456world789'</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br><span class="line"><span class="built_in">console</span>.log(reg.exec(str));</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;解决贪婪性也很简单，即在+后面加一个问号（？）即可。</p>
+<p>&emsp;&emsp;我们来看加了问号之后的输出：<br><img src="https://img-blog.csdnimg.cn/20200420101444766.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>&emsp;&emsp;解决正则的贪婪性很简单，即在量词元字符的后面加问号（？）即可，此例中的量词元字符为+</p>
+<h2 id="最常用的15个前端表单验证JS正则表达式"><a href="#最常用的15个前端表单验证JS正则表达式" class="headerlink" title="最常用的15个前端表单验证JS正则表达式"></a>最常用的15个前端表单验证JS正则表达式</h2><p> 1、 用户名正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用户名正则，4到16位（字母，数字，下划线，减号）</span></span><br><span class="line"><span class="keyword">var</span> uPattern = <span class="regexp">/^[a-zA-Z0-9_-]&#123;4,16&#125;$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(uPattern.test(<span class="string">"caibaojian"</span>));</span><br></pre></td></tr></table></figure>
+<p>2、密码强度正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//密码强度正则，最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符</span></span><br><span class="line"><span class="keyword">var</span> pPattern = <span class="regexp">/^.*(?=.&#123;6,&#125;)(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&amp;*? ]).*$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"=="</span>+pPattern.test(<span class="string">"caibaojian#"</span>));</span><br></pre></td></tr></table></figure>
+<p>3、整数正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正整数正则</span></span><br><span class="line"><span class="keyword">var</span> posPattern = <span class="regexp">/^\d+$/</span>;</span><br><span class="line"><span class="comment">//负整数正则</span></span><br><span class="line"><span class="keyword">var</span> negPattern = <span class="regexp">/^-\d+$/</span>;</span><br><span class="line"><span class="comment">//整数正则</span></span><br><span class="line"><span class="keyword">var</span> intPattern = <span class="regexp">/^-?\d+$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(posPattern.test(<span class="string">"42"</span>));</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(negPattern.test(<span class="string">"-42"</span>));</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(intPattern.test(<span class="string">"-42"</span>));</span><br></pre></td></tr></table></figure>
+<p>4、数字正则</p>
+<p>可以是整数也可以是浮点数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正数正则</span></span><br><span class="line"><span class="keyword">var</span> posPattern = <span class="regexp">/^\d*\.?\d+$/</span>;</span><br><span class="line"><span class="comment">//负数正则</span></span><br><span class="line"><span class="keyword">var</span> negPattern = <span class="regexp">/^-\d*\.?\d+$/</span>;</span><br><span class="line"><span class="comment">//数字正则</span></span><br><span class="line"><span class="keyword">var</span> numPattern = <span class="regexp">/^-?\d*\.?\d+$/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(posPattern.test(<span class="string">"42.2"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(negPattern.test(<span class="string">"-42.2"</span>));</span><br><span class="line"><span class="built_in">console</span>.log(numPattern.test(<span class="string">"-42.2"</span>));</span><br></pre></td></tr></table></figure>
+
+<p>5、 Email正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Email正则</span></span><br><span class="line"><span class="keyword">var</span> ePattern = <span class="regexp">/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]&#123;2,4&#125;)$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(ePattern.test(<span class="number">99154507</span>@qq.com));</span><br></pre></td></tr></table></figure>
+<p>6、手机号码正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//手机号正则</span></span><br><span class="line"><span class="keyword">var</span> mPattern = <span class="regexp">/^1[34578]\d&#123;9&#125;$/</span>; <span class="comment">//http://caibaojian.com/regexp-example.html</span></span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(mPattern.test(<span class="string">"15507621888"</span>));</span><br></pre></td></tr></table></figure>
+<p>7、身份证号正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//身份证号（18位）正则</span></span><br><span class="line"><span class="keyword">var</span> cP = <span class="regexp">/^[1-9]\d&#123;5&#125;(18|19|([23]\d))\d&#123;2&#125;((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d&#123;3&#125;[0-9Xx]$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(cP.test(<span class="string">"11010519880605371X"</span>));</span><br></pre></td></tr></table></figure>
+<p>8、URL正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//URL正则</span></span><br><span class="line"><span class="keyword">var</span> urlP= <span class="regexp">/^((https?|ftp|file):\/\/)?([\da-z\.-]+)\.([a-z\.]&#123;2,6&#125;)([\/\w \.-]*)*\/?$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(urlP.test(http:<span class="comment">//caibaojian.com));</span></span><br></pre></td></tr></table></figure>
+<p>9、IPv4地址正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ipv4地址正则</span></span><br><span class="line"><span class="keyword">var</span> ipP = <span class="regexp">/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.)&#123;3&#125;(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(ipP.test(<span class="string">"115.28.47.26"</span>));</span><br></pre></td></tr></table></figure>
+<p>10、十六进制颜色正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//RGB Hex颜色正则</span></span><br><span class="line"><span class="keyword">var</span> cPattern = <span class="regexp">/^#?([a-fA-F0-9]&#123;6&#125;|[a-fA-F0-9]&#123;3&#125;)$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(cPattern.test(<span class="string">"#b8b8b8"</span>));</span><br></pre></td></tr></table></figure>
+<p>11、日期正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//日期正则，简单判定,未做月份及日期的判定</span></span><br><span class="line"><span class="keyword">var</span> dP1 = <span class="regexp">/^\d&#123;4&#125;(\-)\d&#123;1,2&#125;\1\d&#123;1,2&#125;$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(dP1.test(<span class="string">"2017-05-11"</span>));</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(dP1.test(<span class="string">"2017-15-11"</span>));</span><br><span class="line"><span class="comment">//日期正则，复杂判定</span></span><br><span class="line"><span class="keyword">var</span> dP2 = <span class="regexp">/^(?:(?!0000)[0-9]&#123;4&#125;-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]&#123;2&#125;(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(dP2.test(<span class="string">"2017-02-11"</span>));</span><br><span class="line"><span class="comment">//输出 false</span></span><br><span class="line"><span class="built_in">console</span>.log(dP2.test(<span class="string">"2017-15-11"</span>));</span><br><span class="line"><span class="comment">//输出 false</span></span><br><span class="line"><span class="built_in">console</span>.log(dP2.test(<span class="string">"2017-02-29"</span>));</span><br></pre></td></tr></table></figure>
+<p>12、QQ号码正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//QQ号正则，5至11位</span></span><br><span class="line"><span class="keyword">var</span> qqPattern = <span class="regexp">/^[1-9][0-9]&#123;4,10&#125;$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(qqPattern.test(<span class="string">"65974040"</span>));</span><br></pre></td></tr></table></figure>
+<p>13、微信号正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//微信号正则，6至20位，以字母开头，字母，数字，减号，下划线</span></span><br><span class="line"><span class="keyword">var</span> wxPattern = <span class="regexp">/^[a-zA-Z]([-_a-zA-Z0-9]&#123;5,19&#125;)+$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(wxPattern.test(<span class="string">"caibaojian_com"</span>));</span><br></pre></td></tr></table></figure>
+<p>14、车牌号正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//车牌号正则</span></span><br><span class="line"><span class="keyword">var</span> cPattern = <span class="regexp">/^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]&#123;1&#125;[A-Z]&#123;1&#125;[A-Z0-9]&#123;4&#125;[A-Z0-9挂学警港澳]&#123;1&#125;$/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(cPattern.test(<span class="string">"粤B39006"</span>));</span><br></pre></td></tr></table></figure>
+<p>15、包含中文正则</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//包含中文正则</span></span><br><span class="line"><span class="keyword">var</span> cnPattern = <span class="regexp">/[\u4E00-\u9FA5]/</span>;</span><br><span class="line"><span class="comment">//输出 true</span></span><br><span class="line"><span class="built_in">console</span>.log(cnPattern.test(<span class="string">"董董董"</span>));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">整数或者小数：^[<span class="number">0</span><span class="number">-9</span>]+\.&#123;<span class="number">0</span>,<span class="number">1</span>&#125;[<span class="number">0</span><span class="number">-9</span>]&#123;<span class="number">0</span>,<span class="number">2</span>&#125;$</span><br><span class="line">只能输入数字：<span class="string">"^[0-9]*$"</span>。</span><br><span class="line">只能输入n位的数字：<span class="string">"^\d&#123;n&#125;$"</span>。</span><br><span class="line">只能输入至少n位的数字：<span class="string">"^\d&#123;n,&#125;$"</span>。</span><br><span class="line">只能输入m~n位的数字：。<span class="string">"^\d&#123;m,n&#125;$"</span></span><br><span class="line">只能输入零和非零开头的数字：<span class="string">"^(0|[1-9][0-9]*)$"</span>。</span><br><span class="line">只能输入有两位小数的正实数：<span class="string">"^[0-9]+(.[0-9]&#123;2&#125;)?$"</span>。</span><br><span class="line">只能输入有<span class="number">1</span>~<span class="number">3</span>位小数的正实数：<span class="string">"^[0-9]+(.[0-9]&#123;1,3&#125;)?$"</span>。</span><br><span class="line">只能输入非零的正整数：<span class="string">"^\+?[1-9][0-9]*$"</span>。</span><br><span class="line">只能输入非零的负整数：<span class="string">"^\-[1-9][]0-9"</span>*$。</span><br><span class="line">只能输入长度为<span class="number">3</span>的字符：<span class="string">"^.&#123;3&#125;$"</span>。</span><br><span class="line">只能输入由<span class="number">26</span>个英文字母组成的字符串：<span class="string">"^[A-Za-z]+$"</span>。</span><br><span class="line">只能输入由<span class="number">26</span>个大写英文字母组成的字符串：<span class="string">"^[A-Z]+$"</span>。</span><br><span class="line">只能输入由<span class="number">26</span>个小写英文字母组成的字符串：<span class="string">"^[a-z]+$"</span>。</span><br><span class="line">只能输入由数字和<span class="number">26</span>个英文字母组成的字符串：<span class="string">"^[A-Za-z0-9]+$"</span>。</span><br><span class="line">只能输入由数字、<span class="number">26</span>个英文字母或者下划线组成的字符串：<span class="string">"^\w+$"</span>。</span><br><span class="line">验证用户密码：<span class="string">"^[a-zA-Z]\w&#123;5,17&#125;$"</span>正确格式为：以字母开头，长度在<span class="number">6</span>~<span class="number">18</span>之间，只能包含字符、数字和下划线。</span><br><span class="line">验证是否含有^%&amp;<span class="string">''</span>,;=?$\<span class="string">"等字符："</span>[^%&amp;<span class="string">''</span>,;=?$\x22]+<span class="string">"。</span></span><br><span class="line"><span class="string">只能输入汉字："</span>^[\u4e00-\u9fa5]&#123;<span class="number">0</span>,&#125;$<span class="string">"</span></span><br><span class="line"><span class="string">验证Email地址："</span>^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$<span class="string">"。</span></span><br><span class="line"><span class="string">验证InternetURL："</span>^http:<span class="comment">//([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$"。</span></span><br><span class="line">验证电话号码：<span class="string">"^(\(\d&#123;3,4&#125;-)|\d&#123;3.4&#125;-)?\d&#123;7,8&#125;$"</span>正确格式为：<span class="string">"XXX-XXXXXXX"</span>、<span class="string">"XXXX- XXXXXXXX"</span>、<span class="string">"XXX-XXXXXXX"</span>、<span class="string">"XXX-XXXXXXXX"</span>、<span class="string">"XXXXXXX"</span>和<span class="string">"XXXXXXXX"</span>。</span><br><span class="line">验证身份证号（<span class="number">15</span>位或<span class="number">18</span>位数字）：<span class="string">"^\d&#123;15&#125;|\d&#123;18&#125;$"</span>。</span><br><span class="line">验证一年的<span class="number">12</span>个月：<span class="string">"^(0?[1-9]|1[0-2])$"</span>正确格式为：<span class="string">"01"</span>～<span class="string">"09"</span>和<span class="string">"1"</span>～<span class="string">"12"</span>。</span><br><span class="line">验证一个月的<span class="number">31</span>天：<span class="string">"^((0?[1-9])|((1|2)[0-9])|30|31)$"</span>正确格式为；<span class="string">"01"</span>～<span class="string">"09"</span>和<span class="string">"1"</span>～<span class="string">"31"</span>。整数或者小数：^[<span class="number">0</span><span class="number">-9</span>]+\.&#123;<span class="number">0</span>,<span class="number">1</span>&#125;[<span class="number">0</span><span class="number">-9</span>]&#123;<span class="number">0</span>,<span class="number">2</span>&#125;$</span><br><span class="line">只能输入数字：<span class="string">"^[0-9]*$"</span>。</span><br><span class="line">只能输入n位的数字：<span class="string">"^\d&#123;n&#125;$"</span>。</span><br><span class="line">只能输入至少n位的数字：<span class="string">"^\d&#123;n,&#125;$"</span>。</span><br><span class="line">只能输入m~n位的数字：。<span class="string">"^\d&#123;m,n&#125;$"</span></span><br><span class="line">只能输入零和非零开头的数字：<span class="string">"^(0|[1-9][0-9]*)$"</span>。</span><br><span class="line">只能输入有两位小数的正实数：<span class="string">"^[0-9]+(.[0-9]&#123;2&#125;)?$"</span>。</span><br><span class="line">只能输入有<span class="number">1</span>~<span class="number">3</span>位小数的正实数：<span class="string">"^[0-9]+(.[0-9]&#123;1,3&#125;)?$"</span>。</span><br><span class="line">只能输入非零的正整数：<span class="string">"^\+?[1-9][0-9]*$"</span>。</span><br><span class="line">只能输入非零的负整数：<span class="string">"^\-[1-9][]0-9"</span>*$。</span><br><span class="line">只能输入长度为<span class="number">3</span>的字符：<span class="string">"^.&#123;3&#125;$"</span>。</span><br><span class="line">只能输入由<span class="number">26</span>个英文字母组成的字符串：<span class="string">"^[A-Za-z]+$"</span>。</span><br><span class="line">只能输入由<span class="number">26</span>个大写英文字母组成的字符串：<span class="string">"^[A-Z]+$"</span>。</span><br><span class="line">只能输入由<span class="number">26</span>个小写英文字母组成的字符串：<span class="string">"^[a-z]+$"</span>。</span><br><span class="line">只能输入由数字和<span class="number">26</span>个英文字母组成的字符串：<span class="string">"^[A-Za-z0-9]+$"</span>。</span><br><span class="line">只能输入由数字、<span class="number">26</span>个英文字母或者下划线组成的字符串：<span class="string">"^\w+$"</span>。</span><br><span class="line">验证用户密码：<span class="string">"^[a-zA-Z]\w&#123;5,17&#125;$"</span>正确格式为：以字母开头，长度在<span class="number">6</span>~<span class="number">18</span>之间，只能包含字符、数字和下划线。</span><br><span class="line">验证是否含有^%&amp;<span class="string">''</span>,;=?$\<span class="string">"等字符："</span>[^%&amp;<span class="string">''</span>,;=?$\x22]+<span class="string">"。</span></span><br><span class="line"><span class="string">只能输入汉字："</span>^[\u4e00-\u9fa5]&#123;<span class="number">0</span>,&#125;$<span class="string">"</span></span><br><span class="line"><span class="string">验证Email地址："</span>^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$<span class="string">"。</span></span><br><span class="line"><span class="string">验证InternetURL："</span>^http:<span class="comment">//([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$"。</span></span><br><span class="line">验证电话号码：<span class="string">"^(\(\d&#123;3,4&#125;-)|\d&#123;3.4&#125;-)?\d&#123;7,8&#125;$"</span>正确格式为：<span class="string">"XXX-XXXXXXX"</span>、<span class="string">"XXXX- XXXXXXXX"</span>、<span class="string">"XXX-XXXXXXX"</span>、<span class="string">"XXX-XXXXXXXX"</span>、<span class="string">"XXXXXXX"</span>和<span class="string">"XXXXXXXX"</span>。</span><br><span class="line">验证身份证号（<span class="number">15</span>位或<span class="number">18</span>位数字）：<span class="string">"^\d&#123;15&#125;|\d&#123;18&#125;$"</span>。</span><br><span class="line">验证一年的<span class="number">12</span>个月：<span class="string">"^(0?[1-9]|1[0-2])$"</span>正确格式为：<span class="string">"01"</span>～<span class="string">"09"</span>和<span class="string">"1"</span>～<span class="string">"12"</span>。</span><br><span class="line">验证一个月的<span class="number">31</span>天：<span class="string">"^((0?[1-9])|((1|2)[0-9])|30|31)$"</span>正确格式为；<span class="string">"01"</span>～<span class="string">"09"</span>和<span class="string">"1"</span>～<span class="string">"31"</span>。</span><br></pre></td></tr></table></figure>
+
+<br>
+<br>
+
+
+<p>愿你的坚持总有回报。</p>
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/20/nine/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-eight" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
