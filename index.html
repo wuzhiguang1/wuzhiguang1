@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 24</a>
-			<a>总字数 <span class="post-count">21.9k</span></a>
+			<a>总文章数 25</a>
+			<a>总字数 <span class="post-count">22.6k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,153 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-twenty-five" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/05/10/twenty-five/">JavaScript正则表达式-常见面试题总结</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/05/10/twenty-five/" class="archive-article-date">
+  	<time datetime="2020-05-10T12:41:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：685字 | 预计阅读时长：3分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><p>JavaScript 写一个字符串转成驼峰的方法，o_div_style_position转成oDivStylePosotion。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'border-bottom-color'</span>;</span><br><span class="line"><span class="keyword">var</span> strRg = str.replace(<span class="regexp">/\-[a-z]/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">params</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> params.charAt(<span class="number">1</span>).toUpperCase();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(strRg);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>charAt(1)也可以用substr(1)、substring(1)来替代。</li>
+<li>toUpperCase()转换成大写字母。</li>
+<li>/-[a-z]/g中g表示全文检索，part表示匹配到的字符</li>
+<li>replace是字符串的方法，返回经过修改的新字符串。</li>
+</ol>
+<h2 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h2><p>JavaScript 查找字符串中出现最多字符的个数<br>例如：sdjksfssscfssdd -&gt;字符最多的是s，出现了7次</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'sdjksfssscfssdd'</span>;</span><br><span class="line"><span class="keyword">var</span> maxObj = &#123;</span><br><span class="line">    key: <span class="literal">null</span>,</span><br><span class="line">    count: <span class="literal">null</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> maxCou = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (str) &#123;</span><br><span class="line">  <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(str[<span class="number">0</span>], <span class="string">'g'</span>);</span><br><span class="line">  <span class="keyword">var</span> currStr = str[<span class="number">0</span>];</span><br><span class="line">  str = str.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params">part</span>) </span>&#123;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span> (i &gt; maxCou) &#123;</span><br><span class="line">    maxObj.key = currStr;</span><br><span class="line">    maxCou = maxObj.count = i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(maxObj.key + <span class="string">':'</span> + maxObj.count)</span><br></pre></td></tr></table></figure>
+
+<h2 id="问题三"><a href="#问题三" class="headerlink" title="问题三"></a>问题三</h2><p>JavaScript 把12233435566690中连续重复的数字去掉</p>
+<p>判断是否为空字符串，是就直接返回；</p>
+<p>不是的话</p>
+<p>初始字符串为str第一个，从第二个开始，如果不等于他们前一个的字符，代表不重复，加入初始字符，迭代进行，直到最后一个，返回</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeRepetition</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (str != <span class="string">''</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> result = str[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (str[i] != str[i - <span class="number">1</span>]) &#123;</span><br><span class="line">        result += str[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> result = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(removeRepetition(<span class="string">"sssssssssaaaaaaaaasasas"</span>)); <span class="comment">//sasasas</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="问题四"><a href="#问题四" class="headerlink" title="问题四"></a>问题四</h2><p>JavaScript 用js实现千位分隔符?</p>
+<p>例如123456789–&gt;123,456,789</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'123456789'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^([1-9]\d&#123;0,2&#125;)((?:\d&#123;3&#125;)+)$/</span>;</span><br><span class="line"><span class="keyword">var</span> s = str.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">RegExp</span>.$<span class="number">1</span> + <span class="string">','</span> + <span class="built_in">RegExp</span>.$<span class="number">2.</span>match(<span class="regexp">/\d&#123;3&#125;/g</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(s);<span class="comment">//123,456,789</span></span><br></pre></td></tr></table></figure>
+<p>知识点</p>
+<ul>
+<li>将第一个逗号前面的数字作为第一组，后面所有数字为第二组，第二组是由多个三位的数字组合而成的，整体需要匹配捕获，但是每个三位数不需要匹配捕获所以加？：。</li>
+<li>RegExp.$1获取第一个分组，RegExp.$2获取第二个分组。</li>
+<li>match返回匹配到的数据，是数组类型。</li>
+</ul>
+<p>注意：IE10中直接调用分组不识别，需要在此前调用test方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'123456789'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^([1-9]\d&#123;0,2&#125;)((?:\d&#123;3&#125;)+)$/</span>;</span><br><span class="line"><span class="keyword">if</span> (reg.test(str)) &#123;</span><br><span class="line">  <span class="keyword">var</span> s = str.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">RegExp</span>.$<span class="number">1</span> + <span class="string">','</span> + <span class="built_in">RegExp</span>.$<span class="number">2.</span>match(<span class="regexp">/\d&#123;3&#125;/g</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(s);<span class="comment">//123,456,789</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="问题五"><a href="#问题五" class="headerlink" title="问题五"></a>问题五</h2><p>JavaScript 写一个正则表达式判断字符串是否是对称数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'Woow'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^([a-z])([a-z])\2\1$/i</span>;</span><br><span class="line"><span class="keyword">if</span> (reg.test(str)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ok'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="问题六"><a href="#问题六" class="headerlink" title="问题六"></a>问题六</h2><p>JavaScript 写出一个正则表达式用于匹配由数字和字母组成的字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPassWord</span> (<span class="params">nubmer</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> re = <span class="regexp">/^[0-9a-zA-Z]*$/</span>;  <span class="comment">//判断字符串是否为数字和字母组合</span></span><br><span class="line">  <span class="keyword">if</span> (!re.test(nubmer)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/10/twenty-five/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-twenty-four" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1361,128 +1508,6 @@ index.html
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/25/sixteen/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-fifteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/24/fifteen/">JavaScript ---事件的委派</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/04/24/fifteen/" class="archive-article-date">
-  	<time datetime="2020-04-24T04:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：446字 | 预计阅读时长：2分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
-<br>
-
-<ul>
-<li>指将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的时间触发时，会一直冒泡到祖先元素。从而通过祖先元素的响应事件来处理事件。</li>
-<li>事件委派是利用了冒泡，通过委派可以减少事件的绑定次数，提高程序的性能。</li>
-</ul>
-<p>target：<br>target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() &#123;</span><br><span class="line">            <span class="keyword">var</span> lis = document.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">            <span class="keyword">var</span> u1 = document.getElementById(<span class="string">"u1"</span>);</span><br><span class="line">            <span class="keyword">var</span> btn = document.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">            <span class="comment">// for (var i = 0; i &lt; lis.length; i++) &#123;</span></span><br><span class="line">            <span class="comment">//     lis[i].onclick = function() &#123;</span></span><br><span class="line">            <span class="comment">//         alert("我是超链接");</span></span><br><span class="line">            <span class="comment">//     &#125;</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">            u1.onclick = function(event) &#123;</span><br><span class="line">                <span class="comment">//解决event浏览器兼容性问题</span></span><br><span class="line">                event = event || window.event;</span><br><span class="line">                <span class="comment">//如果触发的事件是我们期望的元素，否则不执行。</span></span><br><span class="line">                <span class="comment">//创建一个正则表达式，判断一下含有link的class才能被触发。</span></span><br><span class="line">                <span class="keyword">var</span> patt1 = /[link]/ig;</span><br><span class="line">                <span class="keyword">if</span> (patt1.test(event.target.className)) &#123;</span><br><span class="line">                    alert(<span class="string">"我是超链接"</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            btn.onclick = function() &#123;</span><br><span class="line">                <span class="keyword">var</span> li = document.createElement(<span class="string">"li"</span>);</span><br><span class="line">                li.innerHTML = <span class="string">"&lt;a href='javascript: ;'class='link'&gt;新的超链接&lt;/a&gt;"</span>;</span><br><span class="line">                u1.appendChild(li);</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id="btn"&gt;点击&lt;/button&gt;</span><br><span class="line">    &lt;ul id=<span class="string">"u1"</span>&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="s link s"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/24/fifteen/">展开全文 >></a>
         </p>
       
 
