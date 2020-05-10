@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>彻底理解js中this的指向，理解记忆，不用死记硬背。 | 阿清的小站</title>
+  <title>JavaScript中正则表达式--  (?=a)、先行断言、现行否定断言 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;首先必须要说的是，this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象（这句话有些问题，后面会解释为什么会有问题，虽然网上大部分的文章都是这样说的，虽然在很多情况下那样去理解不会出什么问题，但是实际上那样理解是不准确的，所以在你理解this的时候会有种琢磨不透的感觉），那么接下来我会深入的探讨">
+  <meta name="description" content="(?&#x3D;a) 代表什么意思！  (?&#x3D;a)非获取匹配，正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。  还有四个和这个相近的:  (?!a)非获取匹配，正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。(?:a)非获取匹配，匹配pattern但不获取匹配结果，不进行存储供以后使用。这在使用或字符“(|)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="彻底理解js中this的指向，理解记忆，不用死记硬背。">
-<meta property="og:url" content="http://yoursite.com/2020/04/14/six/index.html">
+<meta property="og:title" content="JavaScript中正则表达式--  (?&#x3D;a)、先行断言、现行否定断言">
+<meta property="og:url" content="http://yoursite.com/2020/05/10/twenty-four/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;首先必须要说的是，this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象（这句话有些问题，后面会解释为什么会有问题，虽然网上大部分的文章都是这样说的，虽然在很多情况下那样去理解不会出什么问题，但是实际上那样理解是不准确的，所以在你理解this的时候会有种琢磨不透的感觉），那么接下来我会深入的探讨">
+<meta property="og:description" content="(?&#x3D;a) 代表什么意思！  (?&#x3D;a)非获取匹配，正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。  还有四个和这个相近的:  (?!a)非获取匹配，正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。(?:a)非获取匹配，匹配pattern但不获取匹配结果，不进行存储供以后使用。这在使用或字符“(|)">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-14T13:57:06.000Z">
-<meta property="article:modified_time" content="2020-04-23T13:41:31.231Z">
+<meta property="article:published_time" content="2020-05-10T09:23:34.000Z">
+<meta property="article:modified_time" content="2020-05-10T09:25:49.793Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -178,7 +178,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-six" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-twenty-four" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -187,18 +187,18 @@
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      彻底理解js中this的指向，理解记忆，不用死记硬背。
+      JavaScript中正则表达式--  (?=a)、先行断言、现行否定断言
     </h1>
   
 </p></center>
         
-        <a href="/2020/04/14/six/" class="archive-article-date">
-  	<time datetime="2020-04-14T13:57:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
+        <a href="/2020/05/10/twenty-four/" class="archive-article-date">
+  	<time datetime="2020-05-10T09:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
 </a>
         
       </header>
 	  <div align="center" class="post-count">
-	      字数：1.9k字 | 预计阅读时长：7分钟
+	      字数：828字 | 预计阅读时长：3分钟
 	  </div>
 
 
@@ -207,54 +207,41 @@
       
       
       	
-      		<p>&emsp;&emsp;首先必须要说的是，<strong>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象</strong>（这句话有些问题，后面会解释为什么会有问题，虽然网上大部分的文章都是这样说的，虽然在很多情况下那样去理解不会出什么问题，但是实际上那样理解是不准确的，所以在你理解this的时候会有种琢磨不透的感觉），那么接下来我会深入的探讨这个问题。<br>&emsp;&emsp;为什么要学习this？如果你学过面向对象编程，那你肯定知道干什么用的，如果你没有学过，那么暂时可以不用看这篇文章，当然如果你有兴趣也可以看看，毕竟这是js中必须要掌握的东西。<br><br><br>&emsp;例子1：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> user = <span class="string">"阿清"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//Window</span></span><br><span class="line">&#125;</span><br><span class="line">a();</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;按照我们上面说的this最终指向的是调用它的对象，这里的函数a实际是被Window对象所点出来的，下面的代码就可以证明。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> user = <span class="string">"阿清"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);　　<span class="comment">//Window</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.a();</span><br></pre></td></tr></table></figure>
+      		<p>(?=a) 代表什么意思！</p>
+<blockquote>
+<p>(?=a)非获取匹配，正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。</p>
+</blockquote>
+<p>还有四个和这个相近的:</p>
+<blockquote>
+<p>(?!a)非获取匹配，正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。<br>(?:a)非获取匹配，匹配pattern但不获取匹配结果，不进行存储供以后使用。这在使用或字符“(|)”来组合一个模式的各个部分是很有用。<br>(?&lt;=a)非获取匹配，反向肯定预查，与正向肯定预查类似，只是方向相反。<br>(?&lt;!a)非获取匹配，反向否定预查，与正向否定预查类似，只是方向相反。</p>
+</blockquote>
+<p>以上是官方的定义，比较难懂，我用自己的理解翻译了一下：</p>
+<blockquote>
+<p>(?=a) 表示我们需要匹配某样东西的前面。<br>(?!a) 表示我们需要不匹配某样东西。<br>(?:a) 表示我们需要匹配某样东西本身。<br>(?&lt;=a) 表示我们需要匹配某样东西的后面。<br>(?&lt;!a) 表示我们需要不匹配某样东西，与(?!a)方向相反。</p>
+</blockquote>
+<p>我的翻译可能还是不太容易理解，我们用代码来解释一下！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"我是中国人"</span>.replace(<span class="regexp">/我是(?=中国)/</span>, <span class="string">"rr"</span>)) <span class="comment">// 输出： 'rr中国人'，匹配的是中国前面的'我是'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"我是中国人"</span>.replace(<span class="regexp">/(?!中国)/</span>, <span class="string">"rr"</span>)) <span class="comment">// 输出：'rr我是中国人'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"我是中国人"</span>.replace(<span class="regexp">/(?:中国)/</span>, <span class="string">"rr"</span>)) <span class="comment">// 输出：'我是rr人'，匹配'中国'本身</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"我是中国人"</span>.replace(<span class="regexp">/(?&lt;=中国)人/</span>, <span class="string">"rr"</span>)) <span class="comment">// 输出：'我是中国rr'，匹配的是中国后面的'人'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"我是中国人"</span>.replace(<span class="regexp">/(?&lt;!中国)/</span>, <span class="string">"rr"</span>)) <span class="comment">// 输出：'rr我是中国人'</span></span><br></pre></td></tr></table></figure>
+<p>Tips：(?!a)和(?&lt;!a)都是输出的 ‘rr我是中国人’，我的理解是，replace替换的时候匹配得是不包含中国的字符串，但是这个字符串又没有，那么js自动给加前面去了。</p>
+<hr>
+<h2 id="先行断言"><a href="#先行断言" class="headerlink" title="先行断言"></a>先行断言</h2><p>x(?=y)称为先行断言（Positive look-ahead），x只有在y前面才匹配，y不会被计入返回结果。比如，要匹配后面跟着百分号的数字，可以写成/\d+(?=%)/。</p>
+<p>“先行断言”中，括号里的部分是不会返回的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="string">'abc'</span>.match(<span class="regexp">/b(?=c)/</span>);</span><br><span class="line">m <span class="comment">// ["b"]</span></span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;和上面代码一样吧，其实alert也是window的一个属性，也是window点出来的。<br><br><br>&emsp;例子2：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    user:<span class="string">"阿清"</span>,</span><br><span class="line">    fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.user);  <span class="comment">//阿清</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">o.fn();</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里的this指向的是对象o，因为你调用这个fn是通过o.fn()执行的，那自然指向就是对象o，这里再次强调一点，this的指向在函数创建的时候是决定不了的，在调用的时候才能决定，谁调用的就指向谁，一定要搞清楚这个。<br><br><br>&emsp;&emsp;其实例子1和例子2说的并不够准确，下面这个例子就可以推翻上面的理论。</p>
-<p>&emsp;&emsp;如果要彻底的搞懂this必须看接下来的几个例子<br>例子3：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    user:<span class="string">"阿清"</span>,</span><br><span class="line">    fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//阿清</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.o.fn();</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这段代码和上面的那段代码几乎是一样的，但是这里的this为什么不是指向window，如果按照上面的理论，最终this指向的是调用它的对象，这里先说个而外话，window是js中的全局对象，我们创建的变量实际上是给window添加属性，所以这里可以用window点o对象。<br>&emsp;&emsp;这里先不解释为什么上面的那段代码this为什么没有指向window，我们再来看一段代码。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    a:<span class="number">10</span>,</span><br><span class="line">    b:&#123;</span><br><span class="line">        a:<span class="number">12</span>,</span><br><span class="line">        fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">//12</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">o.b.fn();</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里同样也是对象o点出来的，但是同样this并没有执行它，那你肯定会说我一开始说的那些不就都是错误的吗？其实也不是，只是一开始说的不准确，接下来我将补充一句话，我相信你就可以彻底的理解this的指向的问题。<br><br><br>&emsp;&emsp;情况1：如果一个函数中有this，但是它没有被上一级的对象所调用，那么this指向的就是window，这里需要说明的是在js的严格版中this指向的不是window，但是我们这里不探讨严格版的问题，你想了解可以自行上网查找。</p>
-<p>&emsp;&emsp;情况2：如果一个函数中有this，这个函数有被上一级的对象所调用，那么this指向的就是上一级的对象。</p>
-<p>&emsp;&emsp;情况3：如果一个函数中有this，<strong>==这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级的对象==</strong>，例子3可以证明，如果不相信，那么接下来我们继续看几个例子。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    a:<span class="number">10</span>,</span><br><span class="line">    b:&#123;</span><br><span class="line">        <span class="comment">// a:12,</span></span><br><span class="line">        fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">//undefined</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">o.b.fn();</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;尽管对象b中没有属性a，这个this指向的也是对象b，因为this只会指向它的上一级对象，不管这个对象中有没有this要的东西。<br>还有一种比较特殊的情况，例子4：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    a:<span class="number">10</span>,</span><br><span class="line">    b:&#123;</span><br><span class="line">        a:<span class="number">12</span>,</span><br><span class="line">        fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">//undefined</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> j = o.b.fn;</span><br><span class="line">j();</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里this指向的是window，是不是有些蒙了？其实是因为你没有理解一句话，这句话同样至关重要。</p>
-<p>&emsp;&emsp;this永远指向的是最后调用它的对象，也就是看它执行的时候是谁调用的，例子4中虽然函数fn是被对象b所引用，但是在将fn赋值给变量j的时候并没有执行所以最终指向的是window，这和例子3是不一样的，例子3是直接执行了fn。</p>
-<p>&emsp;&emsp;this讲来讲去其实就是那么一回事，只不过在不同的情况下指向的会有些不同，上面的总结每个地方都有些小错误，也不能说是错误，而是在不同环境下情况就会有不同，所以我也没有办法一次解释清楚，只能你慢慢地的去体会。</p>
-<br>
-&emsp;构造函数版this：
+<p>上面的代码使用了先行断言，b在c前面所以被匹配，但是括号对应的c不会被返回。</p>
+<h2 id="先行否定断言"><a href="#先行否定断言" class="headerlink" title="先行否定断言"></a>先行否定断言</h2><p>x(?!y)称为先行否定断言（Negative look-ahead），x只有不在y前面才匹配，y不会被计入返回结果。比如，要匹配后面跟的不是百分号的数字，就要写成/\d+(?!%)/。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/\d+(?!\.)/.exec(<span class="string">'3.14'</span>) <span class="comment">// ["14"]</span></span><br><span class="line"><span class="comment">// ["14"]</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.user = <span class="string">"阿清"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Fn();</span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">//阿清</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里之所以对象a可以点出函数Fn里面的user是因为new关键字可以改变this的指向，将这个this指向对象a，为什么我说a是对象，因为用了new关键字就是创建一个对象实例，理解这句话可以想想我们的例子3，我们这里用变量a创建了一个Fn的实例（相当于复制了一份Fn到对象a里面），此时仅仅只是创建，并没有执行，而调用这个函数Fn的是对象a，那么this指向的自然是对象a，那么为什么对象a中会有user，因为你已经复制了一份Fn函数到对象a中，用了new关键字就等同于复制了一份。<br><br><br>&emsp;当this碰到return时:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">this</span>.user = <span class="string">'阿清'</span>;  </span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;再看一个</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">this</span>.user = <span class="string">'阿清'</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;再来</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">this</span>.user = <span class="string">'阿清'</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">//阿清</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，正则表达式指定，只有不在小数点前面的数字才会被匹配，因此返回的结果就是14。</p>
+<p>“先行否定断言”中，括号里的部分是不会返回的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="string">'abd'</span>.match(<span class="regexp">/b(?!c)/</span>);</span><br><span class="line">m <span class="comment">// ['b']</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">this</span>.user = <span class="string">'阿清'</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">//阿清</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这是什么意思呢？<br>&emsp;&emsp;如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。
-　　</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">this</span>.user = <span class="string">'阿清'</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">//fn &#123;user: "阿清"&#125;</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;还有一点就是虽然null也是对象，但是在这里this还是指向那个函数的实例，因为null比较特殊。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">this</span>.user = <span class="string">'阿清'</span>;  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn;  </span><br><span class="line"><span class="built_in">console</span>.log(a.user); <span class="comment">//阿清</span></span><br></pre></td></tr></table></figure>
-<p><strong>知识点补充：</strong></p>
-<p>&emsp;&emsp;1.在严格版中的默认的this不再是window，而是undefined。</p>
-<p>&emsp;&emsp;2.new操作符会改变函数this的指向问题，虽然我们上面讲解过了，但是并没有深入的讨论这个问题，网上也很少说，所以在这里有必要说一下。</p>
+<p>上面的代码使用了先行否定断言，b不在c前面所以被匹配，而且括号对应的d不会被返回。</p>
+<p>参考链接<a href="https://wangdoc.com/javascript/stdlib/regexp.html" target="_blank" rel="noopener">JavaScript教程</a></p>
 <br>
 <br>
+愿你的坚持终有收获。
 <br>
 <br>
-转载自：https://www.cnblogs.com/pssp/p/5216085.html
-
-<p>　　</p>
 
 			<!-- 《添加版权声明 -->
 			
@@ -264,7 +251,25 @@
 
 <!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      阿清そ
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-05-10
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-05-10
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+      <a href="#" title="JavaScript中正则表达式--  (?=a)、先行断言、现行否定断言" target="_blank">JavaScript中正则表达式--  (?=a)、先行断言、现行否定断言</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    
+  </div>
 
 <!-- 添加版权声明》 -->
 			
@@ -348,7 +353,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/14/six/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/05/10/twenty-four/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,18 +367,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/15/seven/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript基础---原型对象概念详解(仔细理解一下)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/11/fives/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript中基本数据类型和引用数据类型的区别？</div>
+    <a href="/2020/05/06/twenty-three/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript中ECMAScript5中的数组方法。</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 23</a>
-			<a>总字数 <span class="post-count">21k</span></a>
+			<a>总文章数 24</a>
+			<a>总字数 <span class="post-count">21.9k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,147 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-twenty-four" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/05/10/twenty-four/">JavaScript中正则表达式--  (?=a)、先行断言、现行否定断言</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/05/10/twenty-four/" class="archive-article-date">
+  	<time datetime="2020-05-10T09:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：828字 | 预计阅读时长：3分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<p>(?=a) 代表什么意思！</p>
+<blockquote>
+<p>(?=a)非获取匹配，正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。</p>
+</blockquote>
+<p>还有四个和这个相近的:</p>
+<blockquote>
+<p>(?!a)非获取匹配，正向否定预查，在任何不匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。<br>(?:a)非获取匹配，匹配pattern但不获取匹配结果，不进行存储供以后使用。这在使用或字符“(|)”来组合一个模式的各个部分是很有用。<br>(?&lt;=a)非获取匹配，反向肯定预查，与正向肯定预查类似，只是方向相反。<br>(?&lt;!a)非获取匹配，反向否定预查，与正向否定预查类似，只是方向相反。</p>
+</blockquote>
+<p>以上是官方的定义，比较难懂，我用自己的理解翻译了一下：</p>
+<blockquote>
+<p>(?=a) 表示我们需要匹配某样东西的前面。<br>(?!a) 表示我们需要不匹配某样东西。<br>(?:a) 表示我们需要匹配某样东西本身。<br>(?&lt;=a) 表示我们需要匹配某样东西的后面。<br>(?&lt;!a) 表示我们需要不匹配某样东西，与(?!a)方向相反。</p>
+</blockquote>
+<p>我的翻译可能还是不太容易理解，我们用代码来解释一下！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"我是中国人"</span>.replace(<span class="regexp">/我是(?=中国)/</span>, <span class="string">"rr"</span>)) <span class="comment">// 输出： 'rr中国人'，匹配的是中国前面的'我是'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"我是中国人"</span>.replace(<span class="regexp">/(?!中国)/</span>, <span class="string">"rr"</span>)) <span class="comment">// 输出：'rr我是中国人'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"我是中国人"</span>.replace(<span class="regexp">/(?:中国)/</span>, <span class="string">"rr"</span>)) <span class="comment">// 输出：'我是rr人'，匹配'中国'本身</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"我是中国人"</span>.replace(<span class="regexp">/(?&lt;=中国)人/</span>, <span class="string">"rr"</span>)) <span class="comment">// 输出：'我是中国rr'，匹配的是中国后面的'人'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"我是中国人"</span>.replace(<span class="regexp">/(?&lt;!中国)/</span>, <span class="string">"rr"</span>)) <span class="comment">// 输出：'rr我是中国人'</span></span><br></pre></td></tr></table></figure>
+<p>Tips：(?!a)和(?&lt;!a)都是输出的 ‘rr我是中国人’，我的理解是，replace替换的时候匹配得是不包含中国的字符串，但是这个字符串又没有，那么js自动给加前面去了。</p>
+<hr>
+<h2 id="先行断言"><a href="#先行断言" class="headerlink" title="先行断言"></a>先行断言</h2><p>x(?=y)称为先行断言（Positive look-ahead），x只有在y前面才匹配，y不会被计入返回结果。比如，要匹配后面跟着百分号的数字，可以写成/\d+(?=%)/。</p>
+<p>“先行断言”中，括号里的部分是不会返回的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="string">'abc'</span>.match(<span class="regexp">/b(?=c)/</span>);</span><br><span class="line">m <span class="comment">// ["b"]</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的代码使用了先行断言，b在c前面所以被匹配，但是括号对应的c不会被返回。</p>
+<h2 id="先行否定断言"><a href="#先行否定断言" class="headerlink" title="先行否定断言"></a>先行否定断言</h2><p>x(?!y)称为先行否定断言（Negative look-ahead），x只有不在y前面才匹配，y不会被计入返回结果。比如，要匹配后面跟的不是百分号的数字，就要写成/\d+(?!%)/。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/\d+(?!\.)/.exec(<span class="string">'3.14'</span>) <span class="comment">// ["14"]</span></span><br><span class="line"><span class="comment">// ["14"]</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，正则表达式指定，只有不在小数点前面的数字才会被匹配，因此返回的结果就是14。</p>
+<p>“先行否定断言”中，括号里的部分是不会返回的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="string">'abd'</span>.match(<span class="regexp">/b(?!c)/</span>);</span><br><span class="line">m <span class="comment">// ['b']</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的代码使用了先行否定断言，b不在c前面所以被匹配，而且括号对应的d不会被返回。</p>
+<p>参考链接<a href="https://wangdoc.com/javascript/stdlib/regexp.html" target="_blank" rel="noopener">JavaScript教程</a></p>
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/10/twenty-four/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-twenty-three" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1342,138 +1483,6 @@ index.html
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/24/fifteen/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-fourteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/24/fourteen/">JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/04/24/fourteen/" class="archive-article-date">
-  	<time datetime="2020-04-24T03:41:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：569字 | 预计阅读时长：2分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
-<br>
-&emsp;&emsp;为一个元素绑定多事件有两种方法：addEventListener（）和  attachEvent()
-
-<p>addEventListener（）  —IE8及以下不支持</p>
-<ul>
-<li>通过这个方法也可以为元素绑定响应函数  </li>
-<li>参数：<br>&emsp;&emsp;1.事件的字符串，不要on<br>&emsp;&emsp;2.回调函数，当事件触发时该函数会被调用<br>&emsp;&emsp;3.是否在捕获阶段触发事件，需要一个布尔值，一般都传false</li>
-<li>使用addEventListener () 可以同时为一个元素的相同事件同时绑定多个响应函数，这样当事件被触发时，响应函数将会按照函数的绑定顺序执行。</li>
-</ul>
-<p>attachEvent()</p>
-<ul>
-<li>在IE8中可以使用attachEvent()来绑定事件</li>
-<li>参数：<br>&emsp;&emsp;1.事件的字符串，要on。<br>&emsp;&emsp;2.回调函数。</li>
-<li>这个方法也可以同时为一个事件绑定多个处理函数。<br>不同的是它是后绑定的先执行，执行顺序和addEventListener()相反。br</li>
-</ul>
-<br>
-&emsp;&emsp;但是这样就出现了浏览器不兼容的问题，我们可以自己定义一个方法来解决该问题。
-
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() &#123;</span><br><span class="line">            <span class="keyword">var</span> btn = document.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">            <span class="comment">// btn.onclick = function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("1");</span></span><br><span class="line">            <span class="comment">// &#125;;</span></span><br><span class="line">            <span class="comment">// btn.onclick = function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("2");</span></span><br><span class="line">            <span class="comment">// &#125;;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// btn.addEventListener("click", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("1");</span></span><br><span class="line">            <span class="comment">// &#125;, false);</span></span><br><span class="line">            <span class="comment">// btn.addEventListener("click", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("2");</span></span><br><span class="line">            <span class="comment">// &#125;, false);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">// btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("1");</span></span><br><span class="line">            <span class="comment">// &#125;);</span></span><br><span class="line">            <span class="comment">// btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert("2");</span></span><br><span class="line">            <span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// btn.addEventListener("click", function () &#123;</span></span><br><span class="line">            <span class="comment">//     alert(this);</span></span><br><span class="line">            <span class="comment">// &#125;, false);</span></span><br><span class="line">            <span class="comment">// btn.attachEvent("onclick", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert(this);</span></span><br><span class="line">            <span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 测试this是指向的谁</span></span><br><span class="line">            <span class="comment">// bing(btn, "click", function() &#123;</span></span><br><span class="line">            <span class="comment">//     alert(this);</span></span><br><span class="line">            <span class="comment">// &#125;);</span></span><br><span class="line"></span><br><span class="line">            bing(btn, <span class="string">"click"</span>, function() &#123;</span><br><span class="line">                alert(<span class="string">"1"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            bing(btn, <span class="string">"click"</span>, function() &#123;</span><br><span class="line">                alert(<span class="string">"2"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 我们可以自己定义一个函数，来兼容这个问题：</span></span><br><span class="line">        <span class="comment">//     addEventListener()中的this，是绑定事件的对象。</span></span><br><span class="line">        <span class="comment">//     attachEvent()    中的this，是window。</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 参数：</span></span><br><span class="line">        <span class="comment">//       obj       绑定的事件对象</span></span><br><span class="line">        <span class="comment">//       eventStr  事件的字符串(不要on)</span></span><br><span class="line">        <span class="comment">//       callback  回调函数</span></span><br><span class="line"></span><br><span class="line">        <span class="function">function <span class="title">bing</span><span class="params">(obj, eventStr, callback)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (obj.addEventListener) &#123;</span><br><span class="line">                obj.addEventListener(eventStr, callback, <span class="keyword">false</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            	<span class="comment">// 创建一个匿名函数来调用callback，去指定this指向的元素</span></span><br><span class="line">                obj.attachEvent(<span class="string">"on"</span> + eventStr, function() &#123;</span><br><span class="line">                    callback.call(obj);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id="btn"&gt;点击&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/24/fourteen/">展开全文 >></a>
         </p>
       
 
