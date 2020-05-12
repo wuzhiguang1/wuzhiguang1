@@ -15,11 +15,14 @@
 <meta property="og:site_name" content="阿清的小站">
 <meta property="og:description" content="问题一JavaScript 写一个字符串转成驼峰的方法，o_div_style_position转成oDivStylePosotion。 12345var str &#x3D; &#39;border-bottom-color&#39;;var strRg &#x3D; str.replace(&#x2F;\-[a-z]&#x2F;g, function (params) &amp;#123;  return params.charAt(1).toUpperC">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200512203558386.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020051220375457.png">
 <meta property="article:published_time" content="2020-05-10T12:41:43.000Z">
-<meta property="article:modified_time" content="2020-05-10T12:44:25.065Z">
+<meta property="article:modified_time" content="2020-05-12T12:40:15.657Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200512203558386.png">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -73,7 +76,7 @@
 		</nav>
 		<nav>
 			<a>总文章数 25</a>
-			<a>总字数 <span class="post-count">22.6k</span></a>
+			<a>总字数 <span class="post-count">23k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -198,7 +201,7 @@
         
       </header>
 	  <div align="center" class="post-count">
-	      字数：685字 | 预计阅读时长：3分钟
+	      字数：1.1k字 | 预计阅读时长：5分钟
 	  </div>
 
 
@@ -241,6 +244,29 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'Woow'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^([a-z])([a-z])\2\1$/i</span>;</span><br><span class="line"><span class="keyword">if</span> (reg.test(str)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ok'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="问题六"><a href="#问题六" class="headerlink" title="问题六"></a>问题六</h2><p>JavaScript 写出一个正则表达式用于匹配由数字和字母组成的字符串</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPassWord</span> (<span class="params">nubmer</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> re = <span class="regexp">/^[0-9a-zA-Z]*$/</span>;  <span class="comment">//判断字符串是否为数字和字母组合</span></span><br><span class="line">  <span class="keyword">if</span> (!re.test(nubmer)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br>
+<br>
+
+<hr>
+<h2 id="test-也能捕获（本意是匹配）"><a href="#test-也能捕获（本意是匹配）" class="headerlink" title="test() 也能捕获（本意是匹配）"></a>test() 也能捕获（本意是匹配）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"wzg123wzg45wzg52"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d+)/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200512203558386.png" alt="在这里插入图片描述"></p>
+<hr>
+<h2 id="案例：把时间字符串进行处理"><a href="#案例：把时间字符串进行处理" class="headerlink" title="案例：把时间字符串进行处理"></a>案例：把时间字符串进行处理</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="string">"2020-5-1"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;1,2&#125;)-(\d&#123;1,2&#125;)/</span>;</span><br><span class="line">time = time.replace(reg, <span class="string">"$1年$2月$3日"</span>);</span><br></pre></td></tr></table></figure>
+<p>也可以这样处理str.replace(reg,function(){})</p>
+<ol>
+<li>首先拿REG和TIME进行匹配捕获，能匹配到几次就会把传递的函数执行几次（而且是匹配一次就执行一次）</li>
+<li>不仅把方法执行，而且EWPLACE还给方法传递了实参信息（和exec捕获的内容一致的信息：大正则匹配的内容，小分组匹配的信息）</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="string">"2020-5-1"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;1,2&#125;)-(\d&#123;1,2&#125;)/</span>;</span><br><span class="line">time = time.replace(reg, (big, $<span class="number">1</span>, $<span class="number">2</span>, $<span class="number">3</span>) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(big, $<span class="number">1</span>, $<span class="number">2</span>, $<span class="number">3</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/2020051220375457.png" alt="在这里插入图片描述"></p>
+<ol start="3">
+<li>在函数中我们返回的是啥，就把当前大正则匹配的内容替换成啥。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="string">"2020-5-1"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;1,2&#125;)-(\d&#123;1,2&#125;)/</span>;</span><br><span class="line">time = time.replace(reg, (...arg) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> [, $<span class="number">1</span>, $<span class="number">2</span>, $<span class="number">3</span>] = arg;</span><br><span class="line">    $<span class="number">2.</span>length &lt; <span class="number">2</span> ? $<span class="number">2</span> = <span class="string">"0"</span> + $<span class="number">2</span> : <span class="literal">null</span></span><br><span class="line">    $<span class="number">3.</span>length &lt; <span class="number">2</span> ? $<span class="number">3</span> = <span class="string">"0"</span> + $<span class="number">3</span> : <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> $<span class="number">1</span> + <span class="string">"年"</span> + $<span class="number">2</span> + <span class="string">"月"</span> + $<span class="number">3</span> + <span class="string">"日"</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(time);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="案例：字符串首字母大写"><a href="#案例：字符串首字母大写" class="headerlink" title="案例：字符串首字母大写"></a>案例：字符串首字母大写</h2><p>函数被执行了六次，每一次都把正则匹配的信息传递给函数<br>每一次匹配：[“good”,”g”] [“good”,”g”] …</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"good good study, day day up"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\b([a-zA-Z])[a-zA-Z]*\b/g</span>;</span><br><span class="line">str = str.replace(reg, (...arg) =&gt; &#123;</span><br><span class="line">    <span class="keyword">var</span> [content, $<span class="number">1</span>] = arg;</span><br><span class="line">    $<span class="number">1</span> = $<span class="number">1.</span>toUpperCase();</span><br><span class="line">    content = content.substring(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> $<span class="number">1</span> + content;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br></pre></td></tr></table></figure>
 
 
 <br>
@@ -267,7 +293,7 @@
     2020-05-10
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-05-10
+    2020-05-12
     <br>
     <strong class="article-titles">本文标题：</strong>
       <a href="#" title="JavaScript正则表达式-常见面试题总结" target="_blank">JavaScript正则表达式-常见面试题总结</a>
