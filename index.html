@@ -386,7 +386,7 @@
 <br>
 
 <hr>
-<h2 id="探索instanceof"><a href="#探索instanceof" class="headerlink" title="探索instanceof"></a>探索instanceof</h2><p>instanceof是如何判断的？<br>表达式： A instanceof B          &emsp;&emsp;&emsp;&emsp;&emsp; A是实例对象，B是构造函数。A看隐私原型属性（<strong>proto</strong>），B看显示原型属性(prototype)</p>
+<h2 id="探索instanceof"><a href="#探索instanceof" class="headerlink" title="探索instanceof"></a>探索instanceof</h2><p>instanceof是如何判断的？<br>表达式： A instanceof B          &emsp;&emsp;&emsp;&emsp;&emsp; A是实例对象，B是构造函数。A看隐式原型属性（<strong>proto</strong>），B看显示原型属性(prototype)</p>
 <p>如果B函数的显示原型对象在A对象的原型链上,返回true，否则返回false</p>
 <p>案例一：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f1 = <span class="keyword">new</span> Foo();</span><br><span class="line"><span class="built_in">console</span>.log(f1 <span class="keyword">instanceof</span> Foo); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(f1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
