@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaScript中keys()和getOwnPropertyNames()详解。 | 阿清的小站</title>
+  <title>JavaScript ---  BOM | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp; &amp;emsp;除了for&#x2F;in循环之外，ECMAScript 5定义了两个用以枚举属性名称的函数。第一个是Object.keys(), 它返回一个数组，这个数组由对象中可枚举的自有属性的名称组成。 语法： Object.keys(obj)  参数 obj&amp;emsp; &amp;emsp; 要返回其枚举自身属性的对象。  返回值 一个表示给定对象的所有可枚举属性的字符串数组。  描述 Obje">
+  <meta name="description" content="BOM简介———（BOM详细总结）JavaScript的实现包括以下3个部分： 1）核心（ECMAScript）：描述了JS的语法和基本对象。2）文档对象模型 （DOM）：处理网页内容的方法和接口3）浏览器对象模型（BOM）：与浏览器交互的方法和接口 ECMAScript扩展知识： ① ECMAScript是一个标准，JS只是它的一个实现，其他实现包括ActionScript。② “ECMAScr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript中keys()和getOwnPropertyNames()详解。">
-<meta property="og:url" content="http://yoursite.com/2020/04/29/nineteen/index.html">
+<meta property="og:title" content="JavaScript ---  BOM">
+<meta property="og:url" content="http://yoursite.com/2020/05/21/20/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="&amp;emsp; &amp;emsp;除了for&#x2F;in循环之外，ECMAScript 5定义了两个用以枚举属性名称的函数。第一个是Object.keys(), 它返回一个数组，这个数组由对象中可枚举的自有属性的名称组成。 语法： Object.keys(obj)  参数 obj&amp;emsp; &amp;emsp; 要返回其枚举自身属性的对象。  返回值 一个表示给定对象的所有可枚举属性的字符串数组。  描述 Obje">
+<meta property="og:description" content="BOM简介———（BOM详细总结）JavaScript的实现包括以下3个部分： 1）核心（ECMAScript）：描述了JS的语法和基本对象。2）文档对象模型 （DOM）：处理网页内容的方法和接口3）浏览器对象模型（BOM）：与浏览器交互的方法和接口 ECMAScript扩展知识： ① ECMAScript是一个标准，JS只是它的一个实现，其他实现包括ActionScript。② “ECMAScr">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-04-29T03:51:01.000Z">
-<meta property="article:modified_time" content="2020-04-29T03:52:34.637Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200521163031819.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-05-21T08:38:57.000Z">
+<meta property="article:modified_time" content="2020-05-21T08:39:41.770Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200521163031819.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -178,7 +180,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-nineteen" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-20" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -187,18 +189,18 @@
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      JavaScript中keys()和getOwnPropertyNames()详解。
+      JavaScript ---  BOM
     </h1>
   
 </p></center>
         
-        <a href="/2020/04/29/nineteen/" class="archive-article-date">
-  	<time datetime="2020-04-29T03:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+        <a href="/2020/05/21/20/" class="archive-article-date">
+  	<time datetime="2020-05-21T08:38:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
 </a>
         
       </header>
 	  <div align="center" class="post-count">
-	      字数：891字 | 预计阅读时长：3分钟
+	      字数：303字 | 预计阅读时长：1分钟
 	  </div>
 
 
@@ -207,49 +209,15 @@
       
       
       	
-      		<p> &emsp; &emsp;除了for/in循环之外，ECMAScript 5定义了两个用以枚举属性名称的函数。第一个是Object.keys(), 它返回一个数组，这个数组由对象中可枚举的自有属性的名称组成。</p>
-<h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><blockquote>
-<p>Object.keys(obj)</p>
-</blockquote>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><blockquote>
-<p>obj<br>&emsp; &emsp; 要返回其枚举自身属性的对象。</p>
-</blockquote>
-<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><blockquote>
-<p>一个表示给定对象的所有可枚举属性的字符串数组。</p>
-</blockquote>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><blockquote>
-<p>Object.keys 返回一个所有元素为字符串的数组，其元素来自于从给定的object上面可直接枚举的属性。这些属性的顺序与手动遍历该对象属性时的一致。</p>
-</blockquote>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// simple array</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(arr)); <span class="comment">// console: ['0', '1', '2']</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// array like object</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>, <span class="number">2</span>: <span class="string">'c'</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj)); <span class="comment">// console: ['0', '1', '2']</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// array like object with random key ordering</span></span><br><span class="line"><span class="keyword">var</span> anObj = &#123; <span class="number">100</span>: <span class="string">'a'</span>, <span class="number">2</span>: <span class="string">'b'</span>, <span class="number">7</span>: <span class="string">'c'</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(anObj)); <span class="comment">// console: ['2', '7', '100']</span></span><br></pre></td></tr></table></figure>
-
-<p> &emsp; &emsp;要在原生不支持的旧环境中添加兼容的Object.keys，请复制以下代码段</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Object</span>.keys) &#123;</span><br><span class="line">  <span class="built_in">Object</span>.keys = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> hasOwnProperty = <span class="built_in">Object</span>.prototype.hasOwnProperty,</span><br><span class="line">        hasDontEnumBug = !(&#123;<span class="attr">toString</span>: <span class="literal">null</span>&#125;).propertyIsEnumerable(<span class="string">'toString'</span>),</span><br><span class="line">        dontEnums = [</span><br><span class="line">          <span class="string">'toString'</span>,</span><br><span class="line">          <span class="string">'toLocaleString'</span>,</span><br><span class="line">          <span class="string">'valueOf'</span>,</span><br><span class="line">          <span class="string">'hasOwnProperty'</span>,</span><br><span class="line">          <span class="string">'isPrototypeOf'</span>,</span><br><span class="line">          <span class="string">'propertyIsEnumerable'</span>,</span><br><span class="line">          <span class="string">'constructor'</span></span><br><span class="line">        ],</span><br><span class="line">        dontEnumsLength = dontEnums.length;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span> &amp;&amp; <span class="keyword">typeof</span> obj !== <span class="string">'function'</span> || obj === <span class="literal">null</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Object.keys called on non-object'</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> result = [];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="keyword">if</span> (hasOwnProperty.call(obj, prop)) result.push(prop);</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (hasDontEnumBug) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; dontEnumsLength; i++) &#123;</span><br><span class="line">          <span class="keyword">if</span> (hasOwnProperty.call(obj, dontEnums[i])) result.push(dontEnums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)()</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p> &emsp; &emsp;上面的代码在IE7（也许IE8也是）下有个问题，就是如果传入一个来自其他 window 对象下的对象时，不可枚举的属性也会获取到。</p>
+      		<h2 id="BOM简介———（BOM详细总结）"><a href="#BOM简介———（BOM详细总结）" class="headerlink" title="BOM简介———（BOM详细总结）"></a>BOM简介———（<a href="https://blog.csdn.net/luanpeng825485697/article/details/77010413" target="_blank" rel="noopener">BOM详细总结</a>）</h2><p><strong>JavaScript的实现包括以下3个部分：</strong></p>
+<p>1）核心（ECMAScript）：描述了JS的语法和基本对象。<br>2）文档对象模型 （DOM）：处理网页内容的方法和接口<br>3）浏览器对象模型（BOM）：与浏览器交互的方法和接口</p>
+<p><strong>ECMAScript扩展知识：</strong></p>
+<p>① ECMAScript是一个标准，JS只是它的一个实现，其他实现包括ActionScript。<br>② “ECMAScript可以为不同种类的宿主环境提供核心的脚本编程能力……”，即<strong>ECMAScript不与具体的宿主环境相绑定，如JS的宿主环境是浏览器，AS的宿主环境是Flash。</strong><br>③ECMAScript描述了以下内容：语法、类型、语句、关键字、保留字、运算符、对象。</p>
+<p><strong>DOM 是为了操作文档出现的 API，document 是其的一个对象；<br>BOM 是为了操作浏览器出现的 API，window 是其的一个对象。</strong></p>
 <hr>
-<p> &emsp; &emsp;ECMAScript 5中第二E个枚举属性的函数是Object.getOwnPropertyNames()，它和Ojbect.keys()似，只是它返回对象的所有自有属性的名称，而不仅仅是可枚举的属性。在ECMAScript 3中是无法实现的类似的函数的，因为ECMAScript 3中没有提供任何方法来获取对象不可枚举的属性。</p>
-<blockquote>
-<p>Object.getOwnPropertyNames()方法返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括Symbol值作为名称的属性）组成的数组。</p>
-</blockquote>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
-<p>Object.getOwnPropertyNames(obj)</p>
-</blockquote>
-<h2 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h2><blockquote>
-<p>obj<br> &emsp; &emsp;一个对象，其自身的可枚举和不可枚举属性的名称被返回。</p>
-</blockquote>
-<h2 id="返回值-1"><a href="#返回值-1" class="headerlink" title="返回值"></a>返回值</h2><blockquote>
-<p>在给定对象上找到的自身属性对应的字符串数组。</p>
-</blockquote>
-<h2 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h2><blockquote>
-<p>Object.getOwnPropertyNames() 返回一个数组，该数组对元素是 obj自身拥有的枚举或不可枚举属性名称字符串。<br>数组中枚举属性的顺序与通过 for…in 循环（或 Object.keys）迭代该对象属性时一致。数组中不可枚举属性的顺序未定义。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(arr).sort()); <span class="comment">// ["0", "1", "2", "length"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 类数组对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="number">0</span>: <span class="string">"a"</span>, <span class="number">1</span>: <span class="string">"b"</span>, <span class="number">2</span>: <span class="string">"c"</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(obj).sort()); <span class="comment">// ["0", "1", "2"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Array.forEach输出属性名和属性值</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(obj).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">val, idx, array</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(val + <span class="string">" -&gt; "</span> + obj[val]);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// 0 -&gt; a</span></span><br><span class="line"><span class="comment">// 1 -&gt; b</span></span><br><span class="line"><span class="comment">// 2 -&gt; c</span></span><br></pre></td></tr></table></figure>
-<p> &emsp; &emsp;如果你只要获取到可枚举属性，查看Object.keys或用for…in循环（还会获取到原型链上的可枚举属性，不过可以使用hasOwnProperty()方法过滤掉）。getOwnPropertyNames()并不会获取到原型链上的属性。<br>如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ParentClass</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">ParentClass.prototype.inheritedMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ChildClass</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.prop = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">this</span>.method = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ChildClass.prototype = <span class="keyword">new</span> ParentClass;</span><br><span class="line">ChildClass.prototype.prototypeMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(</span><br><span class="line">  <span class="built_in">Object</span>.getOwnPropertyNames(</span><br><span class="line">    <span class="keyword">new</span> ChildClass()  <span class="comment">// ["prop", "method"]</span></span><br><span class="line">  )</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
+<p>BOM的核心是window，而window对象又具有双重角色，它既是通过js访问浏览器窗口的一个接口，又是一个Global（全局）对象。这意味着在网页中定义的任何对象，变量和函数，都以window作为其global对象。</p>
+<hr>
+<h2 id="window对象思维导图"><a href="#window对象思维导图" class="headerlink" title="window对象思维导图"></a>window对象思维导图</h2><p><img src="https://img-blog.csdnimg.cn/20200521163031819.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 
 			<!-- 《添加版权声明 -->
 			
@@ -266,13 +234,13 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-04-29
+    2020-05-21
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-04-29
+    2020-05-21
     <br>
     <strong class="article-titles">本文标题：</strong>
-      <a href="#" title="JavaScript中keys()和getOwnPropertyNames()详解。" target="_blank">JavaScript中keys()和getOwnPropertyNames()详解。</a>
+      <a href="#" title="JavaScript ---  BOM" target="_blank">JavaScript ---  BOM</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用国际信息安全许可协议进行许可。转载请注明出处！
@@ -361,7 +329,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/04/29/nineteen/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/05/21/20/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -375,18 +343,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/29/twenty/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript --- forEach() 方法详解
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/27/eighteen/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js简单实现轮播图</div>
+    <a href="/2020/05/20/19/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript  ---  闭包详解</div>
       <i class="icon-circle-right"></i>
     </a>
   

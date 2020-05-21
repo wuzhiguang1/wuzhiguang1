@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 29</a>
-			<a>总字数 <span class="post-count">32.4k</span></a>
+			<a>总文章数 30</a>
+			<a>总字数 <span class="post-count">32.8k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,146 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-twenty" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/04/29/twenty/">JavaScript --- forEach() 方法详解</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/04/29/twenty/" class="archive-article-date">
+  	<time datetime="2020-04-29T05:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：946字 | 预计阅读时长：3分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
+<p>arr.forEach(callback(currentValue [, index [, array]])[, thisArg])</p>
+</blockquote>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><blockquote>
+<p>callback<br>&emsp; &emsp;为数组中每个元素执行的函数，该函数接收一至三个参数：<br>currentValue<br> &emsp; &emsp;数组中正在处理的当前元素。<br> index (可选)<br> &emsp; &emsp; 数组中正在处理的当前元素的索引。<br> array  (可选)<br>  &emsp; forEach() 方法正在操作的数组。<br>  thisArg (可选)<br> &emsp;可选参数。当执行回调函数 callback 时，用作 this 的值。</p>
+</blockquote>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><blockquote>
+<p>undefined。</p>
+</blockquote>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><blockquote>
+<p>&emsp;&emsp; forEach() 方法按升序为数组中含有效值的每一项执行一次 callback 函数，那些已删除或者未初始化的项将被跳过（例如在稀疏数组上）。<br>&emsp;&emsp;可依次向 callback 函数传入三个参数：<br>&emsp;&emsp;&emsp;&emsp;1、数组当前项的值<br>&emsp;&emsp;&emsp;&emsp;2、数组当前项的索引<br>&emsp;&emsp;&emsp;&emsp;3、数组对象本身<br>&emsp;&emsp;如果 thisArg 参数有值，则每次 callback 函数被调用时，this 都会指向 thisArg 参数。如果省略了 thisArg 参数，或者其值为 null 或 undefined，this 则指向全局对象。按照函数观察到 this 的常用规则，callback 函数最终可观察到 this 值。<br>&emsp;&emsp;forEach() 遍历的范围在第一次调用 callback 前就会确定。调用 forEach 后添加到数组中的项不会被 callback 访问到。如果已经存在的值被改变，则传递给 callback 的值是 forEach() 遍历到他们那一刻的值。已删除的项不会被遍历到。如果已访问的元素在迭代时被删除了（例如使用 shift()），之后的元素将被跳过<br>&emsp;&emsp;forEach() 为每个数组元素执行一次 callback 函数；与 map() 或者 reduce() 不同的是，它总是返回 undefined 值，并且不可链式调用。其典型用例是在一个调用链的最后执行副作用（side effects，函数式编程上，指函数进行 返回结果值 以外的操作）。<br>&emsp;&emsp;forEach() 被调用时，不会改变原数组，也就是调用它的数组（尽管 callback 函数在被调用时可能会改变原数组）。（译注：此处说法可能不够明确，具体可参考EMCA语言规范：’forEach does not directly mutate the object on which it is called but the object may be mutated by the calls to callbackfn.’，即 forEach 不会直接改变调用它的对象，但是那个对象可能会被 callback 函数改变。）</p>
+</blockquote>
+<p><strong><span style=“color:red”>注意</span>： 除了抛出异常以外，没有办法中止或跳出 forEach() 循环。如果你需要中止或跳出循环，forEach() 方法不是应当使用的工具。</strong></p>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><p>3 和 7 之间空缺的数组单元未被 forEach() 调用 callback 函数，或进行任何其他操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arraySparse = [<span class="number">1</span>,<span class="number">3</span>,,<span class="number">7</span>];</span><br><span class="line"><span class="keyword">let</span> numCallbackRuns = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">arraySparse.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(element);</span><br><span class="line">  numCallbackRuns++;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"numCallbackRuns: "</span>, numCallbackRuns);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 7</span></span><br><span class="line"><span class="comment">// numCallbackRuns: 3</span></span><br></pre></td></tr></table></figure>
+<br>
+将 for 循环转换为 forEach
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> items = [<span class="string">'item1'</span>, <span class="string">'item2'</span>, <span class="string">'item3'</span>];</span><br><span class="line"><span class="keyword">const</span> copy = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// before</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;items.length; i++) &#123;</span><br><span class="line">  copy.push(items[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// after</span></span><br><span class="line">items.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</span><br><span class="line">  copy.push(item);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<br>
+打印出数组的内容
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logArrayElements</span>(<span class="params">element, index, array</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'a['</span> + index + <span class="string">'] = '</span> + element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意索引 2 被跳过了，因为在数组的这个位置没有项</span></span><br><span class="line">[<span class="number">2</span>, <span class="number">5</span>, , <span class="number">9</span>].forEach(logArrayElements);</span><br><span class="line"><span class="comment">// logs:</span></span><br><span class="line"><span class="comment">// a[0] = 2</span></span><br><span class="line"><span class="comment">// a[1] = 5</span></span><br><span class="line"><span class="comment">// a[3] = 9</span></span><br></pre></td></tr></table></figure>
+<br>
+如果数组在迭代时被修改了，则其他元素会被跳过。
+
+<p>&emsp;&emsp;下面的例子会输出 “one”, “two”, “four”。当到达包含值 “two” 的项时，整个数组的第一个项被移除了，这导致所有剩下的项上移一个位置。因为元素 “four” 正位于在数组更前的位置，所以 “three” 会被跳过。 forEach() 不会在迭代之前创建数组的副本。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> words = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>, <span class="string">'four'</span>];</span><br><span class="line">words.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">word</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(word);</span><br><span class="line">  <span class="keyword">if</span> (word === <span class="string">'two'</span>) &#123;</span><br><span class="line">    words.shift();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// one</span></span><br><span class="line"><span class="comment">// two</span></span><br><span class="line"><span class="comment">// four</span></span><br></pre></td></tr></table></figure>
+
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/29/twenty/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-nineteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1260,131 +1400,6 @@ index.html
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/23/eleven/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-ten" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/23/ten/">js中如何获取元素的当前显示样式----简单总结。</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/04/23/ten/" class="archive-article-date">
-  	<time datetime="2020-04-23T03:37:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：657字 | 预计阅读时长：2分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>有两种方法：<br>第一种：currentStyle<br>&emsp;&emsp;语法：元素.currentStyle.样式名<br>&emsp;&emsp;他可以用来读取当前元素正在显示的样式<br>&emsp;&emsp;如果当前元素没有设置该样式，则获取它的默认值<br>&emsp;&emsp;<strong>currentStyle只有在IE浏览器中支持，其他浏览器都不支持。</strong></p>
-<p>第二种：getComputedStyle()方法<br>&emsp;&emsp;getComputedStyle()这个方法来获取元素当前的样式<br>&emsp;&emsp;&emsp;&emsp;这个方法是window的方法，可以直接使用<br>&emsp;&emsp;需要两个参数<br>&emsp;&emsp;&emsp;&emsp;第一个：要获取样式的元素<br>&emsp;&emsp;&emsp;&emsp;第二个：可以传递一个伪元素，一般都传null<br>&emsp;&emsp;该方法会返回一个对象，对象中封装了当前元素对应的样式<br>&emsp;&emsp;&emsp;&emsp;可以通过  对象.样式名  来读取样式<br>&emsp;&emsp;如果没有设置样式则会获取到真实的值，而不是默认值<br>&emsp;&emsp;比如：没有设置width，它不会获取到auto，而是一个长度<br>&emsp;&emsp;<strong>该方法不支持IE8及以下浏览器</strong></p>
-<br>
-但是我们需要都兼容怎么办？
-那我们就自己写一个方法。
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;style&gt;</span></span><br><span class="line"><span class="regexp">        .box1 &#123;</span></span><br><span class="line"><span class="regexp">            width: 100px;</span></span><br><span class="line"><span class="regexp">            height: 100px;</span></span><br><span class="line"><span class="regexp">            background-color: #bfa;</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>style&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> box1 = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"box1"</span>)[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">var</span> btn01 = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"btn01"</span>)[<span class="number">0</span>];</span><br><span class="line">            btn01.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">// alert(box1.currentStyle.width);</span></span><br><span class="line">                <span class="comment">// var box = getComputedStyle(box1, null);</span></span><br><span class="line">                alert(getStyle(box1, <span class="string">"width"</span>));</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">obj, name</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) &#123;</span><br><span class="line">                <span class="keyword">return</span> getComputedStyle(obj, <span class="literal">null</span>)[name];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> obj.currentStyle.width;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn01"</span>&gt;按钮&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div class="box1"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
-<p>把方法分离出来：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getStyle</span>(<span class="params">obj, name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) &#123;</span><br><span class="line">        <span class="keyword">return</span> getComputedStyle(obj, <span class="literal">null</span>)[name];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> obj.currentStyle.width;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;当调用该方法的时候，它会检查浏览器中是否有getComputedStyle，如果又我们会使用getComputedStyle，否则会使用currentStyle，这样就完美解决了，所有的浏览器都能兼容。<br>&emsp;&emsp;但是我们为什么要在getComputedStyle前加一个window呢？说明一下：</p>
-<ul>
-<li>当不加window时，getComputedStyle 是作为一个变量来判断的，如果没有就会报错，结束下面的程序。</li>
-<li>加上windon时，getComputedStyle是作为一个属性来判断了，如果没有返回underfind。执行else</li>
-</ul>
-<br>
-**注意：通过currentStyle和getComputedStyle()读取到的样式都只是读的,不能修改，如果要修改可以通过修改style属性。**
-<br>
-<br>
-愿你的坚持终有收获。
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/ten/">展开全文 >></a>
         </p>
       
 
