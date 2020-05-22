@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 31</a>
-			<a>总字数 <span class="post-count">34.8k</span></a>
+			<a>总文章数 32</a>
+			<a>总字数 <span class="post-count">36.4k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,175 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/05/22/22/">JavaScript --- DOM  document类型</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/05/22/22/" class="archive-article-date">
+  	<time datetime="2020-05-22T10:01:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：1.5k字 | 预计阅读时长：5分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="Document-对象"><a href="#Document-对象" class="headerlink" title="Document 对象"></a>Document 对象</h2><p>每个载入浏览器的 HTML 文档都会成为 Document 对象。</p>
+<p>Document 对象使我们可以从脚本中对 HTML 页面中的所有元素进行访问。</p>
+<p>提示：Document 对象是 Window 对象的一部分，可通过 window.document 属性对其进行访问。</p>
+<hr>
+<p><strong>一、文档子节点</strong></p>
+<p>1、在document中有一个属性body，它保存的是body的引用（<strong>比通过childNodes列表访问的更快，更直接）</strong><br>&emsp;&emsp;Var body = document.body;</p>
+<p>2、Doucument.doucumentElement保存的是html根标签<br>&emsp;&emsp;Var html = document.documentElenmet;</p>
+<p>3、Document.all 代表页面中的所有元素<br>&emsp;&emsp;var all = document.all;<br>&emsp;&emsp;（var all = document.getElementsByTagName(“*”)）效果一样。<br>&emsp;&emsp;它返回一个数组</p>
+<p>4、根据元素的class属性查询一组元素节点对象<br>&emsp;&emsp;GetElementsByClassNmae() 可以根据class属性值获取一组元素节点对象（类数组）<br>&emsp;&emsp;但是该方法 不支持IE8及以下浏览器。</p>
+<p>5、documen.querySelector()<br>&emsp;&emsp; 需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象<br>&emsp;&emsp; 虽然IE8中没有getElementByTagName() 但是可以使用querySelector，他可以支持IE8.<br>&emsp;&emsp; 使用该方法总会返回<strong>一个唯一的一个元素</strong>，如果满足条件的元素有多个，那么它会返回第一个。</p>
+<p>6、documen.querySelectorAll()<br>&emsp;&emsp;该方法和querySelector()用法类似，不同的是他会将符合条件的元素<strong>封装到一个数组中</strong>。<br>&emsp;&emsp;即使符合条件的元素只有一个，他也会返回数组。</p>
+<hr>
+<p><strong>二、文档信息</strong></p>
+<p>1.document.title<br>&emsp;&emsp;可以取得当前界面的标题，也可以修改当前界面的标题并反映给浏览器的标题栏中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.title)  <span class="comment">//查看标题</span></span><br><span class="line"><span class="built_in">document</span>.title = <span class="string">"aqing"</span>     <span class="comment">//修改标题</span></span><br></pre></td></tr></table></figure>
+
+
+<p>2.属性 URL、domain、referrer  都和网页请求有关。<br>&emsp;&emsp;URL属性包含完整的URL<br>&emsp;&emsp;domain属性中只包含了页面的域名。<br>&emsp;&emsp;referrer属性中保存着连接到当前页面的哪个页面的URL，在没有来源页面的情况下，referrer属性中可能会包含空字符串</p>
+<hr>
+<p><strong>三、查找元素</strong></p>
+<p>1.getElementById()<br>&emsp;&emsp;通过id属性来获取一个元素节点的对象</p>
+<p>2.getElementsByTagName()<br>&emsp;&emsp;可以根据标签名来获取一组元素节点对象<br>&emsp;&emsp;这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象<br>&emsp;&emsp;即使查询到的元素只有一个，也会封装到数组中返回。</p>
+<p>3.getElementsByName()<br>&emsp;&emsp;通过name属性来获取一组元素节点对象。<br>&emsp;&emsp;这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象。<br>&emsp;&emsp;即使查询到的元素只有一个，也会封装到数组中返回。</p>
+<hr>
+<p><strong>四、特殊集合</strong></p>
+<p>1、document.anchors<br>&emsp;&emsp;包含文档中所有带name特性的 a 元素</p>
+<p>2、document.forms<br>&emsp;&emsp;包含文档中所有的<form>元素，与documen.getElementByTagName（“form”）结果相同。</p>
+<p>3、document.images<br>&emsp;&emsp;包含文档中所有的<img>元素，与documen.getElementByTagName（“img”）结果相同。</p>
+<p>4、document.links<br>&emsp;&emsp;包含文档中所带href特性的 a 元素</p>
+<p><strong>集合中的项也会随着当前文档内容的更新而更新</strong></p>
+<hr>
+<p><strong>五、DOM一致性检测</strong></p>
+<p>hasFeature()<br>&emsp;&emsp;这个方法有两个参数：要检测的DOM功能的名称及版本号。如果浏览器支持给定的名称和版本的功能，则该方法会返回 true 。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.implementation.hasFeature(<span class="string">"XML"</span>, <span class="string">"1.0"</span>));</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>六、文档写入</strong></p>
+<p><strong>1、write()方法</strong><br>定义和用法<br>&emsp;&emsp;write() 方法可向文档写入 HTML 表达式或 JavaScript 代码。</p>
+<p>可列出多个参数(exp1,exp2,exp3,…) ，它们将按顺序被追加到文档中。</p>
+<p>语法<br>&emsp;&emsp;document.write(exp1,exp2,exp3,….)</p>
+<p>说明<br>&emsp;&emsp;虽然根据 DOM 标准，该方法只接受单个字符串作为参数。不过根据经验，write() 可接受任何多个参数。</p>
+<p>我们通常按照两种的方式使用 write() 方法：一是在使用该方在文档中输出 HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档。在第二种情况中，请务必使用 close() 方法来关闭文档。</p>
+<p><strong>2、writeln() 方法</strong></p>
+<p>定义和用法<br>&emsp;&emsp;writeln() 方法与 write() 方法作用相同，外加可在每个表达式后写一个换行符。</p>
+<p>3、open()方法</p>
+<p>定义和用法<br>&emsp;&emsp;open() 方法可打开一个新文档，并擦除当前文档的内容。</p>
+<p>语法<br>&emsp;&emsp;document.open(mimetype,replace)<br>|参数| 描述 |<br>|–|–|<br>| mimetype |可选。规定正在写的文档的类型。默认值是 “text/html”。  |<br>|replace|可选。当此参数设置后，可引起新文档从父文档继承历史条目。|</p>
+<p>说明<br>&emsp;&emsp;该方法将擦除当前 HTML 文档的内容，开始一个新的文档，新文档用 write() 方法或 writeln() 方法编写。</p>
+<p>提示和注释<br>&emsp;&emsp;重要事项：调用 open() 方法打开一个新文档并且用 write() 方法设置文档内容后，必须记住用 close 方法关闭文档，并迫使其内容显示出来。</p>
+<p>注释：属于被覆盖的文档的一部分的脚本或事件句柄不能调用该方法，因为脚本或事件句柄自身也会被覆盖。</p>
+<p>4、close() 方法</p>
+<p>定义和用法<br>&emsp;&emsp;close() 方法可关闭一个由 document.open 方法打开的输出流，并显示选定的数据。</p>
+<p>语法<br>&emsp;&emsp;document.close()<br>说明<br>&emsp;&emsp;该方法将关闭 open() 方法打开的文档流，并强制地显示出所有缓存的输出内容。如果您使用 write() 方法动态地输出一个文档，必须记住当你这么做的时候要调用 close() 方法，以确保所有文档内容都能显示。</p>
+<p>&emsp;&emsp;一旦调用了 close()，就不应该再次调用 write()，因为这会隐式地调用 open() 来擦除当前文档并开始一个新的文档。</p>
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/22/22/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1652,135 +1821,6 @@ console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/06/twenty-three/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-twenty-two" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/05/06/twenty-two/">JavaScript中的稀疏数组和密集数组</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/05/06/twenty-two/" class="archive-article-date">
-  	<time datetime="2020-05-06T00:25:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1k字 | 预计阅读时长：4分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="稀疏数组"><a href="#稀疏数组" class="headerlink" title="稀疏数组"></a>稀疏数组</h2><p>概念</p>
-<p>在一些后端语言中，如 C，数组内的值通常被分配在一系列连续的内存地址上，但是在 js 中，某些数组内存则不是连续的，所谓稀疏，顾名思义，不连续，存在一些空隙；<br><br><br>例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"><span class="comment">// (3) [empty × 3]</span></span><br></pre></td></tr></table></figure>
-<p>通过以上方法创建数组，其中 Array(3) 中的参数 3 表示数组的长度，这个数组就是稀疏的，控制台输出一般带有 empty 字样，或者像下面这样创建数组：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,,<span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"><span class="comment">// (3) [1, empty, 2]</span></span><br></pre></td></tr></table></figure>
-<p>因为定义语句中两个逗号之间无字符，没有定义值，同样带有 empty 字样，代表稀疏数组，这里可以把 empty 理解为上面讲到的 空隙；<br><br></p>
-<p>特点<br>接下来看一下稀疏数组特殊在什么地方，举个例子说明：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];  <span class="comment">// 正常数组</span></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);  <span class="comment">// 稀疏数组</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [<span class="number">1</span>, , <span class="number">3</span>];  <span class="comment">// 稀疏数组</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr1.length, arr2.length, arr3.length);</span><br><span class="line"><span class="comment">// 3 3 3</span></span><br><span class="line"><span class="built_in">console</span>.log(arr2[<span class="number">0</span>], arr3[<span class="number">1</span>]);</span><br><span class="line"><span class="comment">// undefined undefined</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arr1[i], arr2[i], arr3[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 undefined 1</span></span><br><span class="line"><span class="comment">// 2 undefined undefined</span></span><br><span class="line"><span class="comment">// 3 undefined 3</span></span><br><span class="line">arr1.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line">arr2.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// （无输出）</span></span><br><span class="line">arr3.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0</span> <span class="keyword">in</span> arr3, <span class="number">1</span> <span class="keyword">in</span> arr3);</span><br><span class="line"><span class="comment">// true false</span></span><br></pre></td></tr></table></figure>
-<p>总结一下，创建的稀疏数组，其长度（length）与定义长度值一致；空隙 值可以被单独访问到，并且不是之前出现的 empty 字样，而是 undefined，比如例子中出现 undefined 时都是使用 arr[i] 这样的索引直接访问方式；使用某些数组方法如 forEach() 时，会忽略掉空隙值，只处理正常值，所以也会使得 1 in arr3 值为 false，即数组中不存在该索引；<br><br><br>细想一下，js 这样处理的原因多半是去除不必要的性能开销，当数组相当大时，可以避免处理一些未初始化的值，但这样也同时使得开发中会出现一些问题，所以应尽量避免；<br><br><br>举个例子来查看一下性能如何：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">'one'</span>);</span><br><span class="line"><span class="comment">// 密集数组</span></span><br><span class="line"><span class="built_in">Array</span>(...Array(<span class="number">1e5</span>)).forEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'one'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'two'</span>);</span><br><span class="line"><span class="comment">// 稀疏数组</span></span><br><span class="line"><span class="built_in">Array</span>(<span class="number">1e5</span>).forEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'two'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// one: 26.3759765625ms</span></span><br><span class="line"><span class="comment">// two: 5.701171875ms</span></span><br></pre></td></tr></table></figure>
-<p>可以看出在处理较大数组时，稀疏数组确实能降低不少性能开销；<br><br></p>
-<h2 id="密集数组"><a href="#密集数组" class="headerlink" title="密集数组"></a>密集数组</h2><p>概念</p>
-<p>与稀疏相对应，则存在密集，定义也就是元素中不存在 空隙 值，其实密集数组基本就是平时常见的正常数组；</p>
-<p>例如：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">arr2.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-
-<p>以上都是一些定义密集数组的方法，并且数组中的值都能被正常访问或遍历处理；</p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>运用时需要注意以下情况：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr1[<span class="number">0</span>], arr2[<span class="number">0</span>]);</span><br><span class="line"><span class="comment">// undefined undefined</span></span><br><span class="line">arr1.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line">arr2.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// （无输出）</span></span><br></pre></td></tr></table></figure>
-<p>即显式的声明值为 undefined 并不代表这个值就是之前提到的空隙值，虽然二者通过索引访问时的值都返回 undefined，但是其根本还是有区别的，显式声明过的是可以被遍历等操作访问的，不会被当成空隙值被忽略；</p>
-<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>通常在很多情况下，我们想要直接声明一个数组并赋予其一些特定的初始值，并且为了避免问题，通常是希望申明为密集数组的，下面就介绍一些常用的方法或技巧：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>).fill(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr1);</span><br><span class="line"><span class="comment">// [1, 1, 1]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="built_in">Array</span>.fill().map(<span class="function">(<span class="params">x, i</span>) =&gt;</span> i);</span><br><span class="line"><span class="built_in">console</span>.log(arr2);</span><br><span class="line"><span class="comment">// [0, 1, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr3 = <span class="built_in">Array</span>.apply(<span class="literal">null</span>, <span class="built_in">Array</span>(<span class="number">3</span>));</span><br><span class="line"><span class="built_in">console</span>.log(arr3);</span><br><span class="line"><span class="comment">// [undefined, undefined, undefined]</span></span><br><span class="line"><span class="comment">// 这样声明的是密集数组，不是稀疏的</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr4 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">4</span>).join(<span class="string">'a'</span>).split(<span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr4);</span><br><span class="line"><span class="comment">// ['a', 'a', 'a']</span></span><br><span class="line"><span class="comment">// 注意定义数组长度比输出数组大 1</span></span><br></pre></td></tr></table></figure>
-
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/06/twenty-two/">展开全文 >></a>
         </p>
       
 
