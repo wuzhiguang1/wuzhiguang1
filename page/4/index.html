@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 32</a>
-			<a>总字数 <span class="post-count">36.4k</span></a>
+			<a>总文章数 33</a>
+			<a>总字数 <span class="post-count">36.6k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,149 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-two" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/04/09/two/">详谈js中toString()和valueOf()</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/04/09/two/" class="archive-article-date">
+  	<time datetime="2020-04-09T09:03:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：1.1k字 | 预计阅读时长：4分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="详谈js中toString-和valueOf"><a href="#详谈js中toString-和valueOf" class="headerlink" title="详谈js中toString()和valueOf()"></a>详谈js中toString()和valueOf()</h2><p>他们主要用于数据转换，并且所有对象都继承了这两个方法：</p>
+<p><em>第一个是toString(),它的作用是返回一个反映这个对象的字符串<br>第二个是valueOf(),它的作用是返回它相应的原始值</em><br>什么是原始值：</p>
+<blockquote>
+<p>原始值：不可变更的值，包括undefined、null、布尔值、数字、和字符串。 看下面这张图，列出了一些基本的类型转换。</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/20200407222422403.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>==1、toString()==<br><img src="https://img-blog.csdnimg.cn/20200407221957379.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>很多类定义了更多特定版本的toString()方法。例如，数组类(Array class)的toString()方法将每个数组元素转换为-一个字符串，并在元素之间添加逗号后合并成结果字符串。函数类(Function class) 的toString()方法返回这个函数的实现定义的表示方式。实际上，这里的实现方式是通常是将用户定义的函数转换为JavaScript源代码字符串。日期类(Date class)定义的toString()方法返回了一个可读的日期和时间字符串。RegExp类 定义的toString()方法将RegExp对象转换为表示正则表达式直接量的字符串。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].toString());             <span class="comment">//  1,2,3</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;f(x);&#125;).toString());  <span class="comment">//  function(x) &#123;f(x);&#125;                      </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/\d+/g</span>.toString());                <span class="comment">//  /\d+/g</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">1</span>).toString());  <span class="comment">//  Sat Feb 01 2020 00:00:00 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></table></figure>
+
+<p>==2、valueof()==</p>
+<blockquote>
+<p>另一个转换对象的函数是value0f()。这个方法的任务并未详细定义:如果存在任意原始值，它就默认将对象转换为表示它的原始值。对象是复合值，而且大多数对象无法真正表示为一个原始值，因此默认的value0f()方法简单地返回对象本身，而不是返回一个原始值。数组、函数和正则表达式简单地继承了这个默认方法，调用这些类型的实例的value0f()方法只是简单返回对象本身。日期类定义的valueOf()方法返回它的一个内部表示：2020年1月1日以来的毫秒数。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(t.valueOf());           <span class="comment">//1580486400000</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>总的来说javaScript中对象到字符串的转换经过如下的这些步骤：</p>
+<ol>
+<li>如果对象具有toString()方法，则调用这个方法。如果它返回一个原始值，JavaScript将这个值转换为字符串(如果本身不是字符串的话)，并返回这个字符串结果。需要注意的是，原始值到字符串的转换在表3-2中已经有了详尽的说明。</li>
+<li>如果对象没有toString()方法，或者这个方法并不返回一个原始值，那么JavaScript会调用value0f()方法。如果存在这个方法，则JavaScript调用它。 如果返回值是原始值，JavaScript将这 个值转换为字符串(如果本身不是字符串的话)，并返回这个字符串结果。</li>
+<li>否则，JavaScript无法 从toString()或value0f()获得一一个 原始值，因此这时它将抛<br>出一个类型错误异常。</li>
+</ol>
+<p>从对象到数字的转换过程中，JavaScript做的相同的事情，只是会先使用valueOf()方法：</p>
+<ol>
+<li>如果对象具有value0f()方法，后者返回-一个原始值，则JavaScript将这 个原始值转换为数字( 如果需要的话)并返回这个数字。</li>
+<li>否则，如果对象具有toString()方法，后者返回一个原始值，JavaScript将其转换并返回。</li>
+<li>否则，JavaScript拋 出一个类型错误异常。</li>
+</ol>
+<hr>
+<p> 这就很好解释了下面的一个问题：为什么空数组会被转换为数字0，为什么具有单个元素的数组同样会转换成一个数字。</p>
+<blockquote>
+<p>对象转换为数字的细节解释了为什么空数组会被转换为数字0以及为什么具有单个元素的数组同样会转换成一个数字。数组继承了默认的value0f()方法，这个方法返回一个对象而不是一一个原始值，因此，数组到数字的转换则调用toString()方法。空数组转换成为空字符串，空字符串转换成为数字0。含有一个元素的数组转换为字符串的结果和这个元素转换字符串的结果一样。如果数组只包含-一个数字元素，这个数字转换为字符串，再转换回数字。</p>
+</blockquote>
+<p><em>愿你的坚持都有收获！！！</em></p>
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/09/two/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-one" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">

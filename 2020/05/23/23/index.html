@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: CSS | 阿清的小站</title>
+  <title>JavaScript DOM操作技术---动态脚本和动态样式 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿清的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿清的小站">
-<meta property="og:url" content="http://yoursite.com/tags/CSS/index.html">
+  <meta name="description" content="动态脚本创建动态脚本有两种方式。 1、引入外部文件 1&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;aqing.js&quot; &gt;&lt;&#x2F;script&gt; 2、直接插入JavaScript代码 12345678function loadScript(url) &amp;#123;    var script &#x3D; document.createElement(&quot;scrip">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript DOM操作技术---动态脚本和动态样式">
+<meta property="og:url" content="http://yoursite.com/2020/05/23/23/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="阿清的博客">
+<meta property="og:description" content="动态脚本创建动态脚本有两种方式。 1、引入外部文件 1&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;aqing.js&quot; &gt;&lt;&#x2F;script&gt; 2、直接插入JavaScript代码 12345678function loadScript(url) &amp;#123;    var script &#x3D; document.createElement(&quot;scrip">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-05-23T13:31:52.000Z">
+<meta property="article:modified_time" content="2020-05-23T13:32:27.065Z">
 <meta property="article:author" content="阿清そ">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="DOM">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
@@ -175,71 +179,219 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-23" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/23/twelve/" class="archive-article-date">
-  	<time datetime="2020-04-23T10:27:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
+        
+        <center><p>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/23/twelve/">用CSS来解决“高度塌陷”问题</a>
+    <h1 class="article-title_code_ant" itemprop="name">
+      JavaScript DOM操作技术---动态脚本和动态样式
     </h1>
   
+</p></center>
+        
+        <a href="/2020/05/23/23/" class="archive-article-date">
+  	<time datetime="2020-05-23T13:31:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：252字 | 预计阅读时长：1分钟
+	  </div>
 
-        <div class="article-info info-on-right">
-          
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="动态脚本"><a href="#动态脚本" class="headerlink" title="动态脚本"></a>动态脚本</h2><p>创建动态脚本有两种方式。</p>
+<p>1、引入外部文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"aqing.js"</span> &gt;&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2、直接插入JavaScript代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">    script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">    script.src = url;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">loadScript(<span class="string">"aqing.js"</span>);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="动态样式"><a href="#动态样式" class="headerlink" title="动态样式"></a><strong>动态样式</strong></h2><p>能够把CSS样式包含到HTML页面中的元素有两个。其中，&lt;link&gt;元素用于包含来自外部的文件，而&lt;style&gt;元素用于指定嵌入样式。与动态脚本类似。所谓动态样式是指在页面刚加载时不存在的样式；动态样式是页面加载完成后动态添加到页面中的。</p>
+<p>1、插入外部文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> type=<span class="string">"text/css"</span> href=<span class="string">"style.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2、直接插入JavaScript代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadStyleString</span>(<span class="params">css</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> style = <span class="built_in">document</span>.createElement(<span class="string">"style"</span>)</span><br><span class="line">    style.type = <span class="string">"text/css"</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        style.appendChild(<span class="built_in">document</span>.createTextNode(css));</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ex) &#123;</span><br><span class="line">        style.styleSheet.cssText = css;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>];</span><br><span class="line">    head.appendChild(style);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">loadStyleString(<span class="string">"body&#123;background-color:red&#125;"</span>);</span><br></pre></td></tr></table></figure>
+
+
+<br>
+愿你的坚持终有收获。
+
+<br>
+<br>
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      阿清そ
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-05-23
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-05-23
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+      <a href="#" title="JavaScript DOM操作技术---动态脚本和动态样式" target="_blank">JavaScript DOM操作技术---动态脚本和动态样式</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    
+  </div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/05/23/23/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/05/22/22/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript --- DOM  document类型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -268,9 +420,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
