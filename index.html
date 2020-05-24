@@ -70,7 +70,7 @@
 		</nav>
 		<nav>
 			<a>总文章数 33</a>
-			<a>总字数 <span class="post-count">36.6k</span></a>
+			<a>总字数 <span class="post-count">36.7k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -495,7 +495,7 @@
         
       </header>
 	  <div align="center" class="post-count">
-	      字数：2.1k字 | 预计阅读时长：7分钟
+	      字数：2.2k字 | 预计阅读时长：8分钟
 	  </div>
 
 
@@ -558,8 +558,13 @@
 <hr>
 <p><strong>获取元素节点的子节点</strong><br>通过具体的元素节点调用<br>1.getElementByTagName()<br>&emsp;&emsp;是一个方法，方法返回当前的指定标签名后代节点</p>
 <p>2.childNodes<br>&emsp;&emsp;是一个属性 表示当前节点的所有子节点<br>&emsp;&emsp;childNodes属性会获取包括文本节点在内的所有节点<br>&emsp;&emsp;<strong>根据DOM标签与标签间的空白也会当成文本节点</strong><br><span style="color: red;">注意：IE8及以下的浏览器中不会将空白文本当成子节点，<br>children属性可以获取当前元素的所有子元素。标签与标签间的空白不会当成文本节点。</span></p>
-<p>3.firstChild<br>&emsp;&emsp; 属性，表示当前节点的第一个子节点。<br>&emsp;&emsp;可以获取当前元素的第一个子节点（<strong>包含空白文本节点</strong>）。</p>
-<p>4.lastChile<br>&emsp;&emsp; 属性，表示当前节点的最后一个子节点<br>&emsp;&emsp;可以获取当前元素的最后一个子节点（<strong>包含空白文本节点</strong>）。</p>
+<p>3.firstChild<br>&emsp;&emsp; 属性，表示当前节点的第一个子节点。<br>&emsp;&emsp;可以获取当前元素的第一个子节点（<strong>包含空白文本节点和注释</strong>）。</p>
+<p>&emsp;&emsp;<strong><span style="color: red;">firstElementChild:指向第一个元素；（不包括文本节点和注释）</span></strong></p>
+<p>4.lastChile<br>&emsp;&emsp; 属性，表示当前节点的最后一个子节点<br>&emsp;&emsp;可以获取当前元素的最后一个子节点（<strong>包含空白文本节点和注释</strong>）。</p>
+<p>&emsp;&emsp;<strong><span style="color: red;">lastElementChild:指向最后一个子元素；（不包括文本节点和注释）</span></strong></p>
+<br>
+
+<p>遍历元素<br>&emsp;&emsp;<strong><span style="color: red;">childElementCount:返回子元素的个数（不包括文本节点和注释）</span></strong></p>
 <hr>
 <p><strong>获取父节点和兄弟节点</strong></p>
 <p>通过具体的节点调用<br>1.parentNode<br>&emsp;&emsp; 属性，表示当前节点的父节点</p>
