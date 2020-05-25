@@ -6,17 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 阿清的小站</title>
+  <title>JavaScript DOM ---样式 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿清的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿清的小站">
-<meta property="og:url" content="http://yoursite.com/archives/page/4/index.html">
+  <meta name="description" content="访问元素的样式通过JS修改元素的样式：&amp;emsp;&amp;emsp;语法：元素.style.样式名&#x3D;样式值  (样式值必须是字符串样式)&amp;emsp;&amp;emsp;注意：如果css的样式汇总含有 - ，&amp;emsp;&amp;emsp;这种名称在JS中是不合法的,比如background-color&amp;emsp;&amp;emsp;需要将这种样式的命名修改为驼峰命名法去掉 - ，&amp;emsp;&amp;emsp;然后将 - 后的字母大写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript DOM ---样式">
+<meta property="og:url" content="http://yoursite.com/2020/05/25/25/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="阿清的博客">
+<meta property="og:description" content="访问元素的样式通过JS修改元素的样式：&amp;emsp;&amp;emsp;语法：元素.style.样式名&#x3D;样式值  (样式值必须是字符串样式)&amp;emsp;&amp;emsp;注意：如果css的样式汇总含有 - ，&amp;emsp;&amp;emsp;这种名称在JS中是不合法的,比如background-color&amp;emsp;&amp;emsp;需要将这种样式的命名修改为驼峰命名法去掉 - ，&amp;emsp;&amp;emsp;然后将 - 后的字母大写">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200525141807596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200525143306829.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200525144831243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-05-25T07:32:09.000Z">
+<meta property="article:modified_time" content="2020-05-25T07:32:52.349Z">
 <meta property="article:author" content="阿清そ">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="DOM">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200525141807596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -175,154 +183,195 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-25" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/11/fives/" class="archive-article-date">
-  	<time datetime="2020-04-11T14:44:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
+        
+        <center><p>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/11/fives/">JavaScript中基本数据类型和引用数据类型的区别？</a>
+    <h1 class="article-title_code_ant" itemprop="name">
+      JavaScript DOM ---样式
     </h1>
   
+</p></center>
+        
+        <a href="/2020/05/25/25/" class="archive-article-date">
+  	<time datetime="2020-05-25T07:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：2k字 | 预计阅读时长：7分钟
+	  </div>
 
-        <div class="article-info info-on-right">
-          
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="访问元素的样式"><a href="#访问元素的样式" class="headerlink" title="访问元素的样式"></a>访问元素的样式</h2><p><strong>通过JS修改元素的样式：</strong><br>&emsp;&emsp;语法：元素.style.样式名=样式值  (样式值必须是字符串样式)<br>&emsp;&emsp;注意：如果css的样式汇总含有 - ，<br>&emsp;&emsp;这种名称在JS中是不合法的,比如background-color<br>&emsp;&emsp;需要将这种样式的命名修改为驼峰命名法去掉 - ，<br>&emsp;&emsp;然后将 - 后的字母大写。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box.style.backgroundColor = <span class="string">"yellow"</span></span><br><span class="line">box.style.width = <span class="string">"100px"</span></span><br></pre></td></tr></table></figure>
+
+
+<p>我们通过style属性设置的样式都是内联样式，<br>而内联样式有较高的优先级，所以通过JS修改的样式往往会立即显示。</p>
+<p>但是如果在样式中写了！Important，则此时样式会有最高的优先级，<br>即使通过js也不能覆盖该样式，此时将会导致js修改样式失效<br>     所以尽量不要为样式添加！Important</p>
+<p>通过JS读取内联的样式：<br>&emsp;&emsp;语法：元素.style.样式名<br>&emsp;&emsp;通过style属性设置和读取的都是内联样式，如果没有内联样式则会返回空置。</p>
+<p><strong>通过style来设置元素的样式，记得要加上 单位 px</strong></p>
+<hr>
+<p><strong>style对象的属性和方法</strong></p>
+<p>style对象定义了一些对象和方法，这些属性和方法在提供元素的style特性值的同时，也可以修改样式。</p>
+<ul>
+<li>cssText：能够访问到style特性中的CSS代码。</li>
+<li>length：应用给元素的CSS属性的数量。</li>
+<li>getPropertyValue(propertyName)：返回给定属性的字符串值</li>
+<li>item(index)：返回给定位置的CSS属性的名称。</li>
+<li>removeProperty(propertyName)：从样式表中删除给定的属性。</li>
+<li>setProperty(propertyName,value,priority)：将给定的属性设置为相应的值，并加上优先权标志（“important”或者一个空的字符串）。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重写cssText</span></span><br><span class="line">         text.style.cssText = <span class="string">"width:200px;height:100px"</span>;</span><br><span class="line">         <span class="built_in">console</span>.log(text.style.cssText)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取元素样式的属性名和属性值</span></span><br><span class="line"><span class="keyword">var</span> pop, value, i, len;</span><br><span class="line">         <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; text.style.length; i++) &#123;</span><br><span class="line">             pop = text.style[i];  <span class="comment">//或者pop = text.style.item(i);</span></span><br><span class="line">             value = text.style.getPropertyValue(pop);</span><br><span class="line">             <span class="built_in">console</span>.log(pop + <span class="string">":"</span> + value);</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>获取计算的样式</strong></p>
+<p><a href="https://aqingya.cn/2020/04/23/ten/" target="_blank" rel="noopener">js中如何获取元素的当前显示样式</a></p>
+<p><span style=“color:red;”><strong>无论在哪个浏览器中，所有计算的样式都是只读的</strong>。</span></p>
+<hr>
+<h2 id="元素的大小"><a href="#元素的大小" class="headerlink" title="元素的大小"></a>元素的大小</h2><p><strong>1、偏移量</strong></p>
+<p>offsetWidth<br>offsetHeight</p>
+<ul>
+<li>获取元素的整个的宽度和高度，包括内容区和内边距和边框。</li>
+</ul>
+<p>offsetParent</p>
+<ul>
+<li>可以用来获取当前元素的定位父元素<ul>
+<li>获取到里当前元素最近的开启了定位的祖先元素。</li>
+<li>如果所有的祖先元素都没有开启定位则会返回boby</li>
+</ul>
+</li>
+</ul>
+<p>offsetLeft</p>
+<ul>
+<li>当前元素相对于其定位父元素的水平偏移量。（外边框的距离也算）</li>
+</ul>
+<p>offsetTop</p>
+<ul>
+<li>当前元素相对于其定位父元素的垂直偏移量。（外边框的距离也算）</li>
+</ul>
+<p><span style=“color:red;”>这些属性都是不带px的，返回的都是一个数字，可以直接进行计算</span></p>
+<p><img src="https://img-blog.csdnimg.cn/20200525141807596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>要想知道某个元素在页面上的偏移量，将这个元素的offsetLeft和offsetTop与其offsetParent的相同属性相加，如此循环直至根元素，就可以得到一个基本准确的值。以下两个函数就可以用于分别取得元素的左和上偏移量。</p>
+<p><strong>获取元素的左偏移量</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的左偏移量</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">             <span class="keyword">var</span> actualLeft = element.offsetLeft;</span><br><span class="line">             <span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">                 actualLeft += current.offsetLeft;</span><br><span class="line">                 current = current.offsetParent;</span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">return</span> actualLeft;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(getElementLeft(text));</span><br></pre></td></tr></table></figure>
+<p>获取元素的上偏移量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的上偏移量</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">             <span class="keyword">var</span> actualTop = element.offsetTop;</span><br><span class="line">             <span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">                 actualTop += current.offsetTop;</span><br><span class="line">                 current = current.offsetParent;</span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">return</span> actualTop;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(getElementTop(text));</span><br></pre></td></tr></table></figure>
+
+<p><strong>所有的偏移量都是只读的。而且每次访问都需要重新计算一次。因此应该尽量避免重复访问这些属性；如果需要重复使用其中某些属性的值，可以将他们设置为局部变量，以提高性能。</strong></p>
+<hr>
+<h2 id="2、客户区大小"><a href="#2、客户区大小" class="headerlink" title="2、客户区大小"></a>2、客户区大小</h2><p>元素的客户区大小(clientdimension),指的是元素内容及其内边距所占据的空间大小。有关客户区大小的属性有两个: clientWidth和clientHeight。其中，clientWidth属性是元素内容区宽度加上左右内边距宽度; clientHeight属性是元素内容区高度加上，上下内边距高度。图12-2 形象地说明了这些属性表示的大小。</p>
+<p>clientWidth<br>clientHeight</p>
+<ul>
+<li>这两个属性可以获取元素的可见高度</li>
+<li>这些属性都是不带px的，返回的都是一个数字，可以直接进行计算</li>
+<li>获取元素的高度和宽度，包括内容区和内边距区</li>
+<li>这些属性都是只读的，不能修改</li>
+<li><strong>与偏移量相似，客户区大小也是只读的，也是每次访问都要重新计算。</strong><br><img src="https://img-blog.csdnimg.cn/20200525143306829.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<hr>
+<h2 id="3、滚动大小"><a href="#3、滚动大小" class="headerlink" title="3、滚动大小"></a>3、滚动大小</h2><p>最后要介绍的是滚动大小( scroll dimension ),指的是包含滚动内容的元素的大小。有些元素(例如<html>元素)，即使没有执行任何代码也能自动地添加滚动条;但另外-些元素，则需要通过CSS的overflow属性进行设置才能滚动。以下是4个与滚动大小相关的属性。</p>
+<ul>
+<li>scrollHeight:在没有滚动条的情况下，元素内容的总高度。</li>
+<li>scrollwidth:在没有滚动条的情况下，元素内容的总宽度。</li>
+<li>scrollLeft:被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置。</li>
+<li>scrollTop:被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200525144831243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)在确定文档的总高度时(包括基于视口的最小高度时),必须取得scrollwidth/clientwidth和scrollHeight/clientHeight中的最大值，才能保证在跨浏览器的环境下得到精确的结果。下面就是这样一个例子。</p>
+<p><strong>注意，对于运行在混杂模式下的IE,则需要用document . body代替document . documentElement。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> docHeight = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollHeight, <span class="built_in">document</span>.documentElement.clientHeight);</span><br><span class="line"><span class="keyword">var</span> docWidth = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollWidth, <span class="built_in">document</span>.documentElement.clientWidth);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(docHeight);</span><br><span class="line"><span class="built_in">console</span>.log(docWidth);</span><br></pre></td></tr></table></figure>
+
+<br>
+通过scrollLeft和scrollTop属性既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。在元素尚未被滚动时，这两个属性的值都等于0。如果元素被垂直滚动了，那么scrollTop的值会大于0，且表示元素上方不可见内容的像素高度。如果元素被水平滚动了，那么scrollLeft的值会大于0，且表示元素左侧不可见内容的像素宽度。这两个属性都是可以设置的，因此将元素的scrollLeft和scrollTop设置为0,就可以重置元素的滚动位置。下面这个函数会检测元素是否位于顶部，如果不是就将其回滚到顶部。
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">scrollToTop</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.scrollTop != <span class="number">0</span>) &#123;</span><br><span class="line">        element.scrollTop = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+<span style=“color:red;”>**关于滚动了一个练习**</span>。[连接地址](https://aqingya.cn/2020/04/23/eleven/)
+
+<hr>
+<h2 id="4、确定元素的大小"><a href="#4、确定元素的大小" class="headerlink" title="4、确定元素的大小"></a>4、确定元素的大小</h2><p>getBoundingClientRect() ，这个方法会返回一个矩形对象,包含4个属性：left、top、right、bottom。<br><strong>这些属性给出了元素在页面中相对于视口的位置</strong>。但是每个浏览器实现都不一样。</p>
+<p>写一个跨浏览器的函数：</p>
+<p>注意：</p>
+<ol>
+<li>由于使用了arguments.callee  所以这个方法不能再严格模式下使用。</li>
+<li>但在某些情况下，这个函数返回的值可能会有所不同，例如使用表格布局或使用滚动元素情况下。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBoundingClientRect</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">    <span class="keyword">var</span> scrollLeft = <span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line">    <span class="keyword">if</span> (element.getBoundingClientRect) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.offset != <span class="string">"number"</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">            temp.style.cssText = <span class="string">"position:absolute;left:0;top:0;"</span>;</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(temp);</span><br><span class="line">            <span class="built_in">arguments</span>.callee.offset = -temp.getBoundingClientRect().top - scrollTop;</span><br><span class="line">            <span class="built_in">document</span>.body.removeChild(temp);</span><br><span class="line">            temp = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> rect = element.getBoundingClientRect();</span><br><span class="line">        <span class="keyword">var</span> offset = <span class="built_in">arguments</span>.callee.offset;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            left: rect.left + offset,</span><br><span class="line">            right: rect.right + offset,</span><br><span class="line">            top: rect.top + offset,</span><br><span class="line">            bottom: rect.bottom + offset</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> actualLeft = getElementLeft(element);</span><br><span class="line">        <span class="keyword">var</span> actualTop = getElementTop(element);</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            left: actualLeft - scrollLeft,</span><br><span class="line">            right: actualLeft + element.offsetWidth - scrollLeft,</span><br><span class="line">            top: actualTop - scrollTop,</span><br><span class="line">            bottom: actualTop + element.offsetHeight - scrollTop</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<hr>
+<br>
+愿你的坚持终有收获。
+
+<br>
+<br>
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      阿清そ
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-05-25
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-05-25
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+      <a href="#" title="JavaScript DOM ---样式" target="_blank">JavaScript DOM ---样式</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    
+  </div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/10/four/" class="archive-article-date">
-  	<time datetime="2020-04-10T02:32:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/10/four/">搭建Hexo博客时，在git上执行 hexo d _hexo g 报错_ERROR Local hexo not found in D__blog 解决方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hexo搭建</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/git//" class="article-tag-list-link color4">git</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/git/Hexo搭建//" class="article-tag-list-link color2">Hexo搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/09/two/" class="archive-article-date">
-  	<time datetime="2020-04-09T09:03:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/09/two/">详谈js中toString()和valueOf()</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -335,118 +384,103 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/05/25/25/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/09/one/" class="archive-article-date">
-  	<time datetime="2020-04-09T08:38:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/24/24/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript --- DOM  document类型</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/09/one/">谈一谈javascript中函数定义表达式和函数声明的区别？</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/09/hello-first-blog/" class="archive-article-date">
-  	<time datetime="2020-04-09T07:30:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/09/hello-first-blog/">人生若是如初见</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -476,8 +510,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

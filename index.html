@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 34</a>
-			<a>总字数 <span class="post-count">38.5k</span></a>
+			<a>总文章数 35</a>
+			<a>总字数 <span class="post-count">40.5k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,221 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/05/25/25/">JavaScript DOM ---样式</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/05/25/25/" class="archive-article-date">
+  	<time datetime="2020-05-25T07:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：2k字 | 预计阅读时长：7分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="访问元素的样式"><a href="#访问元素的样式" class="headerlink" title="访问元素的样式"></a>访问元素的样式</h2><p><strong>通过JS修改元素的样式：</strong><br>&emsp;&emsp;语法：元素.style.样式名=样式值  (样式值必须是字符串样式)<br>&emsp;&emsp;注意：如果css的样式汇总含有 - ，<br>&emsp;&emsp;这种名称在JS中是不合法的,比如background-color<br>&emsp;&emsp;需要将这种样式的命名修改为驼峰命名法去掉 - ，<br>&emsp;&emsp;然后将 - 后的字母大写。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box.style.backgroundColor = <span class="string">"yellow"</span></span><br><span class="line">box.style.width = <span class="string">"100px"</span></span><br></pre></td></tr></table></figure>
+
+
+<p>我们通过style属性设置的样式都是内联样式，<br>而内联样式有较高的优先级，所以通过JS修改的样式往往会立即显示。</p>
+<p>但是如果在样式中写了！Important，则此时样式会有最高的优先级，<br>即使通过js也不能覆盖该样式，此时将会导致js修改样式失效<br>     所以尽量不要为样式添加！Important</p>
+<p>通过JS读取内联的样式：<br>&emsp;&emsp;语法：元素.style.样式名<br>&emsp;&emsp;通过style属性设置和读取的都是内联样式，如果没有内联样式则会返回空置。</p>
+<p><strong>通过style来设置元素的样式，记得要加上 单位 px</strong></p>
+<hr>
+<p><strong>style对象的属性和方法</strong></p>
+<p>style对象定义了一些对象和方法，这些属性和方法在提供元素的style特性值的同时，也可以修改样式。</p>
+<ul>
+<li>cssText：能够访问到style特性中的CSS代码。</li>
+<li>length：应用给元素的CSS属性的数量。</li>
+<li>getPropertyValue(propertyName)：返回给定属性的字符串值</li>
+<li>item(index)：返回给定位置的CSS属性的名称。</li>
+<li>removeProperty(propertyName)：从样式表中删除给定的属性。</li>
+<li>setProperty(propertyName,value,priority)：将给定的属性设置为相应的值，并加上优先权标志（“important”或者一个空的字符串）。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重写cssText</span></span><br><span class="line">         text.style.cssText = <span class="string">"width:200px;height:100px"</span>;</span><br><span class="line">         <span class="built_in">console</span>.log(text.style.cssText)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取元素样式的属性名和属性值</span></span><br><span class="line"><span class="keyword">var</span> pop, value, i, len;</span><br><span class="line">         <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; text.style.length; i++) &#123;</span><br><span class="line">             pop = text.style[i];  <span class="comment">//或者pop = text.style.item(i);</span></span><br><span class="line">             value = text.style.getPropertyValue(pop);</span><br><span class="line">             <span class="built_in">console</span>.log(pop + <span class="string">":"</span> + value);</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>获取计算的样式</strong></p>
+<p><a href="https://aqingya.cn/2020/04/23/ten/" target="_blank" rel="noopener">js中如何获取元素的当前显示样式</a></p>
+<p><span style=“color:red;”><strong>无论在哪个浏览器中，所有计算的样式都是只读的</strong>。</span></p>
+<hr>
+<h2 id="元素的大小"><a href="#元素的大小" class="headerlink" title="元素的大小"></a>元素的大小</h2><p><strong>1、偏移量</strong></p>
+<p>offsetWidth<br>offsetHeight</p>
+<ul>
+<li>获取元素的整个的宽度和高度，包括内容区和内边距和边框。</li>
+</ul>
+<p>offsetParent</p>
+<ul>
+<li>可以用来获取当前元素的定位父元素<ul>
+<li>获取到里当前元素最近的开启了定位的祖先元素。</li>
+<li>如果所有的祖先元素都没有开启定位则会返回boby</li>
+</ul>
+</li>
+</ul>
+<p>offsetLeft</p>
+<ul>
+<li>当前元素相对于其定位父元素的水平偏移量。（外边框的距离也算）</li>
+</ul>
+<p>offsetTop</p>
+<ul>
+<li>当前元素相对于其定位父元素的垂直偏移量。（外边框的距离也算）</li>
+</ul>
+<p><span style=“color:red;”>这些属性都是不带px的，返回的都是一个数字，可以直接进行计算</span></p>
+<p><img src="https://img-blog.csdnimg.cn/20200525141807596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>要想知道某个元素在页面上的偏移量，将这个元素的offsetLeft和offsetTop与其offsetParent的相同属性相加，如此循环直至根元素，就可以得到一个基本准确的值。以下两个函数就可以用于分别取得元素的左和上偏移量。</p>
+<p><strong>获取元素的左偏移量</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的左偏移量</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">             <span class="keyword">var</span> actualLeft = element.offsetLeft;</span><br><span class="line">             <span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">                 actualLeft += current.offsetLeft;</span><br><span class="line">                 current = current.offsetParent;</span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">return</span> actualLeft;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(getElementLeft(text));</span><br></pre></td></tr></table></figure>
+<p>获取元素的上偏移量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的上偏移量</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">             <span class="keyword">var</span> actualTop = element.offsetTop;</span><br><span class="line">             <span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">                 actualTop += current.offsetTop;</span><br><span class="line">                 current = current.offsetParent;</span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">return</span> actualTop;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(getElementTop(text));</span><br></pre></td></tr></table></figure>
+
+<p><strong>所有的偏移量都是只读的。而且每次访问都需要重新计算一次。因此应该尽量避免重复访问这些属性；如果需要重复使用其中某些属性的值，可以将他们设置为局部变量，以提高性能。</strong></p>
+<hr>
+<h2 id="2、客户区大小"><a href="#2、客户区大小" class="headerlink" title="2、客户区大小"></a>2、客户区大小</h2><p>元素的客户区大小(clientdimension),指的是元素内容及其内边距所占据的空间大小。有关客户区大小的属性有两个: clientWidth和clientHeight。其中，clientWidth属性是元素内容区宽度加上左右内边距宽度; clientHeight属性是元素内容区高度加上，上下内边距高度。图12-2 形象地说明了这些属性表示的大小。</p>
+<p>clientWidth<br>clientHeight</p>
+<ul>
+<li>这两个属性可以获取元素的可见高度</li>
+<li>这些属性都是不带px的，返回的都是一个数字，可以直接进行计算</li>
+<li>获取元素的高度和宽度，包括内容区和内边距区</li>
+<li>这些属性都是只读的，不能修改</li>
+<li><strong>与偏移量相似，客户区大小也是只读的，也是每次访问都要重新计算。</strong><br><img src="https://img-blog.csdnimg.cn/20200525143306829.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<hr>
+<h2 id="3、滚动大小"><a href="#3、滚动大小" class="headerlink" title="3、滚动大小"></a>3、滚动大小</h2><p>最后要介绍的是滚动大小( scroll dimension ),指的是包含滚动内容的元素的大小。有些元素(例如<html>元素)，即使没有执行任何代码也能自动地添加滚动条;但另外-些元素，则需要通过CSS的overflow属性进行设置才能滚动。以下是4个与滚动大小相关的属性。</p>
+<ul>
+<li>scrollHeight:在没有滚动条的情况下，元素内容的总高度。</li>
+<li>scrollwidth:在没有滚动条的情况下，元素内容的总宽度。</li>
+<li>scrollLeft:被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置。</li>
+<li>scrollTop:被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200525144831243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)在确定文档的总高度时(包括基于视口的最小高度时),必须取得scrollwidth/clientwidth和scrollHeight/clientHeight中的最大值，才能保证在跨浏览器的环境下得到精确的结果。下面就是这样一个例子。</p>
+<p><strong>注意，对于运行在混杂模式下的IE,则需要用document . body代替document . documentElement。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> docHeight = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollHeight, <span class="built_in">document</span>.documentElement.clientHeight);</span><br><span class="line"><span class="keyword">var</span> docWidth = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollWidth, <span class="built_in">document</span>.documentElement.clientWidth);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(docHeight);</span><br><span class="line"><span class="built_in">console</span>.log(docWidth);</span><br></pre></td></tr></table></figure>
+
+<br>
+通过scrollLeft和scrollTop属性既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。在元素尚未被滚动时，这两个属性的值都等于0。如果元素被垂直滚动了，那么scrollTop的值会大于0，且表示元素上方不可见内容的像素高度。如果元素被水平滚动了，那么scrollLeft的值会大于0，且表示元素左侧不可见内容的像素宽度。这两个属性都是可以设置的，因此将元素的scrollLeft和scrollTop设置为0,就可以重置元素的滚动位置。下面这个函数会检测元素是否位于顶部，如果不是就将其回滚到顶部。
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">scrollToTop</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.scrollTop != <span class="number">0</span>) &#123;</span><br><span class="line">        element.scrollTop = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+<span style=“color:red;”>**关于滚动了一个练习**</span>。[连接地址](https://aqingya.cn/2020/04/23/eleven/)
+
+<hr>
+<h2 id="4、确定元素的大小"><a href="#4、确定元素的大小" class="headerlink" title="4、确定元素的大小"></a>4、确定元素的大小</h2><p>getBoundingClientRect() ，这个方法会返回一个矩形对象,包含4个属性：left、top、right、bottom。<br><strong>这些属性给出了元素在页面中相对于视口的位置</strong>。但是每个浏览器实现都不一样。</p>
+<p>写一个跨浏览器的函数：</p>
+<p>注意：</p>
+<ol>
+<li>由于使用了arguments.callee  所以这个方法不能再严格模式下使用。</li>
+<li>但在某些情况下，这个函数返回的值可能会有所不同，例如使用表格布局或使用滚动元素情况下。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBoundingClientRect</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">    <span class="keyword">var</span> scrollLeft = <span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line">    <span class="keyword">if</span> (element.getBoundingClientRect) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.offset != <span class="string">"number"</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">            temp.style.cssText = <span class="string">"position:absolute;left:0;top:0;"</span>;</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(temp);</span><br><span class="line">            <span class="built_in">arguments</span>.callee.offset = -temp.getBoundingClientRect().top - scrollTop;</span><br><span class="line">            <span class="built_in">document</span>.body.removeChild(temp);</span><br><span class="line">            temp = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> rect = element.getBoundingClientRect();</span><br><span class="line">        <span class="keyword">var</span> offset = <span class="built_in">arguments</span>.callee.offset;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            left: rect.left + offset,</span><br><span class="line">            right: rect.right + offset,</span><br><span class="line">            top: rect.top + offset,</span><br><span class="line">            bottom: rect.bottom + offset</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> actualLeft = getElementLeft(element);</span><br><span class="line">        <span class="keyword">var</span> actualTop = getElementTop(element);</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            left: actualLeft - scrollLeft,</span><br><span class="line">            right: actualLeft + element.offsetWidth - scrollLeft,</span><br><span class="line">            top: actualTop - scrollTop,</span><br><span class="line">            bottom: actualTop + element.offsetHeight - scrollTop</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<hr>
+<br>
+愿你的坚持终有收获。
+
+<br>
+<br>
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/25/25/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-24" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1682,176 +1897,6 @@ console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/15/twenty-six/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-twenty-five" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/05/10/twenty-five/">JavaScript正则表达式-常见面试题总结</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/05/10/twenty-five/" class="archive-article-date">
-  	<time datetime="2020-05-10T12:41:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1.1k字 | 预计阅读时长：5分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><p>JavaScript 写一个字符串转成驼峰的方法，o_div_style_position转成oDivStylePosotion。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'border-bottom-color'</span>;</span><br><span class="line"><span class="keyword">var</span> strRg = str.replace(<span class="regexp">/\-[a-z]/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">params</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> params.charAt(<span class="number">1</span>).toUpperCase();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(strRg);</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>charAt(1)也可以用substr(1)、substring(1)来替代。</li>
-<li>toUpperCase()转换成大写字母。</li>
-<li>/-[a-z]/g中g表示全文检索，part表示匹配到的字符</li>
-<li>replace是字符串的方法，返回经过修改的新字符串。</li>
-</ol>
-<h2 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h2><p>JavaScript 查找字符串中出现最多字符的个数<br>例如：sdjksfssscfssdd -&gt;字符最多的是s，出现了7次</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'sdjksfssscfssdd'</span>;</span><br><span class="line"><span class="keyword">var</span> maxObj = &#123;</span><br><span class="line">    key: <span class="literal">null</span>,</span><br><span class="line">    count: <span class="literal">null</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> maxCou = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (str) &#123;</span><br><span class="line">  <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(str[<span class="number">0</span>], <span class="string">'g'</span>);</span><br><span class="line">  <span class="keyword">var</span> currStr = str[<span class="number">0</span>];</span><br><span class="line">  str = str.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params">part</span>) </span>&#123;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span> (i &gt; maxCou) &#123;</span><br><span class="line">    maxObj.key = currStr;</span><br><span class="line">    maxCou = maxObj.count = i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(maxObj.key + <span class="string">':'</span> + maxObj.count)</span><br></pre></td></tr></table></figure>
-
-<h2 id="问题三"><a href="#问题三" class="headerlink" title="问题三"></a>问题三</h2><p>JavaScript 把12233435566690中连续重复的数字去掉</p>
-<p>判断是否为空字符串，是就直接返回；</p>
-<p>不是的话</p>
-<p>初始字符串为str第一个，从第二个开始，如果不等于他们前一个的字符，代表不重复，加入初始字符，迭代进行，直到最后一个，返回</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeRepetition</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (str != <span class="string">''</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> result = str[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (str[i] != str[i - <span class="number">1</span>]) &#123;</span><br><span class="line">        result += str[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> result = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(removeRepetition(<span class="string">"sssssssssaaaaaaaaasasas"</span>)); <span class="comment">//sasasas</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="问题四"><a href="#问题四" class="headerlink" title="问题四"></a>问题四</h2><p>JavaScript 用js实现千位分隔符?</p>
-<p>例如123456789–&gt;123,456,789</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'123456789'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^([1-9]\d&#123;0,2&#125;)((?:\d&#123;3&#125;)+)$/</span>;</span><br><span class="line"><span class="keyword">var</span> s = str.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">RegExp</span>.$<span class="number">1</span> + <span class="string">','</span> + <span class="built_in">RegExp</span>.$<span class="number">2.</span>match(<span class="regexp">/\d&#123;3&#125;/g</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(s);<span class="comment">//123,456,789</span></span><br></pre></td></tr></table></figure>
-<p>知识点</p>
-<ul>
-<li>将第一个逗号前面的数字作为第一组，后面所有数字为第二组，第二组是由多个三位的数字组合而成的，整体需要匹配捕获，但是每个三位数不需要匹配捕获所以加？：。</li>
-<li>RegExp.$1获取第一个分组，RegExp.$2获取第二个分组。</li>
-<li>match返回匹配到的数据，是数组类型。</li>
-</ul>
-<p>注意：IE10中直接调用分组不识别，需要在此前调用test方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'123456789'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^([1-9]\d&#123;0,2&#125;)((?:\d&#123;3&#125;)+)$/</span>;</span><br><span class="line"><span class="keyword">if</span> (reg.test(str)) &#123;</span><br><span class="line">  <span class="keyword">var</span> s = str.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">RegExp</span>.$<span class="number">1</span> + <span class="string">','</span> + <span class="built_in">RegExp</span>.$<span class="number">2.</span>match(<span class="regexp">/\d&#123;3&#125;/g</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(s);<span class="comment">//123,456,789</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="问题五"><a href="#问题五" class="headerlink" title="问题五"></a>问题五</h2><p>JavaScript 写一个正则表达式判断字符串是否是对称数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'Woow'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^([a-z])([a-z])\2\1$/i</span>;</span><br><span class="line"><span class="keyword">if</span> (reg.test(str)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ok'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="问题六"><a href="#问题六" class="headerlink" title="问题六"></a>问题六</h2><p>JavaScript 写出一个正则表达式用于匹配由数字和字母组成的字符串</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPassWord</span> (<span class="params">nubmer</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> re = <span class="regexp">/^[0-9a-zA-Z]*$/</span>;  <span class="comment">//判断字符串是否为数字和字母组合</span></span><br><span class="line">  <span class="keyword">if</span> (!re.test(nubmer)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br>
-<br>
-
-<hr>
-<h2 id="test-也能捕获（本意是匹配）"><a href="#test-也能捕获（本意是匹配）" class="headerlink" title="test() 也能捕获（本意是匹配）"></a>test() 也能捕获（本意是匹配）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"wzg123wzg45wzg52"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d+)/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200512203558386.png" alt="在这里插入图片描述"></p>
-<hr>
-<h2 id="案例：把时间字符串进行处理"><a href="#案例：把时间字符串进行处理" class="headerlink" title="案例：把时间字符串进行处理"></a>案例：把时间字符串进行处理</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="string">"2020-5-1"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;1,2&#125;)-(\d&#123;1,2&#125;)/</span>;</span><br><span class="line">time = time.replace(reg, <span class="string">"$1年$2月$3日"</span>);</span><br></pre></td></tr></table></figure>
-<p>也可以这样处理str.replace(reg,function(){})</p>
-<ol>
-<li>首先拿REG和TIME进行匹配捕获，能匹配到几次就会把传递的函数执行几次（而且是匹配一次就执行一次）</li>
-<li>不仅把方法执行，而且EWPLACE还给方法传递了实参信息（和exec捕获的内容一致的信息：大正则匹配的内容，小分组匹配的信息）</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="string">"2020-5-1"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;1,2&#125;)-(\d&#123;1,2&#125;)/</span>;</span><br><span class="line">time = time.replace(reg, (big, $<span class="number">1</span>, $<span class="number">2</span>, $<span class="number">3</span>) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(big, $<span class="number">1</span>, $<span class="number">2</span>, $<span class="number">3</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2020051220375457.png" alt="在这里插入图片描述"></p>
-<ol start="3">
-<li>在函数中我们返回的是啥，就把当前大正则匹配的内容替换成啥。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="string">"2020-5-1"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;1,2&#125;)-(\d&#123;1,2&#125;)/</span>;</span><br><span class="line">time = time.replace(reg, (...arg) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> [, $<span class="number">1</span>, $<span class="number">2</span>, $<span class="number">3</span>] = arg;</span><br><span class="line">    $<span class="number">2.</span>length &lt; <span class="number">2</span> ? $<span class="number">2</span> = <span class="string">"0"</span> + $<span class="number">2</span> : <span class="literal">null</span></span><br><span class="line">    $<span class="number">3.</span>length &lt; <span class="number">2</span> ? $<span class="number">3</span> = <span class="string">"0"</span> + $<span class="number">3</span> : <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> $<span class="number">1</span> + <span class="string">"年"</span> + $<span class="number">2</span> + <span class="string">"月"</span> + $<span class="number">3</span> + <span class="string">"日"</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(time);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="案例：字符串首字母大写"><a href="#案例：字符串首字母大写" class="headerlink" title="案例：字符串首字母大写"></a>案例：字符串首字母大写</h2><p>函数被执行了六次，每一次都把正则匹配的信息传递给函数<br>每一次匹配：[“good”,”g”] [“good”,”g”] …</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"good good study, day day up"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\b([a-zA-Z])[a-zA-Z]*\b/g</span>;</span><br><span class="line">str = str.replace(reg, (...arg) =&gt; &#123;</span><br><span class="line">    <span class="keyword">var</span> [content, $<span class="number">1</span>] = arg;</span><br><span class="line">    $<span class="number">1</span> = $<span class="number">1.</span>toUpperCase();</span><br><span class="line">    content = content.substring(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> $<span class="number">1</span> + content;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br></pre></td></tr></table></figure>
-
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/10/twenty-five/">展开全文 >></a>
         </p>
       
 
