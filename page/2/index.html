@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 35</a>
-			<a>总字数 <span class="post-count">40.5k</span></a>
+			<a>总文章数 36</a>
+			<a>总字数 <span class="post-count">42.3k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,176 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-twenty-six" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/05/15/twenty-six/">JavaScript中的原型和原型链（图解）</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/05/15/twenty-six/" class="archive-article-date">
+  	<time datetime="2020-05-15T07:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：1.4k字 | 预计阅读时长：5分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="JS中的原型和原型链"><a href="#JS中的原型和原型链" class="headerlink" title="JS中的原型和原型链"></a>JS中的原型和原型链</h2><p>讲原型的时候，我们应该先要记住以下几个要点，这几个要点是理解原型的关键：</p>
+<p>1、所有的引用类型（数组、函数、对象）可以自由扩展属性（除null以外）。</p>
+<p>2、所有的引用类型都有一个’_ _ proto_ _’属性(也叫隐式原型，它是一个普通的对象)。</p>
+<p>3、所有的函数都有一个’prototype’属性(这也叫显式原型，它也是一个普通的对象)。</p>
+<p>4、所有引用类型，它的’_ _ proto_ _’属性指向它的构造函数的’prototype’属性。</p>
+<p>5、当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它的’_ _ proto_ _’属性(也就是它的构造函数的’prototype’属性)中去寻找。</p>
+<hr>
+<p>那么要点说完了，我们就根据这些要点来理解原型和原型链。</p>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>我们先来看一个原型的例子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=name;</span><br><span class="line">	<span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*根据要点3，所有的函数都有一个prototype属性，这个属性是一个对象</span></span><br><span class="line"><span class="comment">再根据要点1，所有的对象可以自由扩展属性</span></span><br><span class="line"><span class="comment">于是就有了以下写法*/</span></span><br><span class="line">Foo.prototype=&#123;</span><br><span class="line">	<span class="comment">// prototype对象里面又有其他的属性</span></span><br><span class="line">	showName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name);<span class="comment">//this是什么要看执行的时候谁调用了这个函数</span></span><br><span class="line">	&#125;,</span><br><span class="line">	showAge:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"And I'm "</span>+<span class="keyword">this</span>.age);<span class="comment">//this是什么要看执行的时候谁调用了这个函数</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn=<span class="keyword">new</span> Foo(<span class="string">'小明'</span>,<span class="number">19</span>)</span><br><span class="line"><span class="comment">/*当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它</span></span><br><span class="line"><span class="comment">构造函数的'prototype'属性中去找*/</span></span><br><span class="line">fn.showName(); <span class="comment">//I'm 小明</span></span><br><span class="line">fn.showAge(); <span class="comment">//And I'm 19</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>这就是原型，很好理解。那为什么要使用原型呢？</p>
+<p>试想如果我们要通过Foo()来创建很多很多个对象，如果我们是这样子写的话：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name=name;</span><br><span class="line">		<span class="keyword">this</span>.age=age;</span><br><span class="line">		<span class="keyword">this</span>.showName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">this</span>.showAge=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"And I'm "</span>+<span class="keyword">this</span>.age);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那么我们创建出来的每一个对象，里面都有showName和showAge方法，这样就会占用很多的资源。<br>而通过原型来实现的话，只需要在构造函数里面给属性赋值，而把方法写在Foo.prototype属性(这个属性是唯一的)里面。这样每个对象都可以使用prototype属性里面的showName、showAge方法，并且节省了不少的资源。</p>
+<hr>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>理解了原型，那么原型链就更好理解了。</p>
+<p><strong>下面这段话可以帮助理解原型链</strong></p>
+<p>根据要点5，当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它构造函数的’prototype’属性中去寻找。那又因为’prototype’属性是一个对象，所以它也有一个’_ _ proto_ _’属性。</p>
+<p>那么我们来看一个例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line"> 	<span class="keyword">this</span>.name=name;</span><br><span class="line"> 	<span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//this是什么要看执行的时候谁调用了这个函数。</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name+<span class="string">" And I'm "</span>+<span class="keyword">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn=<span class="keyword">new</span> Foo(<span class="string">'小明'</span>,<span class="number">19</span>);</span><br><span class="line">fn.toString(); <span class="comment">//I'm 小明 And I'm 19</span></span><br><span class="line"><span class="built_in">console</span>.log(fn.toString===Foo.prototype.__proto__.toString); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fn.__proto__ ===Foo.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.__proto__===<span class="built_in">Object</span>.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__===<span class="literal">null</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>是不是觉得有点奇怪？我们来分析一下。<br><img src="https://img-blog.csdnimg.cn/20200515132717836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)首先，fn的构造函数是Foo()。所以：<br><strong>fn._ _ proto _ _=== Foo.prototype</strong><br>又因为Foo.prototype是一个普通的对象，它的构造函数是Object，所以：<br><strong>Foo.prototype._ _ proto _ _=== Object.prototype</strong><br>通过上面的代码，我们知道这个toString()方法是在Object.prototype里面的，当调用这个对象的本身并不存在的方法时，它会一层一层地往上去找，一直到null为止。</p>
+<br>
+<br>
+所以当fn调用toString()时，JS发现fn中没有这个方法，于是它就去Foo.prototype中去找，发现还是没有这个方法，然后就去Object.prototype中去找，找到了，就调用Object.prototype中的toString()方法。
+
+<br>
+
+<p>这就是原型链，fn能够调用Object.prototype中的方法正是因为存在原型链的机制。</p>
+<p>另外，在使用原型的时候，一般推荐将需要扩展的方法写在构造函数的prototype属性中，避免写在_ _ proto _ _属性里面。</p>
+<br>
+
+<hr>
+<h2 id="探索instanceof"><a href="#探索instanceof" class="headerlink" title="探索instanceof"></a>探索instanceof</h2><p>instanceof是如何判断的？<br>表达式： A instanceof B          &emsp;&emsp;&emsp;&emsp;&emsp; A是实例对象，B是构造函数。A看隐式原型属性（<strong>proto</strong>），B看显示原型属性(prototype)</p>
+<p>如果B函数的显示原型对象在A对象的原型链上,返回true，否则返回false</p>
+<p>案例一：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f1 = <span class="keyword">new</span> Foo();</span><br><span class="line"><span class="built_in">console</span>.log(f1 <span class="keyword">instanceof</span> Foo); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(f1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="https://img-blog.csdnimg.cn/20200515152136840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>案例二:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> Foo); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200515153434949.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200515153443153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们来逐个分析一下：</p>
+<pre><code>console.log(Object instanceof Function); //true</code></pre><p><img src="https://img-blog.csdnimg.cn/20200515154607459.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>console.log(Object instanceof Object); //true</code></pre><p><img src="https://img-blog.csdnimg.cn/20200515154638561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>console.log(Function instanceof Function); //true<br><img src="https://img-blog.csdnimg.cn/20200515154725474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre><code>console.log(Function instanceof Object); //true</code></pre><p><img src="https://img-blog.csdnimg.cn/20200515154808226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">        </p>
+<pre><code>function Foo() {}
+console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img-blog.csdnimg.cn/2020051515495623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<p>##补充：两个关于原型链的面试题</p>
+<p>案例一：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">A.prototype.n = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> A();</span><br><span class="line">A.prototype = &#123;</span><br><span class="line">    n: <span class="number">2</span>,</span><br><span class="line">    m: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> A();</span><br><span class="line"><span class="built_in">console</span>.log(b.n); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(b.m); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(c.n); <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(c.m); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20200515145330972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<hr>
+<p>案例二：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.prototype.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"a()"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"b()"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F();</span><br><span class="line">f.a();<span class="comment">//a()</span></span><br><span class="line">f.b(); <span class="comment">// 直接报错   f.b is not a function</span></span><br><span class="line">F.a();<span class="comment">//a()</span></span><br><span class="line">F.b();<span class="comment">//b()</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200515150503562.png" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200515150517395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/15/twenty-six/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-twenty-five" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1407,130 +1577,6 @@ index.html
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/27/seventeen/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-sixteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/25/sixteen/">JavaScript ---鼠标拖拽元素问题总结</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/04/25/sixteen/" class="archive-article-date">
-  	<time datetime="2020-04-25T05:04:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：508字 | 预计阅读时长：2分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>大致分为三个步骤：</p>
-<ol>
-<li>鼠标摁下       onmousedown</li>
-<li>鼠标移动    onmousemove</li>
-<li>鼠标抬起    onmouseup</li>
-</ol>
-<p> <strong>注意的一点是 onmousemove事件和onmouseup事件是在onmousedown事件里面的</strong></p>
-<h2 id="代码如下（不支持IE8及以下浏览器）：代码一"><a href="#代码如下（不支持IE8及以下浏览器）：代码一" class="headerlink" title="代码如下（不支持IE8及以下浏览器）：代码一"></a>代码如下（不支持IE8及以下浏览器）：代码一</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body &#123;</span><br><span class="line">            height: <span class="number">3000</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        #box1 &#123;</span><br><span class="line">            width: <span class="number">100</span>px;</span><br><span class="line">            height: <span class="number">100</span>px;</span><br><span class="line">            background-color: #bbffaa;</span><br><span class="line">            position: absolute;</span><br><span class="line">            margin-left: <span class="number">100</span>px;</span><br><span class="line">            z-index: <span class="number">33</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        #box2 &#123;</span><br><span class="line">            width: <span class="number">100</span>px;</span><br><span class="line">            height: <span class="number">100</span>px;</span><br><span class="line">            background-color: red;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: <span class="number">300</span>px;</span><br><span class="line">            left: <span class="number">300</span>px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> box1 = document.getElementById(<span class="string">"box1"</span>);</span><br><span class="line">            dary(box1);</span><br><span class="line">            dary(box2);</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="function">function <span class="title">dary</span><span class="params">(obj)</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 为box设置鼠标按下事件  </span></span><br><span class="line">            obj.onmousedown = function(event) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 解决 event兼容性</span></span><br><span class="line">                event = event || window.event;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//元素上偏移量 = 鼠标.clientY-元素。offsetTop +元素的上外边距 </span></span><br><span class="line">                <span class="comment">//元素左偏移量 = 鼠标.clientX-元素。offsetleft +元素的下外边距</span></span><br><span class="line">                <span class="keyword">var</span> ot = event.pageY - obj.offsetTop + parseInt(getComputedStyle(obj, <span class="keyword">null</span>)[<span class="string">"margin-top"</span>]);</span><br><span class="line">                <span class="keyword">var</span> ol = event.pageX - obj.offsetLeft + parseInt(getComputedStyle(obj, <span class="keyword">null</span>)[<span class="string">"margin-left"</span>]);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 设置鼠标在box上的移动事件</span></span><br><span class="line">                document.onmousemove = function(event) &#123;</span><br><span class="line">                    event = event || window.event;</span><br><span class="line">                    <span class="comment">// 获取鼠标的位置坐标</span></span><br><span class="line">                    <span class="keyword">var</span> top = event.pageY - ot;</span><br><span class="line">                    <span class="keyword">var</span> left = event.pageX - ol;</span><br><span class="line">                    <span class="comment">// 设置元素的位置</span></span><br><span class="line">                    obj.style.top = top + <span class="string">"px"</span>;</span><br><span class="line">                    obj.style.left = left + <span class="string">"px"</span>;</span><br><span class="line">                &#125;;</span><br><span class="line">                <span class="comment">// 设置鼠标在box上的抬起事件</span></span><br><span class="line">                document.onmouseup = function() &#123;</span><br><span class="line">                    <span class="comment">// 当鼠标抬起时，取消onmousemove事件</span></span><br><span class="line">                    document.onmousemove = <span class="keyword">null</span>;</span><br><span class="line">                    <span class="comment">// 当鼠标抬起时，取消onmouseup事件</span></span><br><span class="line">                    document.onmouseup = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">                &#125;;</span><br><span class="line"></span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                        当我们拖拽一个网页中的内容时，浏览器会默认去搜索引擎汇总的搜索内容，</span></span><br><span class="line"><span class="comment">                        此时会导致拖拽功能的异常，这个是浏览器提供的默认行为，</span></span><br><span class="line"><span class="comment">                        如果不希望发生这个行为 ，则可以通过return false来取消默认行为</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">                        该方法解决对IE8及以下浏览器 不适用， 其他都好使</span></span><br><span class="line"><span class="comment">                    */</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt;asdfasd&lt;/p&gt;</span><br><span class="line">    &lt;div id="box1"&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div id="box2"&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<br>
-
-<hr>
-<br>
-<br>
-<br>
-愿你的坚持终有收获。
-
-
-
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/25/sixteen/">展开全文 >></a>
         </p>
       
 

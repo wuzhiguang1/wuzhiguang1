@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 35</a>
-			<a>总字数 <span class="post-count">40.5k</span></a>
+			<a>总文章数 36</a>
+			<a>总字数 <span class="post-count">42.3k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,193 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/05/25/26/">JavaScript DOM2 - 遍历</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/05/25/26/" class="archive-article-date">
+  	<time datetime="2020-05-25T11:20:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：1.8k字 | 预计阅读时长：7分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p>“DOM2级遍历和范围”模块定义了两个用于辅助完成顺序遍历DOM结构的类型: <strong>NodeIterator和TreeWalker</strong>。这两个类型能够基于给定的起点对DOM结构执行<strong>深度优先</strong>( depth-first )的遍历操作。</p>
+<p>DOM遍历是深度优先的DOM结构遍历，也就是说，移动的方向至少有两个(取决于使用的遍历类型)。遍历以给定节点为根，不可能向上超出DOM树的根节点。<br><img src="https://img-blog.csdnimg.cn/20200525175136185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>任何节点都可以作为遍历的根节点。如果假设<body>元素为根节点，那么遍历的第一步 就是访问&lt;p&gt;元素，然后再访问同为&lt;body&gt;元素后代的两个文本节点。不过，这次遍历永远不会到达&lt;html&gt;&lt;head&gt;元素，也不会到达不属于&lt;body&gt;元素子树的任何节点。而以document为根节点的遍历则可以访问文档中的全部节点。</p>
+<p>下图展示了对以document为根节点的DOM树进行深度优先遍历的先后顺序。<strong>NodeIterator 和TreeWalker都以这种方式遍历。</strong><br><img src="https://img-blog.csdnimg.cn/20200525175559137.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="1、NodeIterator"><a href="#1、NodeIterator" class="headerlink" title="1、NodeIterator"></a>1、NodeIterator</h2><p>使用document.createNodeIterator() 方法来创建它的实例。这个方法接收下列4个参数：</p>
+<blockquote>
+<ul>
+<li>root：想要作为搜索起点的数中的节点。</li>
+<li>whatToShow：表示想要访问哪些节点的数字代码。</li>
+<li>filter：是一个NodeFilter对象，或者一个表示应该接受还是某种特定节点的函数。(类似节点过滤器的函数)</li>
+<li>entityReferenceExpansion：布尔值表示是否扩展实体引用。这个参数在HTML页面中没有用，因为其中的实体引用不能扩展。</li>
+</ul>
+</blockquote>
+<p> whatToShow参数是一个位掩码， 通过应用- -或多 个过滤器( filter )来确定要访问哪些节点。这个参数的值以常量形式在NodeFilter类型中定义，如下所示。</p>
+<blockquote>
+<ul>
+<li>NodeFilter . SHOW_ ALL:显示所有类型的节点。</li>
+<li>NodeFilter . SHOW_ ELEMENT:显示元素节点。</li>
+<li>NodeFilter . SHOW_ ATTRIBUTE:显示特性节点。由于DOM结构原因，实际上不能使用这个值。</li>
+<li>NodeFilter . SHOW_ TEXT:显示文本节点。</li>
+<li>NodeFilter . SHOW_ CDATA_ SECTION: 显示CDATA节点。对HTML页面没有用。</li>
+<li>NodeFilter . SHOw_ ENTITY_ REFERENCE:显示实体引用节点。对HTML页面没有用。</li>
+<li>NodeFil ter . SHOW_ ENTITYE:显示实体节点。对HTML页面没有用。</li>
+<li>NodeFil ter . SHOW_ PROCESSING_ INSTRUCTION:显示处理指令节点。对HTML页面没有用。</li>
+<li>NodeFilter . SHOW_ COMMENT:显示注释节点。</li>
+<li>NodeFilter . SHOW_ DOCUMENT: 显示文档节点。</li>
+<li>NodeFilter . SHOW_ DOCUMENT_TYPE: 显示文档类型节点。</li>
+<li>NodeFil ter . SHOW_ DOCUMENT_ FRAGMENT:显示文档片段节点。对HTML页面没有用。</li>
+<li>NodeFilter . SHOW_ NOTATION:显示符号节点。对HTML页面没有用。</li>
+</ul>
+</blockquote>
+<p>除了NodeFilter.SHOW_ ALL之外，可以使用按位或操作符来组合多个选项，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> whatToShow = NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT;</span><br></pre></td></tr></table></figure>
+<br>
+可以通过createNodeIterator()方法的filter参数来指定自定义的NodeFilter对象，或者指定一个功能类似节点过滤器( node filter )的函数。 
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> filter = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> node.tagName.toLowerCase() == <span class="string">"li"</span>;</span><br><span class="line">    NodeFilter.FILTER_ACCEPT;</span><br><span class="line">    NodeFilter.FILTER_SKIP;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>NodeIterator类型的两个主要方法是<strong>nextNode ()</strong>和p<strong>reviousNode()</strong>。顾名思义，在深度优先的DOM子树遍历中，nextNode ()方法用于向前前进一步，而previousNode ()用于向后后退一步。在刚刚创建的NodeIterator对象中，有一个内部指针指向根节点，因此第一-次调用nextNode()会返回根节点。当遍历到DOM子树的最后一个节点时，nextNode() 返回null。previousNode()方法的工作机制类似。当遍历到DOM子树的最后一个节点，且previousNode()返回根节点之后，再次调用它就会返回null。</p>
+<hr>
+<p>小例子：遍历指定节点中 &lt;li&gt;的元素，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mylist = <span class="built_in">document</span>.getElementById(<span class="string">"mylist"</span>);  <span class="comment">//获取我们遍历起点的节点。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> filter = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> node.tagName.toLowerCase() == <span class="string">"li"</span>?</span><br><span class="line">    NodeFilter.FILTER_ACCEPT:</span><br><span class="line">    NodeFilter.FILTER_SKIP;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iterator = <span class="built_in">document</span>.createNodeIterator(mylist, NodeFilter.SHOW_ELEMENT, filter, <span class="literal">false</span>);</span><br><span class="line"><span class="keyword">var</span> node = iterator.nextNode;</span><br><span class="line"><span class="keyword">while</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(node.tagName)  <span class="comment">//输出标签名</span></span><br><span class="line">    node = iterator.nextNode();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="TrreWalker"><a href="#TrreWalker" class="headerlink" title="TrreWalker"></a>TrreWalker</h2><p>TreeWalker是NodeIterator的一个更高级 的版本。除了包括 nextNode ()和previousNode ()在内的相同的功能之外，这个类型还提供了下列用于在不同方向上遍历DOM结构的方法。</p>
+<blockquote>
+<ul>
+<li>parentNode():遍历到当前节点的父节点;</li>
+<li>firstChild():遍历到当前节点的第一一个子节点;</li>
+<li>lastChild():遍历到当前节点的最后-一个子节点;</li>
+<li>nextSibling():遍历到当前节点的下一一个同辈节点;</li>
+<li>previoussibling():遍历到当前节点的上一个同辈节点。</li>
+</ul>
+</blockquote>
+<p>创建Treewalker对象要使用document. createTreewalker()方法，这个方法接受的4个参数与document . createNodeIterator ()方法相同:作为遍历起点的根节点、要显示的节点类型、过滤器和一个表示是否扩展实体引用的布尔值。由于这两个创建方法很相似，所以很容易用Treewalker 来代替NodeIterator,如下面的例子所示。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mylist = <span class="built_in">document</span>.getElementById(<span class="string">"mylist"</span>);</span><br><span class="line">            <span class="keyword">var</span> filter = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> node.tagName.toLowerCase() == <span class="string">"li"</span> ?</span><br><span class="line">                    NodeFilter.FILTER_ACCEPT :</span><br><span class="line">                    NodeFilter.FILTER_SKIP;</span><br><span class="line">                <span class="comment">// NodeFilter.FILTER_REJECT;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">var</span> walker = <span class="built_in">document</span>.createTreeWalker(mylist, NodeFilter.SHOW_ELEMENT, filter, <span class="literal">false</span>);</span><br><span class="line">            <span class="keyword">var</span> node = walker.nextNode;</span><br><span class="line">            <span class="keyword">while</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(node.tagName)  <span class="comment">//输出标签名</span></span><br><span class="line">                node = walker.nextNode();</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p>在这里，filter可以返回的值有所不同。除了NodeFilter .FILTER_ACCEPT 和NodeFilter.FILTER_ SKIP之外，还可以使用NodeFilter . FILTER_REJECT。 在使用NodeIterator对象时，NodeFilter . FILTER_ SKIP与NodeFilter . FILTER_ REJECT 的作用相同:跳过指定的节点。但在使用TreeWalker对象时，NodeFilter . FILTER <em>SKIP会跳过相应节点继续前进到子树中的下一个节点，而NodeFilter . FILTER</em> REJECT 则会跳过相应节点及该节点的整个子树。例如，将前面例子中的NodeFilter . FILTER_ SKIP 修改成NodeFilter. FILTER_ <em>REJECT, 结果就是不会访问任何节点。这是因为第一个返回的节点是&lt;div&gt;,它的标签名不是”li”，于是就会返回NodeFilter . FILTER</em> REJECT ，这意味着遍历会跳过整个子树。在这个例子中，&lt;div&gt;元素是遍历的根节点，于是结果就会停止遍历。</p>
+<p>当然，Treewalker真正强大的地方在于能够在DOM结构中沿任何方向移动。使用Treewalker遍历DOM树，即使不定义过滤器，也可以取得所有&lt;li&gt;元素，如下面的代码所示。<span style="color:red;"><strong>（前提我们知道它的结构树）</strong></sapn></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mylist = <span class="built_in">document</span>.getElementById(<span class="string">"mylist"</span>);</span><br><span class="line"><span class="keyword">var</span> walker = <span class="built_in">document</span>.createTreeWalker(mylist, NodeFilter.SHOW_ELEMENT, <span class="literal">null</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">walker.firstChild(); <span class="comment">//转到 &lt;p&gt;</span></span><br><span class="line">walker.nextSibling() <span class="comment">//转到&lt;ul&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> node = walker.firstChild();</span><br><span class="line"><span class="keyword">while</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(node.tagName)    </span><br><span class="line">    node = walker.nextSibling();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它的HTML结构</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"mylist"</span>&gt;</span><br><span class="line">    &lt;p&gt;sdfsdf&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;ul&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li id="li"&gt;阿&lt;/</span>li&gt;</span><br><span class="line">        &lt;li&gt;清&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li&gt;呀&lt;/</span>li&gt;</span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>TreeWalker类型 还有一个属性，名叫 currentNode ，表示任何遍历方法在上一次遍历中返回的节点。通过设置这个属性也可以修改遍历继续进行起点，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> node = walker.nextNode;</span><br><span class="line"><span class="built_in">console</span>.log(node === walker.currentNode); <span class="comment">//ture</span></span><br><span class="line">walker.currentNode = <span class="built_in">document</span>.body; <span class="comment">//修改起点</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<p>下面的例子会返回body中所有的 li 节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mylist = <span class="built_in">document</span>.getElementById(<span class="string">"mylist"</span>);</span><br><span class="line"><span class="keyword">var</span> filter = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> node.tagName.toLowerCase() == <span class="string">"li"</span> ?</span><br><span class="line">        NodeFilter.FILTER_ACCEPT :</span><br><span class="line">        NodeFilter.FILTER_SKIP;</span><br><span class="line">    <span class="comment">// NodeFilter.FILTER_REJECT;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> walker = <span class="built_in">document</span>.createTreeWalker(mylist, NodeFilter.SHOW_ELEMENT, filter, <span class="literal">false</span>);</span><br><span class="line"><span class="keyword">var</span> node = walker.nextNode;</span><br><span class="line"><span class="built_in">console</span>.log(node === walker.currentNode); <span class="comment">//ture</span></span><br><span class="line">walker.currentNode = <span class="built_in">document</span>.body; <span class="comment">//修改起点</span></span><br><span class="line"><span class="keyword">while</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(node.tagName)</span><br><span class="line">    node = walker.nextNode();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/25/26/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-25" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1727,176 +1914,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/18/twenty-seven/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-twenty-six" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/05/15/twenty-six/">JavaScript中的原型和原型链（图解）</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/05/15/twenty-six/" class="archive-article-date">
-  	<time datetime="2020-05-15T07:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1.4k字 | 预计阅读时长：5分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="JS中的原型和原型链"><a href="#JS中的原型和原型链" class="headerlink" title="JS中的原型和原型链"></a>JS中的原型和原型链</h2><p>讲原型的时候，我们应该先要记住以下几个要点，这几个要点是理解原型的关键：</p>
-<p>1、所有的引用类型（数组、函数、对象）可以自由扩展属性（除null以外）。</p>
-<p>2、所有的引用类型都有一个’_ _ proto_ _’属性(也叫隐式原型，它是一个普通的对象)。</p>
-<p>3、所有的函数都有一个’prototype’属性(这也叫显式原型，它也是一个普通的对象)。</p>
-<p>4、所有引用类型，它的’_ _ proto_ _’属性指向它的构造函数的’prototype’属性。</p>
-<p>5、当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它的’_ _ proto_ _’属性(也就是它的构造函数的’prototype’属性)中去寻找。</p>
-<hr>
-<p>那么要点说完了，我们就根据这些要点来理解原型和原型链。</p>
-<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>我们先来看一个原型的例子。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=name;</span><br><span class="line">	<span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*根据要点3，所有的函数都有一个prototype属性，这个属性是一个对象</span></span><br><span class="line"><span class="comment">再根据要点1，所有的对象可以自由扩展属性</span></span><br><span class="line"><span class="comment">于是就有了以下写法*/</span></span><br><span class="line">Foo.prototype=&#123;</span><br><span class="line">	<span class="comment">// prototype对象里面又有其他的属性</span></span><br><span class="line">	showName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name);<span class="comment">//this是什么要看执行的时候谁调用了这个函数</span></span><br><span class="line">	&#125;,</span><br><span class="line">	showAge:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"And I'm "</span>+<span class="keyword">this</span>.age);<span class="comment">//this是什么要看执行的时候谁调用了这个函数</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn=<span class="keyword">new</span> Foo(<span class="string">'小明'</span>,<span class="number">19</span>)</span><br><span class="line"><span class="comment">/*当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它</span></span><br><span class="line"><span class="comment">构造函数的'prototype'属性中去找*/</span></span><br><span class="line">fn.showName(); <span class="comment">//I'm 小明</span></span><br><span class="line">fn.showAge(); <span class="comment">//And I'm 19</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>这就是原型，很好理解。那为什么要使用原型呢？</p>
-<p>试想如果我们要通过Foo()来创建很多很多个对象，如果我们是这样子写的话：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name=name;</span><br><span class="line">		<span class="keyword">this</span>.age=age;</span><br><span class="line">		<span class="keyword">this</span>.showName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">this</span>.showAge=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"And I'm "</span>+<span class="keyword">this</span>.age);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>那么我们创建出来的每一个对象，里面都有showName和showAge方法，这样就会占用很多的资源。<br>而通过原型来实现的话，只需要在构造函数里面给属性赋值，而把方法写在Foo.prototype属性(这个属性是唯一的)里面。这样每个对象都可以使用prototype属性里面的showName、showAge方法，并且节省了不少的资源。</p>
-<hr>
-<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>理解了原型，那么原型链就更好理解了。</p>
-<p><strong>下面这段话可以帮助理解原型链</strong></p>
-<p>根据要点5，当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它构造函数的’prototype’属性中去寻找。那又因为’prototype’属性是一个对象，所以它也有一个’_ _ proto_ _’属性。</p>
-<p>那么我们来看一个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line"> 	<span class="keyword">this</span>.name=name;</span><br><span class="line"> 	<span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//this是什么要看执行的时候谁调用了这个函数。</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name+<span class="string">" And I'm "</span>+<span class="keyword">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn=<span class="keyword">new</span> Foo(<span class="string">'小明'</span>,<span class="number">19</span>);</span><br><span class="line">fn.toString(); <span class="comment">//I'm 小明 And I'm 19</span></span><br><span class="line"><span class="built_in">console</span>.log(fn.toString===Foo.prototype.__proto__.toString); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fn.__proto__ ===Foo.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.__proto__===<span class="built_in">Object</span>.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__===<span class="literal">null</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>是不是觉得有点奇怪？我们来分析一下。<br><img src="https://img-blog.csdnimg.cn/20200515132717836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)首先，fn的构造函数是Foo()。所以：<br><strong>fn._ _ proto _ _=== Foo.prototype</strong><br>又因为Foo.prototype是一个普通的对象，它的构造函数是Object，所以：<br><strong>Foo.prototype._ _ proto _ _=== Object.prototype</strong><br>通过上面的代码，我们知道这个toString()方法是在Object.prototype里面的，当调用这个对象的本身并不存在的方法时，它会一层一层地往上去找，一直到null为止。</p>
-<br>
-<br>
-所以当fn调用toString()时，JS发现fn中没有这个方法，于是它就去Foo.prototype中去找，发现还是没有这个方法，然后就去Object.prototype中去找，找到了，就调用Object.prototype中的toString()方法。
-
-<br>
-
-<p>这就是原型链，fn能够调用Object.prototype中的方法正是因为存在原型链的机制。</p>
-<p>另外，在使用原型的时候，一般推荐将需要扩展的方法写在构造函数的prototype属性中，避免写在_ _ proto _ _属性里面。</p>
-<br>
-
-<hr>
-<h2 id="探索instanceof"><a href="#探索instanceof" class="headerlink" title="探索instanceof"></a>探索instanceof</h2><p>instanceof是如何判断的？<br>表达式： A instanceof B          &emsp;&emsp;&emsp;&emsp;&emsp; A是实例对象，B是构造函数。A看隐式原型属性（<strong>proto</strong>），B看显示原型属性(prototype)</p>
-<p>如果B函数的显示原型对象在A对象的原型链上,返回true，否则返回false</p>
-<p>案例一：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f1 = <span class="keyword">new</span> Foo();</span><br><span class="line"><span class="built_in">console</span>.log(f1 <span class="keyword">instanceof</span> Foo); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(f1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-
-<p><img src="https://img-blog.csdnimg.cn/20200515152136840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>案例二:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> Foo); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200515153434949.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200515153443153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们来逐个分析一下：</p>
-<pre><code>console.log(Object instanceof Function); //true</code></pre><p><img src="https://img-blog.csdnimg.cn/20200515154607459.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<pre><code>console.log(Object instanceof Object); //true</code></pre><p><img src="https://img-blog.csdnimg.cn/20200515154638561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>console.log(Function instanceof Function); //true<br><img src="https://img-blog.csdnimg.cn/20200515154725474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<pre><code>console.log(Function instanceof Object); //true</code></pre><p><img src="https://img-blog.csdnimg.cn/20200515154808226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">        </p>
-<pre><code>function Foo() {}
-console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img-blog.csdnimg.cn/2020051515495623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<hr>
-<p>##补充：两个关于原型链的面试题</p>
-<p>案例一：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">A.prototype.n = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> A();</span><br><span class="line">A.prototype = &#123;</span><br><span class="line">    n: <span class="number">2</span>,</span><br><span class="line">    m: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> A();</span><br><span class="line"><span class="built_in">console</span>.log(b.n); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(b.m); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(c.n); <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(c.m); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20200515145330972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<hr>
-<p>案例二：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.prototype.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"a()"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"b()"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F();</span><br><span class="line">f.a();<span class="comment">//a()</span></span><br><span class="line">f.b(); <span class="comment">// 直接报错   f.b is not a function</span></span><br><span class="line">F.a();<span class="comment">//a()</span></span><br><span class="line">F.b();<span class="comment">//b()</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200515150503562.png" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200515150517395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/15/twenty-six/">展开全文 >></a>
         </p>
       
 
