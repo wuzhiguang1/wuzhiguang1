@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 37</a>
-			<a>总字数 <span class="post-count">51.7k</span></a>
+			<a>总文章数 38</a>
+			<a>总字数 <span class="post-count">62.4k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,124 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-eight" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/04/17/eight/">细谈apply()与call()</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/04/17/eight/" class="archive-article-date">
+  	<time datetime="2020-04-17T03:22:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：297字 | 预计阅读时长：1分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<p><strong>两者使用的目的</strong>：改变调用的函数体内部的this的指向。<br>&emsp;&emsp;相同点：均是调用某对象的方法，格式：obj.函数名.call()<br>&emsp;&emsp;call(obj,参数1，参数2）:两个参数,前者将代替Function类里this对象，后者（多个元素）作为参数传递给被调用的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  name:<span class="string">"name1"</span>,</span><br><span class="line">  logName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> bar=&#123;</span><br><span class="line">  name:<span class="string">"name2"</span></span><br><span class="line">&#125;;</span><br><span class="line">foo.logName.call(bar);<span class="comment">//name2</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;apply（obj，[参数1，参数2]），同上，不同点是第二个参数是数组。（将数组的每个元素作为一个个参数传递给被调用的函数，性质与call（）方法一样）</p>
+<p>&emsp;&emsp;利用apply（）这一特性的一些小场景：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求数组的最大值</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">34</span>,<span class="number">8</span>]     </span><br><span class="line"><span class="keyword">var</span> max=<span class="built_in">Math</span>.max.apply(<span class="literal">null</span>,arr)  <span class="comment">//34   Math.max（）参数不能为数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//求数组的最小值</span></span><br><span class="line"><span class="keyword">var</span> max=<span class="built_in">Math</span>.min.apply(<span class="literal">null</span>,arr)  <span class="comment">//1   </span></span><br><span class="line"><span class="comment">//合并数组并返回新数组的长度</span></span><br><span class="line"><span class="keyword">var</span> arr1=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="string">"3"</span>);</span><br><span class="line"><span class="keyword">var</span> arr2=<span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"4"</span>,<span class="string">"5"</span>,<span class="string">"6"</span>);</span><br><span class="line"><span class="built_in">Array</span>.prototype.push.apply(arr1,arr2); <span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+
+
+<br>
+<br>
+没事可以来看看，万一有收获呢。
+
+<p><a href="https://aqingya.cn" target="_blank" rel="noopener">个人博客地址https://aqingya.cn</a><br><br><br>愿你的坚持终有回报。</p>
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/17/eight/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-seven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
