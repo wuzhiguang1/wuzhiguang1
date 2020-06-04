@@ -6,33 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaScript中的原型和原型链（图解） | 阿清的小站</title>
+  <title>JavaScript 性能优化之函数绑定 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JS中的原型和原型链讲原型的时候，我们应该先要记住以下几个要点，这几个要点是理解原型的关键： 1、所有的引用类型（数组、函数、对象）可以自由扩展属性（除null以外）。 2、所有的引用类型都有一个’_ _ proto_ _’属性(也叫隐式原型，它是一个普通的对象)。 3、所有的函数都有一个’prototype’属性(这也叫显式原型，它也是一个普通的对象)。 4、所有引用类型，它的’_ _ prot">
+  <meta name="description" content="函数绑定：在特定的 this 环境中，以指定参数调用另一个函数。常常与回调函数和事件处理程序一起使用一遍在将函数作为变量传递的同时保留代码执行环境。 12345678var handler &#x3D; &amp;#123;    name: &quot;阿清&quot;,    sayName: function(event) &amp;#123;        alert(this.name);    &amp;#125;&amp;#125;;var b">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript中的原型和原型链（图解）">
-<meta property="og:url" content="http://yoursite.com/2020/05/15/twenty-six/index.html">
+<meta property="og:title" content="JavaScript 性能优化之函数绑定">
+<meta property="og:url" content="http://yoursite.com/2020/06/04/38/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="JS中的原型和原型链讲原型的时候，我们应该先要记住以下几个要点，这几个要点是理解原型的关键： 1、所有的引用类型（数组、函数、对象）可以自由扩展属性（除null以外）。 2、所有的引用类型都有一个’_ _ proto_ _’属性(也叫隐式原型，它是一个普通的对象)。 3、所有的函数都有一个’prototype’属性(这也叫显式原型，它也是一个普通的对象)。 4、所有引用类型，它的’_ _ prot">
+<meta property="og:description" content="函数绑定：在特定的 this 环境中，以指定参数调用另一个函数。常常与回调函数和事件处理程序一起使用一遍在将函数作为变量传递的同时保留代码执行环境。 12345678var handler &#x3D; &amp;#123;    name: &quot;阿清&quot;,    sayName: function(event) &amp;#123;        alert(this.name);    &amp;#125;&amp;#125;;var b">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515132717836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515152136840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515153434949.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515153443153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515154607459.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515154638561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515154725474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515154808226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020051515495623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515145330972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515150503562.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200515150517395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-05-15T07:52:16.000Z">
-<meta property="article:modified_time" content="2020-05-18T07:48:40.640Z">
+<meta property="article:published_time" content="2020-06-04T02:41:38.000Z">
+<meta property="article:modified_time" content="2020-06-04T02:44:46.154Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200515132717836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -191,7 +178,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-twenty-six" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-38" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -200,18 +187,18 @@
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      JavaScript中的原型和原型链（图解）
+      JavaScript 性能优化之函数绑定
     </h1>
   
 </p></center>
         
-        <a href="/2020/05/15/twenty-six/" class="archive-article-date">
-  	<time datetime="2020-05-15T07:52:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-15</time>
+        <a href="/2020/06/04/38/" class="archive-article-date">
+  	<time datetime="2020-06-04T02:41:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
 </a>
         
       </header>
 	  <div align="center" class="post-count">
-	      字数：1.4k字 | 预计阅读时长：5分钟
+	      字数：336字 | 预计阅读时长：1分钟
 	  </div>
 
 
@@ -220,71 +207,26 @@
       
       
       	
-      		<h2 id="JS中的原型和原型链"><a href="#JS中的原型和原型链" class="headerlink" title="JS中的原型和原型链"></a>JS中的原型和原型链</h2><p>讲原型的时候，我们应该先要记住以下几个要点，这几个要点是理解原型的关键：</p>
-<p>1、所有的引用类型（数组、函数、对象）可以自由扩展属性（除null以外）。</p>
-<p>2、所有的引用类型都有一个’_ _ proto_ _’属性(也叫隐式原型，它是一个普通的对象)。</p>
-<p>3、所有的函数都有一个’prototype’属性(这也叫显式原型，它也是一个普通的对象)。</p>
-<p>4、所有引用类型，它的’_ _ proto_ _’属性指向它的构造函数的’prototype’属性。</p>
-<p>5、当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它的’_ _ proto_ _’属性(也就是它的构造函数的’prototype’属性)中去寻找。</p>
-<hr>
-<p>那么要点说完了，我们就根据这些要点来理解原型和原型链。</p>
-<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>我们先来看一个原型的例子。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这是一个构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name=name;</span><br><span class="line">	<span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*根据要点3，所有的函数都有一个prototype属性，这个属性是一个对象</span></span><br><span class="line"><span class="comment">再根据要点1，所有的对象可以自由扩展属性</span></span><br><span class="line"><span class="comment">于是就有了以下写法*/</span></span><br><span class="line">Foo.prototype=&#123;</span><br><span class="line">	<span class="comment">// prototype对象里面又有其他的属性</span></span><br><span class="line">	showName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name);<span class="comment">//this是什么要看执行的时候谁调用了这个函数</span></span><br><span class="line">	&#125;,</span><br><span class="line">	showAge:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"And I'm "</span>+<span class="keyword">this</span>.age);<span class="comment">//this是什么要看执行的时候谁调用了这个函数</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn=<span class="keyword">new</span> Foo(<span class="string">'小明'</span>,<span class="number">19</span>)</span><br><span class="line"><span class="comment">/*当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它</span></span><br><span class="line"><span class="comment">构造函数的'prototype'属性中去找*/</span></span><br><span class="line">fn.showName(); <span class="comment">//I'm 小明</span></span><br><span class="line">fn.showAge(); <span class="comment">//And I'm 19</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>这就是原型，很好理解。那为什么要使用原型呢？</p>
-<p>试想如果我们要通过Foo()来创建很多很多个对象，如果我们是这样子写的话：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name=name;</span><br><span class="line">		<span class="keyword">this</span>.age=age;</span><br><span class="line">		<span class="keyword">this</span>.showName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">this</span>.showAge=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"And I'm "</span>+<span class="keyword">this</span>.age);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>那么我们创建出来的每一个对象，里面都有showName和showAge方法，这样就会占用很多的资源。<br>而通过原型来实现的话，只需要在构造函数里面给属性赋值，而把方法写在Foo.prototype属性(这个属性是唯一的)里面。这样每个对象都可以使用prototype属性里面的showName、showAge方法，并且节省了不少的资源。</p>
-<hr>
-<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>理解了原型，那么原型链就更好理解了。</p>
-<p><strong>下面这段话可以帮助理解原型链</strong></p>
-<p>根据要点5，当试图得到一个对象的属性时，如果这个对象本身不存在这个属性，那么就会去它构造函数的’prototype’属性中去寻找。那又因为’prototype’属性是一个对象，所以它也有一个’_ _ proto_ _’属性。</p>
-<p>那么我们来看一个例子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line"> 	<span class="keyword">this</span>.name=name;</span><br><span class="line"> 	<span class="keyword">this</span>.age=age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">//this是什么要看执行的时候谁调用了这个函数。</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"I'm "</span>+<span class="keyword">this</span>.name+<span class="string">" And I'm "</span>+<span class="keyword">this</span>.age);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fn=<span class="keyword">new</span> Foo(<span class="string">'小明'</span>,<span class="number">19</span>);</span><br><span class="line">fn.toString(); <span class="comment">//I'm 小明 And I'm 19</span></span><br><span class="line"><span class="built_in">console</span>.log(fn.toString===Foo.prototype.__proto__.toString); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fn.__proto__ ===Foo.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.__proto__===<span class="built_in">Object</span>.prototype)<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.__proto__===<span class="literal">null</span>)<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>是不是觉得有点奇怪？我们来分析一下。<br><img src="https://img-blog.csdnimg.cn/20200515132717836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)首先，fn的构造函数是Foo()。所以：<br><strong>fn._ _ proto _ _=== Foo.prototype</strong><br>又因为Foo.prototype是一个普通的对象，它的构造函数是Object，所以：<br><strong>Foo.prototype._ _ proto _ _=== Object.prototype</strong><br>通过上面的代码，我们知道这个toString()方法是在Object.prototype里面的，当调用这个对象的本身并不存在的方法时，它会一层一层地往上去找，一直到null为止。</p>
-<br>
-<br>
-所以当fn调用toString()时，JS发现fn中没有这个方法，于是它就去Foo.prototype中去找，发现还是没有这个方法，然后就去Object.prototype中去找，找到了，就调用Object.prototype中的toString()方法。
-
+      		<p><span style="color:red"><strong>函数绑定</strong>：在特定的 this 环境中，以指定参数调用另一个函数。常常与回调函数和事件处理程序一起使用一遍在将函数作为变量传递的同时保留代码执行环境。</span></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">    name: <span class="string">"阿清"</span>,</span><br><span class="line">    sayName: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">btn.addEventListener(<span class="string">"click"</span>, handler.sayName, <span class="literal">false</span>) <span class="comment">//undefiend</span></span><br></pre></td></tr></table></figure>
+<p>结果显示的是undefiend，这是因为没有保存handler .sayName() 的环境，所以 this 指向DOM按钮而非handler（在IE8中 this 指向window）。</p>
 <br>
 
-<p>这就是原型链，fn能够调用Object.prototype中的方法正是因为存在原型链的机制。</p>
-<p>另外，在使用原型的时候，一般推荐将需要扩展的方法写在构造函数的prototype属性中，避免写在_ _ proto _ _属性里面。</p>
-<br>
+<p>解决方法：<br>ES5为所有的函数定义一个原生的 bind() 方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = &#123;</span><br><span class="line">    name: <span class="string">"阿清"</span>,</span><br><span class="line">    sayName: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name + <span class="string">":"</span> + event.type);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">btn.addEventListener(<span class="string">"click"</span>, handler.sayName.bind(handler), <span class="literal">false</span>) <span class="comment">//阿清:click</span></span><br></pre></td></tr></table></figure>
 
+
+<p><span style="color:red"><strong>bind函数接收一个参数：一个环境。在给定的环境中调用函数。</strong></span></p>
+<p>只要是将某个函数指针以值的形式进行传递，同时该函数必须在特定环境中执行，被绑定函数的效用就突显出来了。<strong>它们主要用于事件处理程序以及setTimeout() 和setInterval()。</strong> <strong>然而，被绑定函数与普通函数相比有更多的开销，它们需要更多内存，同时也因为多重函数调用稍微慢一点，所以最好只在必要时使用。</strong></p>
 <hr>
-<h2 id="探索instanceof"><a href="#探索instanceof" class="headerlink" title="探索instanceof"></a>探索instanceof</h2><p>instanceof是如何判断的？<br>表达式： A instanceof B          &emsp;&emsp;&emsp;&emsp;&emsp; A是实例对象，B是构造函数。A看隐式原型属性（<strong>proto</strong>），B看显示原型属性(prototype)</p>
-<p>如果B函数的显示原型对象在A对象的原型链上,返回true，否则返回false</p>
-<p>案例一：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f1 = <span class="keyword">new</span> Foo();</span><br><span class="line"><span class="built_in">console</span>.log(f1 <span class="keyword">instanceof</span> Foo); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(f1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-
-
-<p><img src="https://img-blog.csdnimg.cn/20200515152136840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>案例二:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Function</span>); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Function</span> <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span> <span class="keyword">instanceof</span> Foo); <span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200515153434949.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200515153443153.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们来逐个分析一下：</p>
-<pre><code>console.log(Object instanceof Function); //true</code></pre><p><img src="https://img-blog.csdnimg.cn/20200515154607459.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<pre><code>console.log(Object instanceof Object); //true</code></pre><p><img src="https://img-blog.csdnimg.cn/20200515154638561.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>console.log(Function instanceof Function); //true<br><img src="https://img-blog.csdnimg.cn/20200515154725474.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<pre><code>console.log(Function instanceof Object); //true</code></pre><p><img src="https://img-blog.csdnimg.cn/20200515154808226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">        </p>
-<pre><code>function Foo() {}
-console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img-blog.csdnimg.cn/2020051515495623.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<hr>
-<p>##补充：两个关于原型链的面试题</p>
-<p>案例一：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">A.prototype.n = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> A();</span><br><span class="line">A.prototype = &#123;</span><br><span class="line">    n: <span class="number">2</span>,</span><br><span class="line">    m: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> A();</span><br><span class="line"><span class="built_in">console</span>.log(b.n); <span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(b.m); <span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(c.n); <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(c.m); <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20200515145330972.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<hr>
-<p>案例二：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.prototype.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"a()"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"b()"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F();</span><br><span class="line">f.a();<span class="comment">//a()</span></span><br><span class="line">f.b(); <span class="comment">// 直接报错   f.b is not a function</span></span><br><span class="line">F.a();<span class="comment">//a()</span></span><br><span class="line">F.b();<span class="comment">//b()</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200515150503562.png" alt="在这里插入图片描述">)<img src="https://img-blog.csdnimg.cn/20200515150517395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <br>
 <br>
 愿你的坚持终有收获。
 <br>
 <br>
+
+
+
 			<!-- 《添加版权声明 -->
 			
 			    <!-- 《添加版权声明 -->
@@ -300,13 +242,13 @@ console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-05-15
+    2020-06-04
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-05-18
+    2020-06-04
     <br>
     <strong class="article-titles">本文标题：</strong>
-      <a href="#" title="JavaScript中的原型和原型链（图解）" target="_blank">JavaScript中的原型和原型链（图解）</a>
+      <a href="#" title="JavaScript 性能优化之函数绑定" target="_blank">JavaScript 性能优化之函数绑定</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用国际信息安全许可协议进行许可。转载请注明出处！
@@ -395,7 +337,7 @@ console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/05/15/twenty-six/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/04/38/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -409,18 +351,9 @@ console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img
   
 <nav id="article-nav">
   
-    <a href="/2020/05/18/twenty-seven/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript  ---  继承总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/10/twenty-five/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript正则表达式-常见面试题总结</div>
+    <a href="/2020/06/04/37/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript 对call()、apply()、bind()的彻底理解（很好懂）</div>
       <i class="icon-circle-right"></i>
     </a>
   

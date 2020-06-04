@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 47</a>
-			<a>总字数 <span class="post-count">71.8k</span></a>
+			<a>总文章数 48</a>
+			<a>总字数 <span class="post-count">72.1k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,150 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-twenty-eight" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/05/19/twenty-eight/">JavaScript --- 作用域与作用域链</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/05/19/twenty-eight/" class="archive-article-date">
+  	<time datetime="2020-05-19T09:08:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-19</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：697字 | 预计阅读时长：2分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>1、理解<br>&emsp;&emsp;就是一块“地盘”，一个代码所在的区域<br>&emsp;&emsp;它是静态的（相对于上下文对象），在编写代码时就确定了</p>
+<p>2、分类<br>&emsp;&emsp;全局作用域<br>&emsp;&emsp;函数作用域<br>&emsp;&emsp;块级作用域</p>
+<p>3、作用<br>&emsp;&emsp;隔离变量，不同作用域下的同名变量不会有冲突。<br><img src="https://img-blog.csdnimg.cn/20200519155909763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="作用域与执行上下文"><a href="#作用域与执行上下文" class="headerlink" title="作用域与执行上下文"></a>作用域与执行上下文</h2><p>1、区别1<br>&emsp;&emsp;全局作用域之外，每个函数都会创建自己的作用域，作用域在函数定义时就已经确定了。而不是在函数调用时。<br>&emsp;&emsp;全局执行上下文环境是在全局作用域确定之后，js代码马上执行之前创建。<br>&emsp;&emsp;函数执行_上下文环境是在调用函数时，函数体代码执行之 前创建。</p>
+<p>2、区别2<br>&emsp;&emsp;作用域是静态的，只要函数定义好了就一直存在，且不会再变化。<br>&emsp;&emsp;上下文环境是动态的，调用函数时创建，函数调用结束时，上下文环境就会释放。</p>
+<p>3、联系<br>&emsp;&emsp;上下文环境（对象）是从属于所在的作用域。<br>&emsp;&emsp;全局上下文环境—&gt;全局作用域。<br>&emsp;&emsp;函数上下文环境—&gt;对应的函数使用域。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200519161000612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>1、理解<br>&emsp;&emsp;多个上下级关系的作用域形成的链，它的方向是从下向上的（从内到外）。<br>&emsp;&emsp;查找变量时就是沿着作用域链来查找的。</p>
+<p>2、查找一个变量的查找规则<br>&emsp;&emsp;在当前作用域下的执行上下文中查找对应的属性，如果有直接返回，否则在上一级作用域是执行上下文中查找对应的属性，如果有直接返回，否则在往上查找，直到全局作用域，如果还找不到就抛出找不到的异常。</p>
+<p><img src="https://img-blog.csdnimg.cn/20200519162258104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="关于作用域链的两道面试题：（具有迷惑性，要注意）"><a href="#关于作用域链的两道面试题：（具有迷惑性，要注意）" class="headerlink" title="关于作用域链的两道面试题：（具有迷惑性，要注意）"></a>关于作用域链的两道面试题：（具有迷惑性，要注意）</h2><p><strong>面试题1：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">f</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = <span class="number">20</span>;</span><br><span class="line">    f();</span><br><span class="line">&#125;</span><br><span class="line">show(fn);   <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20200519164317171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)fn()中没有x，就去全局作用域中去寻找。</p>
+<hr>
+<p><strong>面试题二：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(fn);</span><br><span class="line">&#125;</span><br><span class="line">fn(); <span class="comment">//ƒ () &#123;console.log(fn);&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    fn2: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(fn2)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn2(); <span class="comment">//Uncaught ReferenceError: fn2 is not defined</span></span><br></pre></td></tr></table></figure>
+
+<p>fn()应该没有问题正常输出fn函数。<br>但是调用obj.fn2()时，console.log(fn2)，会先在fn函数中找fn，没有就去全局作用域中寻找，全局也没有，就报错了。</p>
+<p>如果我们想找到obj中的fn2,我们可以这样写。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    fn2: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.fn2)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn2(); <span class="comment">//ƒ () &#123;console.log(this.fn2)&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<br>
+<br>
+
+<p>愿你的坚持终有回报。</p>
+<br>
+<br>
+
+
+
+
+
+
+
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/19/twenty-eight/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-twenty-seven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1485,125 +1629,6 @@ console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/29/nineteen/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-eighteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/27/eighteen/">js简单实现轮播图</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/04/27/eighteen/" class="archive-article-date">
-  	<time datetime="2020-04-27T03:55:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：826字 | 预计阅读时长：4分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
-index.html
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    * &#123;</span><br><span class="line">        padding: <span class="number">0</span>px;</span><br><span class="line">        margin: <span class="number">0</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    #out &#123;</span><br><span class="line">        width: <span class="number">520</span>px;</span><br><span class="line">        height: <span class="number">333</span>px;</span><br><span class="line">        background-color: #bfa;</span><br><span class="line">        margin: <span class="number">50</span>px auto;</span><br><span class="line">        padding: <span class="number">10</span>px <span class="number">0</span>px;</span><br><span class="line">        position: relative;</span><br><span class="line">        overflow: hidden;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    #imglist &#123;</span><br><span class="line">        list-style: none;</span><br><span class="line">        <span class="comment">/* width: 2600px; */</span></span><br><span class="line">        position: absolute;</span><br><span class="line">        left: <span class="number">0</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    #imglist li &#123;</span><br><span class="line">        float: left;</span><br><span class="line">        margin: <span class="number">0</span>px <span class="number">10</span>px;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    #navdiv &#123;</span><br><span class="line">        position: absolute;</span><br><span class="line">        bottom: <span class="number">15</span>px;</span><br><span class="line">        <span class="comment">/* left: 200px; */</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    #navdiv a &#123;</span><br><span class="line">        float: left;</span><br><span class="line">        width: <span class="number">15</span>px;</span><br><span class="line">        height: <span class="number">15</span>px;</span><br><span class="line">        background-color: red;</span><br><span class="line">        margin: <span class="number">0</span> <span class="number">5</span>px;</span><br><span class="line">        opacity: <span class="number">0.5</span>;</span><br><span class="line">        border-radius: <span class="number">50</span>%;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    #navdiv a:hover &#123;</span><br><span class="line">        background-color: #686269;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="js/</span>tool.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">    window.onload = function() &#123;</span></span><br><span class="line"><span class="string">        var img = document.getElementsByTagName("</span>img<span class="string">");</span></span><br><span class="line"><span class="string">        var imglist = document.getElementById("</span>imglist<span class="string">");</span></span><br><span class="line"><span class="string">        imglist.style.width = 520 * img.length + "</span>px<span class="string">";</span></span><br><span class="line"><span class="string">        // 设置导航块居中</span></span><br><span class="line"><span class="string">        var navdiv = document.getElementById("</span>navdiv<span class="string">");</span></span><br><span class="line"><span class="string">        var out = document.getElementById("</span>out<span class="string">");</span></span><br><span class="line"><span class="string">        navdiv.style.left = (out.offsetWidth - navdiv.offsetWidth) / 2 + "</span>px<span class="string">";</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        var index = 0;</span></span><br><span class="line"><span class="string">        var arra = document.getElementsByTagName("</span>a<span class="string">");</span></span><br><span class="line">        arra[index].style.backgroundColor = "#686269";</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 为每一个超链接添加单机响应事件</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arra.length; i++) &#123;</span><br><span class="line">            arra[i].num = i;</span><br><span class="line">            arra[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">// 当我们手动去切换的时候，去停止轮播图</span></span><br><span class="line">                clearInterval(timer);</span><br><span class="line">                <span class="comment">// 为每个超链接做标记</span></span><br><span class="line">                index = <span class="keyword">this</span>.num;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// imglist.style.left = -520 * index + "px";</span></span><br><span class="line">                setA();</span><br><span class="line">                move(imglist, <span class="string">"left"</span>, <span class="number">-520</span> * index, <span class="number">20</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="comment">// 手动点击切换结束之后，再次开启定时器。</span></span><br><span class="line">                    autoChenge();</span><br><span class="line"></span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        autoChenge();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">setA</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 判断索引是否是最后一张</span></span><br><span class="line">            <span class="keyword">if</span> (index &gt;= arra.length) &#123;</span><br><span class="line">                index = <span class="number">0</span>;</span><br><span class="line">                <span class="comment">//如果为最后一张，直接将imglist的left设置为0，</span></span><br><span class="line">                imglist.style.left = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arra.length; i++) &#123;</span><br><span class="line">                <span class="comment">// 设置为空，防止设置颜色之后，在内联样式里优先级过高，</span></span><br><span class="line">                arra[i].style.backgroundColor = <span class="string">""</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            arra[index].style.backgroundColor = <span class="string">"#686269"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 设置定时器</span></span><br><span class="line">        <span class="comment">// 定义定时器标识</span></span><br><span class="line">        <span class="keyword">var</span> timer;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">autoChenge</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                index++;</span><br><span class="line">                <span class="comment">//  %= 算法 判断index的长度是否超过img的长度，如果超过就返回0</span></span><br><span class="line">                index %= img.length;</span><br><span class="line">                move(imglist, <span class="string">"left"</span>, <span class="number">-520</span> * index, <span class="number">20</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    setA();</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;, <span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;div id="out"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;ul id="imglist"&gt;</span></span><br><span class="line"><span class="regexp">            &lt;li&gt;&lt;img src="img/</span><span class="number">1.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">2.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">3.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">4.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">5.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">1.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">        &lt;div id="</span>navdiv<span class="string">"&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>tool.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现动画效果</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">obj, arrtr, target, speed, callback</span>) </span>&#123;</span><br><span class="line">    clearInterval(obj.timer);</span><br><span class="line">    <span class="comment">// 获取当前位置</span></span><br><span class="line">    <span class="keyword">var</span> current = <span class="built_in">parseInt</span>(getstyle(obj, arrtr));</span><br><span class="line">    <span class="comment">// 判断speed正负</span></span><br><span class="line">    <span class="comment">// 0-800 向左移</span></span><br><span class="line">    <span class="comment">//800-0 向右移</span></span><br><span class="line">    <span class="keyword">if</span> (current &gt; target) &#123;</span><br><span class="line">        speed = -speed;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将timer作为属性 给自身的obj元素。</span></span><br><span class="line">    obj.timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> oldvalue = <span class="built_in">parseInt</span>(getstyle(obj, arrtr));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> newvalue = oldvalue + speed;</span><br><span class="line">        <span class="comment">// 向左移时，需要判断newvalue是否小于target</span></span><br><span class="line">        <span class="comment">// 向右移时，需要判断newvalue是否大于target</span></span><br><span class="line">        <span class="keyword">if</span> ((speed &lt; <span class="number">0</span> &amp;&amp; newvalue &lt; target) || (speed &gt; <span class="number">0</span> &amp;&amp; newvalue &gt; target)) &#123;</span><br><span class="line">            newvalue = target;</span><br><span class="line">        &#125;</span><br><span class="line">        obj.style[arrtr] = newvalue + <span class="string">"px"</span>;</span><br><span class="line">        <span class="keyword">if</span> (newvalue == target) &#123;</span><br><span class="line">            clearInterval(obj.timer);</span><br><span class="line">            <span class="comment">// 如果有回调函数就调用，没有则不调用。</span></span><br><span class="line">            callback &amp;&amp; callback();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;, <span class="number">20</span>);</span><br><span class="line">    <span class="comment">// return false;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取元素的样式</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getstyle</span>(<span class="params">obj, name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) &#123;</span><br><span class="line">        <span class="keyword">return</span> getComputedStyle(obj, <span class="literal">null</span>)[name];</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> obj.currentStyle[name];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<br>
-愿你的坚持终有收获。
-
-<br>
-<br>
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/27/eighteen/">展开全文 >></a>
         </p>
       
 
