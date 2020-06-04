@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 46</a>
-			<a>总字数 <span class="post-count">71.2k</span></a>
+			<a>总文章数 47</a>
+			<a>总字数 <span class="post-count">71.8k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,519 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-27" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/05/26/27/">JavaScript DOM</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/05/26/27/" class="archive-article-date">
+  	<time datetime="2020-05-26T08:34:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：9.5k字 | 预计阅读时长：36分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="DOM简介："><a href="#DOM简介：" class="headerlink" title="DOM简介："></a>DOM简介：</h2><p><strong>通过 HTML DOM，JavaScript 能够访问和改变 HTML 文档的所有元素。</strong></p>
+<hr>
+<p><strong>HTML DOM（文档对象模型）</strong><br>当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。</p>
+<p><strong>HTML DOM</strong> 模型被结构化为<strong>对象树</strong>：</p>
+<p><strong>对象的 HTML DOM 树</strong><br><img src="https://img-blog.csdnimg.cn/20200522094310145.gif" alt="在这里插入图片描述"></p>
+<p>通过这个对象模型，JavaScript 获得创建动态 HTML 的所有力量：</p>
+<ul>
+<li>JavaScript 能改变页面中的所有 HTML 元素</li>
+<li>JavaScript 能改变页面中的所有 HTML 属性</li>
+<li>JavaScript 能改变页面中的所有 CSS 样式</li>
+<li>JavaScript 能删除已有的 HTML 元素和属性</li>
+<li>JavaScript 能添加新的 HTML 元素和属性</li>
+<li>JavaScript 能对页面中所有已有的 HTML 事件作出反应</li>
+<li>JavaScript 能在页面中创建新的 HTML 事件</li>
+</ul>
+<hr>
+<p><strong>什么是 DOM？</strong><br>DOM 是一项 W3C (World Wide Web Consortium) 标准。</p>
+<p>DOM 定义了访问文档的标准：</p>
+<p>“W3C 文档对象模型（DOM）是中立于平台和语言的接口，它允许程序和脚本动态地访问、更新文档的内容、结构和样式。”<br>W3C DOM 标准被分为 3 个不同的部分：</p>
+<ul>
+<li>Core DOM - 所有文档类型的标准模型</li>
+<li>XML DOM - XML 文档的标准模型</li>
+<li>HTML DOM - HTML 文档的标准模型</li>
+</ul>
+<hr>
+<p><strong>什么是 HTML DOM？</strong><br>HTML DOM 是 HTML 的标准对象模型和编程接口。它定义了：</p>
+<p>作为对象的 HTML 元素</p>
+<ul>
+<li>所有 HTML 元素的属性</li>
+<li>访问所有 HTML 元素的方法</li>
+<li>所有 HTML 元素的事件</li>
+</ul>
+<p><span style="color: red;">换言之：HTML DOM 是关于如何获取、更改、添加或删除 HTML 元素的标准。</span></p>
+<hr>
+<p>HTML DOM 是关于如何获取、更改、添加或删除 HTML 元素的标准。<br>Document对象是我们可以从脚本中对HTML页面中的所有元素进行访问</p>
+<p>节点：Node——构成HTML文档最基本的单元。<br>常用节点分为4类：</p>
+<ul>
+<li>文档节点：整个HTML文档</li>
+<li>元素节点：HTML文档中的HTML标签</li>
+<li>属性节点：元素的属性</li>
+<li>文本节点：HTML标签中的文本内容</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200522141013494.png" alt="在这里插入图片描述"><br>文档的加载：<br>&emsp;&emsp;&emsp;&emsp;浏览器在加载一个页面的时候，是按照自上向下的顺序加载的<br>&emsp;&emsp;&emsp;&emsp;读取到一行就运行一行，如果将script标签写到页面的上边，<br>&emsp;&emsp;&emsp;&emsp;在代码执行时，页面还没有加载，页面没有加载DOM对象也没有加载<br>&emsp;&emsp;&emsp;&emsp;会导致无法获取到DOM对象</p>
+<p>Onload事件在整个 页面加载完成之后才触发<br>&emsp;&emsp;&emsp;&emsp;为window绑定一个onload事件<br>&emsp;&emsp;&emsp;&emsp;该事件对应的响应函数，将会在页面加载完成之后执行，<br>&emsp;&emsp;&emsp;&emsp;这样可以确保我们的代码执行时所有的DOM对象已经加载完成。</p>
+<hr>
+<p> <strong>获取元素节点</strong></p>
+<p>通过document对象调用</p>
+<p>1.getElementById()<br>&emsp;&emsp;通过id属性来获取一个元素节点的对象</p>
+<p>2.getElementsByTagName()<br>&emsp;&emsp;可以根据标签名来获取一组元素节点对象<br>&emsp;&emsp;这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象<br>&emsp;&emsp;即使查询到的元素只有一个，也会封装到数组中返回。</p>
+<p>3.getElementsByName()<br>&emsp;&emsp;通过name属性来获取一组元素节点对象。<br>&emsp;&emsp;这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象。<br>&emsp;&emsp;即使查询到的元素只有一个，也会封装到数组中返回。</p>
+<p><strong>InnerHTML 通过这个属性可以获取到元素内部的html代码<br>&emsp;&emsp;Bj.innerHTML<br>&emsp;&emsp;对于自结束标签没有意义，会返回为空。<br>&emsp;&emsp;如果需要读取元素节点属性，<br>&emsp;&emsp;直接使用 元素.属性名<br>&emsp;&emsp;例子： 元素.id   元素.name  元素.value<br>&emsp;&emsp;<span style="color: red;">注意：class属性不能采用这种方式，（主要用于表单中）<br>&emsp;&emsp;读取class属性需要使用 元素. className</span><br>innerText<br>&emsp;&emsp;该属性可以获取元素内部中的文本内容。<br>&emsp;&emsp;他和innerHTML类似，不同的是他会自动将html标签去除。</strong></p>
+<hr>
+<p><strong>获取元素节点的子节点</strong><br>通过具体的元素节点调用<br>1.getElementByTagName()<br>&emsp;&emsp;是一个方法，方法返回当前的指定标签名后代节点</p>
+<p>2.childNodes<br>&emsp;&emsp;是一个属性 表示当前节点的所有子节点<br>&emsp;&emsp;childNodes属性会获取包括文本节点在内的所有节点<br>&emsp;&emsp;<strong>根据DOM标签与标签间的空白也会当成文本节点</strong><br><span style="color: red;">注意：IE8及以下的浏览器中不会将空白文本当成子节点，<br>children属性可以获取当前元素的所有子元素。标签与标签间的空白不会当成文本节点。</span></p>
+<p>3.firstChild<br>&emsp;&emsp; 属性，表示当前节点的第一个子节点。<br>&emsp;&emsp;可以获取当前元素的第一个子节点（<strong>包含空白文本节点和注释</strong>）。</p>
+<p>&emsp;&emsp;<strong><span style="color: red;">firstElementChild:指向第一个元素；（不包括文本节点和注释）</span></strong></p>
+<p>4.lastChile<br>&emsp;&emsp; 属性，表示当前节点的最后一个子节点<br>&emsp;&emsp;可以获取当前元素的最后一个子节点（<strong>包含空白文本节点和注释</strong>）。</p>
+<p>&emsp;&emsp;<strong><span style="color: red;">lastElementChild:指向最后一个子元素；（不包括文本节点和注释）</span></strong></p>
+<br>
+
+<p>遍历元素<br>&emsp;&emsp;<strong><span style="color: red;">childElementCount:返回子元素的个数（不包括文本节点和注释）</span></strong></p>
+<hr>
+<p><strong>获取父节点和兄弟节点</strong></p>
+<p>通过具体的节点调用<br>1.parentNode<br>&emsp;&emsp; 属性，表示当前节点的父节点</p>
+<p>2.previousSibling<br>&emsp;&emsp; 属性，表示当前节点的前一个兄弟节点</p>
+<p>&emsp;&emsp;<span style="color: red;">previousSibling 属性返回元素节点之前的兄弟节点（包括文本节点、注释节点）；</span><br>&emsp;&emsp;<span style="color: red;">previousElementSibling 属性只返回元素节点之前的兄弟元素节点（不包括文本节点、注释节点）；</span></p>
+<p>3.nextSibling<br>&emsp;&emsp; 属性，表示当前节点的后一个兄弟节点</p>
+<p>&emsp;&emsp;<span style="color: red;">nextSibling 属性返回元素节点之后的兄弟节点（包括文本节点、注释节点）；</span><br>&emsp;&emsp;<span style="color: red;">nextElementSibling 属性只返回元素节点之后的兄弟元素节点（不包括文本节点、注释节点）。</span></p>
+<hr>
+<p>1、在document中有一个属性body，它保存的是body的引用<br>&emsp;&emsp;Var body = document.body;</p>
+<p>2、Doucument.doucumentElement保存的是html根标签<br>&emsp;&emsp;Var html = document.documentElenmet;</p>
+<p>3、Document.all 代表页面中的所有元素<br>&emsp;&emsp;var all = document.all;<br>&emsp;&emsp;（var all = document.getElementsByTagName(“*”)）效果一样。<br>&emsp;&emsp;它返回一个数组</p>
+<p>4、根据元素的class属性查询一组元素节点对象<br>&emsp;&emsp;GetElementsByClassNmae() 可以根据class属性值获取一组元素节点对象（类数组）<br>&emsp;&emsp;但是该方法 不支持IE8及以下浏览器。</p>
+<p>5、documen.querySelector()<br>&emsp;&emsp; 需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象<br>&emsp;&emsp; 虽然IE8中没有getElementByTagName() 但是可以使用querySelector，他可以支持IE8.<br>&emsp;&emsp; 使用该方法总会返回<strong>一个唯一的一个元素</strong>，如果满足条件的元素有多个，那么它会返回第一个。</p>
+<p>6、documen.querySelectorAll()<br>&emsp;&emsp;该方法和querySelector()用法类似，不同的是他会将符合条件的元素<strong>封装到一个数组中</strong>。<br>&emsp;&emsp;即使符合条件的元素只有一个，他也会返回数组。</p>
+<hr>
+<p><strong>DOM增删改查：</strong></p>
+<p>1.Document.createElement()<br>&emsp;&emsp;可以用于创建一个元素节点对象，<br>&emsp;&emsp;它需要一个标签名作为参数，将会根据标签名创建元素节点对象<br>&emsp;&emsp;并将创建好的对象作为返回值返回。<br>&emsp;&emsp;它可以个innerHTML结合使用。<br><img src="https://img-blog.csdnimg.cn/20200522143355678.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>2.document.createTextNode()<br>&emsp;&emsp;可以用来创建一个文本节点对象<br>&emsp;&emsp;需要一个文本内容作为参数，将会根据该内容创建文本节点，并将新的节点返回。</p>
+<p>3.appendChild()<br>&emsp;&emsp;向一个父节点中添加一个新的子节点<br>&emsp;&emsp;用法：父节点.appendChild(子节点)；</p>
+<p>4.insertBefore()<br>&emsp;&emsp;可以在指定的子节点前插入新的子节点<br>&emsp;&emsp;语法：<br>&emsp;&emsp;父节点.insertBefore(新节点，旧节点);</p>
+<p>5.replaceChild()<br>&emsp;&emsp;可以使用指定的子节点替换已有的子节点<br>&emsp;&emsp;语法：<br>&emsp;&emsp;父节点.replaceChile(新节点，旧节点)</p>
+<p>6.removeChild()<br>&emsp;&emsp;可以删除一个子节点<br>&emsp;&emsp;语法：父节点.removeChild(子节点)；<br>&emsp;&emsp;但是：<br>&emsp;&emsp;<span style="color: red;">常用：子节点.parentNode.removeChild(子节点)</span></p>
+<h2 id="Document-对象"><a href="#Document-对象" class="headerlink" title="Document 对象"></a>Document 对象</h2><p>每个载入浏览器的 HTML 文档都会成为 Document 对象。</p>
+<p>Document 对象使我们可以从脚本中对 HTML 页面中的所有元素进行访问。</p>
+<p>提示：Document 对象是 Window 对象的一部分，可通过 window.document 属性对其进行访问。</p>
+<hr>
+<p><strong>一、文档子节点</strong></p>
+<p>1、在document中有一个属性body，它保存的是body的引用（<strong>比通过childNodes列表访问的更快，更直接）</strong><br>&emsp;&emsp;Var body = document.body;</p>
+<p>2、Doucument.doucumentElement保存的是html根标签<br>&emsp;&emsp;Var html = document.documentElenmet;</p>
+<p>3、Document.all 代表页面中的所有元素<br>&emsp;&emsp;var all = document.all;<br>&emsp;&emsp;（var all = document.getElementsByTagName(“*”)）效果一样。<br>&emsp;&emsp;它返回一个数组</p>
+<p>4、根据元素的class属性查询一组元素节点对象<br>&emsp;&emsp;GetElementsByClassNmae() 可以根据class属性值获取一组元素节点对象（类数组）<br>&emsp;&emsp;但是该方法 不支持IE8及以下浏览器。</p>
+<p>5、documen.querySelector()<br>&emsp;&emsp; 需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象<br>&emsp;&emsp; 虽然IE8中没有getElementByTagName() 但是可以使用querySelector，他可以支持IE8.<br>&emsp;&emsp; 使用该方法总会返回<strong>一个唯一的一个元素</strong>，如果满足条件的元素有多个，那么它会返回第一个。</p>
+<p>6、documen.querySelectorAll()<br>&emsp;&emsp;该方法和querySelector()用法类似，不同的是他会将符合条件的元素<strong>封装到一个数组中</strong>。<br>&emsp;&emsp;即使符合条件的元素只有一个，他也会返回数组。</p>
+<hr>
+<p><strong>二、文档信息</strong></p>
+<p>1.document.title<br>&emsp;&emsp;可以取得当前界面的标题，也可以修改当前界面的标题并反映给浏览器的标题栏中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.title)  <span class="comment">//查看标题</span></span><br><span class="line"><span class="built_in">document</span>.title = <span class="string">"aqing"</span>     <span class="comment">//修改标题</span></span><br></pre></td></tr></table></figure>
+
+
+<p>2.属性 URL、domain、referrer  都和网页请求有关。<br>&emsp;&emsp;URL属性包含完整的URL<br>&emsp;&emsp;domain属性中只包含了页面的域名。<br>&emsp;&emsp;referrer属性中保存着连接到当前页面的哪个页面的URL，在没有来源页面的情况下，referrer属性中可能会包含空字符串</p>
+<hr>
+<p><strong>三、查找元素</strong></p>
+<p>1.getElementById()<br>&emsp;&emsp;通过id属性来获取一个元素节点的对象</p>
+<p>2.getElementsByTagName()<br>&emsp;&emsp;可以根据标签名来获取一组元素节点对象<br>&emsp;&emsp;这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象<br>&emsp;&emsp;即使查询到的元素只有一个，也会封装到数组中返回。</p>
+<p>3.getElementsByName()<br>&emsp;&emsp;通过name属性来获取一组元素节点对象。<br>&emsp;&emsp;这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象。<br>&emsp;&emsp;即使查询到的元素只有一个，也会封装到数组中返回。</p>
+<hr>
+<p><strong>四、特殊集合</strong></p>
+<p>1、document.anchors<br>&emsp;&emsp;包含文档中所有带name特性的 a 元素</p>
+<p>2、document.forms<br>&emsp;&emsp;包含文档中所有的<form>元素，与documen.getElementByTagName（“form”）结果相同。</p>
+<p>3、document.images<br>&emsp;&emsp;包含文档中所有的<img>元素，与documen.getElementByTagName（“img”）结果相同。</p>
+<p>4、document.links<br>&emsp;&emsp;包含文档中所带href特性的 a 元素</p>
+<p><strong>集合中的项也会随着当前文档内容的更新而更新</strong></p>
+<hr>
+<p><strong>五、DOM一致性检测</strong></p>
+<p>hasFeature()<br>&emsp;&emsp;这个方法有两个参数：要检测的DOM功能的名称及版本号。如果浏览器支持给定的名称和版本的功能，则该方法会返回 true 。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.implementation.hasFeature(<span class="string">"XML"</span>, <span class="string">"1.0"</span>));</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>六、文档写入</strong></p>
+<p><strong>1、write()方法</strong><br>定义和用法<br>&emsp;&emsp;write() 方法可向文档写入 HTML 表达式或 JavaScript 代码。</p>
+<p>可列出多个参数(exp1,exp2,exp3,…) ，它们将按顺序被追加到文档中。</p>
+<p>语法<br>&emsp;&emsp;document.write(exp1,exp2,exp3,….)</p>
+<p>说明<br>&emsp;&emsp;虽然根据 DOM 标准，该方法只接受单个字符串作为参数。不过根据经验，write() 可接受任何多个参数。</p>
+<p>我们通常按照两种的方式使用 write() 方法：一是在使用该方在文档中输出 HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档。在第二种情况中，请务必使用 close() 方法来关闭文档。</p>
+<p><strong>2、writeln() 方法</strong></p>
+<p>定义和用法<br>&emsp;&emsp;writeln() 方法与 write() 方法作用相同，外加可在每个表达式后写一个换行符。</p>
+<p>3、open()方法</p>
+<p>定义和用法<br>&emsp;&emsp;open() 方法可打开一个新文档，并擦除当前文档的内容。</p>
+<p>语法<br>&emsp;&emsp;document.open(mimetype,replace)<br>|参数| 描述 |<br>|–|–|<br>| mimetype |可选。规定正在写的文档的类型。默认值是 “text/html”。  |<br>|replace|可选。当此参数设置后，可引起新文档从父文档继承历史条目。|</p>
+<p>说明<br>&emsp;&emsp;该方法将擦除当前 HTML 文档的内容，开始一个新的文档，新文档用 write() 方法或 writeln() 方法编写。</p>
+<p>提示和注释<br>&emsp;&emsp;重要事项：调用 open() 方法打开一个新文档并且用 write() 方法设置文档内容后，必须记住用 close 方法关闭文档，并迫使其内容显示出来。</p>
+<p>注释：属于被覆盖的文档的一部分的脚本或事件句柄不能调用该方法，因为脚本或事件句柄自身也会被覆盖。</p>
+<p>4、close() 方法</p>
+<p>定义和用法<br>&emsp;&emsp;close() 方法可关闭一个由 document.open 方法打开的输出流，并显示选定的数据。</p>
+<p>语法<br>&emsp;&emsp;document.close()<br>说明<br>&emsp;&emsp;该方法将关闭 open() 方法打开的文档流，并强制地显示出所有缓存的输出内容。如果您使用 write() 方法动态地输出一个文档，必须记住当你这么做的时候要调用 close() 方法，以确保所有文档内容都能显示。</p>
+<p>&emsp;&emsp;一旦调用了 close()，就不应该再次调用 write()，因为这会隐式地调用 open() 来擦除当前文档并开始一个新的文档。</p>
+<h2 id="动态脚本"><a href="#动态脚本" class="headerlink" title="动态脚本"></a>动态脚本</h2><p>创建动态脚本有两种方式。</p>
+<p>1、引入外部文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"aqing.js"</span> &gt;&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2、直接插入JavaScript代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadScript</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">    script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">    script.src = url;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">loadScript(<span class="string">"aqing.js"</span>);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="动态样式"><a href="#动态样式" class="headerlink" title="动态样式"></a><strong>动态样式</strong></h2><p>能够把CSS样式包含到HTML页面中的元素有两个。其中，&lt;link&gt;元素用于包含来自外部的文件，而&lt;style&gt;元素用于指定嵌入样式。与动态脚本类似。所谓动态样式是指在页面刚加载时不存在的样式；动态样式是页面加载完成后动态添加到页面中的。</p>
+<p>1、插入外部文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> type=<span class="string">"text/css"</span> href=<span class="string">"style.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2、直接插入JavaScript代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadStyleString</span>(<span class="params">css</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> style = <span class="built_in">document</span>.createElement(<span class="string">"style"</span>)</span><br><span class="line">    style.type = <span class="string">"text/css"</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        style.appendChild(<span class="built_in">document</span>.createTextNode(css));</span><br><span class="line">    &#125; <span class="keyword">catch</span> (ex) &#123;</span><br><span class="line">        style.styleSheet.cssText = css;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> head = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>];</span><br><span class="line">    head.appendChild(style);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">loadStyleString(<span class="string">"body&#123;background-color:red&#125;"</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="选择符API"><a href="#选择符API" class="headerlink" title="选择符API"></a>选择符API</h2><p>1、querySlector()方法</p>
+<p>querySlector()方法接受一个CSS选择器，<span style="color:red;">返回与该模式匹配的第一个元素</span>。通过Document类型调用querySlector()方法时，会在文档元素的范围内查找匹配的元素。而通过Element类型调用querySlector()方法时，只会在该元素的范围内查找匹配的元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取得body元素</span></span><br><span class="line"><span class="keyword">var</span> body = <span class="built_in">document</span>.querySelector(<span class="string">"body"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//取得ID为“mydiv”的元素</span></span><br><span class="line"><span class="keyword">var</span> myDiv = <span class="built_in">document</span>.querySelector(<span class="string">"#mydiv"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//取得类为 "selected"的第一个元素</span></span><br><span class="line"><span class="keyword">var</span> selected = <span class="built_in">document</span>.querySelector(<span class="string">".selected"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//取得button元素的第一个图像</span></span><br><span class="line"><span class="keyword">var</span> img = <span class="built_in">document</span>.body.querySelector(<span class="string">"img.button"</span>);</span><br></pre></td></tr></table></figure>
+<p>2、querySelectorAll()方法</p>
+<p>querySelectAll()方法接受的参数与querySelect()方法一样都是一个CSS选择符，但querySelectAll()方法返回的是一个NodeList的实例，不仅仅是一个元素，而是所有匹配到的都会在NodeList中。只要querySelectAll()方法的CSS选择符有效，该方法都会返回一个NodeList对象，不管匹配到多少元素，就算是空的，也会返回一个Nodelist。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取得所有类为 "selected"的元素</span></span><br><span class="line"><span class="keyword">var</span> selected = <span class="built_in">document</span>.querySelectorAll(<span class="string">".selected"</span>);</span><br></pre></td></tr></table></figure>
+<p>3、matchesSelector()方法</p>
+<p>Element类型新增的一个方法matchesSelector()，接受一个CSS选择符为参数，如果调用元素与该选择符匹配，返回true；否则返回false。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.body.matchesSelctor(<span class="string">"body.page1"</span>))&#123;</span><br><span class="line">     <span class="comment">//true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="与类相关的扩充"><a href="#与类相关的扩充" class="headerlink" title="与类相关的扩充"></a>与类相关的扩充</h2><p><strong>classList属性</strong><br>为所有元素添加classList属性。它自己有一个表示自己包含多少元素的属性，取得每个元素可以使用item()方法，也可以使用方括号语法。此外还有如下方法：</p>
+<p><strong>add(value)：将给定的字符串值添加到列表中，如果值已经存在，就不添加了。<br>contains(value)：表示列表中是否存在给定的值，如果存在就返回true，否则返回flase。<br>remove(value)：从列表中删除给定的字符串。<br>toggle(value)：如果列表中已经存在给定的值，则删除它；如果列表中没有给定的值，则添加它。</strong></p>
+<p><strong>支持chrome和Firfox 3.6和IE10以上。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//向div元素中添加div类</span></span><br><span class="line">div.classList.add(<span class="string">"div"</span>)</span><br><span class="line">    <span class="comment">//检查div类</span></span><br><span class="line">div.classList.contains(<span class="string">"div"</span>)</span><br><span class="line">    <span class="comment">//删除div类</span></span><br><span class="line">div.classList.remove(<span class="string">"div"</span>)</span><br><span class="line">    <span class="comment">// 切换div类</span></span><br><span class="line">div.classList.toggle(<span class="string">"div"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 迭代类名</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; div.classList.length; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(div.classList[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="焦点管理"><a href="#焦点管理" class="headerlink" title="焦点管理"></a>焦点管理</h2><p>document.activeElement属性，这个属性始终会引用DOM中当前获得焦点的元素。元素获取焦点的方式有页面加载，用户输入（通常是按Tab键）,和代码汇总调用focus()方法。</p>
+<p>默认情况下，文档刚刚加载完成时，document.activeElement中保存的是document.body元素的引用。文档加载期间，document.activeElement的值为null。</p>
+<p>另外就是新增了document.hasFocus()方法，这个方法用于确定文档是否获得了焦点。</p>
+<hr>
+<h2 id="HTMLDocument的变化"><a href="#HTMLDocument的变化" class="headerlink" title="HTMLDocument的变化"></a>HTMLDocument的变化</h2><p><strong>1、readyState属性</strong></p>
+<p>它有两个可能的值</p>
+<ul>
+<li><p>loading，正在加载文档</p>
+</li>
+<li><p>complete，已经加载完文档</p>
+<p>使用document.readyState的最恰当方式，就是通过它来实现一个指示文档已经加载完成的指示器。用法如下：</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.readyState ==<span class="string">"complete"</span>)&#123;</span><br><span class="line">    <span class="comment">// 执行操作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>2、兼容模式</strong></p>
+<p>这个属性是为了告诉开发人员浏览器采用的哪种渲染模式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.compatMode == <span class="string">"CSS1Compat"</span>) &#123;</span><br><span class="line">    alert(<span class="string">"Standards mode"</span>); <span class="comment">//标准模式</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    alert(<span class="string">"Quirks mode"</span>) <span class="comment">//混杂模式</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>3、head属性</strong><br>引用文档的&lt;head&gt;元素，可以结合使用这个属性和另一种后备方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> head = <span class="built_in">document</span>.head || <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//如果有head属性就使用，否则仍然使用document.getElementsByTatName("head")[0];</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="字符集属性"><a href="#字符集属性" class="headerlink" title="字符集属性"></a>字符集属性</h2><p>charset属性表示文档中实际使用的字符集，也可以直接设置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.charset</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="插入标记"><a href="#插入标记" class="headerlink" title="插入标记"></a>插入标记</h2><p><strong>1、innerHTML属性</strong></p>
+<p>在读模式下，innerHTML属性返回与调用元素的所有子节点（包括元素，注释和文本节点）和对应的HTML标记。在写模式下，innerHTML会根据指定的值创建新的DOM树，然后用这个DOM树完全替换调用元素原先的所有子节点。</p>
+<p>不是所有的元素都支持innerHTML属性。不支持innerHTML的元素有：&lt;col&gt;、&lt;colgroup&gt;、&lt;frameset&gt;、&lt;head&gt;、&lt;html&gt;、&lt;style&gt;、&lt;tbody&gt;、&lt;thead&gt;、&lt;tfoot&gt;、&lt;tr&gt;，在IE8及更早的版本中，&lt;title&gt;元素也没有innerHTML属性。</p>
+<p><strong>2、outerHTML属性</strong></p>
+<p>在读模式下，outerHTML属性返回调用它的元素所有子节点的HTML标签，在写模式下，outerHTML根据指定的值创建新的DOM树，然后用这个DOM树完全替换调用元素。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">div.outerHTML = <span class="string">"&lt;p&gt;aqing&lt;/p&gt;"</span>;</span><br><span class="line"><span class="comment">//上面的效果和下面的一样</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.createElement(<span class="string">"p"</span>);</span><br><span class="line">p.appendChild(<span class="built_in">document</span>.createTextNode(<span class="string">"&lt;p&gt;aqing&lt;/p&gt;"</span>));</span><br><span class="line">div.parentNode.replaceChild(p, div);</span><br></pre></td></tr></table></figure>
+<p><strong>3、insertAdjacentHTMl()方法</strong></p>
+<p>它接收两个参数：<strong>插入的位置</strong>和<strong>要插入的HTML文本</strong>。第一个参数必须是下列值之一：</p>
+<p>“beforebegin”，在当前元素之下插入一个紧邻的同辈元素；<br>“afterbegin”，在当前元素之下插入一个新的子元素或在第一个子元素之前在插入新的子元素；<br>“beforeend”，在当前元素之下插入一个新的子元素或在最后一个子元素之后在插入新的子元素；<br>“afterend”，在当前元素之后插入一个紧邻的同辈元素；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">div.insertAdjacentHTML(<span class="string">"beforeBegin"</span>, <span class="string">"&lt;p&gt;aqing&lt;/p&gt;"</span>)</span><br><span class="line">div.insertAdjacentHTML(<span class="string">"afterEnd"</span>, <span class="string">"&lt;p&gt;aqing&lt;/p&gt;"</span>)</span><br><span class="line">div.insertAdjacentHTML(<span class="string">"afterBegin"</span>, <span class="string">"&lt;p&gt;aqing&lt;/p&gt;"</span>)</span><br><span class="line">div.insertAdjacentHTML(<span class="string">"beforeEnd"</span>, <span class="string">"&lt;p&gt;aqing&lt;/p&gt;"</span>)</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>4、innerText属性</strong></p>
+<p>通过innerText 属性可以操作元素中包含所有文本内容，包括子文档树中的文本。通过innerText 读取值时，他会按照由浅入深的顺序，将子文档树中的所有文本拼接起来。再通过innerText 写入值时，结果会删除所有子节点，插入包含响应文本值的文本节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.innerText = div.innerText;</span><br></pre></td></tr></table></figure>
+<p>执行这行代码后，就用原来的文本内容替换了容器中的所有内容（包含子节点，因而也就去掉了HTML标签）。</p>
+<p><strong>5、outerText 属性</strong></p>
+<p>除了作用范围变大到了包含调用它的节点之外，outerText与innerHTML 基本只上没有多大的区别。<br>在读取文本值时，结果完全一样。但在写模式下，outerText 就完全不同了：outerText 不只是替换调用它的元素子节点，而是会替换整个元素（包括子节点）。<br><strong>由于这个属性会导致调用它的元素不存在，因此并不常用。</strong></p>
+<hr>
+<h2 id="scrollIntoView-方法"><a href="#scrollIntoView-方法" class="headerlink" title="scrollIntoView()方法"></a>scrollIntoView()方法</h2><p>滚动页面，可以在所有HTML元素上调用，通过滚动浏览器窗口或某个容器元素，调用元素就可以出现在视口中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.scrollIntoView();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="contains-方法"><a href="#contains-方法" class="headerlink" title="contains()方法"></a>contains()方法</h2><p>调用contains()方法的应该是祖先节点，也就是搜索开始的节点，这个方法接收一个参数，即要检测的后代节点。如果被检测到的节点是后代节点，该方法返回true，否则返回false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.documentElement.contains(<span class="built_in">document</span>.body));</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>测试&lt;body&gt;元素是不是&lt;html&gt;元素的后代。</p>
+<hr>
+<h2 id="访问元素的样式"><a href="#访问元素的样式" class="headerlink" title="访问元素的样式"></a>访问元素的样式</h2><p><strong>通过JS修改元素的样式：</strong><br>&emsp;&emsp;语法：元素.style.样式名=样式值  (样式值必须是字符串样式)<br>&emsp;&emsp;注意：如果css的样式汇总含有 - ，<br>&emsp;&emsp;这种名称在JS中是不合法的,比如background-color<br>&emsp;&emsp;需要将这种样式的命名修改为驼峰命名法去掉 - ，<br>&emsp;&emsp;然后将 - 后的字母大写。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box.style.backgroundColor = <span class="string">"yellow"</span></span><br><span class="line">box.style.width = <span class="string">"100px"</span></span><br></pre></td></tr></table></figure>
+
+
+<p>我们通过style属性设置的样式都是内联样式，<br>而内联样式有较高的优先级，所以通过JS修改的样式往往会立即显示。</p>
+<p>但是如果在样式中写了！Important，则此时样式会有最高的优先级，<br>即使通过js也不能覆盖该样式，此时将会导致js修改样式失效<br>     所以尽量不要为样式添加！Important</p>
+<p>通过JS读取内联的样式：<br>&emsp;&emsp;语法：元素.style.样式名<br>&emsp;&emsp;通过style属性设置和读取的都是内联样式，如果没有内联样式则会返回空置。</p>
+<p><strong>通过style来设置元素的样式，记得要加上 单位 px</strong></p>
+<hr>
+<p><strong>style对象的属性和方法</strong></p>
+<p>style对象定义了一些对象和方法，这些属性和方法在提供元素的style特性值的同时，也可以修改样式。</p>
+<ul>
+<li>cssText：能够访问到style特性中的CSS代码。</li>
+<li>length：应用给元素的CSS属性的数量。</li>
+<li>getPropertyValue(propertyName)：返回给定属性的字符串值</li>
+<li>item(index)：返回给定位置的CSS属性的名称。</li>
+<li>removeProperty(propertyName)：从样式表中删除给定的属性。</li>
+<li>setProperty(propertyName,value,priority)：将给定的属性设置为相应的值，并加上优先权标志（“important”或者一个空的字符串）。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重写cssText</span></span><br><span class="line">         text.style.cssText = <span class="string">"width:200px;height:100px"</span>;</span><br><span class="line">         <span class="built_in">console</span>.log(text.style.cssText)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取元素样式的属性名和属性值</span></span><br><span class="line"><span class="keyword">var</span> pop, value, i, len;</span><br><span class="line">         <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; text.style.length; i++) &#123;</span><br><span class="line">             pop = text.style[i];  <span class="comment">//或者pop = text.style.item(i);</span></span><br><span class="line">             value = text.style.getPropertyValue(pop);</span><br><span class="line">             <span class="built_in">console</span>.log(pop + <span class="string">":"</span> + value);</span><br><span class="line">         &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>获取计算的样式</strong></p>
+<p><a href="https://aqingya.cn/2020/04/23/ten/" target="_blank" rel="noopener">js中如何获取元素的当前显示样式</a></p>
+<p><span style=“color:red;”><strong>无论在哪个浏览器中，所有计算的样式都是只读的</strong>。</span></p>
+<hr>
+<h2 id="元素的大小"><a href="#元素的大小" class="headerlink" title="元素的大小"></a>元素的大小</h2><p><strong>1、偏移量</strong></p>
+<p>offsetWidth<br>offsetHeight</p>
+<ul>
+<li>获取元素的整个的宽度和高度，包括内容区和内边距和边框。</li>
+</ul>
+<p>offsetParent</p>
+<ul>
+<li>可以用来获取当前元素的定位父元素<ul>
+<li>获取到里当前元素最近的开启了定位的祖先元素。</li>
+<li>如果所有的祖先元素都没有开启定位则会返回boby</li>
+</ul>
+</li>
+</ul>
+<p>offsetLeft</p>
+<ul>
+<li>当前元素相对于其定位父元素的水平偏移量。（外边框的距离也算）</li>
+</ul>
+<p>offsetTop</p>
+<ul>
+<li>当前元素相对于其定位父元素的垂直偏移量。（外边框的距离也算）</li>
+</ul>
+<p><span style=“color:red;”>这些属性都是不带px的，返回的都是一个数字，可以直接进行计算</span></p>
+<p><img src="https://img-blog.csdnimg.cn/20200525141807596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>要想知道某个元素在页面上的偏移量，将这个元素的offsetLeft和offsetTop与其offsetParent的相同属性相加，如此循环直至根元素，就可以得到一个基本准确的值。以下两个函数就可以用于分别取得元素的左和上偏移量。</p>
+<p><strong>获取元素的左偏移量</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的左偏移量</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">             <span class="keyword">var</span> actualLeft = element.offsetLeft;</span><br><span class="line">             <span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">                 actualLeft += current.offsetLeft;</span><br><span class="line">                 current = current.offsetParent;</span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">return</span> actualLeft;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(getElementLeft(text));</span><br></pre></td></tr></table></figure>
+<p>获取元素的上偏移量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的上偏移量</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">             <span class="keyword">var</span> actualTop = element.offsetTop;</span><br><span class="line">             <span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">while</span> (current !== <span class="literal">null</span>) &#123;</span><br><span class="line">                 actualTop += current.offsetTop;</span><br><span class="line">                 current = current.offsetParent;</span><br><span class="line">             &#125;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">return</span> actualTop;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(getElementTop(text));</span><br></pre></td></tr></table></figure>
+
+<p><strong>所有的偏移量都是只读的。而且每次访问都需要重新计算一次。因此应该尽量避免重复访问这些属性；如果需要重复使用其中某些属性的值，可以将他们设置为局部变量，以提高性能。</strong></p>
+<hr>
+<h2 id="2、客户区大小"><a href="#2、客户区大小" class="headerlink" title="2、客户区大小"></a>2、客户区大小</h2><p>元素的客户区大小(clientdimension),指的是元素内容及其内边距所占据的空间大小。有关客户区大小的属性有两个: clientWidth和clientHeight。其中，clientWidth属性是元素内容区宽度加上左右内边距宽度; clientHeight属性是元素内容区高度加上，上下内边距高度。图12-2 形象地说明了这些属性表示的大小。</p>
+<p>clientWidth<br>clientHeight</p>
+<ul>
+<li>这两个属性可以获取元素的可见高度</li>
+<li>这些属性都是不带px的，返回的都是一个数字，可以直接进行计算</li>
+<li>获取元素的高度和宽度，包括内容区和内边距区</li>
+<li>这些属性都是只读的，不能修改</li>
+<li><strong>与偏移量相似，客户区大小也是只读的，也是每次访问都要重新计算。</strong><br><img src="https://img-blog.csdnimg.cn/20200525143306829.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<hr>
+<h2 id="3、滚动大小"><a href="#3、滚动大小" class="headerlink" title="3、滚动大小"></a>3、滚动大小</h2><p>最后要介绍的是滚动大小( scroll dimension ),指的是包含滚动内容的元素的大小。有些元素(例如<html>元素)，即使没有执行任何代码也能自动地添加滚动条;但另外-些元素，则需要通过CSS的overflow属性进行设置才能滚动。以下是4个与滚动大小相关的属性。</p>
+<ul>
+<li>scrollHeight:在没有滚动条的情况下，元素内容的总高度。</li>
+<li>scrollwidth:在没有滚动条的情况下，元素内容的总宽度。</li>
+<li>scrollLeft:被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置。</li>
+<li>scrollTop:被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200525144831243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)在确定文档的总高度时(包括基于视口的最小高度时),必须取得scrollwidth/clientwidth和scrollHeight/clientHeight中的最大值，才能保证在跨浏览器的环境下得到精确的结果。下面就是这样一个例子。</p>
+<p><strong>注意，对于运行在混杂模式下的IE,则需要用document . body代替document . documentElement。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> docHeight = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollHeight, <span class="built_in">document</span>.documentElement.clientHeight);</span><br><span class="line"><span class="keyword">var</span> docWidth = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollWidth, <span class="built_in">document</span>.documentElement.clientWidth);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(docHeight);</span><br><span class="line"><span class="built_in">console</span>.log(docWidth);</span><br></pre></td></tr></table></figure>
+
+<br>
+通过scrollLeft和scrollTop属性既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。在元素尚未被滚动时，这两个属性的值都等于0。如果元素被垂直滚动了，那么scrollTop的值会大于0，且表示元素上方不可见内容的像素高度。如果元素被水平滚动了，那么scrollLeft的值会大于0，且表示元素左侧不可见内容的像素宽度。这两个属性都是可以设置的，因此将元素的scrollLeft和scrollTop设置为0,就可以重置元素的滚动位置。下面这个函数会检测元素是否位于顶部，如果不是就将其回滚到顶部。
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">scrollToTop</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (element.scrollTop != <span class="number">0</span>) &#123;</span><br><span class="line">        element.scrollTop = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p><span style=“color:red;”><strong>关于滚动了一个练习</strong></span>。<a href="https://aqingya.cn/2020/04/23/eleven/" target="_blank" rel="noopener">连接地址</a></p>
+<hr>
+<h2 id="4、确定元素的大小"><a href="#4、确定元素的大小" class="headerlink" title="4、确定元素的大小"></a>4、确定元素的大小</h2><p>getBoundingClientRect() ，这个方法会返回一个矩形对象,包含4个属性：left、top、right、bottom。<br><strong>这些属性给出了元素在页面中相对于视口的位置</strong>。但是每个浏览器实现都不一样。</p>
+<p>写一个跨浏览器的函数：</p>
+<p>注意：</p>
+<ol>
+<li>由于使用了arguments.callee  所以这个方法不能再严格模式下使用。</li>
+<li>但在某些情况下，这个函数返回的值可能会有所不同，例如使用表格布局或使用滚动元素情况下。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBoundingClientRect</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">    <span class="keyword">var</span> scrollLeft = <span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line">    <span class="keyword">if</span> (element.getBoundingClientRect) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.offset != <span class="string">"number"</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> temp = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">            temp.style.cssText = <span class="string">"position:absolute;left:0;top:0;"</span>;</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(temp);</span><br><span class="line">            <span class="built_in">arguments</span>.callee.offset = -temp.getBoundingClientRect().top - scrollTop;</span><br><span class="line">            <span class="built_in">document</span>.body.removeChild(temp);</span><br><span class="line">            temp = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> rect = element.getBoundingClientRect();</span><br><span class="line">        <span class="keyword">var</span> offset = <span class="built_in">arguments</span>.callee.offset;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            left: rect.left + offset,</span><br><span class="line">            right: rect.right + offset,</span><br><span class="line">            top: rect.top + offset,</span><br><span class="line">            bottom: rect.bottom + offset</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> actualLeft = getElementLeft(element);</span><br><span class="line">        <span class="keyword">var</span> actualTop = getElementTop(element);</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            left: actualLeft - scrollLeft,</span><br><span class="line">            right: actualLeft + element.offsetWidth - scrollLeft,</span><br><span class="line">            top: actualTop - scrollTop,</span><br><span class="line">            bottom: actualTop + element.offsetHeight - scrollTop</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<hr>
+<h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p>“DOM2级遍历和范围”模块定义了两个用于辅助完成顺序遍历DOM结构的类型: <strong>NodeIterator和TreeWalker</strong>。这两个类型能够基于给定的起点对DOM结构执行<strong>深度优先</strong>( depth-first )的遍历操作。</p>
+<p>DOM遍历是深度优先的DOM结构遍历，也就是说，移动的方向至少有两个(取决于使用的遍历类型)。遍历以给定节点为根，不可能向上超出DOM树的根节点。<br><img src="https://img-blog.csdnimg.cn/20200525175136185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>任何节点都可以作为遍历的根节点。如果假设<body>元素为根节点，那么遍历的第一步 就是访问&lt;p&gt;元素，然后再访问同为&lt;body&gt;元素后代的两个文本节点。不过，这次遍历永远不会到达&lt;html&gt;&lt;head&gt;元素，也不会到达不属于&lt;body&gt;元素子树的任何节点。而以document为根节点的遍历则可以访问文档中的全部节点。</p>
+<p>下图展示了对以document为根节点的DOM树进行深度优先遍历的先后顺序。<strong>NodeIterator 和TreeWalker都以这种方式遍历。</strong><br><img src="https://img-blog.csdnimg.cn/20200525175559137.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="1、NodeIterator"><a href="#1、NodeIterator" class="headerlink" title="1、NodeIterator"></a>1、NodeIterator</h2><p>使用document.createNodeIterator() 方法来创建它的实例。这个方法接收下列4个参数：</p>
+<blockquote>
+<ul>
+<li>root：想要作为搜索起点的数中的节点。</li>
+<li>whatToShow：表示想要访问哪些节点的数字代码。</li>
+<li>filter：是一个NodeFilter对象，或者一个表示应该接受还是某种特定节点的函数。(类似节点过滤器的函数)</li>
+<li>entityReferenceExpansion：布尔值表示是否扩展实体引用。这个参数在HTML页面中没有用，因为其中的实体引用不能扩展。</li>
+</ul>
+</blockquote>
+<p> whatToShow参数是一个位掩码， 通过应用- -或多 个过滤器( filter )来确定要访问哪些节点。这个参数的值以常量形式在NodeFilter类型中定义，如下所示。</p>
+<blockquote>
+<ul>
+<li>NodeFilter . SHOW_ ALL:显示所有类型的节点。</li>
+<li>NodeFilter . SHOW_ ELEMENT:显示元素节点。</li>
+<li>NodeFilter . SHOW_ ATTRIBUTE:显示特性节点。由于DOM结构原因，实际上不能使用这个值。</li>
+<li>NodeFilter . SHOW_ TEXT:显示文本节点。</li>
+<li>NodeFilter . SHOW_ CDATA_ SECTION: 显示CDATA节点。对HTML页面没有用。</li>
+<li>NodeFilter . SHOw_ ENTITY_ REFERENCE:显示实体引用节点。对HTML页面没有用。</li>
+<li>NodeFil ter . SHOW_ ENTITYE:显示实体节点。对HTML页面没有用。</li>
+<li>NodeFil ter . SHOW_ PROCESSING_ INSTRUCTION:显示处理指令节点。对HTML页面没有用。</li>
+<li>NodeFilter . SHOW_ COMMENT:显示注释节点。</li>
+<li>NodeFilter . SHOW_ DOCUMENT: 显示文档节点。</li>
+<li>NodeFilter . SHOW_ DOCUMENT_TYPE: 显示文档类型节点。</li>
+<li>NodeFil ter . SHOW_ DOCUMENT_ FRAGMENT:显示文档片段节点。对HTML页面没有用。</li>
+<li>NodeFilter . SHOW_ NOTATION:显示符号节点。对HTML页面没有用。</li>
+</ul>
+</blockquote>
+<p>除了NodeFilter.SHOW_ ALL之外，可以使用按位或操作符来组合多个选项，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> whatToShow = NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT;</span><br></pre></td></tr></table></figure>
+<br>
+可以通过createNodeIterator()方法的filter参数来指定自定义的NodeFilter对象，或者指定一个功能类似节点过滤器( node filter )的函数。 
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> filter = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> node.tagName.toLowerCase() == <span class="string">"li"</span>?</span><br><span class="line">    NodeFilter.FILTER_ACCEPT:</span><br><span class="line">    NodeFilter.FILTER_SKIP;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>NodeIterator类型的两个主要方法是<strong>nextNode ()</strong>和p<strong>reviousNode()</strong>。顾名思义，在深度优先的DOM子树遍历中，nextNode ()方法用于向前前进一步，而previousNode ()用于向后后退一步。<strong>在刚刚创建的NodeIterator对象中，有一个内部指针指向根节点，因此第一次调用nextNode()会返回根节点。当遍历到DOM子树的最后一个节点时，nextNode() 返回null</strong>。previousNode()方法的工作机制类似。当遍历到DOM子树的最后一个节点，且previousNode()返回根节点之后，再次调用它就会返回null。</p>
+<hr>
+<p>小例子：遍历指定节点中 &lt;li&gt;的元素，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mylist = <span class="built_in">document</span>.getElementById(<span class="string">"mylist"</span>);  <span class="comment">//获取我们遍历起点的节点。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> filter = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> node.tagName.toLowerCase() == <span class="string">"li"</span>?</span><br><span class="line">    NodeFilter.FILTER_ACCEPT:</span><br><span class="line">    NodeFilter.FILTER_SKIP;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iterator = <span class="built_in">document</span>.createNodeIterator(mylist, NodeFilter.SHOW_ELEMENT, filter, <span class="literal">false</span>);</span><br><span class="line"><span class="keyword">var</span> node = iterator.nextNode;</span><br><span class="line"><span class="keyword">while</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(node.tagName)  <span class="comment">//输出标签名</span></span><br><span class="line">    node = iterator.nextNode();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="TrreWalker"><a href="#TrreWalker" class="headerlink" title="TrreWalker"></a>TrreWalker</h2><p>TreeWalker是NodeIterator的一个更高级 的版本。除了包括 nextNode ()和previousNode ()在内的相同的功能之外，这个类型还提供了下列用于在不同方向上遍历DOM结构的方法。</p>
+<blockquote>
+<ul>
+<li>parentNode():遍历到当前节点的父节点;</li>
+<li>firstChild():遍历到当前节点的第一个子节点;</li>
+<li>lastChild():遍历到当前节点的最后一个子节点;</li>
+<li>nextSibling():遍历到当前节点的下一个同辈节点;</li>
+<li>previoussibling():遍历到当前节点的上一个同辈节点。</li>
+</ul>
+</blockquote>
+<p>创建Treewalker对象要使用document. createTreewalker()方法，这个方法接受的4个参数与document . createNodeIterator ()方法相同:作为遍历起点的根节点、要显示的节点类型、过滤器和一个表示是否扩展实体引用的布尔值。由于这两个创建方法很相似，所以很容易用Treewalker 来代替NodeIterator,如下面的例子所示。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mylist = <span class="built_in">document</span>.getElementById(<span class="string">"mylist"</span>);</span><br><span class="line">            <span class="keyword">var</span> filter = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> node.tagName.toLowerCase() == <span class="string">"li"</span> ?</span><br><span class="line">                    NodeFilter.FILTER_ACCEPT :</span><br><span class="line">                    NodeFilter.FILTER_SKIP;</span><br><span class="line">                <span class="comment">// NodeFilter.FILTER_REJECT;</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">var</span> walker = <span class="built_in">document</span>.createTreeWalker(mylist, NodeFilter.SHOW_ELEMENT, filter, <span class="literal">false</span>);</span><br><span class="line">            <span class="keyword">var</span> node = walker.nextNode;</span><br><span class="line">            <span class="keyword">while</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(node.tagName)  <span class="comment">//输出标签名</span></span><br><span class="line">                node = walker.nextNode();</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p>在这里，filter可以返回的值有所不同。除了NodeFilter .FILTER_ACCEPT 和NodeFilter.FILTER_ SKIP之外，还可以使用NodeFilter . FILTER_REJECT。 在使用NodeIterator对象时，NodeFilter . FILTER_ SKIP与NodeFilter . FILTER_ REJECT 的作用相同:跳过指定的节点。但在使用TreeWalker对象时，NodeFilter . FILTER <em>SKIP会跳过相应节点继续前进到子树中的下一个节点，而NodeFilter . FILTER</em> REJECT 则会跳过相应节点及该节点的整个子树。例如，将前面例子中的NodeFilter . FILTER_ SKIP 修改成NodeFilter. FILTER_ <em>REJECT, 结果就是不会访问任何节点。这是因为第一个返回的节点是&lt;div&gt;,它的标签名不是”li”，于是就会返回NodeFilter . FILTER</em> REJECT ，这意味着遍历会跳过整个子树。在这个例子中，&lt;div&gt;元素是遍历的根节点，于是结果就会停止遍历。</p>
+<p>当然，Treewalker真正强大的地方在于能够在DOM结构中沿任何方向移动。使用Treewalker遍历DOM树，即使不定义过滤器，也可以取得所有&lt;li&gt;元素，如下面的代码所示。<span style="color:red;"><strong>（前提我们知道它的结构树）</strong></sapn></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mylist = <span class="built_in">document</span>.getElementById(<span class="string">"mylist"</span>);</span><br><span class="line"><span class="keyword">var</span> walker = <span class="built_in">document</span>.createTreeWalker(mylist, NodeFilter.SHOW_ELEMENT, <span class="literal">null</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">walker.firstChild(); <span class="comment">//转到 &lt;p&gt;</span></span><br><span class="line">walker.nextSibling() <span class="comment">//转到&lt;ul&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> node = walker.firstChild();</span><br><span class="line"><span class="keyword">while</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(node.tagName)    </span><br><span class="line">    node = walker.nextSibling();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>它的HTML结构</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"mylist"</span>&gt;</span><br><span class="line">    &lt;p&gt;sdfsdf&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;ul&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li id="li"&gt;阿&lt;/</span>li&gt;</span><br><span class="line">        &lt;li&gt;清&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">        &lt;li&gt;呀&lt;/</span>li&gt;</span><br><span class="line">    &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>TreeWalker类型 还有一个属性，名叫 currentNode ，表示任何遍历方法在上一次遍历中返回的节点。通过设置这个属性也可以修改遍历继续进行起点，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> node = walker.nextNode;</span><br><span class="line"><span class="built_in">console</span>.log(node === walker.currentNode); <span class="comment">//ture</span></span><br><span class="line">walker.currentNode = <span class="built_in">document</span>.body; <span class="comment">//修改起点</span></span><br></pre></td></tr></table></figure>
+<br>
+
+<p>下面的例子会返回body中所有的 li 节点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mylist = <span class="built_in">document</span>.getElementById(<span class="string">"mylist"</span>);</span><br><span class="line"><span class="keyword">var</span> filter = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> node.tagName.toLowerCase() == <span class="string">"li"</span> ?</span><br><span class="line">        NodeFilter.FILTER_ACCEPT :</span><br><span class="line">        NodeFilter.FILTER_SKIP;</span><br><span class="line">    <span class="comment">// NodeFilter.FILTER_REJECT;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> walker = <span class="built_in">document</span>.createTreeWalker(mylist, NodeFilter.SHOW_ELEMENT, filter, <span class="literal">false</span>);</span><br><span class="line"><span class="keyword">var</span> node = walker.nextNode;</span><br><span class="line"><span class="built_in">console</span>.log(node === walker.currentNode); <span class="comment">//ture</span></span><br><span class="line">walker.currentNode = <span class="built_in">document</span>.body; <span class="comment">//修改起点</span></span><br><span class="line"><span class="keyword">while</span> (node !== <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(node.tagName)</span><br><span class="line">    node = walker.nextNode();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/26/27/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1770,151 +2283,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/05/19/twenty-eight/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-twenty-seven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/05/18/twenty-seven/">JavaScript  ---  继承总结</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/05/18/twenty-seven/" class="archive-article-date">
-  	<time datetime="2020-05-18T07:05:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1.3k字 | 预计阅读时长：5分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="ES5中的继承"><a href="#ES5中的继承" class="headerlink" title="ES5中的继承"></a>ES5中的继承</h2><p><strong>一、 原型链继承</strong></p>
-<p>原型链继承的原理：直接让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性和方法的继承。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="string">'aqing'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 父类上的原型方法</span></span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">child</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 子类的原型对象方法指向父类 子类中找不到的属性方法就会向父类找</span></span><br><span class="line">child.prototype = <span class="keyword">new</span> fat()</span><br><span class="line"><span class="comment">// 不影响继承 顺便绑一下constructor</span></span><br><span class="line">child.prototype.constructor = child</span><br><span class="line"><span class="comment">// child实例就可以访问父类及其原型上的属性和方法了</span></span><br><span class="line"><span class="keyword">const</span> Child = <span class="keyword">new</span> child()</span><br><span class="line">Child.name <span class="comment">// 'aqing'</span></span><br><span class="line">Child.getName() <span class="comment">// 'aqing'</span></span><br></pre></td></tr></table></figure>
-<p><strong>原型链继承的缺点</strong></p>
-<ol>
-<li><p>所有的child实例原型都指向同一个fat实例，因此对child实例修改某个父类引用类型会影响所有的child实例；</p>
-</li>
-<li><p>创建子类时无法向父类传参，没有实现super()的功能.</p>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="string">'aqing'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">child</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">child.prototype = <span class="keyword">new</span> fat()</span><br><span class="line">child.prototype.constructor = child</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">const</span> Child1 = <span class="keyword">new</span> child();</span><br><span class="line"><span class="keyword">const</span> Child2 = <span class="keyword">new</span> child();</span><br><span class="line">Child1.name = <span class="string">'wzg'</span></span><br><span class="line"><span class="built_in">console</span>.log(Child1.name) <span class="comment">// wzg</span></span><br><span class="line"><span class="comment">// 本来父类name属性是zaq 然后现在==</span></span><br><span class="line"><span class="built_in">console</span>.log(Child2.name) <span class="comment">// wzg</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>二、 构造函数继承</strong></p>
-<p>构造函数继承：在子类的构造函数中执行父类的构造函数，并为其绑定子类的this。让父类的构造函数把成员的属性和方法都挂在子类的this上，这样既避免了共用一个原型实例，又能像父类构造函数传参。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>)</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>)</span><br><span class="line">child1.name = <span class="string">'wzg'</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.name) <span class="comment">// wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name) <span class="comment">// aqing</span></span><br></pre></td></tr></table></figure>
-<p><strong>构造函数继承的缺点</strong><br>继承不到父类上的属性和方法</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child1.getName() <span class="comment">// Uncaught TypeError: child1.getName is not a function</span></span><br></pre></td></tr></table></figure>
-
-
-<p><strong>三 、组合式继承</strong><br>既然原型链继承和构造函数继承都有各自的缺点但是又能互补，那何不将两者结合起来使用；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型链继承</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> fat();</span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aq"</span>);</span><br><span class="line">child1.name = <span class="string">'wzg'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(child1.name); <span class="comment">//  wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name); <span class="comment">// aq</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">//wzg</span></span><br></pre></td></tr></table></figure>
-<p><strong>组合式继承的缺点</strong><br>每次创建子类实例都执行了两次构造函数（fat.call()和new fat()），虽然不影响继承，但是在子类创建时 原型中会存在两份相同的属性和方法。</p>
-<p><strong>四 、寄生式组合继承</strong></p>
-<p>为了解决构造函数被执行两次的问题，我们将指向父类实例 变成转向父类原型，减少一次构造函数的执行。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型链继承</span></span><br><span class="line">Child.prototype = fat.prototype <span class="comment">// 将指向父类实例转成转向父类原型</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line">child1.name = <span class="string">'wzg'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(child1.name); <span class="comment">// wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name); <span class="comment">// aqing</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">// wzg</span></span><br></pre></td></tr></table></figure>
-<p>但是这种方法也存在一个问题，就是子类和父类的原型都指向同一个对象，如果我们对子类原型操作就会对父类原型产生影响。比如给子类Child.prototype新增一个getName方法,那么父类fat.prototype也增加或是被覆盖一个getName方法。为了解决这个问题 我们给fat.prototype做一个浅拷贝；</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型链继承</span></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(fat.prototype) <span class="comment">// 将指向父类实例转成转向父类原型</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line">child1.name = <span class="string">'wzg'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(child1.name); <span class="comment">// wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name); <span class="comment">// aqing</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">// wzg</span></span><br><span class="line">Child.prototype.sayname = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"sayname"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> fat();</span><br><span class="line">child1.sayname(); <span class="comment">//saynem</span></span><br><span class="line">f.sayname();   <span class="comment">//Uncaught TypeError: f.sayname is not a function</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="ES6中的继承"><a href="#ES6中的继承" class="headerlink" title="ES6中的继承"></a>ES6中的继承</h2><p>class介绍<a href="https://github.com/ruanyf/es6tutorial/blob/57701fcc2e4c972b5fa6be236362f0b57b97bab4/docs/class.md" target="_blank" rel="noopener">来自阮一峰</a><br>es6中的继承：<br>1、class可以理解为functon,由于class本质还是一个function，因此它也有一个prototype属性。当new一个class时，会把class的protortype属性赋值给这个新对象的_proto_属性上；<br>2、constructor是默认添加的方法，在new一个对象的时候，会自动调用该方法, constructor里定义自己的属性；<br>3、继承extends和super， class子类名 extends父类名 实现继承。当然，还得在constructor里写上super (父类的参数)，意思就是在子类中获取父类的this指针，相当于fat.call(this)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">fat</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">		<span class="keyword">this</span>.name = props || <span class="string">''</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	getName () &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">fat</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(props, attrs) &#123; <span class="comment">// props继承父类的属性，attrs自己私有的属性</span></span><br><span class="line">		<span class="keyword">super</span>(props); <span class="comment">// 相当于获取父类的this指向</span></span><br><span class="line">		<span class="keyword">this</span>.rename = props.rename || <span class="string">''</span></span><br><span class="line">		<span class="keyword">this</span>.attrs = attrs</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 子类自己的方法</span></span><br><span class="line">	getFatname () &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">	&#125;</span><br><span class="line">	getAttrs () &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.attrs</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过new实例化一个构造函数</span></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(&#123;</span><br><span class="line">	name: <span class="string">'wzg'</span>,</span><br><span class="line">	rename: <span class="string">'aqing'</span></span><br><span class="line">&#125;, <span class="string">'wuzhiguang'</span>)</span><br><span class="line">child1.getName() <span class="comment">// wzg</span></span><br><span class="line">child1.getRename() <span class="comment">// aqing</span></span><br><span class="line">child1.getAttrs() <span class="comment">// wuzhiguang</span></span><br></pre></td></tr></table></figure>
-
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/18/twenty-seven/">展开全文 >></a>
         </p>
       
 

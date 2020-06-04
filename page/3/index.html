@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 46</a>
-			<a>总字数 <span class="post-count">71.2k</span></a>
+			<a>总文章数 47</a>
+			<a>总字数 <span class="post-count">71.8k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,151 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-twenty-seven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/05/18/twenty-seven/">JavaScript  ---  继承总结</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/05/18/twenty-seven/" class="archive-article-date">
+  	<time datetime="2020-05-18T07:05:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：1.3k字 | 预计阅读时长：5分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<h2 id="ES5中的继承"><a href="#ES5中的继承" class="headerlink" title="ES5中的继承"></a>ES5中的继承</h2><p><strong>一、 原型链继承</strong></p>
+<p>原型链继承的原理：直接让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性和方法的继承。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="string">'aqing'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 父类上的原型方法</span></span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">child</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 子类的原型对象方法指向父类 子类中找不到的属性方法就会向父类找</span></span><br><span class="line">child.prototype = <span class="keyword">new</span> fat()</span><br><span class="line"><span class="comment">// 不影响继承 顺便绑一下constructor</span></span><br><span class="line">child.prototype.constructor = child</span><br><span class="line"><span class="comment">// child实例就可以访问父类及其原型上的属性和方法了</span></span><br><span class="line"><span class="keyword">const</span> Child = <span class="keyword">new</span> child()</span><br><span class="line">Child.name <span class="comment">// 'aqing'</span></span><br><span class="line">Child.getName() <span class="comment">// 'aqing'</span></span><br></pre></td></tr></table></figure>
+<p><strong>原型链继承的缺点</strong></p>
+<ol>
+<li><p>所有的child实例原型都指向同一个fat实例，因此对child实例修改某个父类引用类型会影响所有的child实例；</p>
+</li>
+<li><p>创建子类时无法向父类传参，没有实现super()的功能.</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="string">'aqing'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">child</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">child.prototype = <span class="keyword">new</span> fat()</span><br><span class="line">child.prototype.constructor = child</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">const</span> Child1 = <span class="keyword">new</span> child();</span><br><span class="line"><span class="keyword">const</span> Child2 = <span class="keyword">new</span> child();</span><br><span class="line">Child1.name = <span class="string">'wzg'</span></span><br><span class="line"><span class="built_in">console</span>.log(Child1.name) <span class="comment">// wzg</span></span><br><span class="line"><span class="comment">// 本来父类name属性是zaq 然后现在==</span></span><br><span class="line"><span class="built_in">console</span>.log(Child2.name) <span class="comment">// wzg</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>二、 构造函数继承</strong></p>
+<p>构造函数继承：在子类的构造函数中执行父类的构造函数，并为其绑定子类的this。让父类的构造函数把成员的属性和方法都挂在子类的this上，这样既避免了共用一个原型实例，又能像父类构造函数传参。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>)</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>)</span><br><span class="line">child1.name = <span class="string">'wzg'</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.name) <span class="comment">// wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name) <span class="comment">// aqing</span></span><br></pre></td></tr></table></figure>
+<p><strong>构造函数继承的缺点</strong><br>继承不到父类上的属性和方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child1.getName() <span class="comment">// Uncaught TypeError: child1.getName is not a function</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>三 、组合式继承</strong><br>既然原型链继承和构造函数继承都有各自的缺点但是又能互补，那何不将两者结合起来使用；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型链继承</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> fat();</span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aq"</span>);</span><br><span class="line">child1.name = <span class="string">'wzg'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(child1.name); <span class="comment">//  wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name); <span class="comment">// aq</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">//wzg</span></span><br></pre></td></tr></table></figure>
+<p><strong>组合式继承的缺点</strong><br>每次创建子类实例都执行了两次构造函数（fat.call()和new fat()），虽然不影响继承，但是在子类创建时 原型中会存在两份相同的属性和方法。</p>
+<p><strong>四 、寄生式组合继承</strong></p>
+<p>为了解决构造函数被执行两次的问题，我们将指向父类实例 变成转向父类原型，减少一次构造函数的执行。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型链继承</span></span><br><span class="line">Child.prototype = fat.prototype <span class="comment">// 将指向父类实例转成转向父类原型</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line">child1.name = <span class="string">'wzg'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(child1.name); <span class="comment">// wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name); <span class="comment">// aqing</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">// wzg</span></span><br></pre></td></tr></table></figure>
+<p>但是这种方法也存在一个问题，就是子类和父类的原型都指向同一个对象，如果我们对子类原型操作就会对父类原型产生影响。比如给子类Child.prototype新增一个getName方法,那么父类fat.prototype也增加或是被覆盖一个getName方法。为了解决这个问题 我们给fat.prototype做一个浅拷贝；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125;</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型链继承</span></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(fat.prototype) <span class="comment">// 将指向父类实例转成转向父类原型</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line">child1.name = <span class="string">'wzg'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(child1.name); <span class="comment">// wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name); <span class="comment">// aqing</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">// wzg</span></span><br><span class="line">Child.prototype.sayname = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"sayname"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> fat();</span><br><span class="line">child1.sayname(); <span class="comment">//saynem</span></span><br><span class="line">f.sayname();   <span class="comment">//Uncaught TypeError: f.sayname is not a function</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="ES6中的继承"><a href="#ES6中的继承" class="headerlink" title="ES6中的继承"></a>ES6中的继承</h2><p>class介绍<a href="https://github.com/ruanyf/es6tutorial/blob/57701fcc2e4c972b5fa6be236362f0b57b97bab4/docs/class.md" target="_blank" rel="noopener">来自阮一峰</a><br>es6中的继承：<br>1、class可以理解为functon,由于class本质还是一个function，因此它也有一个prototype属性。当new一个class时，会把class的protortype属性赋值给这个新对象的_proto_属性上；<br>2、constructor是默认添加的方法，在new一个对象的时候，会自动调用该方法, constructor里定义自己的属性；<br>3、继承extends和super， class子类名 extends父类名 实现继承。当然，还得在constructor里写上super (父类的参数)，意思就是在子类中获取父类的this指针，相当于fat.call(this)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">fat</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">		<span class="keyword">this</span>.name = props || <span class="string">''</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	getName () &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">fat</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>(props, attrs) &#123; <span class="comment">// props继承父类的属性，attrs自己私有的属性</span></span><br><span class="line">		<span class="keyword">super</span>(props); <span class="comment">// 相当于获取父类的this指向</span></span><br><span class="line">		<span class="keyword">this</span>.rename = props.rename || <span class="string">''</span></span><br><span class="line">		<span class="keyword">this</span>.attrs = attrs</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 子类自己的方法</span></span><br><span class="line">	getFatname () &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">	&#125;</span><br><span class="line">	getAttrs () &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.attrs</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过new实例化一个构造函数</span></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(&#123;</span><br><span class="line">	name: <span class="string">'wzg'</span>,</span><br><span class="line">	rename: <span class="string">'aqing'</span></span><br><span class="line">&#125;, <span class="string">'wuzhiguang'</span>)</span><br><span class="line">child1.getName() <span class="comment">// wzg</span></span><br><span class="line">child1.getRename() <span class="comment">// aqing</span></span><br><span class="line">child1.getAttrs() <span class="comment">// wuzhiguang</span></span><br></pre></td></tr></table></figure>
+
+
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/05/18/twenty-seven/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-twenty-six" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1459,124 +1604,6 @@ index.html
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/27/eighteen/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-seventeen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/04/27/seventeen/">JavaScript元素类的操作总结。</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/04/27/seventeen/" class="archive-article-date">
-  	<time datetime="2020-04-27T02:27:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：239字 | 预计阅读时长：1分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
-封装成方法如下：
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  定义一个函数 addClass() 用来向元素中添加指定的class属性值</span></span><br><span class="line"><span class="comment">            参数：</span></span><br><span class="line"><span class="comment">                obj ：要添加class属性值的元素</span></span><br><span class="line"><span class="comment">                cn ： 套添加的class属性      为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">obj, cn</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (!hasClass(obj, cn)) &#123;</span><br><span class="line">                obj.className += <span class="string">" "</span> + cn;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 判断一个class中是否含有指定的class属性值</span></span><br><span class="line"><span class="comment">        * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn ： 检查的class属性         为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">hasClass</span>(<span class="params">obj, cn</span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 检查obj中是否含有cn</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="string">"\\b"</span> + cn + <span class="string">"\\b"</span>);</span><br><span class="line">            <span class="keyword">return</span> reg.test(obj.className);</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 移除指定元素中指定的class属性值</span></span><br><span class="line"><span class="comment">         * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn ： 检查的class属性           为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">moveClass</span>(<span class="params">obj, cn</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="string">"\\b"</span> + cn + <span class="string">"\\b"</span>);</span><br><span class="line">            obj.className = obj.className.replace(reg, <span class="string">""</span>);</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 切换class属性值</span></span><br><span class="line"><span class="comment">        * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn  ：检查的class属性          为字符串</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">toggleClass</span>(<span class="params">obj, cn</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (hasClass(obj, cn)) &#123;</span><br><span class="line">                moveClass(obj, cn);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                addClass(obj, cn);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;;</span><br></pre></td></tr></table></figure>
-
-<br>
-愿你的坚持终有收获。
-
-<br>
-<br>
-<br>
-
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/27/seventeen/">展开全文 >></a>
         </p>
       
 
