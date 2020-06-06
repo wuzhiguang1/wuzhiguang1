@@ -69,8 +69,8 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 50</a>
-			<a>总字数 <span class="post-count">73.6k</span></a>
+			<a>总文章数 51</a>
+			<a>总字数 <span class="post-count">75.5k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -176,6 +176,152 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-31" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/06/01/31/">JavaScript 元素的拖放事件</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/06/01/31/" class="archive-article-date">
+  	<time datetime="2020-06-01T12:53:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：1k字 | 预计阅读时长：4分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		<p>为了让元素可拖动，需要使用 HTML5 <a href="https://www.runoob.com/tags/att-global-draggable.html" target="_blank" rel="noopener">draggable</a> 属性。<br>链接和图片默认是可拖动的，不需要 draggable 属性</p>
+<br>
+
+<p>在拖放的过程中会触发以下事件：</p>
+<ol>
+<li>在拖动目标上触发事件 (源元素):</li>
+</ol>
+<blockquote>
+<ul>
+<li><a href="https://www.runoob.com/jsref/event-ondragstart.html" target="_blank" rel="noopener">ondragstart</a> - 用户开始拖动元素时触发</li>
+<li><a href="https://www.runoob.com/jsref/event-ondrag.html" target="_blank" rel="noopener">ondrag</a> - 元素正在拖动时触发</li>
+<li><a href="https://www.runoob.com/jsref/event-ondragend.html" target="_blank" rel="noopener">ondragend</a> - 用户完成元素拖动后触发</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>释放目标时触发的事件:</li>
+</ol>
+<blockquote>
+<ul>
+<li><a href="https://www.runoob.com/jsref/event-ondragenter.html" target="_blank" rel="noopener">ondragenter</a> - 当被鼠标拖动的对象进入其容器范围内时触发此事件</li>
+<li><a href="https://www.runoob.com/jsref/event-ondragover.html" target="_blank" rel="noopener">ondragover</a> - 当某被拖动的对象在另一对象容器范围内拖动时触发此事件</li>
+<li><a href="https://www.runoob.com/jsref/event-ondragleave.html" target="_blank" rel="noopener">ondragleave</a> - 当被鼠标拖动的对象离开其容器范围内时触发此事件</li>
+<li><a href="https://www.runoob.com/jsref/event-ondrop.html" target="_blank" rel="noopener">ondrop</a> - 在一个拖动过程中，释放鼠标键时触发此事件</li>
+</ul>
+</blockquote>
+<br>
+
+<p>将span拖放到div中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">        window.onload = function() &#123;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            EventUtil.addHandler(document, "dragstart", function(event) &#123;</span></span><br><span class="line"><span class="regexp">                event = EventUtil.getEvent(event);</span></span><br><span class="line"><span class="regexp">                /</span><span class="regexp">/dataTransfer.setData()方法设置数据类型和拖动的数据</span></span><br><span class="line"><span class="regexp">                event.dataTransfer.setData("Text", event.target.id);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            &#125;);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            /</span> 默认情况下,数据/元素不能在其他元素中被拖放。</span><br><span class="line">            对于drop我们必须防止元素的默认处理</span><br><span class="line">            EventUtil.addHandler(<span class="built_in">document</span>, <span class="string">"dragover"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                event = EventUtil.getEvent(event);</span><br><span class="line">                EventUtil.preventDefault(event);</span><br><span class="line"></span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="comment">/*对于drop,防止浏览器的默认处理数据(在drop中链接是默认打开)</span></span><br><span class="line"><span class="comment">        </span></span><br><span class="line"><span class="comment">            利用dataTransfer.getData()方法获得拖放数据</span></span><br><span class="line"><span class="comment">            拖拖的数据元素id</span></span><br><span class="line"><span class="comment">            拖拽元素附加到drop元素*/</span></span><br><span class="line">            EventUtil.addHandler(<span class="built_in">document</span>, <span class="string">"drop"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                event = EventUtil.getEvent(event);</span><br><span class="line">                EventUtil.preventDefault(event);</span><br><span class="line">                target = EventUtil.getTarget(event);</span><br><span class="line">                <span class="keyword">if</span> (event.target.className == <span class="string">"droptarget"</span>) &#123;</span><br><span class="line">                    <span class="keyword">var</span> data = event.dataTransfer.getData(<span class="string">"Text"</span>);</span><br><span class="line">                    event.target.appendChild(<span class="built_in">document</span>.getElementById(data));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// alert("ss");</span></span><br><span class="line"></span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">var</span> EventUtil = &#123;</span><br><span class="line">            addHandler: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (element.addEventListener) &#123;</span><br><span class="line">                    element.addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) &#123;</span><br><span class="line">                    element.attachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    element[<span class="string">"on"</span> + type] = handler;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 解决浏览器兼容性问题</span></span><br><span class="line">            getEvent: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> event ? event : <span class="built_in">window</span>.event;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 返回事件目标</span></span><br><span class="line">            getTarget: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> event.target || event.srcElement;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">//取消事件的默认行为。</span></span><br><span class="line">            preventDefault: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (event.preventDefault) &#123;</span><br><span class="line">                    event.preventDefault();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    event.returnValue = <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 移除事件处理程序</span></span><br><span class="line">            removeHandler: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (element.removeEventListener) &#123;</span><br><span class="line">                    element.removeEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.detachEvent) &#123;</span><br><span class="line">                    element.detachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    element[<span class="string">"on"</span> + type] = <span class="literal">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">//提供相关元素的信息，relatedTarget这个属性只对与mouseover和mouseout事件才包含值。</span></span><br><span class="line">            getRelatedTarget: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (event.relatedTarget) &#123;</span><br><span class="line">                    <span class="keyword">return</span> event.relatedTarget;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (event.toElement) &#123;</span><br><span class="line">                    <span class="keyword">return</span> event.toElement;</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (event.fromElement) &#123;</span><br><span class="line">                    <span class="keyword">return</span> event.fromElement;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取鼠标按钮</span></span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             *  0: 表示没有按下按钮。</span></span><br><span class="line"><span class="comment">                1: 表示按下了主鼠标按钮。</span></span><br><span class="line"><span class="comment">                2: 表示按下了次鼠标按钮。</span></span><br><span class="line"><span class="comment">                3: 表示同时按下了主、次鼠标按钮</span></span><br><span class="line"><span class="comment">                4: 表示按下了中间的鼠标按钮。</span></span><br><span class="line"><span class="comment">                5: 表示同时按下了主鼠标按钮和中间的鼠标按钮。</span></span><br><span class="line"><span class="comment">                6: 表示同时按下了次鼠标按钮和中间的鼠标按钮。</span></span><br><span class="line"><span class="comment">                7: 表示同时按下了三个鼠标按钮。*/</span></span><br><span class="line">            getButton: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">document</span>.implementation.hasFeature(<span class="string">"MouseEvents"</span>, <span class="string">"2.0"</span>)) &#123;</span><br><span class="line">                    <span class="keyword">return</span> event.button;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">switch</span> (event.button) &#123;</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获得鼠标滚轮的增量值delta</span></span><br><span class="line">            getWheelDelta: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (event.wheelDelta) &#123;</span><br><span class="line">                    <span class="keyword">return</span> (client.engine.opera &amp;&amp; client.engine.opera &lt; <span class="number">9.5</span> ?</span><br><span class="line">                        -event.wheelDelta : event.wheelDelta);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> -event.detail * <span class="number">40</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取字符串编码  主要用于文本框 监听事件是keypress</span></span><br><span class="line">            getCharCode: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> event.charCode == <span class="string">"number"</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> event.charCode;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> event.keyCode;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            <span class="comment">//取消进一步的事件捕获或者冒泡</span></span><br><span class="line">            stopPropagation: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (event.stopPropagation) &#123;</span><br><span class="line">                    event.stopPropagation();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    event.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">    &lt;style&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;/</span>style&gt;</span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">    &lt;a href="https:/</span><span class="regexp">/www.baidu.com" id="dragtarget"&gt;百度一下&lt;/</span>a&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;span draggable=<span class="string">"true"</span> id=<span class="string">"dragtarget1"</span>&gt;阿清呀&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">    &lt;br&gt;</span></span><br><span class="line"><span class="regexp">    &lt;br&gt;</span></span><br><span class="line"><span class="regexp">    &lt;div style="width:100px;height:100px;background-color: #bfa;" class="droptarget"&gt;&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>html&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+
+
+
+
+
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/01/31/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-30" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -2650,208 +2796,9 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
 
 
   
-    <article id="post-21" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/05/22/21/">JavaScript  ---  DOM简介 和  DOM Node节点的增删改查</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/05/22/21/" class="archive-article-date">
-  	<time datetime="2020-05-22T06:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：2.2k字 | 预计阅读时长：8分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="DOM简介："><a href="#DOM简介：" class="headerlink" title="DOM简介："></a>DOM简介：</h2><p><strong>通过 HTML DOM，JavaScript 能够访问和改变 HTML 文档的所有元素。</strong></p>
-<hr>
-<p><strong>HTML DOM（文档对象模型）</strong><br>当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。</p>
-<p><strong>HTML DOM</strong> 模型被结构化为<strong>对象树</strong>：</p>
-<p><strong>对象的 HTML DOM 树</strong><br><img src="https://img-blog.csdnimg.cn/20200522094310145.gif" alt="在这里插入图片描述"></p>
-<p>通过这个对象模型，JavaScript 获得创建动态 HTML 的所有力量：</p>
-<ul>
-<li>JavaScript 能改变页面中的所有 HTML 元素</li>
-<li>JavaScript 能改变页面中的所有 HTML 属性</li>
-<li>JavaScript 能改变页面中的所有 CSS 样式</li>
-<li>JavaScript 能删除已有的 HTML 元素和属性</li>
-<li>JavaScript 能添加新的 HTML 元素和属性</li>
-<li>JavaScript 能对页面中所有已有的 HTML 事件作出反应</li>
-<li>JavaScript 能在页面中创建新的 HTML 事件</li>
-</ul>
-<hr>
-<p><strong>什么是 DOM？</strong><br>DOM 是一项 W3C (World Wide Web Consortium) 标准。</p>
-<p>DOM 定义了访问文档的标准：</p>
-<p>“W3C 文档对象模型（DOM）是中立于平台和语言的接口，它允许程序和脚本动态地访问、更新文档的内容、结构和样式。”<br>W3C DOM 标准被分为 3 个不同的部分：</p>
-<ul>
-<li>Core DOM - 所有文档类型的标准模型</li>
-<li>XML DOM - XML 文档的标准模型</li>
-<li>HTML DOM - HTML 文档的标准模型</li>
-</ul>
-<hr>
-<p><strong>什么是 HTML DOM？</strong><br>HTML DOM 是 HTML 的标准对象模型和编程接口。它定义了：</p>
-<p>作为对象的 HTML 元素</p>
-<ul>
-<li>所有 HTML 元素的属性</li>
-<li>访问所有 HTML 元素的方法</li>
-<li>所有 HTML 元素的事件</li>
-</ul>
-<p><span style="color: red;">换言之：HTML DOM 是关于如何获取、更改、添加或删除 HTML 元素的标准。</span></p>
-<hr>
-<p>HTML DOM 是关于如何获取、更改、添加或删除 HTML 元素的标准。<br>Document对象是我们可以从脚本中对HTML页面中的所有元素进行访问</p>
-<p>节点：Node——构成HTML文档最基本的单元。<br>常用节点分为4类：</p>
-<ul>
-<li>文档节点：整个HTML文档</li>
-<li>元素节点：HTML文档中的HTML标签</li>
-<li>属性节点：元素的属性</li>
-<li>文本节点：HTML标签中的文本内容</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20200522141013494.png" alt="在这里插入图片描述"><br>文档的加载：<br>&emsp;&emsp;&emsp;&emsp;浏览器在加载一个页面的时候，是按照自上向下的顺序加载的<br>&emsp;&emsp;&emsp;&emsp;读取到一行就运行一行，如果将script标签写到页面的上边，<br>&emsp;&emsp;&emsp;&emsp;在代码执行时，页面还没有加载，页面没有加载DOM对象也没有加载<br>&emsp;&emsp;&emsp;&emsp;会导致无法获取到DOM对象</p>
-<p>Onload事件在整个 页面加载完成之后才触发<br>&emsp;&emsp;&emsp;&emsp;为window绑定一个onload事件<br>&emsp;&emsp;&emsp;&emsp;该事件对应的响应函数，将会在页面加载完成之后执行，<br>&emsp;&emsp;&emsp;&emsp;这样可以确保我们的代码执行时所有的DOM对象已经加载完成。</p>
-<hr>
-<p> <strong>获取元素节点</strong></p>
-<p>通过document对象调用</p>
-<p>1.getElementById()<br>&emsp;&emsp;通过id属性来获取一个元素节点的对象</p>
-<p>2.getElementsByTagName()<br>&emsp;&emsp;可以根据标签名来获取一组元素节点对象<br>&emsp;&emsp;这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象<br>&emsp;&emsp;即使查询到的元素只有一个，也会封装到数组中返回。</p>
-<p>3.getElementsByName()<br>&emsp;&emsp;通过name属性来获取一组元素节点对象。<br>&emsp;&emsp;这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象。<br>&emsp;&emsp;即使查询到的元素只有一个，也会封装到数组中返回。</p>
-<p><strong>InnerHTML 通过这个属性可以获取到元素内部的html代码<br>&emsp;&emsp;Bj.innerHTML<br>&emsp;&emsp;对于自结束标签没有意义，会返回为空。<br>&emsp;&emsp;如果需要读取元素节点属性，<br>&emsp;&emsp;直接使用 元素.属性名<br>&emsp;&emsp;例子： 元素.id   元素.name  元素.value<br>&emsp;&emsp;<span style="color: red;">注意：class属性不能采用这种方式，（主要用于表单中）<br>&emsp;&emsp;读取class属性需要使用 元素. className</span><br>innerText<br>&emsp;&emsp;该属性可以获取元素内部中的文本内容。<br>&emsp;&emsp;他和innerHTML类似，不同的是他会自动将html标签去除。</strong></p>
-<hr>
-<p><strong>获取元素节点的子节点</strong><br>通过具体的元素节点调用<br>1.getElementByTagName()<br>&emsp;&emsp;是一个方法，方法返回当前的指定标签名后代节点</p>
-<p>2.childNodes<br>&emsp;&emsp;是一个属性 表示当前节点的所有子节点<br>&emsp;&emsp;childNodes属性会获取包括文本节点在内的所有节点<br>&emsp;&emsp;<strong>根据DOM标签与标签间的空白也会当成文本节点</strong><br><span style="color: red;">注意：IE8及以下的浏览器中不会将空白文本当成子节点，<br>children属性可以获取当前元素的所有子元素。标签与标签间的空白不会当成文本节点。</span></p>
-<p>3.firstChild<br>&emsp;&emsp; 属性，表示当前节点的第一个子节点。<br>&emsp;&emsp;可以获取当前元素的第一个子节点（<strong>包含空白文本节点和注释</strong>）。</p>
-<p>&emsp;&emsp;<strong><span style="color: red;">firstElementChild:指向第一个元素；（不包括文本节点和注释）</span></strong></p>
-<p>4.lastChile<br>&emsp;&emsp; 属性，表示当前节点的最后一个子节点<br>&emsp;&emsp;可以获取当前元素的最后一个子节点（<strong>包含空白文本节点和注释</strong>）。</p>
-<p>&emsp;&emsp;<strong><span style="color: red;">lastElementChild:指向最后一个子元素；（不包括文本节点和注释）</span></strong></p>
-<br>
-
-<p>遍历元素<br>&emsp;&emsp;<strong><span style="color: red;">childElementCount:返回子元素的个数（不包括文本节点和注释）</span></strong></p>
-<hr>
-<p><strong>获取父节点和兄弟节点</strong></p>
-<p>通过具体的节点调用<br>1.parentNode<br>&emsp;&emsp; 属性，表示当前节点的父节点</p>
-<p>2.previousSibling<br>&emsp;&emsp; 属性，表示当前节点的前一个兄弟节点</p>
-<p>&emsp;&emsp;<span style="color: red;">previousSibling 属性返回元素节点之前的兄弟节点（包括文本节点、注释节点）；</span><br>&emsp;&emsp;<span style="color: red;">previousElementSibling 属性只返回元素节点之前的兄弟元素节点（不包括文本节点、注释节点）；</span></p>
-<p>3.nextSibling<br>&emsp;&emsp; 属性，表示当前节点的后一个兄弟节点</p>
-<p>&emsp;&emsp;<span style="color: red;">nextSibling 属性返回元素节点之后的兄弟节点（包括文本节点、注释节点）；</span><br>&emsp;&emsp;<span style="color: red;">nextElementSibling 属性只返回元素节点之后的兄弟元素节点（不包括文本节点、注释节点）。</span></p>
-<hr>
-<p>1、在document中有一个属性body，它保存的是body的引用<br>&emsp;&emsp;Var body = document.body;</p>
-<p>2、Doucument.doucumentElement保存的是html根标签<br>&emsp;&emsp;Var html = document.documentElenmet;</p>
-<p>3、Document.all 代表页面中的所有元素<br>&emsp;&emsp;var all = document.all;<br>&emsp;&emsp;（var all = document.getElementsByTagName(“*”)）效果一样。<br>&emsp;&emsp;它返回一个数组</p>
-<p>4、根据元素的class属性查询一组元素节点对象<br>&emsp;&emsp;GetElementsByClassNmae() 可以根据class属性值获取一组元素节点对象（类数组）<br>&emsp;&emsp;但是该方法 不支持IE8及以下浏览器。</p>
-<p>5、documen.querySelector()<br>&emsp;&emsp; 需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象<br>&emsp;&emsp; 虽然IE8中没有getElementByTagName() 但是可以使用querySelector，他可以支持IE8.<br>&emsp;&emsp; 使用该方法总会返回<strong>一个唯一的一个元素</strong>，如果满足条件的元素有多个，那么它会返回第一个。</p>
-<p>6、documen.querySelectorAll()<br>&emsp;&emsp;该方法和querySelector()用法类似，不同的是他会将符合条件的元素<strong>封装到一个数组中</strong>。<br>&emsp;&emsp;即使符合条件的元素只有一个，他也会返回数组。</p>
-<hr>
-<p><strong>DOM增删改查：</strong></p>
-<p>1.Document.createElement()<br>&emsp;&emsp;可以用于创建一个元素节点对象，<br>&emsp;&emsp;它需要一个标签名作为参数，将会根据标签名创建元素节点对象<br>&emsp;&emsp;并将创建好的对象作为返回值返回。<br>&emsp;&emsp;它可以个innerHTML结合使用。<br><img src="https://img-blog.csdnimg.cn/20200522143355678.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>2.document.createTextNode()<br>&emsp;&emsp;可以用来创建一个文本节点对象<br>&emsp;&emsp;需要一个文本内容作为参数，将会根据该内容创建文本节点，并将新的节点返回。</p>
-<p>3.appendChild()<br>&emsp;&emsp;向一个父节点中添加一个新的子节点<br>&emsp;&emsp;用法：父节点.appendChild(子节点)；</p>
-<p>4.insertBefore()<br>&emsp;&emsp;可以在指定的子节点前插入新的子节点<br>&emsp;&emsp;语法：<br>&emsp;&emsp;父节点.insertBefore(新节点，旧节点);</p>
-<p>5.replaceChild()<br>&emsp;&emsp;可以使用指定的子节点替换已有的子节点<br>&emsp;&emsp;语法：<br>&emsp;&emsp;父节点.replaceChile(新节点，旧节点)</p>
-<p>6.removeChild()<br>&emsp;&emsp;可以删除一个子节点<br>&emsp;&emsp;语法：父节点.removeChild(子节点)；<br>&emsp;&emsp;但是：<br>&emsp;&emsp;<span style="color: red;">常用：子节点.parentNode.removeChild(子节点)</span></p>
-<hr>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/22/21/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -2982,6 +2929,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
             
             <div class="clearfix"></div>
