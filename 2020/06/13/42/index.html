@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JavaScript正则表达式-常见面试题总结 | 阿清的小站</title>
+  <title>ES6之扩展运算符 三个点（...） | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题一JavaScript 写一个字符串转成驼峰的方法，o_div_style_position转成oDivStylePosotion。 12345var str &#x3D; &#39;border-bottom-color&#39;;var strRg &#x3D; str.replace(&#x2F;\-[a-z]&#x2F;g, function (params) &amp;#123;  return params.charAt(1).toUpperC">
+  <meta name="description" content="记住一句话就可以了参考链接   对象中的扩展运算符（…）用于取出参数对象中所有可遍历的属性，拷贝到当前对象之中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript正则表达式-常见面试题总结">
-<meta property="og:url" content="http://yoursite.com/2020/05/10/twenty-five/index.html">
+<meta property="og:title" content="ES6之扩展运算符 三个点（...）">
+<meta property="og:url" content="http://yoursite.com/2020/06/13/42/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="问题一JavaScript 写一个字符串转成驼峰的方法，o_div_style_position转成oDivStylePosotion。 12345var str &#x3D; &#39;border-bottom-color&#39;;var strRg &#x3D; str.replace(&#x2F;\-[a-z]&#x2F;g, function (params) &amp;#123;  return params.charAt(1).toUpperC">
+<meta property="og:description" content="记住一句话就可以了参考链接   对象中的扩展运算符（…）用于取出参数对象中所有可遍历的属性，拷贝到当前对象之中">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200512203558386.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020051220375457.png">
-<meta property="article:published_time" content="2020-05-10T12:41:43.000Z">
-<meta property="article:modified_time" content="2020-05-12T12:40:15.657Z">
+<meta property="article:published_time" content="2020-06-13T03:36:55.000Z">
+<meta property="article:modified_time" content="2020-06-13T03:37:32.039Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200512203558386.png">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -181,7 +178,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-twenty-five" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-42" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -190,18 +187,18 @@
         <center><p>
   
     <h1 class="article-title_code_ant" itemprop="name">
-      JavaScript正则表达式-常见面试题总结
+      ES6之扩展运算符 三个点（...）
     </h1>
   
 </p></center>
         
-        <a href="/2020/05/10/twenty-five/" class="archive-article-date">
-  	<time datetime="2020-05-10T12:41:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
+        <a href="/2020/06/13/42/" class="archive-article-date">
+  	<time datetime="2020-06-13T03:36:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
 </a>
         
       </header>
 	  <div align="center" class="post-count">
-	      字数：1.1k字 | 预计阅读时长：5分钟
+	      字数：48字 | 预计阅读时长：1分钟
 	  </div>
 
 
@@ -210,70 +207,10 @@
       
       
       	
-      		<h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><p>JavaScript 写一个字符串转成驼峰的方法，o_div_style_position转成oDivStylePosotion。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'border-bottom-color'</span>;</span><br><span class="line"><span class="keyword">var</span> strRg = str.replace(<span class="regexp">/\-[a-z]/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">params</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> params.charAt(<span class="number">1</span>).toUpperCase();</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(strRg);</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>charAt(1)也可以用substr(1)、substring(1)来替代。</li>
-<li>toUpperCase()转换成大写字母。</li>
-<li>/-[a-z]/g中g表示全文检索，part表示匹配到的字符</li>
-<li>replace是字符串的方法，返回经过修改的新字符串。</li>
-</ol>
-<h2 id="问题二"><a href="#问题二" class="headerlink" title="问题二"></a>问题二</h2><p>JavaScript 查找字符串中出现最多字符的个数<br>例如：sdjksfssscfssdd -&gt;字符最多的是s，出现了7次</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'sdjksfssscfssdd'</span>;</span><br><span class="line"><span class="keyword">var</span> maxObj = &#123;</span><br><span class="line">    key: <span class="literal">null</span>,</span><br><span class="line">    count: <span class="literal">null</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> maxCou = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (str) &#123;</span><br><span class="line">  <span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(str[<span class="number">0</span>], <span class="string">'g'</span>);</span><br><span class="line">  <span class="keyword">var</span> currStr = str[<span class="number">0</span>];</span><br><span class="line">  str = str.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params">part</span>) </span>&#123;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">if</span> (i &gt; maxCou) &#123;</span><br><span class="line">    maxObj.key = currStr;</span><br><span class="line">    maxCou = maxObj.count = i;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(maxObj.key + <span class="string">':'</span> + maxObj.count)</span><br></pre></td></tr></table></figure>
-
-<h2 id="问题三"><a href="#问题三" class="headerlink" title="问题三"></a>问题三</h2><p>JavaScript 把12233435566690中连续重复的数字去掉</p>
-<p>判断是否为空字符串，是就直接返回；</p>
-<p>不是的话</p>
-<p>初始字符串为str第一个，从第二个开始，如果不等于他们前一个的字符，代表不重复，加入初始字符，迭代进行，直到最后一个，返回</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeRepetition</span> (<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (str != <span class="string">''</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> result = str[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; str.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (str[i] != str[i - <span class="number">1</span>]) &#123;</span><br><span class="line">        result += str[i];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> result = <span class="string">''</span>;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(removeRepetition(<span class="string">"sssssssssaaaaaaaaasasas"</span>)); <span class="comment">//sasasas</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="问题四"><a href="#问题四" class="headerlink" title="问题四"></a>问题四</h2><p>JavaScript 用js实现千位分隔符?</p>
-<p>例如123456789–&gt;123,456,789</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'123456789'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^([1-9]\d&#123;0,2&#125;)((?:\d&#123;3&#125;)+)$/</span>;</span><br><span class="line"><span class="keyword">var</span> s = str.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">RegExp</span>.$<span class="number">1</span> + <span class="string">','</span> + <span class="built_in">RegExp</span>.$<span class="number">2.</span>match(<span class="regexp">/\d&#123;3&#125;/g</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(s);<span class="comment">//123,456,789</span></span><br></pre></td></tr></table></figure>
-<p>知识点</p>
-<ul>
-<li>将第一个逗号前面的数字作为第一组，后面所有数字为第二组，第二组是由多个三位的数字组合而成的，整体需要匹配捕获，但是每个三位数不需要匹配捕获所以加？：。</li>
-<li>RegExp.$1获取第一个分组，RegExp.$2获取第二个分组。</li>
-<li>match返回匹配到的数据，是数组类型。</li>
-</ul>
-<p>注意：IE10中直接调用分组不识别，需要在此前调用test方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'123456789'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^([1-9]\d&#123;0,2&#125;)((?:\d&#123;3&#125;)+)$/</span>;</span><br><span class="line"><span class="keyword">if</span> (reg.test(str)) &#123;</span><br><span class="line">  <span class="keyword">var</span> s = str.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">RegExp</span>.$<span class="number">1</span> + <span class="string">','</span> + <span class="built_in">RegExp</span>.$<span class="number">2.</span>match(<span class="regexp">/\d&#123;3&#125;/g</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(s);<span class="comment">//123,456,789</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="问题五"><a href="#问题五" class="headerlink" title="问题五"></a>问题五</h2><p>JavaScript 写一个正则表达式判断字符串是否是对称数</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'Woow'</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/^([a-z])([a-z])\2\1$/i</span>;</span><br><span class="line"><span class="keyword">if</span> (reg.test(str)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ok'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="问题六"><a href="#问题六" class="headerlink" title="问题六"></a>问题六</h2><p>JavaScript 写出一个正则表达式用于匹配由数字和字母组成的字符串</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkPassWord</span> (<span class="params">nubmer</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> re = <span class="regexp">/^[0-9a-zA-Z]*$/</span>;  <span class="comment">//判断字符串是否为数字和字母组合</span></span><br><span class="line">  <span class="keyword">if</span> (!re.test(nubmer)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<br>
-<br>
-
-<hr>
-<h2 id="test-也能捕获（本意是匹配）"><a href="#test-也能捕获（本意是匹配）" class="headerlink" title="test() 也能捕获（本意是匹配）"></a>test() 也能捕获（本意是匹配）</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"wzg123wzg45wzg52"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d+)/g</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(reg.test(str));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">RegExp</span>.$<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200512203558386.png" alt="在这里插入图片描述"></p>
-<hr>
-<h2 id="案例：把时间字符串进行处理"><a href="#案例：把时间字符串进行处理" class="headerlink" title="案例：把时间字符串进行处理"></a>案例：把时间字符串进行处理</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="string">"2020-5-1"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;1,2&#125;)-(\d&#123;1,2&#125;)/</span>;</span><br><span class="line">time = time.replace(reg, <span class="string">"$1年$2月$3日"</span>);</span><br></pre></td></tr></table></figure>
-<p>也可以这样处理str.replace(reg,function(){})</p>
-<ol>
-<li>首先拿REG和TIME进行匹配捕获，能匹配到几次就会把传递的函数执行几次（而且是匹配一次就执行一次）</li>
-<li>不仅把方法执行，而且EWPLACE还给方法传递了实参信息（和exec捕获的内容一致的信息：大正则匹配的内容，小分组匹配的信息）</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="string">"2020-5-1"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;1,2&#125;)-(\d&#123;1,2&#125;)/</span>;</span><br><span class="line">time = time.replace(reg, (big, $<span class="number">1</span>, $<span class="number">2</span>, $<span class="number">3</span>) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(big, $<span class="number">1</span>, $<span class="number">2</span>, $<span class="number">3</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/2020051220375457.png" alt="在这里插入图片描述"></p>
-<ol start="3">
-<li>在函数中我们返回的是啥，就把当前大正则匹配的内容替换成啥。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="string">"2020-5-1"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/(\d&#123;4&#125;)-(\d&#123;1,2&#125;)-(\d&#123;1,2&#125;)/</span>;</span><br><span class="line">time = time.replace(reg, (...arg) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> [, $<span class="number">1</span>, $<span class="number">2</span>, $<span class="number">3</span>] = arg;</span><br><span class="line">    $<span class="number">2.</span>length &lt; <span class="number">2</span> ? $<span class="number">2</span> = <span class="string">"0"</span> + $<span class="number">2</span> : <span class="literal">null</span></span><br><span class="line">    $<span class="number">3.</span>length &lt; <span class="number">2</span> ? $<span class="number">3</span> = <span class="string">"0"</span> + $<span class="number">3</span> : <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span> $<span class="number">1</span> + <span class="string">"年"</span> + $<span class="number">2</span> + <span class="string">"月"</span> + $<span class="number">3</span> + <span class="string">"日"</span></span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(time);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="案例：字符串首字母大写"><a href="#案例：字符串首字母大写" class="headerlink" title="案例：字符串首字母大写"></a>案例：字符串首字母大写</h2><p>函数被执行了六次，每一次都把正则匹配的信息传递给函数<br>每一次匹配：[“good”,”g”] [“good”,”g”] …</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"good good study, day day up"</span>;</span><br><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/\b([a-zA-Z])[a-zA-Z]*\b/g</span>;</span><br><span class="line">str = str.replace(reg, (...arg) =&gt; &#123;</span><br><span class="line">    <span class="keyword">var</span> [content, $<span class="number">1</span>] = arg;</span><br><span class="line">    $<span class="number">1</span> = $<span class="number">1.</span>toUpperCase();</span><br><span class="line">    content = content.substring(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> $<span class="number">1</span> + content;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(str);</span><br></pre></td></tr></table></figure>
-
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
+      		<h2 id="记住一句话就可以了"><a href="#记住一句话就可以了" class="headerlink" title="记住一句话就可以了"></a>记住一句话就可以了</h2><p><a href="https://blog.csdn.net/astonishqft/article/details/82899965" target="_blank" rel="noopener">参考链接</a></p>
+<blockquote>
+<p><span style="color"> <strong>对象中的扩展运算符（…）用于取出参数对象中所有可遍历的属性，拷贝到当前对象之中</strong></span></p>
+</blockquote>
 
 			<!-- 《添加版权声明 -->
 			
@@ -283,25 +220,7 @@
 
 <!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
 
-  <div class="declare">
-    <strong class="author">本文作者：</strong>
-    
-      阿清そ
-    
-    <br>
-    <strong class="create-time">发布时间：</strong>
-    2020-05-10
-    <br>
-    <strong class="update-time">最后更新：</strong>
-    2020-05-12
-    <br>
-    <strong class="article-titles">本文标题：</strong>
-      <a href="#" title="JavaScript正则表达式-常见面试题总结" target="_blank">JavaScript正则表达式-常见面试题总结</a>
-    <br>
-    <strong class="copyright">版权声明：</strong>
-    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
-    
-  </div>
+  <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
 			
@@ -325,17 +244,6 @@
 	</div>
 
       
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
 
       
 
@@ -385,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/05/10/twenty-five/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/06/13/42/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -399,18 +307,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/05/15/twenty-six/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript中的原型和原型链（图解）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/10/twenty-four/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript中正则表达式--  (?=a)、先行断言、现行否定断言</div>
+    <a href="/2020/06/06/41/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">原生JS+JSON 天气预报小项目 （含源码）</div>
       <i class="icon-circle-right"></i>
     </a>
   
