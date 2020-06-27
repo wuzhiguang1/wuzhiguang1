@@ -49,6 +49,50 @@
             <div class="left-col" q-class="show:isShow">
                 
     <div class="overlay" style="background: #4d4d4d"></div>
+    <!-- 添加“心知天气”-->
+    <!-- 《添加“心知天气”-->
+    <div id="tp-weather-widget" style="position:absolute;"></div>
+    <script>
+        (function(T, h, i, n, k, P, a, g, e) {
+            g = function() {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function() {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+    </script>
+    <script>
+        tpwidget("init", {
+            "flavor": "slim",
+            "location": "WM6N2PM3WY2K",
+            "geolocation": "enabled",
+            "language": "zh-chs",
+            "unit": "c",
+            "theme": "chameleon",
+            "container": "tp-weather-widget",
+            "bubble": "enabled",
+            "alarmType": "badge",
+            "color": "#FFFFFF",
+            "uid": "U88B4B2797",
+            "hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+        });
+        tpwidget("show");
+    </script>
+    <!-- 添加“心知天气”》-->
+
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
@@ -216,35 +260,41 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 <article id="post-41" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 class="article-title_code_ant" itemprop="name">
       原生JS+JSON 天气预报小项目 （含源码）
     </h1>
   
-</p></center>
-        
-        <a href="/2020/06/06/41/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/06/06/41/" class="archive-article-date">
   	<time datetime="2020-06-06T08:45:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1.9k字 | 预计阅读时长：11分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                1.9k字 | 预计阅读时长：
+                    11分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/wuzhiguang1/aqingProject/tree/master/JS+JSON+Weather" target="_blank" rel="noopener">源码链接</a></p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/wuzhiguang1/aqingProject/tree/master/JS+JSON+Weather" target="_blank" rel="noopener">源码链接</a></p>
 <hr>
 <p>index.html</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;天气预报&lt;/title&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"css/index.css"</span>&gt;</span><br><span class="line">    &lt;script src=<span class="string">"js/index.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div class=<span class="string">"container"</span>&gt;</span><br><span class="line">        &lt;!-- 左边 --&gt;</span><br><span class="line">        &lt;div class=<span class="string">"left-side"</span>&gt;</span><br><span class="line">            &lt;!-- 渐变 --&gt;</span><br><span class="line">            &lt;div class=<span class="string">"gradient"</span>&gt;&lt;/div&gt;</span><br><span class="line">            &lt;div class=<span class="string">"date-container"</span>&gt;</span><br><span class="line">                &lt;h2 class=<span class="string">"date-dayname"</span> id=<span class="string">"date-dayname"</span>&gt;周六&lt;/h2&gt;</span><br><span class="line">                &lt;span class=<span class="string">"date-day"</span> id=<span class="string">"date-day"</span>&gt;2020-06-06&lt;/span&gt;</span><br><span class="line">                &lt;!-- location 图标 --&gt;</span><br><span class="line">                &lt;span class=<span class="string">"iconfont"</span> id=<span class="string">"location"</span>&gt;&amp;<span class="comment">#xe6e5;开封&lt;/span&gt;</span></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div class=<span class="string">"weather-conteiner"</span>&gt;</span><br><span class="line">                &lt;!-- 天气图标 --&gt;</span><br><span class="line">                &lt;span class=<span class="string">"iconfont"</span> id=<span class="string">"weather-l"</span>&gt;&amp;<span class="comment">#xe61f;&lt;/span&gt;</span></span><br><span class="line">                &lt;div class=<span class="string">"weather-temp"</span> id=<span class="string">"weather-temp"</span>&gt;30℃&lt;/div&gt;</span><br><span class="line">                &lt;div class=<span class="string">"weather-desc"</span> id=<span class="string">"weather-desc"</span>&gt;晴天&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 右边部分 --&gt;</span><br><span class="line">        &lt;div class=<span class="string">"right-side"</span>&gt;</span><br><span class="line">            &lt;div class=<span class="string">"today-info-container"</span>&gt;</span><br><span class="line">                &lt;div class=<span class="string">"today-info"</span>&gt;</span><br><span class="line">                    &lt;!-- PM2.5 --&gt;</span><br><span class="line">                    &lt;div class=<span class="string">"pm clearfix "</span>&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"title"</span>&gt;PM2.5&lt;/span&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"value"</span> id=<span class="string">"pm"</span>&gt;00&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;!-- 湿度 --&gt;</span><br><span class="line">                    &lt;div class=<span class="string">"humidity clearfix a"</span>&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"title"</span>&gt;湿度&lt;/span&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"value"</span> id=<span class="string">"humidity"</span>&gt;00&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;!-- 风速 --&gt;</span><br><span class="line">                    &lt;div class=<span class="string">"wind clearfix "</span>&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"title"</span>&gt;风速&lt;/span&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"value"</span> id=<span class="string">"wind"</span>&gt;00&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div class=<span class="string">"week-container"</span>&gt;</span><br><span class="line">                &lt;ul class=<span class="string">"week-list"</span>&gt;</span><br><span class="line">                    &lt;li class=<span class="string">"active"</span> id=<span class="string">"day1"</span>&gt;</span><br><span class="line">                        &lt;!-- 天气图标 --&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"iconfont"</span>&gt;&amp;<span class="comment">#xe61f;&lt;/span&gt;</span></span><br><span class="line">                        &lt;span class=<span class="string">"day-name"</span>&gt;周六&lt;/span&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"day-temp"</span>&gt;30℃&lt;/span&gt;</span><br><span class="line">                    &lt;/li&gt;</span><br><span class="line">                    &lt;li id=<span class="string">"day2"</span>&gt;</span><br><span class="line">                        &lt;!-- 天气图标 --&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"iconfont"</span>&gt;&amp;<span class="comment">#xe61f;&lt;/span&gt;</span></span><br><span class="line">                        &lt;span class=<span class="string">"day-name"</span>&gt;周日&lt;/span&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"day-temp"</span>&gt;30℃&lt;/span&gt;</span><br><span class="line">                    &lt;/li&gt;</span><br><span class="line">                    &lt;li id=<span class="string">"day3"</span>&gt;</span><br><span class="line">                        &lt;!-- 天气图标 --&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"iconfont"</span>&gt;&amp;<span class="comment">#xe61f;&lt;/span&gt;</span></span><br><span class="line">                        &lt;span class=<span class="string">"day-name"</span>&gt;周一&lt;/span&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"day-temp"</span>&gt;30℃&lt;/span&gt;</span><br><span class="line">                    &lt;/li&gt;</span><br><span class="line">                    &lt;li id=<span class="string">"day4"</span>&gt;</span><br><span class="line">                        &lt;!-- 天气图标 --&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"iconfont"</span>&gt;&amp;<span class="comment">#xe61f;&lt;/span&gt;</span></span><br><span class="line">                        &lt;span class=<span class="string">"day-name"</span>&gt;周二&lt;/span&gt;</span><br><span class="line">                        &lt;span class=<span class="string">"day-temp"</span>&gt;30℃&lt;/span&gt;</span><br><span class="line">                    &lt;/li&gt;</span><br><span class="line">                &lt;/ul&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            &lt;div class=<span class="string">"location-container"</span>&gt;</span><br><span class="line">                &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"city"</span> placeholder=<span class="string">"位置"</span>&gt;</span><br><span class="line">                &lt;button class=<span class="string">"location-button"</span> id=<span class="string">"location-button"</span>&gt;</span><br><span class="line">                    &lt;!-- location图标 --&gt;</span><br><span class="line">                    &lt;span class=<span class="string">"iconfont"</span> &gt;&amp;<span class="comment">#xe6e5;查询&lt;/span&gt;</span></span><br><span class="line">                &lt;/button&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
@@ -284,9 +334,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -305,23 +355,31 @@
     2020-06-13
     <br>
     <strong class="article-titles">本文标题：</strong>
-      <a href="#" title="原生JS+JSON 天气预报小项目 （含源码）" target="_blank">原生JS+JSON 天气预报小项目 （含源码）</a>
+    <a href="http://yoursite.com/2020/06/06/41/" title="原生JS+JSON 天气预报小项目 （含源码）" target="_blank">原生JS+JSON 天气预报小项目 （含源码）</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="http://yoursite.com/2020/06/06/41/" title="原生JS+JSON 天气预报小项目 （含源码）" target="_blank">http://yoursite.com/2020/06/06/41/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
-    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
     
   </div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -333,7 +391,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -346,10 +404,10 @@
 	</div>
 
 
-      
+                                                                                        
 
-      
-        
+                                                                                                
+                                                                                                    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -399,13 +457,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                        
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-  
+    
 <nav id="article-nav">
   
     <a href="/2020/06/24/43/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -425,8 +483,8 @@
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -443,18 +501,17 @@
 </aside>
 
 
+                
+                    
 
-  
-  
-  
+                                
 
-  
+                                            
 
-  
+                                                        
 
-  
-
-
+                                                                
+                                                                            
                             </div>
                         </div>
                     </div>
@@ -593,10 +650,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

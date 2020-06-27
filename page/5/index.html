@@ -46,6 +46,50 @@
             <div class="left-col" q-class="show:isShow">
                 
     <div class="overlay" style="background: #4d4d4d"></div>
+    <!-- 添加“心知天气”-->
+    <!-- 《添加“心知天气”-->
+    <div id="tp-weather-widget" style="position:absolute;"></div>
+    <script>
+        (function(T, h, i, n, k, P, a, g, e) {
+            g = function() {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function() {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+    </script>
+    <script>
+        tpwidget("init", {
+            "flavor": "slim",
+            "location": "WM6N2PM3WY2K",
+            "geolocation": "enabled",
+            "language": "zh-chs",
+            "unit": "c",
+            "theme": "chameleon",
+            "container": "tp-weather-widget",
+            "bubble": "enabled",
+            "alarmType": "badge",
+            "color": "#FFFFFF",
+            "uid": "U88B4B2797",
+            "hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+        });
+        tpwidget("show");
+    </script>
+    <!-- 添加“心知天气”》-->
+
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
@@ -215,35 +259,41 @@
                                 
   
     <article id="post-fifteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/24/fifteen/">JavaScript ---事件的委派</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/24/fifteen/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/24/fifteen/" class="archive-article-date">
   	<time datetime="2020-04-24T04:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：486字 | 预计阅读时长：2分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                486字 | 预计阅读时长：
+                    2分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <br>
 <br>
 
 <ul>
@@ -278,9 +328,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -289,15 +339,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -309,7 +359,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -322,19 +372,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/24/fifteen/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/24/fifteen/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -351,39 +402,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-fourteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/24/fourteen/">JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/24/fourteen/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/24/fourteen/" class="archive-article-date">
   	<time datetime="2020-04-24T03:41:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：575字 | 预计阅读时长：2分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                575字 | 预计阅读时长：
+                    2分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <br>
 <br>
   为一个元素绑定多事件有两种方法：addEventListener（）和  attachEvent()
 
@@ -428,9 +484,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -439,15 +495,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -459,7 +515,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -472,19 +528,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/24/fourteen/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/24/fourteen/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -501,39 +558,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-thirteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/23/thirteen/">JavaScript ---div跟随鼠标移动</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/23/thirteen/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/23/thirteen/" class="archive-article-date">
   	<time datetime="2020-04-23T13:29:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：312字 | 预计阅读时长：1分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                312字 | 预计阅读时长：
+                    1分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <br>
 <br>
 
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;style&gt;</span></span><br><span class="line"><span class="regexp">        body {</span></span><br><span class="line"><span class="regexp">            height: 3000px;</span></span><br><span class="line"><span class="regexp">        }</span></span><br><span class="line"><span class="regexp">        </span></span><br><span class="line"><span class="regexp">        #box {</span></span><br><span class="line"><span class="regexp">            width: 100px;</span></span><br><span class="line"><span class="regexp">            height: 100px;</span></span><br><span class="line"><span class="regexp">            background-color: #bfa;</span></span><br><span class="line"><span class="regexp">            /</span>* 开启box的绝对定位 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">            position: absolute;</span></span><br><span class="line"><span class="regexp">        }</span></span><br><span class="line"><span class="regexp">    &lt;/</span>style&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="comment">// 获取box元素</span></span><br><span class="line">            <span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 为window绑定鼠标事件</span></span><br><span class="line">            <span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="comment">// 解决兼容性问题</span></span><br><span class="line">                event = event || <span class="built_in">window</span>.event;</span><br><span class="line">                <span class="comment">//获取滚动条滚动的距离</span></span><br><span class="line">                <span class="comment">//chromer认为浏览器的滚动条是body的，可以通过Body.scrollTop来获取</span></span><br><span class="line">                <span class="comment">// 火狐等浏览器认为浏览器的滚动条是html的</span></span><br><span class="line">                <span class="comment">// 所以我们就提前进行一个判断</span></span><br><span class="line">                <span class="keyword">var</span> st = <span class="built_in">document</span>.body.scrollTop || <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">                <span class="keyword">var</span> sl = <span class="built_in">document</span>.body.scrollLeft || <span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//获取鼠标的位置</span></span><br><span class="line">                <span class="keyword">var</span> top = event.clientY;</span><br><span class="line">                <span class="keyword">var</span> left = event.clientX;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//设置偏移量</span></span><br><span class="line">                box.style.top = top + st + <span class="string">"px"</span>;</span><br><span class="line">                box.style.left = left + sl + <span class="string">"px"</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"box"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></tbody></table></figure>
@@ -567,9 +629,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -578,15 +640,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -598,7 +660,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -611,19 +673,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/thirteen/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/23/thirteen/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -640,39 +703,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-twelve" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/23/twelve/">用CSS来解决“高度塌陷”问题</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/23/twelve/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/23/twelve/" class="archive-article-date">
   	<time datetime="2020-04-23T10:27:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：72字 | 预计阅读时长：1分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                72字 | 预计阅读时长：
+                    1分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <br>
 <br>
 通用代码：
 <br>
@@ -697,9 +765,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -708,15 +776,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -728,7 +796,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -741,19 +809,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/twelve/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/23/twelve/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -770,39 +839,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-eleven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/23/eleven/">JavaScript---检测滚动条是否到底</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/23/eleven/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/23/eleven/" class="archive-article-date">
   	<time datetime="2020-04-23T10:22:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1.6k字 | 预计阅读时长：6分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                1.6k字 | 预计阅读时长：
+                    6分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>disabled 属性可设置或返回是否禁用 checkbox。<br>语法：Object.disabled=true|false<br>true表示禁用 false表示可用</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>disabled 属性可设置或返回是否禁用 checkbox。<br>语法：Object.disabled=true|false<br>true表示禁用 false表示可用</p>
 <p>clientWidth clientHeight<br>这两个属性都可以获取元素的可见高度和宽度<br>会获取元素的宽度和高度，包括内容区和内边距</p>
 <p>offsetWidth offsetHeight<br>获取元素的整个宽度和高度，包括内容区和内边距，边框</p>
 <p>scrollLeft 可以获取水平滚动条的距离<br>scrollTop 可以获取垂直滚动条的距离</p>
@@ -830,9 +904,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -841,15 +915,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -861,7 +935,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -874,19 +948,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/eleven/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/23/eleven/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -903,39 +978,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-ten" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/23/ten/">js中如何获取元素的当前显示样式----简单总结。</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/23/ten/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/23/ten/" class="archive-article-date">
   	<time datetime="2020-04-23T03:37:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：651字 | 预计阅读时长：2分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                651字 | 预计阅读时长：
+                    2分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>有两种方法：<br>第一种：currentStyle<br>  语法：元素.currentStyle.样式名<br>  他可以用来读取当前元素正在显示的样式<br>  如果当前元素没有设置该样式，则获取它的默认值<br>  <strong>currentStyle只有在IE浏览器中支持，其他浏览器都不支持。</strong></p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>有两种方法：<br>第一种：currentStyle<br>  语法：元素.currentStyle.样式名<br>  他可以用来读取当前元素正在显示的样式<br>  如果当前元素没有设置该样式，则获取它的默认值<br>  <strong>currentStyle只有在IE浏览器中支持，其他浏览器都不支持。</strong></p>
 <p>第二种：getComputedStyle()方法<br>  getComputedStyle()这个方法来获取元素当前的样式<br>    这个方法是window的方法，可以直接使用<br>  需要两个参数<br>    第一个：要获取样式的元素<br>    第二个：可以传递一个伪元素，一般都传null<br>  该方法会返回一个对象，对象中封装了当前元素对应的样式<br>    可以通过  对象.样式名  来读取样式<br>  如果没有设置样式则会获取到真实的值，而不是默认值<br>  比如：没有设置width，它不会获取到auto，而是一个长度<br>  <strong>该方法不支持IE8及以下浏览器</strong></p>
 <br>
 但是我们需要都兼容怎么办？
@@ -973,9 +1053,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -984,15 +1064,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -1004,7 +1084,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1017,19 +1097,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/23/ten/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/23/ten/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1046,39 +1127,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-nine" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/20/nine/">JavaScript中正则表达式的常用总结</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/20/nine/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/20/nine/" class="archive-article-date">
   	<time datetime="2020-04-20T02:38:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-20</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：2.4k字 | 预计阅读时长：10分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                2.4k字 | 预计阅读时长：
+                    10分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>正则表达式的思维导图：<br><img src="https://img-blog.csdnimg.cn/20200420100401772.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>正则表达式的思维导图：<br><img src="https://img-blog.csdnimg.cn/20200420100401772.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h2 id="正则的捕获exec"><a href="#正则的捕获exec" class="headerlink" title="正则的捕获exec()"></a>正则的捕获exec()</h2><p>  exec() 方法用于检索字符串中的正则表达式的匹配。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RegExpObject.exec(string)</span><br></pre></td></tr></tbody></table></figure>
 
@@ -1171,9 +1257,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -1182,15 +1268,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -1202,7 +1288,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1215,19 +1301,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/20/nine/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/20/nine/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1244,39 +1331,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-eight" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/17/eight/">细谈apply()与call()</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/17/eight/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/17/eight/" class="archive-article-date">
   	<time datetime="2020-04-17T03:22:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-17</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：335字 | 预计阅读时长：1分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                335字 | 预计阅读时长：
+                    1分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p><strong>两者使用的目的</strong>：改变调用的函数体内部的this的指向。<br>  相同点：均是调用某对象的方法，格式：obj.函数名.call()<br>  call(obj,参数1，参数2）:两个参数,前者将代替Function类里this对象，后者（多个元素）作为参数传递给被调用的函数。</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p><strong>两者使用的目的</strong>：改变调用的函数体内部的this的指向。<br>  相同点：均是调用某对象的方法，格式：obj.函数名.call()<br>  call(obj,参数1，参数2）:两个参数,前者将代替Function类里this对象，后者（多个元素）作为参数传递给被调用的函数。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = {</span><br><span class="line">  name:<span class="string">"name1"</span>,</span><br><span class="line">  logName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> bar={</span><br><span class="line">  name:<span class="string">"name2"</span></span><br><span class="line">};</span><br><span class="line">foo.logName.call(bar);<span class="comment">//name2</span></span><br></pre></td></tr></tbody></table></figure>
 <p>  apply（obj，[参数1，参数2]），同上，不同点是第二个参数是数组。（将数组的每个元素作为一个个参数传递给被调用的函数，性质与call（）方法一样）</p>
 <p>  利用apply（）这一特性的一些小场景：</p>
@@ -1307,9 +1399,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -1318,15 +1410,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -1338,7 +1430,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1351,19 +1443,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/17/eight/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/17/eight/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1380,39 +1473,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-seven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/15/seven/">JavaScript基础---原型对象概念详解(仔细理解一下)</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/15/seven/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/15/seven/" class="archive-article-date">
   	<time datetime="2020-04-15T08:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：2.2k字 | 预计阅读时长：8分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                2.2k字 | 预计阅读时长：
+                    8分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="对象原型"><a href="#对象原型" class="headerlink" title="对象原型"></a>对象原型</h2><hr>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <h2 id="对象原型"><a href="#对象原型" class="headerlink" title="对象原型"></a>对象原型</h2><hr>
 <p>每一个对象都有一个内置的 <strong>proto</strong> 属性指向构造它的函数prototype属性. 而构造函数的prototype.constructor 则指向构造函数本生。一个对象的属性的寻找过程由以下几个部分组成:</p>
 <ol>
 <li><strong>寻找对象属性的数据描述符(writable, value)或存取描述符(getter, setter)，如果查询到了，则返回 对应的值。如果查询不到，则进入第2步骤</strong>。</li>
@@ -1506,9 +1604,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -1517,15 +1615,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -1537,7 +1635,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1550,19 +1648,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/15/seven/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/15/seven/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1579,39 +1678,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-six" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/14/six/">彻底理解js中this的指向，理解记忆，不用死记硬背。</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/14/six/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/14/six/" class="archive-article-date">
   	<time datetime="2020-04-14T13:57:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1.9k字 | 预计阅读时长：7分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                1.9k字 | 预计阅读时长：
+                    7分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>  首先必须要说的是，<strong>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象</strong>（这句话有些问题，后面会解释为什么会有问题，虽然网上大部分的文章都是这样说的，虽然在很多情况下那样去理解不会出什么问题，但是实际上那样理解是不准确的，所以在你理解this的时候会有种琢磨不透的感觉），那么接下来我会深入的探讨这个问题。<br>  为什么要学习this？如果你学过面向对象编程，那你肯定知道干什么用的，如果你没有学过，那么暂时可以不用看这篇文章，当然如果你有兴趣也可以看看，毕竟这是js中必须要掌握的东西。<br><br><br> 例子1：</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>  首先必须要说的是，<strong>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象</strong>（这句话有些问题，后面会解释为什么会有问题，虽然网上大部分的文章都是这样说的，虽然在很多情况下那样去理解不会出什么问题，但是实际上那样理解是不准确的，所以在你理解this的时候会有种琢磨不透的感觉），那么接下来我会深入的探讨这个问题。<br>  为什么要学习this？如果你学过面向对象编程，那你肯定知道干什么用的，如果你没有学过，那么暂时可以不用看这篇文章，当然如果你有兴趣也可以看看，毕竟这是js中必须要掌握的东西。<br><br><br> 例子1：</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> user = <span class="string">"阿清"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//Window</span></span><br><span class="line">}</span><br><span class="line">a();</span><br></pre></td></tr></tbody></table></figure>
 <p>  按照我们上面说的this最终指向的是调用它的对象，这里的函数a实际是被Window对象所点出来的，下面的代码就可以证明。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> user = <span class="string">"阿清"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);　　<span class="comment">//Window</span></span><br><span class="line">}</span><br><span class="line"><span class="built_in">window</span>.a();</span><br></pre></td></tr></tbody></table></figure>
@@ -1678,9 +1782,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -1689,15 +1793,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -1709,7 +1813,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1722,19 +1826,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/14/six/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/14/six/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1751,8 +1856,7 @@
 </aside>
 
 
-
-
+                
   
   
     <nav id="page-nav">
@@ -1899,10 +2003,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

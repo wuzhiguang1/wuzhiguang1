@@ -59,6 +59,50 @@
             <div class="left-col" q-class="show:isShow">
                 
     <div class="overlay" style="background: #4d4d4d"></div>
+    <!-- 添加“心知天气”-->
+    <!-- 《添加“心知天气”-->
+    <div id="tp-weather-widget" style="position:absolute;"></div>
+    <script>
+        (function(T, h, i, n, k, P, a, g, e) {
+            g = function() {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function() {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+    </script>
+    <script>
+        tpwidget("init", {
+            "flavor": "slim",
+            "location": "WM6N2PM3WY2K",
+            "geolocation": "enabled",
+            "language": "zh-chs",
+            "unit": "c",
+            "theme": "chameleon",
+            "container": "tp-weather-widget",
+            "bubble": "enabled",
+            "alarmType": "badge",
+            "color": "#FFFFFF",
+            "uid": "U88B4B2797",
+            "hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+        });
+        tpwidget("show");
+    </script>
+    <!-- 添加“心知天气”》-->
+
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
@@ -226,35 +270,41 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 <article id="post-28" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 class="article-title_code_ant" itemprop="name">
       JavaScript  DOM事件总结
     </h1>
   
-</p></center>
-        
-        <a href="/2020/05/30/28/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/05/30/28/" class="archive-article-date">
   	<time datetime="2020-05-30T03:40:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：10.5k字 | 预计阅读时长：40分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                10.5k字 | 预计阅读时长：
+                    40分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<ul>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <ul>
 <li><a href="#什么是事件">什么是事件</a></li>
 <li><a href="#事件流">事件流</a><ul>
 <li><a href="#1事件冒泡">1、事件冒泡</a></li>
@@ -720,9 +770,9 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -741,23 +791,31 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
     2020-05-30
     <br>
     <strong class="article-titles">本文标题：</strong>
-      <a href="#" title="JavaScript  DOM事件总结" target="_blank">JavaScript  DOM事件总结</a>
+    <a href="http://yoursite.com/2020/05/30/28/" title="JavaScript  DOM事件总结" target="_blank">JavaScript  DOM事件总结</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="http://yoursite.com/2020/05/30/28/" title="JavaScript  DOM事件总结" target="_blank">http://yoursite.com/2020/05/30/28/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
-    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
     
   </div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -773,7 +831,7 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -786,10 +844,10 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
 	</div>
 
 
-      
+                                                                                        
 
-      
-        
+                                                                                                
+                                                                                                    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -839,13 +897,13 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                        
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-  
+    
 <nav id="article-nav">
   
     <a href="/2020/05/31/29/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -865,8 +923,8 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -883,18 +941,17 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
 </aside>
 
 
+                
+                    
 
-  
-  
-  
+                                
 
-  
+                                            
 
-  
+                                                        
 
-  
-
-
+                                                                
+                                                                            
                             </div>
                         </div>
                     </div>
@@ -1033,10 +1090,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

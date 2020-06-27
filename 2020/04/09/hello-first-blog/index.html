@@ -49,6 +49,50 @@
             <div class="left-col" q-class="show:isShow">
                 
     <div class="overlay" style="background: #4d4d4d"></div>
+    <!-- 添加“心知天气”-->
+    <!-- 《添加“心知天气”-->
+    <div id="tp-weather-widget" style="position:absolute;"></div>
+    <script>
+        (function(T, h, i, n, k, P, a, g, e) {
+            g = function() {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function() {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+    </script>
+    <script>
+        tpwidget("init", {
+            "flavor": "slim",
+            "location": "WM6N2PM3WY2K",
+            "geolocation": "enabled",
+            "language": "zh-chs",
+            "unit": "c",
+            "theme": "chameleon",
+            "container": "tp-weather-widget",
+            "bubble": "enabled",
+            "alarmType": "badge",
+            "color": "#FFFFFF",
+            "uid": "U88B4B2797",
+            "hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+        });
+        tpwidget("show");
+    </script>
+    <!-- 添加“心知天气”》-->
+
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
@@ -216,35 +260,41 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 <article id="post-hello-first-blog" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 class="article-title_code_ant" itemprop="name">
       人生若是如初见
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/09/hello-first-blog/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/09/hello-first-blog/" class="archive-article-date">
   	<time datetime="2020-04-09T07:30:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-09</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：178字 | 预计阅读时长：1分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                178字 | 预计阅读时长：
+                    1分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="nbsp-nbsp-nbsp-nbsp-nbsp-我丢，我感觉自己发现了新世界。来记录一下此刻的心情。"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-我丢，我感觉自己发现了新世界。来记录一下此刻的心情。" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我丢，我感觉自己发现了新世界。来记录一下此刻的心情。"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我丢，我感觉自己发现了新世界。来记录一下此刻的心情。</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—愿你岁月如初，愿你的坚持终有回报。(2020.4.9)</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <h2 id="nbsp-nbsp-nbsp-nbsp-nbsp-我丢，我感觉自己发现了新世界。来记录一下此刻的心情。"><a href="#nbsp-nbsp-nbsp-nbsp-nbsp-我丢，我感觉自己发现了新世界。来记录一下此刻的心情。" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我丢，我感觉自己发现了新世界。来记录一下此刻的心情。"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我丢，我感觉自己发现了新世界。来记录一下此刻的心情。</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—愿你岁月如初，愿你的坚持终有回报。(2020.4.9)</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -264,9 +314,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -275,15 +325,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -295,7 +345,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -308,10 +358,10 @@
 	</div>
 
 
-      
+                                                                                        
 
-      
-        
+                                                                                                
+                                                                                                    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -361,13 +411,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                        
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-  
+    
 <nav id="article-nav">
   
     <a href="/2020/04/09/one/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -382,8 +432,8 @@
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -400,18 +450,17 @@
 </aside>
 
 
+                
+                    
 
-  
-  
-  
+                                
 
-  
+                                            
 
-  
+                                                        
 
-  
-
-
+                                                                
+                                                                            
                             </div>
                         </div>
                     </div>
@@ -550,10 +599,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

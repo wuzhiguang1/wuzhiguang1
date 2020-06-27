@@ -51,6 +51,50 @@
             <div class="left-col" q-class="show:isShow">
                 
     <div class="overlay" style="background: #4d4d4d"></div>
+    <!-- 添加“心知天气”-->
+    <!-- 《添加“心知天气”-->
+    <div id="tp-weather-widget" style="position:absolute;"></div>
+    <script>
+        (function(T, h, i, n, k, P, a, g, e) {
+            g = function() {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function() {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+    </script>
+    <script>
+        tpwidget("init", {
+            "flavor": "slim",
+            "location": "WM6N2PM3WY2K",
+            "geolocation": "enabled",
+            "language": "zh-chs",
+            "unit": "c",
+            "theme": "chameleon",
+            "container": "tp-weather-widget",
+            "bubble": "enabled",
+            "alarmType": "badge",
+            "color": "#FFFFFF",
+            "uid": "U88B4B2797",
+            "hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+        });
+        tpwidget("show");
+    </script>
+    <!-- 添加“心知天气”》-->
+
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
@@ -218,35 +262,41 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 <article id="post-twenty-three" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 class="article-title_code_ant" itemprop="name">
       JavaScript中ECMAScript5中的数组方法。
     </h1>
   
-</p></center>
-        
-        <a href="/2020/05/06/twenty-three/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/05/06/twenty-three/" class="archive-article-date">
   	<time datetime="2020-05-06T13:59:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：2.6k字 | 预计阅读时长：10分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                2.6k字 | 预计阅读时长：
+                    10分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>但在开始详细介绍之前，很有必要对ECMAScript 5中的数组方法做一个概述。首先，大多数方法的第一个参数接收一个函数，并且对数组的每个元素(或一些元素)调用一次该函数。如果是稀疏数组，对不存在的元素不调用传递的函数。在大多数情况下，调用提供的函数使用三个参数:数组元素、元素的索引和数组本身。通常，只需要第一个参数值，可以忽略后两个参数。大多数ECMAScript 5数组方法的第一个参数是一个函数，第二个参数是可选的。如果有第二个参数，则调用的函数被看做是第二个参数的方法。也就是说，在调用函数时传递进去的第二个参数作为它的this关键字的值来使用。被调用的函数的返回值非常重要，但是不同的方法处理返回值的方式也不一样。ECMAScript 5中的数组方法都不会修改它们调用的原始数组。当然，传递给这些方法的函数是可以修改这些数组的。</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>但在开始详细介绍之前，很有必要对ECMAScript 5中的数组方法做一个概述。首先，大多数方法的第一个参数接收一个函数，并且对数组的每个元素(或一些元素)调用一次该函数。如果是稀疏数组，对不存在的元素不调用传递的函数。在大多数情况下，调用提供的函数使用三个参数:数组元素、元素的索引和数组本身。通常，只需要第一个参数值，可以忽略后两个参数。大多数ECMAScript 5数组方法的第一个参数是一个函数，第二个参数是可选的。如果有第二个参数，则调用的函数被看做是第二个参数的方法。也就是说，在调用函数时传递进去的第二个参数作为它的this关键字的值来使用。被调用的函数的返回值非常重要，但是不同的方法处理返回值的方式也不一样。ECMAScript 5中的数组方法都不会修改它们调用的原始数组。当然，传递给这些方法的函数是可以修改这些数组的。</p>
 <h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h2><p>forEach()方法从头到尾遍历数组，每一个元素调用指定的函数。如上所述，传递的函数作为forEach()的第一个参数，然后forEach()使用三个参数调用该函数：数组元素、元素的索引和数组本身。如果只关心数组元素的值，可以编写只有一个参数的函数—额外的参数将忽略。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">a.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> sum += x;</span><br><span class="line">})</span><br><span class="line"><span class="built_in">console</span>.log(sum);    <span class="comment">// 10</span></span><br></pre></td></tr></tbody></table></figure>
 <p><strong>注意</strong>：forEach()无法在所有元素都传递给调用的函数之前终止遍历。也就是说，没有像for循环中使用的响应的break()语句。如果要提前终止，必须把forEach()方法放在一个try块中，并能抛出一个异常。如果forEach()调用的函数抛出foreach.break异常，循环会提前终止。</p>
@@ -309,9 +359,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -330,23 +380,31 @@
     2020-05-06
     <br>
     <strong class="article-titles">本文标题：</strong>
-      <a href="#" title="JavaScript中ECMAScript5中的数组方法。" target="_blank">JavaScript中ECMAScript5中的数组方法。</a>
+    <a href="http://yoursite.com/2020/05/06/twenty-three/" title="JavaScript中ECMAScript5中的数组方法。" target="_blank">JavaScript中ECMAScript5中的数组方法。</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="http://yoursite.com/2020/05/06/twenty-three/" title="JavaScript中ECMAScript5中的数组方法。" target="_blank">http://yoursite.com/2020/05/06/twenty-three/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
-    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
     
   </div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -358,7 +416,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -371,10 +429,10 @@
 	</div>
 
 
-      
+                                                                                        
 
-      
-        
+                                                                                                
+                                                                                                    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -424,13 +482,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                        
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-  
+    
 <nav id="article-nav">
   
     <a href="/2020/05/10/twenty-four/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -450,8 +508,8 @@
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -468,18 +526,17 @@
 </aside>
 
 
+                
+                    
 
-  
-  
-  
+                                
 
-  
+                                            
 
-  
+                                                        
 
-  
-
-
+                                                                
+                                                                            
                             </div>
                         </div>
                     </div>
@@ -618,10 +675,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

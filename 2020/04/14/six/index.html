@@ -49,6 +49,50 @@
             <div class="left-col" q-class="show:isShow">
                 
     <div class="overlay" style="background: #4d4d4d"></div>
+    <!-- 添加“心知天气”-->
+    <!-- 《添加“心知天气”-->
+    <div id="tp-weather-widget" style="position:absolute;"></div>
+    <script>
+        (function(T, h, i, n, k, P, a, g, e) {
+            g = function() {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function() {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+    </script>
+    <script>
+        tpwidget("init", {
+            "flavor": "slim",
+            "location": "WM6N2PM3WY2K",
+            "geolocation": "enabled",
+            "language": "zh-chs",
+            "unit": "c",
+            "theme": "chameleon",
+            "container": "tp-weather-widget",
+            "bubble": "enabled",
+            "alarmType": "badge",
+            "color": "#FFFFFF",
+            "uid": "U88B4B2797",
+            "hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+        });
+        tpwidget("show");
+    </script>
+    <!-- 添加“心知天气”》-->
+
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
@@ -216,35 +260,41 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 <article id="post-six" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 class="article-title_code_ant" itemprop="name">
       彻底理解js中this的指向，理解记忆，不用死记硬背。
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/14/six/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/14/six/" class="archive-article-date">
   	<time datetime="2020-04-14T13:57:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-14</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1.9k字 | 预计阅读时长：7分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                1.9k字 | 预计阅读时长：
+                    7分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>  首先必须要说的是，<strong>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象</strong>（这句话有些问题，后面会解释为什么会有问题，虽然网上大部分的文章都是这样说的，虽然在很多情况下那样去理解不会出什么问题，但是实际上那样理解是不准确的，所以在你理解this的时候会有种琢磨不透的感觉），那么接下来我会深入的探讨这个问题。<br>  为什么要学习this？如果你学过面向对象编程，那你肯定知道干什么用的，如果你没有学过，那么暂时可以不用看这篇文章，当然如果你有兴趣也可以看看，毕竟这是js中必须要掌握的东西。<br><br><br> 例子1：</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>  首先必须要说的是，<strong>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象</strong>（这句话有些问题，后面会解释为什么会有问题，虽然网上大部分的文章都是这样说的，虽然在很多情况下那样去理解不会出什么问题，但是实际上那样理解是不准确的，所以在你理解this的时候会有种琢磨不透的感觉），那么接下来我会深入的探讨这个问题。<br>  为什么要学习this？如果你学过面向对象编程，那你肯定知道干什么用的，如果你没有学过，那么暂时可以不用看这篇文章，当然如果你有兴趣也可以看看，毕竟这是js中必须要掌握的东西。<br><br><br> 例子1：</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> user = <span class="string">"阿清"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//Window</span></span><br><span class="line">}</span><br><span class="line">a();</span><br></pre></td></tr></tbody></table></figure>
 <p>  按照我们上面说的this最终指向的是调用它的对象，这里的函数a实际是被Window对象所点出来的，下面的代码就可以证明。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> user = <span class="string">"阿清"</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);　　<span class="comment">//Window</span></span><br><span class="line">}</span><br><span class="line"><span class="built_in">window</span>.a();</span><br></pre></td></tr></tbody></table></figure>
@@ -311,9 +361,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -322,15 +372,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -342,7 +392,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -355,10 +405,10 @@
 	</div>
 
 
-      
+                                                                                        
 
-      
-        
+                                                                                                
+                                                                                                    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -408,13 +458,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                        
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-  
+    
 <nav id="article-nav">
   
     <a href="/2020/04/15/seven/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -434,8 +484,8 @@
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -452,18 +502,17 @@
 </aside>
 
 
+                
+                    
 
-  
-  
-  
+                                
 
-  
+                                            
 
-  
+                                                        
 
-  
-
-
+                                                                
+                                                                            
                             </div>
                         </div>
                     </div>
@@ -602,10 +651,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

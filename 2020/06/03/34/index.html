@@ -49,6 +49,50 @@
             <div class="left-col" q-class="show:isShow">
                 
     <div class="overlay" style="background: #4d4d4d"></div>
+    <!-- 添加“心知天气”-->
+    <!-- 《添加“心知天气”-->
+    <div id="tp-weather-widget" style="position:absolute;"></div>
+    <script>
+        (function(T, h, i, n, k, P, a, g, e) {
+            g = function() {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function() {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+    </script>
+    <script>
+        tpwidget("init", {
+            "flavor": "slim",
+            "location": "WM6N2PM3WY2K",
+            "geolocation": "enabled",
+            "language": "zh-chs",
+            "unit": "c",
+            "theme": "chameleon",
+            "container": "tp-weather-widget",
+            "bubble": "enabled",
+            "alarmType": "badge",
+            "color": "#FFFFFF",
+            "uid": "U88B4B2797",
+            "hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+        });
+        tpwidget("show");
+    </script>
+    <!-- 添加“心知天气”》-->
+
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
@@ -216,35 +260,41 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 <article id="post-34" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 class="article-title_code_ant" itemprop="name">
       JavaScript 性能优化之惰性加载函数
     </h1>
   
-</p></center>
-        
-        <a href="/2020/06/03/34/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/06/03/34/" class="archive-article-date">
   	<time datetime="2020-06-03T09:21:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：758字 | 预计阅读时长：3分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                758字 | 预计阅读时长：
+                    3分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>在实际开发中，我们编写的大多数JavaScript代码包含大量的 if…else语句或者 try… catch 语句来做功能检测。<br>举一个简单的例子：事件的绑定，我们会首先想到下列的代码</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>在实际开发中，我们编写的大多数JavaScript代码包含大量的 if…else语句或者 try… catch 语句来做功能检测。<br>举一个简单的例子：事件的绑定，我们会首先想到下列的代码</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addHandler= <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>{</span><br><span class="line">              <span class="keyword">if</span> (element.addEventListener) {</span><br><span class="line">                  element.addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">              } <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) {</span><br><span class="line">                  element.attachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">              } <span class="keyword">else</span> {</span><br><span class="line">                  element[<span class="string">"on"</span> + type] = handler;</span><br><span class="line">              }</span><br><span class="line">          }</span><br></pre></td></tr></tbody></table></figure>
 <p>分析以上代码，为了兼容不同浏览器，每次执行 <strong>addHandler</strong> 时我们会去做功能检测，逐一去走 <strong>addHandler</strong> 中的if，获取到可以兼容的代码块。无可厚非，我们通过这两三个判断保证了每次都能使用到兼容浏览器的代码，注意到，我用了“每次”这个词。是的，以上代码每次调用 <strong>addHandler</strong> 都要做功能检测，而我们知道，当我们用某个浏览器打开网页时，其实就已经确定了哪个if/try可用了，完全没必要每次调用都检测。因此，我们引入了惰性加载函数的概念。</p>
 <p><span style="color:red"><strong>惰性加载表示函数执行的分支仅会发生一次。有两种实现惰性加载的方式：在函数被调用时再处理函数；在声明函数时就指定适当函数。</strong></span></p>
@@ -281,9 +331,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -302,23 +352,31 @@
     2020-06-03
     <br>
     <strong class="article-titles">本文标题：</strong>
-      <a href="#" title="JavaScript 性能优化之惰性加载函数" target="_blank">JavaScript 性能优化之惰性加载函数</a>
+    <a href="http://yoursite.com/2020/06/03/34/" title="JavaScript 性能优化之惰性加载函数" target="_blank">JavaScript 性能优化之惰性加载函数</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="http://yoursite.com/2020/06/03/34/" title="JavaScript 性能优化之惰性加载函数" target="_blank">http://yoursite.com/2020/06/03/34/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
-    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
     
   </div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -330,7 +388,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -343,10 +401,10 @@
 	</div>
 
 
-      
+                                                                                        
 
-      
-        
+                                                                                                
+                                                                                                    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -396,13 +454,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                        
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-  
+    
 <nav id="article-nav">
   
     <a href="/2020/06/03/35/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -422,8 +480,8 @@
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -440,18 +498,17 @@
 </aside>
 
 
+                
+                    
 
-  
-  
-  
+                                
 
-  
+                                            
 
-  
+                                                        
 
-  
-
-
+                                                                
+                                                                            
                             </div>
                         </div>
                     </div>
@@ -590,10 +647,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

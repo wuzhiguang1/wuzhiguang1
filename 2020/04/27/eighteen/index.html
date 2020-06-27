@@ -49,6 +49,50 @@
             <div class="left-col" q-class="show:isShow">
                 
     <div class="overlay" style="background: #4d4d4d"></div>
+    <!-- 添加“心知天气”-->
+    <!-- 《添加“心知天气”-->
+    <div id="tp-weather-widget" style="position:absolute;"></div>
+    <script>
+        (function(T, h, i, n, k, P, a, g, e) {
+            g = function() {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function() {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+    </script>
+    <script>
+        tpwidget("init", {
+            "flavor": "slim",
+            "location": "WM6N2PM3WY2K",
+            "geolocation": "enabled",
+            "language": "zh-chs",
+            "unit": "c",
+            "theme": "chameleon",
+            "container": "tp-weather-widget",
+            "bubble": "enabled",
+            "alarmType": "badge",
+            "color": "#FFFFFF",
+            "uid": "U88B4B2797",
+            "hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+        });
+        tpwidget("show");
+    </script>
+    <!-- 添加“心知天气”》-->
+
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
@@ -216,35 +260,41 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 <article id="post-eighteen" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 class="article-title_code_ant" itemprop="name">
       js简单实现轮播图
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/27/eighteen/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/27/eighteen/" class="archive-article-date">
   	<time datetime="2020-04-27T03:55:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：828字 | 预计阅读时长：4分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                828字 | 预计阅读时长：
+                    4分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <br>
 index.html
 
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    * {</span><br><span class="line">        padding: <span class="number">0</span>px;</span><br><span class="line">        margin: <span class="number">0</span>px;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #out {</span><br><span class="line">        width: <span class="number">520</span>px;</span><br><span class="line">        height: <span class="number">333</span>px;</span><br><span class="line">        background-color: #bfa;</span><br><span class="line">        margin: <span class="number">50</span>px auto;</span><br><span class="line">        padding: <span class="number">10</span>px <span class="number">0</span>px;</span><br><span class="line">        position: relative;</span><br><span class="line">        overflow: hidden;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #imglist {</span><br><span class="line">        list-style: none;</span><br><span class="line">        <span class="comment">/* width: 2600px; */</span></span><br><span class="line">        position: absolute;</span><br><span class="line">        left: <span class="number">0</span>px;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #imglist li {</span><br><span class="line">        float: left;</span><br><span class="line">        margin: <span class="number">0</span>px <span class="number">10</span>px;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #navdiv {</span><br><span class="line">        position: absolute;</span><br><span class="line">        bottom: <span class="number">15</span>px;</span><br><span class="line">        <span class="comment">/* left: 200px; */</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #navdiv a {</span><br><span class="line">        float: left;</span><br><span class="line">        width: <span class="number">15</span>px;</span><br><span class="line">        height: <span class="number">15</span>px;</span><br><span class="line">        background-color: red;</span><br><span class="line">        margin: <span class="number">0</span> <span class="number">5</span>px;</span><br><span class="line">        opacity: <span class="number">0.5</span>;</span><br><span class="line">        border-radius: <span class="number">50</span>%;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #navdiv a:hover {</span><br><span class="line">        background-color: #686269;</span><br><span class="line">    }</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="js/</span>tool.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">    window.onload = function() {</span></span><br><span class="line"><span class="string">        var img = document.getElementsByTagName("</span>img<span class="string">");</span></span><br><span class="line"><span class="string">        var imglist = document.getElementById("</span>imglist<span class="string">");</span></span><br><span class="line"><span class="string">        imglist.style.width = 520 * img.length + "</span>px<span class="string">";</span></span><br><span class="line"><span class="string">        // 设置导航块居中</span></span><br><span class="line"><span class="string">        var navdiv = document.getElementById("</span>navdiv<span class="string">");</span></span><br><span class="line"><span class="string">        var out = document.getElementById("</span>out<span class="string">");</span></span><br><span class="line"><span class="string">        navdiv.style.left = (out.offsetWidth - navdiv.offsetWidth) / 2 + "</span>px<span class="string">";</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        var index = 0;</span></span><br><span class="line"><span class="string">        var arra = document.getElementsByTagName("</span>a<span class="string">");</span></span><br><span class="line">        arra[index].style.backgroundColor = "#686269";</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 为每一个超链接添加单机响应事件</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arra.length; i++) {</span><br><span class="line">            arra[i].num = i;</span><br><span class="line">            arra[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                <span class="comment">// 当我们手动去切换的时候，去停止轮播图</span></span><br><span class="line">                clearInterval(timer);</span><br><span class="line">                <span class="comment">// 为每个超链接做标记</span></span><br><span class="line">                index = <span class="keyword">this</span>.num;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// imglist.style.left = -520 * index + "px";</span></span><br><span class="line">                setA();</span><br><span class="line">                move(imglist, <span class="string">"left"</span>, <span class="number">-520</span> * index, <span class="number">20</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                    <span class="comment">// 手动点击切换结束之后，再次开启定时器。</span></span><br><span class="line">                    autoChenge();</span><br><span class="line"></span><br><span class="line">                });</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        autoChenge();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">setA</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="comment">// 判断索引是否是最后一张</span></span><br><span class="line">            <span class="keyword">if</span> (index &gt;= arra.length) {</span><br><span class="line">                index = <span class="number">0</span>;</span><br><span class="line">                <span class="comment">//如果为最后一张，直接将imglist的left设置为0，</span></span><br><span class="line">                imglist.style.left = <span class="number">0</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arra.length; i++) {</span><br><span class="line">                <span class="comment">// 设置为空，防止设置颜色之后，在内联样式里优先级过高，</span></span><br><span class="line">                arra[i].style.backgroundColor = <span class="string">""</span>;</span><br><span class="line">            }</span><br><span class="line">            arra[index].style.backgroundColor = <span class="string">"#686269"</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 设置定时器</span></span><br><span class="line">        <span class="comment">// 定义定时器标识</span></span><br><span class="line">        <span class="keyword">var</span> timer;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">autoChenge</span>(<span class="params"></span>) </span>{</span><br><span class="line">            timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                index++;</span><br><span class="line">                <span class="comment">//  %= 算法 判断index的长度是否超过img的长度，如果超过就返回0</span></span><br><span class="line">                index %= img.length;</span><br><span class="line">                move(imglist, <span class="string">"left"</span>, <span class="number">-520</span> * index, <span class="number">20</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                    setA();</span><br><span class="line">                });</span><br><span class="line">            }, <span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;div id="out"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;ul id="imglist"&gt;</span></span><br><span class="line"><span class="regexp">            &lt;li&gt;&lt;img src="img/</span><span class="number">1.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">2.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">3.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">4.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">5.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">1.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">        &lt;div id="</span>navdiv<span class="string">"&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></tbody></table></figure>
@@ -276,9 +326,9 @@ index.html
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -297,23 +347,31 @@ index.html
     2020-04-27
     <br>
     <strong class="article-titles">本文标题：</strong>
-      <a href="#" title="js简单实现轮播图" target="_blank">js简单实现轮播图</a>
+    <a href="http://yoursite.com/2020/04/27/eighteen/" title="js简单实现轮播图" target="_blank">js简单实现轮播图</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="http://yoursite.com/2020/04/27/eighteen/" title="js简单实现轮播图" target="_blank">http://yoursite.com/2020/04/27/eighteen/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
-    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
     
   </div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -325,7 +383,7 @@ index.html
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -338,10 +396,10 @@ index.html
 	</div>
 
 
-      
+                                                                                        
 
-      
-        
+                                                                                                
+                                                                                                    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -391,13 +449,13 @@ index.html
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                        
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-  
+    
 <nav id="article-nav">
   
     <a href="/2020/04/29/nineteen/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -417,8 +475,8 @@ index.html
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -435,18 +493,17 @@ index.html
 </aside>
 
 
+                
+                    
 
-  
-  
-  
+                                
 
-  
+                                            
 
-  
+                                                        
 
-  
-
-
+                                                                
+                                                                            
                             </div>
                         </div>
                     </div>
@@ -585,10 +642,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

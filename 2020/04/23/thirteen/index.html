@@ -51,6 +51,50 @@
             <div class="left-col" q-class="show:isShow">
                 
     <div class="overlay" style="background: #4d4d4d"></div>
+    <!-- 添加“心知天气”-->
+    <!-- 《添加“心知天气”-->
+    <div id="tp-weather-widget" style="position:absolute;"></div>
+    <script>
+        (function(T, h, i, n, k, P, a, g, e) {
+            g = function() {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function() {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+    </script>
+    <script>
+        tpwidget("init", {
+            "flavor": "slim",
+            "location": "WM6N2PM3WY2K",
+            "geolocation": "enabled",
+            "language": "zh-chs",
+            "unit": "c",
+            "theme": "chameleon",
+            "container": "tp-weather-widget",
+            "bubble": "enabled",
+            "alarmType": "badge",
+            "color": "#FFFFFF",
+            "uid": "U88B4B2797",
+            "hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+        });
+        tpwidget("show");
+    </script>
+    <!-- 添加“心知天气”》-->
+
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
@@ -218,35 +262,41 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 <article id="post-thirteen" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 class="article-title_code_ant" itemprop="name">
       JavaScript ---div跟随鼠标移动
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/23/thirteen/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/23/thirteen/" class="archive-article-date">
   	<time datetime="2020-04-23T13:29:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：312字 | 预计阅读时长：1分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                312字 | 预计阅读时长：
+                    1分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <br>
 <br>
 
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;style&gt;</span></span><br><span class="line"><span class="regexp">        body {</span></span><br><span class="line"><span class="regexp">            height: 3000px;</span></span><br><span class="line"><span class="regexp">        }</span></span><br><span class="line"><span class="regexp">        </span></span><br><span class="line"><span class="regexp">        #box {</span></span><br><span class="line"><span class="regexp">            width: 100px;</span></span><br><span class="line"><span class="regexp">            height: 100px;</span></span><br><span class="line"><span class="regexp">            background-color: #bfa;</span></span><br><span class="line"><span class="regexp">            /</span>* 开启box的绝对定位 *<span class="regexp">/</span></span><br><span class="line"><span class="regexp">            position: absolute;</span></span><br><span class="line"><span class="regexp">        }</span></span><br><span class="line"><span class="regexp">    &lt;/</span>style&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="comment">// 获取box元素</span></span><br><span class="line">            <span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 为window绑定鼠标事件</span></span><br><span class="line">            <span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="comment">// 解决兼容性问题</span></span><br><span class="line">                event = event || <span class="built_in">window</span>.event;</span><br><span class="line">                <span class="comment">//获取滚动条滚动的距离</span></span><br><span class="line">                <span class="comment">//chromer认为浏览器的滚动条是body的，可以通过Body.scrollTop来获取</span></span><br><span class="line">                <span class="comment">// 火狐等浏览器认为浏览器的滚动条是html的</span></span><br><span class="line">                <span class="comment">// 所以我们就提前进行一个判断</span></span><br><span class="line">                <span class="keyword">var</span> st = <span class="built_in">document</span>.body.scrollTop || <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">                <span class="keyword">var</span> sl = <span class="built_in">document</span>.body.scrollLeft || <span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//获取鼠标的位置</span></span><br><span class="line">                <span class="keyword">var</span> top = event.clientY;</span><br><span class="line">                <span class="keyword">var</span> left = event.clientX;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//设置偏移量</span></span><br><span class="line">                box.style.top = top + st + <span class="string">"px"</span>;</span><br><span class="line">                box.style.left = left + sl + <span class="string">"px"</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    &lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=<span class="string">"box"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></tbody></table></figure>
@@ -280,9 +330,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -301,23 +351,31 @@
     2020-04-23
     <br>
     <strong class="article-titles">本文标题：</strong>
-      <a href="#" title="JavaScript ---div跟随鼠标移动" target="_blank">JavaScript ---div跟随鼠标移动</a>
+    <a href="http://yoursite.com/2020/04/23/thirteen/" title="JavaScript ---div跟随鼠标移动" target="_blank">JavaScript ---div跟随鼠标移动</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="http://yoursite.com/2020/04/23/thirteen/" title="JavaScript ---div跟随鼠标移动" target="_blank">http://yoursite.com/2020/04/23/thirteen/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
-    本作品采用国际信息安全许可协议进行许可。转载请注明出处！
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
     
   </div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -329,7 +387,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -342,10 +400,10 @@
 	</div>
 
 
-      
+                                                                                        
 
-      
-        
+                                                                                                
+                                                                                                    
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -395,13 +453,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                        
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-  
+    
 <nav id="article-nav">
   
     <a href="/2020/04/24/fourteen/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -421,8 +479,8 @@
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -439,18 +497,17 @@
 </aside>
 
 
+                
+                    
 
-  
-  
-  
+                                
 
-  
+                                            
 
-  
+                                                        
 
-  
-
-
+                                                                
+                                                                            
                             </div>
                         </div>
                     </div>
@@ -589,10 +646,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">

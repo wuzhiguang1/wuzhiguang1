@@ -46,6 +46,50 @@
             <div class="left-col" q-class="show:isShow">
                 
     <div class="overlay" style="background: #4d4d4d"></div>
+    <!-- 添加“心知天气”-->
+    <!-- 《添加“心知天气”-->
+    <div id="tp-weather-widget" style="position:absolute;"></div>
+    <script>
+        (function(T, h, i, n, k, P, a, g, e) {
+            g = function() {
+                P = h.createElement(i);
+                a = h.getElementsByTagName(i)[0];
+                P.src = k;
+                P.charset = "utf-8";
+                P.async = 1;
+                a.parentNode.insertBefore(P, a)
+            };
+            T["ThinkPageWeatherWidgetObject"] = n;
+            T[n] || (T[n] = function() {
+                (T[n].q = T[n].q || []).push(arguments)
+            });
+            T[n].l = +new Date();
+            if (T.attachEvent) {
+                T.attachEvent("onload", g)
+            } else {
+                T.addEventListener("load", g, false)
+            }
+        }(window, document, "script", "tpwidget", "//widget.thinkpage.cn/widget/chameleon.js"))
+    </script>
+    <script>
+        tpwidget("init", {
+            "flavor": "slim",
+            "location": "WM6N2PM3WY2K",
+            "geolocation": "enabled",
+            "language": "zh-chs",
+            "unit": "c",
+            "theme": "chameleon",
+            "container": "tp-weather-widget",
+            "bubble": "enabled",
+            "alarmType": "badge",
+            "color": "#FFFFFF",
+            "uid": "U88B4B2797",
+            "hash": "c9d7cb43b80ffece52c9a1ebbfbca65f"
+        });
+        tpwidget("show");
+    </script>
+    <!-- 添加“心知天气”》-->
+
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
@@ -215,35 +259,41 @@
                                 
   
     <article id="post-twenty-five" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/05/10/twenty-five/">JavaScript正则表达式-常见面试题总结</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/05/10/twenty-five/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/05/10/twenty-five/" class="archive-article-date">
   	<time datetime="2020-05-10T12:41:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1.1k字 | 预计阅读时长：5分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                1.1k字 | 预计阅读时长：
+                    5分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><p>JavaScript 写一个字符串转成驼峰的方法，o_div_style_position转成oDivStylePosotion。</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <h2 id="问题一"><a href="#问题一" class="headerlink" title="问题一"></a>问题一</h2><p>JavaScript 写一个字符串转成驼峰的方法，o_div_style_position转成oDivStylePosotion。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'border-bottom-color'</span>;</span><br><span class="line"><span class="keyword">var</span> strRg = str.replace(<span class="regexp">/\-[a-z]/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">params</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> params.charAt(<span class="number">1</span>).toUpperCase();</span><br><span class="line">})</span><br><span class="line"><span class="built_in">console</span>.log(strRg);</span><br></pre></td></tr></tbody></table></figure>
 
 <ol>
@@ -326,9 +376,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -337,15 +387,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -357,7 +407,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -370,19 +420,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/10/twenty-five/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/05/10/twenty-five/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -399,39 +450,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-twenty-four" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/05/10/twenty-four/">JavaScript中正则表达式--  (?=a)、先行断言、现行否定断言</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/05/10/twenty-four/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/05/10/twenty-four/" class="archive-article-date">
   	<time datetime="2020-05-10T09:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：880字 | 预计阅读时长：3分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                880字 | 预计阅读时长：
+                    3分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>(?=a) 代表什么意思！</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>(?=a) 代表什么意思！</p>
 <blockquote>
 <p>(?=a)非获取匹配，正向肯定预查，在任何匹配pattern的字符串开始处匹配查找字符串，该匹配不需要获取供以后使用。</p>
 </blockquote>
@@ -485,9 +541,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -496,15 +552,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -516,7 +572,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -529,19 +585,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/10/twenty-four/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/05/10/twenty-four/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -558,39 +615,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-twenty-three" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/05/06/twenty-three/">JavaScript中ECMAScript5中的数组方法。</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/05/06/twenty-three/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/05/06/twenty-three/" class="archive-article-date">
   	<time datetime="2020-05-06T13:59:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：2.6k字 | 预计阅读时长：10分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                2.6k字 | 预计阅读时长：
+                    10分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>但在开始详细介绍之前，很有必要对ECMAScript 5中的数组方法做一个概述。首先，大多数方法的第一个参数接收一个函数，并且对数组的每个元素(或一些元素)调用一次该函数。如果是稀疏数组，对不存在的元素不调用传递的函数。在大多数情况下，调用提供的函数使用三个参数:数组元素、元素的索引和数组本身。通常，只需要第一个参数值，可以忽略后两个参数。大多数ECMAScript 5数组方法的第一个参数是一个函数，第二个参数是可选的。如果有第二个参数，则调用的函数被看做是第二个参数的方法。也就是说，在调用函数时传递进去的第二个参数作为它的this关键字的值来使用。被调用的函数的返回值非常重要，但是不同的方法处理返回值的方式也不一样。ECMAScript 5中的数组方法都不会修改它们调用的原始数组。当然，传递给这些方法的函数是可以修改这些数组的。</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>但在开始详细介绍之前，很有必要对ECMAScript 5中的数组方法做一个概述。首先，大多数方法的第一个参数接收一个函数，并且对数组的每个元素(或一些元素)调用一次该函数。如果是稀疏数组，对不存在的元素不调用传递的函数。在大多数情况下，调用提供的函数使用三个参数:数组元素、元素的索引和数组本身。通常，只需要第一个参数值，可以忽略后两个参数。大多数ECMAScript 5数组方法的第一个参数是一个函数，第二个参数是可选的。如果有第二个参数，则调用的函数被看做是第二个参数的方法。也就是说，在调用函数时传递进去的第二个参数作为它的this关键字的值来使用。被调用的函数的返回值非常重要，但是不同的方法处理返回值的方式也不一样。ECMAScript 5中的数组方法都不会修改它们调用的原始数组。当然，传递给这些方法的函数是可以修改这些数组的。</p>
 <h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h2><p>forEach()方法从头到尾遍历数组，每一个元素调用指定的函数。如上所述，传递的函数作为forEach()的第一个参数，然后forEach()使用三个参数调用该函数：数组元素、元素的索引和数组本身。如果只关心数组元素的值，可以编写只有一个参数的函数—额外的参数将忽略。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">a.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> sum += x;</span><br><span class="line">})</span><br><span class="line"><span class="built_in">console</span>.log(sum);    <span class="comment">// 10</span></span><br></pre></td></tr></tbody></table></figure>
 <p><strong>注意</strong>：forEach()无法在所有元素都传递给调用的函数之前终止遍历。也就是说，没有像for循环中使用的响应的break()语句。如果要提前终止，必须把forEach()方法放在一个try块中，并能抛出一个异常。如果forEach()调用的函数抛出foreach.break异常，循环会提前终止。</p>
@@ -653,9 +715,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -664,15 +726,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -684,7 +746,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -697,19 +759,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/06/twenty-three/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/05/06/twenty-three/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -726,39 +789,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-twenty-two" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/05/06/twenty-two/">JavaScript中的稀疏数组和密集数组</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/05/06/twenty-two/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/05/06/twenty-two/" class="archive-article-date">
   	<time datetime="2020-05-06T00:25:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-06</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：1k字 | 预计阅读时长：4分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                1k字 | 预计阅读时长：
+                    4分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="稀疏数组"><a href="#稀疏数组" class="headerlink" title="稀疏数组"></a>稀疏数组</h2><p>概念</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <h2 id="稀疏数组"><a href="#稀疏数组" class="headerlink" title="稀疏数组"></a>稀疏数组</h2><p>概念</p>
 <p>在一些后端语言中，如 C，数组内的值通常被分配在一系列连续的内存地址上，但是在 js 中，某些数组内存则不是连续的，所谓稀疏，顾名思义，不连续，存在一些空隙；<br><br><br>例如：</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"><span class="comment">// (3) [empty × 3]</span></span><br></pre></td></tr></tbody></table></figure>
 <p>通过以上方法创建数组，其中 Array(3) 中的参数 3 表示数组的长度，这个数组就是稀疏的，控制台输出一般带有 empty 字样，或者像下面这样创建数组：</p>
@@ -800,9 +868,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -811,15 +879,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -831,7 +899,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -844,19 +912,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/06/twenty-two/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/05/06/twenty-two/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -873,39 +942,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-twenty-one" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/29/twenty-one/">详谈js中isPrototypeOf()、hasOwnProperty()、propertyIsEnumerable()的区别。</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/29/twenty-one/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/29/twenty-one/" class="archive-article-date">
   	<time datetime="2020-04-29T10:39:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：668字 | 预计阅读时长：2分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                668字 | 预计阅读时长：
+                    2分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="isPrototypeOf-NaN"><a href="#isPrototypeOf-NaN" class="headerlink" title="isPrototypeOf()"></a>isPrototypeOf()</h2><p>isPrototypeOf是用来判断指定对象object1是否存在于另一个对象object2的原型链中，是则返回true，否则返回false。<br>格式如下：<br>  object1.isPrototypeOf(object2);<br>  object1是一个对象的实例；<br>  object2是另一个将要检查其原型链的对象。<br>原型链可以用来在同一个对象类型的不同实例之间共享功能。<br>如果 object2 的原型链中包含object1，那么 isPrototypeOf 方法返回 true。<br>如果 object2 不是一个对象或者 object1 没有出现在 object2 中的原型链中，isPrototypeOf 方法将返回 false。 </p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <h2 id="isPrototypeOf-NaN"><a href="#isPrototypeOf-NaN" class="headerlink" title="isPrototypeOf()"></a>isPrototypeOf()</h2><p>isPrototypeOf是用来判断指定对象object1是否存在于另一个对象object2的原型链中，是则返回true，否则返回false。<br>格式如下：<br>  object1.isPrototypeOf(object2);<br>  object1是一个对象的实例；<br>  object2是另一个将要检查其原型链的对象。<br>原型链可以用来在同一个对象类型的不同实例之间共享功能。<br>如果 object2 的原型链中包含object1，那么 isPrototypeOf 方法返回 true。<br>如果 object2 不是一个对象或者 object1 没有出现在 object2 中的原型链中，isPrototypeOf 方法将返回 false。 </p>
 <p>示例:<br>本示例展示了 Baz.prototype, Bar.prototype, Foo.prototype 和 Object.prototype 在 baz 对象的原型链上：</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>{}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>) </span>{}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Baz</span>(<span class="params"></span>) </span>{}</span><br><span class="line"></span><br><span class="line">Bar.prototype = <span class="built_in">Object</span>.create(Foo.prototype);</span><br><span class="line">Baz.prototype = <span class="built_in">Object</span>.create(Bar.prototype);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> baz = <span class="keyword">new</span> Baz();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Baz.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Bar.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
 <br>
@@ -961,9 +1035,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -972,15 +1046,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -992,7 +1066,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1005,19 +1079,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/twenty-one/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/29/twenty-one/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1034,39 +1109,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-twenty" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/29/twenty/">JavaScript --- forEach() 方法详解</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/29/twenty/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/29/twenty/" class="archive-article-date">
   	<time datetime="2020-04-29T05:41:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：952字 | 预计阅读时长：3分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                952字 | 预计阅读时长：
+                    3分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
 <p>arr.forEach(callback(currentValue [, index [, array]])[, thisArg])</p>
 </blockquote>
 <h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><blockquote>
@@ -1119,9 +1199,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -1130,15 +1210,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -1150,7 +1230,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1163,19 +1243,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/twenty/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/29/twenty/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1192,39 +1273,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-nineteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/29/nineteen/">JavaScript中keys()和getOwnPropertyNames()详解。</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/29/nineteen/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/29/nineteen/" class="archive-article-date">
   	<time datetime="2020-04-29T03:51:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-29</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：897字 | 预计阅读时长：3分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                897字 | 预计阅读时长：
+                    3分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>    除了for/in循环之外，ECMAScript 5定义了两个用以枚举属性名称的函数。第一个是Object.keys(), 它返回一个数组，这个数组由对象中可枚举的自有属性的名称组成。</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>    除了for/in循环之外，ECMAScript 5定义了两个用以枚举属性名称的函数。第一个是Object.keys(), 它返回一个数组，这个数组由对象中可枚举的自有属性的名称组成。</p>
 <h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><blockquote>
 <p>Object.keys(obj)</p>
 </blockquote>
@@ -1286,9 +1372,9 @@
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -1297,15 +1383,15 @@
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -1317,7 +1403,7 @@
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1330,19 +1416,20 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/29/nineteen/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/29/nineteen/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1359,39 +1446,44 @@
 </aside>
 
 
-
-
+                
   
     <article id="post-eighteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/27/eighteen/">js简单实现轮播图</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/27/eighteen/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/27/eighteen/" class="archive-article-date">
   	<time datetime="2020-04-27T03:55:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：828字 | 预计阅读时长：4分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                828字 | 预计阅读时长：
+                    4分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <br>
 index.html
 
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    * {</span><br><span class="line">        padding: <span class="number">0</span>px;</span><br><span class="line">        margin: <span class="number">0</span>px;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #out {</span><br><span class="line">        width: <span class="number">520</span>px;</span><br><span class="line">        height: <span class="number">333</span>px;</span><br><span class="line">        background-color: #bfa;</span><br><span class="line">        margin: <span class="number">50</span>px auto;</span><br><span class="line">        padding: <span class="number">10</span>px <span class="number">0</span>px;</span><br><span class="line">        position: relative;</span><br><span class="line">        overflow: hidden;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #imglist {</span><br><span class="line">        list-style: none;</span><br><span class="line">        <span class="comment">/* width: 2600px; */</span></span><br><span class="line">        position: absolute;</span><br><span class="line">        left: <span class="number">0</span>px;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #imglist li {</span><br><span class="line">        float: left;</span><br><span class="line">        margin: <span class="number">0</span>px <span class="number">10</span>px;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #navdiv {</span><br><span class="line">        position: absolute;</span><br><span class="line">        bottom: <span class="number">15</span>px;</span><br><span class="line">        <span class="comment">/* left: 200px; */</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #navdiv a {</span><br><span class="line">        float: left;</span><br><span class="line">        width: <span class="number">15</span>px;</span><br><span class="line">        height: <span class="number">15</span>px;</span><br><span class="line">        background-color: red;</span><br><span class="line">        margin: <span class="number">0</span> <span class="number">5</span>px;</span><br><span class="line">        opacity: <span class="number">0.5</span>;</span><br><span class="line">        border-radius: <span class="number">50</span>%;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #navdiv a:hover {</span><br><span class="line">        background-color: #686269;</span><br><span class="line">    }</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="js/</span>tool.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">    window.onload = function() {</span></span><br><span class="line"><span class="string">        var img = document.getElementsByTagName("</span>img<span class="string">");</span></span><br><span class="line"><span class="string">        var imglist = document.getElementById("</span>imglist<span class="string">");</span></span><br><span class="line"><span class="string">        imglist.style.width = 520 * img.length + "</span>px<span class="string">";</span></span><br><span class="line"><span class="string">        // 设置导航块居中</span></span><br><span class="line"><span class="string">        var navdiv = document.getElementById("</span>navdiv<span class="string">");</span></span><br><span class="line"><span class="string">        var out = document.getElementById("</span>out<span class="string">");</span></span><br><span class="line"><span class="string">        navdiv.style.left = (out.offsetWidth - navdiv.offsetWidth) / 2 + "</span>px<span class="string">";</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        var index = 0;</span></span><br><span class="line"><span class="string">        var arra = document.getElementsByTagName("</span>a<span class="string">");</span></span><br><span class="line">        arra[index].style.backgroundColor = "#686269";</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 为每一个超链接添加单机响应事件</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arra.length; i++) {</span><br><span class="line">            arra[i].num = i;</span><br><span class="line">            arra[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                <span class="comment">// 当我们手动去切换的时候，去停止轮播图</span></span><br><span class="line">                clearInterval(timer);</span><br><span class="line">                <span class="comment">// 为每个超链接做标记</span></span><br><span class="line">                index = <span class="keyword">this</span>.num;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// imglist.style.left = -520 * index + "px";</span></span><br><span class="line">                setA();</span><br><span class="line">                move(imglist, <span class="string">"left"</span>, <span class="number">-520</span> * index, <span class="number">20</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                    <span class="comment">// 手动点击切换结束之后，再次开启定时器。</span></span><br><span class="line">                    autoChenge();</span><br><span class="line"></span><br><span class="line">                });</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        autoChenge();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">setA</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="comment">// 判断索引是否是最后一张</span></span><br><span class="line">            <span class="keyword">if</span> (index &gt;= arra.length) {</span><br><span class="line">                index = <span class="number">0</span>;</span><br><span class="line">                <span class="comment">//如果为最后一张，直接将imglist的left设置为0，</span></span><br><span class="line">                imglist.style.left = <span class="number">0</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arra.length; i++) {</span><br><span class="line">                <span class="comment">// 设置为空，防止设置颜色之后，在内联样式里优先级过高，</span></span><br><span class="line">                arra[i].style.backgroundColor = <span class="string">""</span>;</span><br><span class="line">            }</span><br><span class="line">            arra[index].style.backgroundColor = <span class="string">"#686269"</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 设置定时器</span></span><br><span class="line">        <span class="comment">// 定义定时器标识</span></span><br><span class="line">        <span class="keyword">var</span> timer;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">autoChenge</span>(<span class="params"></span>) </span>{</span><br><span class="line">            timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                index++;</span><br><span class="line">                <span class="comment">//  %= 算法 判断index的长度是否超过img的长度，如果超过就返回0</span></span><br><span class="line">                index %= img.length;</span><br><span class="line">                move(imglist, <span class="string">"left"</span>, <span class="number">-520</span> * index, <span class="number">20</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                    setA();</span><br><span class="line">                });</span><br><span class="line">            }, <span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;div id="out"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;ul id="imglist"&gt;</span></span><br><span class="line"><span class="regexp">            &lt;li&gt;&lt;img src="img/</span><span class="number">1.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">2.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">3.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">4.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">5.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">1.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">        &lt;div id="</span>navdiv<span class="string">"&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></tbody></table></figure>
@@ -1423,9 +1515,9 @@ index.html
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -1434,15 +1526,15 @@ index.html
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -1454,7 +1546,7 @@ index.html
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1467,19 +1559,20 @@ index.html
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/27/eighteen/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/27/eighteen/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1496,39 +1589,44 @@ index.html
 </aside>
 
 
-
-
+                
   
     <article id="post-seventeen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/27/seventeen/">JavaScript元素类的操作总结。</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/27/seventeen/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/27/seventeen/" class="archive-article-date">
   	<time datetime="2020-04-27T02:27:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：277字 | 预计阅读时长：1分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                277字 | 预计阅读时长：
+                    1分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<br>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <br>
 封装成方法如下：
 
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  定义一个函数 addClass() 用来向元素中添加指定的class属性值</span></span><br><span class="line"><span class="comment">            参数：</span></span><br><span class="line"><span class="comment">                obj ：要添加class属性值的元素</span></span><br><span class="line"><span class="comment">                cn ： 套添加的class属性      为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="keyword">if</span> (!hasClass(obj, cn)) {</span><br><span class="line">                obj.className += <span class="string">" "</span> + cn;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 判断一个class中是否含有指定的class属性值</span></span><br><span class="line"><span class="comment">        * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn ： 检查的class属性         为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">hasClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="comment">// 检查obj中是否含有cn</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="string">"\\b"</span> + cn + <span class="string">"\\b"</span>);</span><br><span class="line">            <span class="keyword">return</span> reg.test(obj.className);</span><br><span class="line"></span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 移除指定元素中指定的class属性值</span></span><br><span class="line"><span class="comment">         * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn ： 检查的class属性           为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">moveClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="string">"\\b"</span> + cn + <span class="string">"\\b"</span>);</span><br><span class="line">            obj.className = obj.className.replace(reg, <span class="string">""</span>);</span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 切换class属性值</span></span><br><span class="line"><span class="comment">        * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn  ：检查的class属性          为字符串</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">toggleClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="keyword">if</span> (hasClass(obj, cn)) {</span><br><span class="line">                moveClass(obj, cn);</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                addClass(obj, cn);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        };</span><br></pre></td></tr></tbody></table></figure>
@@ -1559,9 +1657,9 @@ index.html
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -1570,15 +1668,15 @@ index.html
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -1590,7 +1688,7 @@ index.html
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1603,19 +1701,20 @@ index.html
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/27/seventeen/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/27/seventeen/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1632,39 +1731,44 @@ index.html
 </aside>
 
 
-
-
+                
   
     <article id="post-sixteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
+    <div class="article-inner">
         
-        
-        <center><p>
+            <header class="article-header">
+                
+                    
+                        <center>
+                            <p>
+                                
   
     <h1 itemprop="name">
       <a class="article-title_code_ant" href="/2020/04/25/sixteen/">JavaScript ---鼠标拖拽元素问题总结</a>
     </h1>
   
-</p></center>
-        
-        <a href="/2020/04/25/sixteen/" class="archive-article-date">
+
+                            </p>
+                        </center>
+                        
+                            <a href="/2020/04/25/sixteen/" class="archive-article-date">
   	<time datetime="2020-04-25T05:04:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-25</time>
 </a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：544字 | 预计阅读时长：2分钟
-	  </div>
+                                
+            </header>
+            <div align="center" class="post-count">
+                字数：
+                544字 | 预计阅读时长：
+                    2分钟
+            </div>
 
 
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>大致分为三个步骤：</p>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>大致分为三个步骤：</p>
 <ol>
 <li>鼠标摁下       onmousedown</li>
 <li>鼠标移动    onmousemove</li>
@@ -1701,9 +1805,9 @@ index.html
             document.body.appendChild(img);
           });
       </script>
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
+                                                <!-- 《添加版权声明 -->
+
+    <!-- 《添加版权声明 -->
 <!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
 
 
@@ -1712,15 +1816,15 @@ index.html
   <div class="declare" hidden="hidden"></div>
 
 <!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
+
+<!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -1732,7 +1836,7 @@ index.html
 		</ul>
 	</div>
 
-      
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -1745,19 +1849,20 @@ index.html
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/25/sixteen/">展开全文 >></a>
-        </p>
-      
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a" href="/2020/04/25/sixteen/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
 
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
 
-<aside class="wrap-side-operation">
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -1774,8 +1879,7 @@ index.html
 </aside>
 
 
-
-
+                
   
   
     <nav id="page-nav">
@@ -1922,10 +2026,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
