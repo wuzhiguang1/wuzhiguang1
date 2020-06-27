@@ -69,7 +69,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<a>总文章数 54</a>
+			<a>总文章数 55</a>
 			<a>总字数 <span class="post-count">80k</span></a>
 		</nav>
 		<nav class="header-smart-menu">
@@ -176,6 +176,90 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-45" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+        
+        <center><p>
+  
+    <h1 itemprop="name">
+      <a class="article-title_code_ant" href="/2020/06/27/45/">45</a>
+    </h1>
+  
+</p></center>
+        
+        <a href="/2020/06/27/45/" class="archive-article-date">
+  	<time datetime="2020-06-27T09:05:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-27</time>
+</a>
+        
+      </header>
+	  <div align="center" class="post-count">
+	      字数：0字 | 预计阅读时长：1分钟
+	  </div>
+
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      	
+      		
+			<!-- 《添加版权声明 -->
+			
+			    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+			
+			<!-- 添加版权声明》 -->
+			
+			
+      	
+      
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/27/45/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-44" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1519,134 +1603,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/06/03/36/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-35" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-        
-        <center><p>
-  
-    <h1 itemprop="name">
-      <a class="article-title_code_ant" href="/2020/06/03/35/">JavaScript 性能优化之作用域安全的构造函数</a>
-    </h1>
-  
-</p></center>
-        
-        <a href="/2020/06/03/35/" class="archive-article-date">
-  	<time datetime="2020-06-03T14:28:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
-        
-      </header>
-	  <div align="center" class="post-count">
-	      字数：929字 | 预计阅读时长：3分钟
-	  </div>
-
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-      	
-      		<p>构造函数其实就是一个使用new操作符调用的函数。当使用new调用时，构造函数内用到的this对象会指向新创建的对象实例，如下面的例子所示:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">"aqingya"</span>, <span class="number">18</span>, <span class="string">"吴志广"</span>);</span><br></pre></td></tr></table></figure>
-<p>上面这个例子中，Person构造函数使用this对象给三个属性赋值: name、age和 job。当和new操作符连用时，则会创建一个新的 Person对象，同时会给它 分配这些属性。问题出在当没有使用new操作符来调用该构造函数的情况上。由于该this对象是在运行时绑定的，所以直接调用Person(),this会映射到全局对象window.上，导致错误对象属性的意外增加。例如:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = Person(<span class="string">"aqingya"</span>, <span class="number">18</span>, <span class="string">"吴志广"</span>);</span><br><span class="line">alert(<span class="built_in">window</span>.name); <span class="comment">//"aqingya"</span></span><br><span class="line">alert(<span class="built_in">window</span>.age); <span class="comment">//18</span></span><br><span class="line">alert(<span class="built_in">window</span>.job); <span class="comment">//吴志广</span></span><br></pre></td></tr></table></figure>
-<p>原本针对Person实例的三个属性被加到window对象上，因为构造函数是作为普通函数调用的，忽略了new操作符。这个问题是由this 对象的晚绑定造成的，在这里this被解析成了window对象。</p>
-<p><strong>解决方法</strong>：就是创建一个<strong>作用域安全的构造函数</strong>。<span style="color:red">在进行更改之前，首先确认this对象的正确类型的实例，如果不是就会创建新的实例并返回。</span></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> Person) &#123;</span><br><span class="line">         <span class="keyword">this</span>.name = name;</span><br><span class="line">         <span class="keyword">this</span>.age = age;</span><br><span class="line">         <span class="keyword">this</span>.job = job;</span><br><span class="line">     &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">new</span> Person(name, age, job);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">var</span> person1 = Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"> alert(<span class="built_in">window</span>.name); <span class="comment">//""</span></span><br><span class="line"> alert(person1.name); <span class="comment">//"Nicholas"</span></span><br><span class="line"> <span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Shelby"</span>, <span class="number">34</span>, <span class="string">"Ergonomist"</span>);</span><br><span class="line"> alert(person2.name); <span class="comment">//"Shelby"</span></span><br></pre></td></tr></table></figure>
-<p>Person构造函数添加了一个检查并确保this对象是Person实例的 if 语句，它表示要么使用new操作符，要么在现有的Person实例环境中调用构造函数。任何一种情况下，对象初始化都能正常进行。如果this并非Person的实例，那么会再次使用new操作符调用构造函数并返回结果。</p>
-<br>
-
-<p><strong>但是这也会出现一个问题</strong>：实现这个模式后，你就锁定了可以调用构造函数的环境。如果你使用构造函数窃取模式的继承且不使用原型链，那么这个继承很可能被破坏。如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Polygon</span>(<span class="params">sides</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> Polygon) &#123;</span><br><span class="line">        <span class="keyword">this</span>.sides = sides;</span><br><span class="line">        <span class="keyword">this</span>.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Polygon(sides);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params">width, height</span>) </span>&#123;</span><br><span class="line">    Polygon.call(<span class="keyword">this</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">this</span>.width = width;</span><br><span class="line">    <span class="keyword">this</span>.height = height;</span><br><span class="line">    <span class="keyword">this</span>.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.width * <span class="keyword">this</span>.height;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> Rectangle(<span class="number">5</span>, <span class="number">10</span>);</span><br><span class="line">alert(rect.sides); <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-<p>在这段代码中，Polygon 构造函数是作用域安全的，然而Rectangle构造函数则不是。新创建一个Rectangle实例之后，这个实例应该通过Polygon. call ()来继承Polygon的sides属性。但是，由于Polygon构造函数是作用域安全的，this 对象并非Polygon的实例，所以会创建并返回一个新的Polygon对象。Rectangle 构造函数中的this对象并没有得到增长，同时Polygon. call ()返回的值也没有用到，所以Rectangle实例中就不会有sides属性。</p>
-<p><strong>解决方法</strong>：构造函数窃取结合使用原型链的方法可以解决该问题。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Polygon</span>(<span class="params">sides</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> Polygon) &#123;</span><br><span class="line">        <span class="keyword">this</span>.sides = sides;</span><br><span class="line">        <span class="keyword">this</span>.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Polygon(sides);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params">width, height</span>) </span>&#123;</span><br><span class="line">    Polygon.call(<span class="keyword">this</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">this</span>.width = width;</span><br><span class="line">    <span class="keyword">this</span>.height = height;</span><br><span class="line">    <span class="keyword">this</span>.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.width * <span class="keyword">this</span>.height;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Rectangle.prototype = <span class="keyword">new</span> Polygon();</span><br><span class="line"><span class="comment">//让Rectangle的原型成为 Polygon的实例。Rectangle的实例同时也是Polygon的实例。</span></span><br><span class="line"><span class="comment">//所以 Polygon.call()会按照原意执行。为Rectangle添加sides属性</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> Rectangle(<span class="number">5</span>, <span class="number">10</span>);</span><br><span class="line">alert(rect.sides); <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
-
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-
-			<!-- 《添加版权声明 -->
-			
-			    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-			
-			<!-- 添加版权声明》 -->
-			
-			
-      	
-      
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/03/35/">展开全文 >></a>
         </p>
       
 
