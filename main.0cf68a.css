@@ -421,3 +421,39 @@ canvas {
   z-index: -1;
 }
 /* 代码雨画布*/
+
+/* 左边背景*/
+
+.left-col {
+    /* background:#fff; */
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+    url('http://bucket836.oss-cn-shenzhen.aliyuncs.com/wallpaper/381535373.jpeg') no-repeat 0% 20%/ cover;
+    width:300px;
+    position:fixed;
+    opacity:1;
+    transition:all .3s ease-in;
+    -ms-transition: all .3s ease-in;
+    height:100%;
+    z-index:999
+} 
+
+.left-col #header a {
+-    color:#696969
++    color:#673ab7^M
+ }
+ .left-col #header a:hover {
+-    color:#b0a0aa
++    color: #03A9F4^M
+ }
+ .left-col #header .header-subtitle {
+     text-align:center;
+-    color:#999;
++    color:#673ab7;
+     font-size:16px;
+
+/* 左边背景*/
+
+
+
+
+
