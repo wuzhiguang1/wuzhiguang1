@@ -199,8 +199,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 56</a>
-                        <a>总字数 <span class="post-count">80.5k</span></a>
+                        <a>总文章数 57</a>
+                        <a>总字数 <span class="post-count">80.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -322,6 +322,231 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 
+  
+    <article id="post-seven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/15/seven/">JavaScript基础---原型对象概念详解(仔细理解一下)</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/15/seven/" class="archive-article-date">
+  	<time datetime="2020-04-15T08:26:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-15</time>
+</a>
+
+ <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">2.2k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">8分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+            
+
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <h2 id="对象原型"><a href="#对象原型" class="headerlink" title="对象原型"></a>对象原型</h2><hr>
+<p>每一个对象都有一个内置的 <strong>proto</strong> 属性指向构造它的函数prototype属性. 而构造函数的prototype.constructor 则指向构造函数本生。一个对象的属性的寻找过程由以下几个部分组成:</p>
+<ol>
+<li><strong>寻找对象属性的数据描述符(writable, value)或存取描述符(getter, setter)，如果查询到了，则返回 对应的值。如果查询不到，则进入第2步骤</strong>。</li>
+<li><strong>寻找对象属性的值是否有被显示定义 (可以通过 Object.getOwnPropertyNames)检测，如果对象属性定义了，则返回定义的值。 如果没有，则进入第3步骤</strong>。</li>
+<li><strong>寻找对象的隐藏原型<strong>proto</strong>对象的属性，规则同1，2步骤。如果还未找到，则重复第3步骤， 直到<strong>proto</strong> 为null 为止。</strong><br>
+
+</li>
+</ol>
+<hr>
+<p>  我们所创建的每一个函数，解析器都会向函数中添加一个属性prototype。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line">      <span class="built_in">console</span>.log(Person.prototype); <span class="comment">//返回一个对象[Object Obkect]</span></span><br><span class="line">      <span class="built_in">console</span>.log(MyClass.prototype); <span class="comment">//返回一个对象[Object Obkect]       </span></span><br><span class="line">      <span class="built_in">console</span>.log(MyClass.prototype == Person.prototype); <span class="comment">//false</span></span><br></pre></td></tr></tbody></table></figure>
+<p>  每一个构造函数的prototype是惟一的，他们是不相等的。这个属性对应着一个对象，这个对象就是我们所谓的原形对象。<br>下面我们画图来分析一下：<br><img src="https://img-blog.csdnimg.cn/20200415143653690.png" alt="在这里插入图片描述">  这里prototype属性就是保存原型对象的地址，在MyClass函数里有一个属性指向原型对象。</p>
+<hr>
+<p>  如果函数作为普通函数调用prototype没有任何作用<br>  当函数以构造函数的形式调用时，它所创建的对象中都会有一个隐含的属性，指向该构造函数的 原型对象，我们可以通过<strong>proto</strong>来访问该属性。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">var</span> mc = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc</span></span><br><span class="line">      <span class="keyword">var</span> mc1 = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc1</span></span><br><span class="line">      <span class="built_in">console</span>.log(mc.__proto__); <span class="comment">// 返回一个对象[Object Obkect]</span></span><br><span class="line">      <span class="built_in">console</span>.log(mc.__proto__ == MyClass.prototype); <span class="comment">//true</span></span><br></pre></td></tr></tbody></table></figure>
+<p>  通过<strong>proto</strong>来访问该属性，而且该属性和 MyClass.prototype指向的对象的同一个。不仅仅是mc，我再创建一个mc2，它也有<strong>proto</strong>,它指向的也是prototype。<br>  只要通过MyClass创建的对象，他们都有一个隐含属性指向原形对象。<br>画图来理解一下：<br><img src="https://img-blog.csdnimg.cn/20200415144313404.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><br></p>
+<p>  原型对象就相当于一个公共区域，所有同一个类的实例都可以访问到这个原型对象，我们可以将对象中的公有的内容，统一设置到原型对象中。<br>看下列代码：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> mc = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc</span></span><br><span class="line"><span class="keyword">var</span> mc1 = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc1</span></span><br><span class="line">MyClass.prototype.a = <span class="number">123</span>; <span class="comment">//向MyClass的原型对象中添加属性a</span></span><br><span class="line"><span class="built_in">console</span>.log(mc.a); <span class="comment">//123</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200415150759255.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  我们向MyClass的原型对象中添加属性a，我们并没有向对象mc中添加a，此时mc中没有a，他就会向原型对象中寻找。<br>  当我们访问对象的一个属性时，会现在对象自身中寻找，如果有则直接使用，如果没有，则会去原型对象中寻找，如果找到则会直接使用。</p>
+<p>再看，当我们想mc中添加a，如下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">var</span> mc = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc</span></span><br><span class="line">      <span class="keyword">var</span> mc1 = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc1</span></span><br><span class="line">      MyClass.prototype.a = <span class="number">123</span>; <span class="comment">//向MyClass的原型对象中添加属性a</span></span><br><span class="line">      mc.a = <span class="string">"我是mc中的a"</span>; <span class="comment">//向mc中添加属性a</span></span><br><span class="line">      <span class="built_in">console</span>.log(mc.a); <span class="comment">//我是mc中的a</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/20200415151547307.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">  因为mc中有a，则会优先使用自身中的a。所以会输出“我是mc中的a”<br>再看：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">var</span> mc = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc</span></span><br><span class="line">      <span class="keyword">var</span> mc1 = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc1</span></span><br><span class="line">      MyClass.prototype.a = <span class="number">123</span>; <span class="comment">//向MyClass的原型对象中添加属性a</span></span><br><span class="line">      mc.a = <span class="string">"我是mc中的a"</span>; <span class="comment">//向mc中添加属性a</span></span><br><span class="line">      <span class="built_in">console</span>.log(mc1.a); <span class="comment">//123</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://img-blog.csdnimg.cn/20200415151942167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>  当我们查看mc2中的a时，返回的是123，这是因为此时mc2中没有a，自身没有，它会向它的原型对象中去寻找a。</p>
+<br>
+  到现在你应该能感觉到了，原型对象就是一个公共区域，所有对象（这里的所有对象指的是同一个构造函数产生的对象）都能访问到原型对象里面的属性。
+<br>
+  既然属性能访问到，那我们来试试方法。
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">var</span> mc = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc</span></span><br><span class="line">        <span class="keyword">var</span> mc1 = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc1</span></span><br><span class="line">        MyClass.prototype.sayhello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"hello"</span>);</span><br><span class="line">        }                        <span class="comment">//向MyClass原型中添加一个方法。</span></span><br><span class="line">        mc.sayhello();           <span class="comment">//hello</span></span><br></pre></td></tr></tbody></table></figure>
+<p>  显而易见，方法也是能访问到的，进一步说明了原型对象就是一个公共区域。<br><br><br>  <strong>以后我们创建构造函数时，可以将这些对象共有的属性和方法，统一添加到构造函数的 原型对象中，这不用分别为每一个对象添加，也不会影响到全局作用域，就可以使每个对象都具有这些属性和方法</strong></p>
+<br>
+
+<h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明:"></a>补充说明:</h2><br>
+  前面我们说到：我们向MyClass的原型对象中添加属性a，我们并没有向对象mc中添加a，那这样的话我们可以使用  in运算符 来检查一下。
+
+<p>什么是in运算符：</p>
+<ul>
+<li>通过该运算符可以检查一个对象中是否含有指定的属性<pre><code>如果有则返回true ，没有则返回false</code></pre></li>
+<li>语法：<pre><code>“属性名” in 对象</code></pre><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> mc = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc</span></span><br><span class="line"><span class="keyword">var</span> mc1 = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc1</span></span><br><span class="line">MyClass.prototype.a = <span class="number">123</span>; <span class="comment">//向MyClass的原型对象中添加属性a</span></span><br><span class="line"><span class="built_in">console</span>.log(mc.a); <span class="comment">//123</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"a"</span> <span class="keyword">in</span> mc); <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
+  ？？？这也不对鸭，mc中不是没有a吗？怎么会返回true呢？。<br>这是因为使用in检查对像中是否有某个属性时，如果对象中没有但是原型中有，也会返回true。<br>
+  可以使用对象的hasOwnProperty()来检查对象自身中是否含有该属性。使用该方法时，只有对象自身中含有属性时才会返回true。
+
+</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> mc = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc</span></span><br><span class="line">MyClass.prototype.a = <span class="number">123</span>; <span class="comment">//向MyClass的原型对象中添加属性a</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(mc.hasOwnProperty(<span class="string">"a"</span>)); <span class="comment">//flase</span></span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> mc = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc</span></span><br><span class="line">MyClass.prototype.a = <span class="number">123</span>; <span class="comment">//向MyClass的原型对象中添加属性a</span></span><br><span class="line"></span><br><span class="line">mc.b = <span class="number">100</span>; <span class="comment">//向mc中添加属性b</span></span><br><span class="line"><span class="built_in">console</span>.log(mc.hasOwnProperty(<span class="string">"b"</span>)); <span class="comment">//true</span></span><br></pre></td></tr></tbody></table></figure>
+<br>
+  那又有疑问了，mc中有hasOwnProperty()吗？好像我们没有添加，那mc的原型对象里有hasOwnProperty()吗？好像我们也没有添加。测试一下：
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">var</span> mc = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc</span></span><br><span class="line">      <span class="built_in">console</span>.log(mc.hasOwnProperty(<span class="string">"hasOwnProperty"</span>)); <span class="comment">//false</span></span><br><span class="line">      <span class="built_in">console</span>.log(mc.__proto__.hasOwnProperty(<span class="string">"hasOwnProperty"</span>)); <span class="comment">//false</span></span><br></pre></td></tr></tbody></table></figure>
+<p>  那连mc原型对象里也没有，那hasOwnProperty()到底是谁的?<br>  我们想一下，原型对象也是对象，那原形对象也没有原型对象呢？我们试一下：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyClass</span>(<span class="params"></span>) </span>{ <span class="comment">//创建构造函数</span></span><br><span class="line"></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> mc = <span class="keyword">new</span> MyClass(); <span class="comment">//通过构造函数MyClass创建一个对象mc</span></span><br><span class="line"><span class="built_in">console</span>.log(mc.__proto__.__proto__.hasOwnProperty(<span class="string">"hasOwnProperty"</span>)); <span class="comment">//true</span></span><br></pre></td></tr></tbody></table></figure>
+<p>  看来这个hasOwnProperty()是属于原型对象的原型对象。<br>  说明一下：<br><img src="https://img-blog.csdnimg.cn/20200415161035450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>原型对象也是对象，所以它也有原型，</p>
+<ul>
+<li>当我们使用一个对象的属性或者方法时，会先在自身中寻找，如果有直接使用。</li>
+<li>如果自身中没有则去原型对象中寻找，如果原型对象中有，则使用。</li>
+<li>如果没有则去原型的原型中寻找，直到找到Object对象的原型。</li>
+<li>Object对象的原型没有原型，如果在Object中依然没有找到，则会返回Undefined。</li>
+</ul>
+<hr>
+<p>一个对象的属性的寻找过程由以下几个部分组成:</p>
+<ol>
+<li><strong>寻找对象属性的数据描述符(writable, value)或存取描述符(getter, setter)，如果查询到了，则返回 对应的值。如果查询不到，则进入第2步骤</strong>。</li>
+<li><strong>寻找对象属性的值是否有被显示定义 (可以通过 Object.getOwnPropertyNames)检测，如果对象属性定义了，则返回定义的值。 如果没有，则进入第3步骤</strong>。</li>
+<li><strong>寻找对象的隐藏原型<strong>proto</strong>对象的属性，规则同1，2步骤。如果还未找到，则重复第3步骤， 直到<strong>proto</strong> 为null 为止。</strong></li>
+</ol>
+<br>
+<br>
+<br>
+愿你的坚持终有收获。
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+                                                <!-- 《添加版权声明 -->
+                                                
+                                                    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+                                                        
+                                                            <!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                                                                                    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/04/15/seven/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
+
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+                
+
   
     <article id="post-six" class="article article-type-post  article-index" itemscope itemprop="blogPost">
 <div class="article-inner">
