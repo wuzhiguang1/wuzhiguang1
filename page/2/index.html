@@ -45,6 +45,12 @@
 
     <body>
 
+<!-- 数字雨 -->
+<canvas id="canvas" width="1440" height="900" ></canvas>
+<script type="text/javascript" src="/js/DigitalRain.js"></script>
+<!-- 数字雨 -->
+
+
         <div id="container" q-class="show:isCtnShow">
             <canvas id="anm-canvas" class="anm-canvas"></canvas>
             <div class="left-col" q-class="show:isShow">
@@ -2747,11 +2753,20 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
                 本站访客数<span id="busuanzi_value_site_uv"></span>人
         </span>
 
+
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    		
+    	</div>
+      	<div class="footer-right">
+      		<!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten -->
+			<!-- <p>愿你岁月如初，愿你付出终有回报。---阿清</p>-->
+
+<!-- 网站运行天数 -->
 <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 <script>
     var now = new Date(); 
     function createtime() { 
-        var grt= new Date("08/10/2018 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        var grt= new Date("01/01/2020 17:38:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
         now.setTime(now.getTime()+250); 
         days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
         hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
@@ -2764,13 +2779,7 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
     } 
 setInterval("createtime()",250);
 </script>
-
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    		
-    	</div>
-      	<div class="footer-right">
-      		<!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten -->
-			<p>愿你岁月如初，愿你付出终有回报。---阿清</p>
+<!-- 网站运行天数 -->
       	</div>
 	<div>
 		<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278772089'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1278772089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
@@ -2892,11 +2901,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -3058,5 +3067,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <!-- <script type="text/javascript" src="/js/clipboard.js"></script>  -->
 <script type="text/javascript" src="/js/clipboard_use.js"></script>
+
 
     </body>
