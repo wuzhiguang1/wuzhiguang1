@@ -427,7 +427,7 @@ canvas {
 .left-col {
     /* background:#fff; */
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-    url('') no-repeat 0% 20%/ cover;
+    url('http://bucket836.oss-cn-shenzhen.aliyuncs.com/wallpaper/381535373.jpeg') no-repeat 0% 20%/ cover;
     width:300px;
     position:fixed;
     opacity:1;
@@ -435,7 +435,8 @@ canvas {
     -ms-transition: all .3s ease-in;
     height:100%;
     z-index:999
-} 
+}
+
 
 .left-col #header a {
 -    color:#696969
