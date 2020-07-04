@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>es6之 Object.assign()详解 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="es6之 Object.assign() 基本用法 注意事项 常见应用es6之 Object.assign()    基本用法Object.assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。 Object.assign方法的第一个参数是目标对象，后面的参数都是源对象。">
+  <meta name="description" content="es6之 Object.assign()基本用法Object.assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。 Object.assign方法的第一个参数是目标对象，后面的参数都是源对象。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="es6之 Object.assign()详解">
 <meta property="og:url" content="https://aqingya.cn/2020/06/27/44/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="es6之 Object.assign() 基本用法 注意事项 常见应用es6之 Object.assign()    基本用法Object.assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。 Object.assign方法的第一个参数是目标对象，后面的参数都是源对象。">
+<meta property="og:description" content="es6之 Object.assign()基本用法Object.assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。 Object.assign方法的第一个参数是目标对象，后面的参数都是源对象。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-27T06:29:36.000Z">
-<meta property="article:modified_time" content="2020-06-28T07:04:43.205Z">
+<meta property="article:modified_time" content="2020-07-04T01:35:50.714Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
@@ -125,9 +125,9 @@
 
 
             
-                <p class="header-subtitle">
-                    每天进步一点
-                </p>
+                
+
+
                 
 
                     <nav class="header-menu">
@@ -199,7 +199,7 @@
                                 
                         </div>
                         <!-- 网易云音乐 -->
-                        <div style="position:absolute; bottom:-82px ;left:-40px;">
+                        <div style="position:absolute; bottom:-106px ;left:-40px;">
                             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=310 height=88 src="//music.163.com/outchain/player?type=2&id=1307063992&auto=1&height=66"></iframe>
                         </div>
 
@@ -331,19 +331,36 @@
             
 
             
+
+
+
+<!-- 目录内容 -->
+
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
+<!-- 目录内容结束 -->
+
+
+
                 <div class="article-entry" itemprop="articleBody">
                     
 
                                 
-                                            <ul>
-<li><a href="#es6之-objectassign">es6之 Object.assign()</a><ul>
-<li><a href="#基本用法">基本用法</a></li>
-<li><a href="#注意事项">注意事项</a></li>
-<li><a href="#常见应用">常见应用</a><h1 id="es6之-Object-assign"><a href="#es6之-Object-assign" class="headerlink" title="es6之 Object.assign()"></a>es6之 Object.assign()</h1></li>
-</ul>
-</li>
-</ul>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p><code>Object.assign</code>方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p>
+                                            <h1 id="es6之-Object-assign"><a href="#es6之-Object-assign" class="headerlink" title="es6之 Object.assign()"></a>es6之 Object.assign()</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p><code>Object.assign</code>方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。</p>
 <p><code>Object.assign</code>方法的第一个参数是目标对象，后面的参数都是源对象。</p>
 <a id="more"></a>
 
@@ -498,7 +515,7 @@
     2020-06-27
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-06-28
+    2020-07-04
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/06/27/44/" title="es6之 Object.assign()详解" target="_blank">es6之 Object.assign()详解</a>
@@ -643,6 +660,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#es6之-Object-assign"><span class="toc-number">1.</span> <span class="toc-text">es6之 Object.assign()</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本用法"><span class="toc-number">1.1.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">1.2.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见应用"><span class="toc-number">1.3.</span> <span class="toc-text">常见应用</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -685,22 +715,6 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-<!-- 不蒜子统计 -->
-        <span id="busuanzi_container_site_pv">
-                本站总访问量<span id="busuanzi_value_site_pv"></span>次
-        </span>
-        <span class="post-meta-divider">|</span>
-        <span id="busuanzi_container_site_uv" style='display:none'>
-                本站访客数<span id="busuanzi_value_site_uv"></span>人
-        </span>
-
-
-        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    		
-    	</div>
-      	<div class="footer-right">
-      		<!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten -->
-			<!-- <p>愿你岁月如初，愿你付出终有回报。---阿清</p>-->
 
 <!-- 网站运行天数 -->
 <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
@@ -721,6 +735,26 @@
 setInterval("createtime()",250);
 </script>
 <!-- 网站运行天数 -->
+
+
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    		
+    	</div>
+      	<div class="footer-right">
+      		<!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten -->
+			<!-- <p>愿你岁月如初，愿你付出终有回报。---阿清</p>-->
+
+<!-- 不蒜子统计 -->
+        <span id="busuanzi_container_site_uv" style='display:none'>
+                你是本博第<span id="busuanzi_value_site_uv"></span> 位访客
+        </span>
+        
+        <span class="post-meta-divider">|</span>
+       <span id="busuanzi_container_site_pv">
+                历经<span id="busuanzi_value_site_pv"></span> 次回眸才与你相遇
+        </span>
+
+
       	</div>
 	<div>
 		<script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1278772089'%3E%3C/span%3E%3Cscript src='https://v1.cnzz.com/z_stat.php%3Fid%3D1278772089%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script>
