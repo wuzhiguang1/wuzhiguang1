@@ -157,8 +157,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 58</a>
-                        <a>总字数 <span class="post-count">80.9k</span></a>
+                        <a>总文章数 59</a>
+                        <a>总字数 <span class="post-count">82.1k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -280,6 +280,459 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 
+  
+    <article id="post-29" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/31/29/">JavaScript ---表单脚本总结</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/31/29/" class="archive-article-date">
+  	<time datetime="2020-05-31T08:01:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
+</a>
+
+ <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">4k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">17分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+            
+
+            
+
+
+
+<!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+
+
+
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <ul>
+<li><p><a href="#表单基础知识">表单基础知识</a></p>
+<ul>
+<li><a href="#1提交表单">1、提交表单</a></li>
+<li><a href="#2重置表单">2、重置表单</a></li>
+<li><a href="#3表单字段">3、表单字段</a></li>
+</ul>
+</li>
+<li><p><a href="#文本框脚本">文本框脚本</a></p>
+<ul>
+<li><a href="#1选择文本">1、选择文本</a></li>
+<li><a href="#2过滤输入">2、过滤输入</a></li>
+<li><a href="#4html5-约束验证api">4、HTML5 约束验证API</a></li>
+</ul>
+</li>
+<li><p><a href="#选择框脚本">选择框脚本</a></p>
+<ul>
+<li><a href="#1添加选项">1、添加选项</a></li>
+<li><a href="#2移除选项">2、移除选项</a></li>
+<li><a href="#3移动和重排选项">3、移动和重排选项</a><h1 id="表单基础知识"><a href="#表单基础知识" class="headerlink" title="表单基础知识"></a>表单基础知识</h1>在JavaScript中，表单对应的是HTMLFormElement 类型，它继承了HTMLElement 。</li>
+</ul>
+</li>
+<li><p>acceptCharset:服务器能够处理的字符集;等价于HTML中的accept -charset特性。</p>
+</li>
+<li><p>action:接受请求的URL;等价于HTML中的action特性。</p>
+</li>
+<li><p>elements:表单中所有控件的集合( HTMLCollection )。</p>
+</li>
+<li><p>enctype:请求的编码类型;等价于HTML中的enctype特性。</p>
+</li>
+<li><p>length:表单中控件的数量。</p>
+</li>
+<li><p>method:要发送的HTTP请求类型，通常是”get”或”post”;等价于HTML的method特性。</p>
+</li>
+<li><p>name :表单的名称;等价于HTML的name特性。</p>
+</li>
+<li><p>reset () :将所有表单域重置为默认值。</p>
+</li>
+<li><p>submit () :提交表单。</p>
+</li>
+<li><p>target:用于发送请求和接收响应的窗口名称;等价于HTML的target特性。</p>
+</li>
+</ul>
+<p>document.forms 可以获取页面中的所有表单，返回一个集合，在这个集合中可以通过数值索引或者name值来获取特定的表单。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> firstForm = <span class="built_in">document</span>.forms[<span class="number">0</span>]; <span class="comment">//取得页面中的第一个表单</span></span><br><span class="line"><span class="keyword">var</span> myForm = <span class="built_in">document</span>.forms[<span class="string">"form2"</span>]; <span class="comment">//取得页面中为"form2"的表单</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+<br>
+<br>
+
+<h2 id="1、提交表单"><a href="#1、提交表单" class="headerlink" title="1、提交表单"></a>1、提交表单</h2><p>用户点击按钮或者图像时</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line">&lt;input type=<span class="string">"submit"</span> value=<span class="string">"Submit Form"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;button type=<span class="string">"submit"</span>&gt;Submit Form&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;input type="image" src="graphic.gif"&gt;  /</span><span class="regexp">/图像也可以作为提交按钮</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>在JavaScript中，可以用submit() 方法也可以提交表单。<strong>注意：在调用submit() 方法提交表单的时候，不会触发submit 事件。</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"myForm"</span>);</span><br><span class="line"><span class="comment">// 提交表单</span></span><br><span class="line">form.submit();</span><br></pre></td></tr></tbody></table></figure>
+
+<p>阻止提交按钮：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"myForm"</span>);</span><br><span class="line">EventUtil.addHandler(form, <span class="string">"submit"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>{</span><br><span class="line"></span><br><span class="line">	event = EventUtil.getEvent(event);</span><br><span class="line">	EventUtil.preventDefault(event);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<h2 id="2、重置表单"><a href="#2、重置表单" class="headerlink" title="2、重置表单"></a>2、重置表单</h2><p>重置按钮：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;input type=<span class="string">"reset"</span> value=<span class="string">"Reset Form"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;button type=<span class="string">"reset"</span>&gt;Reset Form&lt;<span class="regexp">/button&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>在JavaScript中，可以用 reset() 方法也可以重置表单。<strong>注意：在调用 reset() 方法提交表单的时候，会一样触发 reset 事件。</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"myForm"</span>);</span><br><span class="line"><span class="comment">// 重置表单</span></span><br><span class="line">form.reset();</span><br></pre></td></tr></tbody></table></figure>
+
+<p>阻止重置按钮：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"myForm"</span>);</span><br><span class="line">EventUtil.addHandler(form, <span class="string">"reset"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>{</span><br><span class="line"></span><br><span class="line">	event = EventUtil.getEvent(event);</span><br><span class="line">	EventUtil.preventDefault(event);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<br>
+
+<h2 id="3、表单字段"><a href="#3、表单字段" class="headerlink" title="3、表单字段"></a>3、表单字段</h2><p>每个表单都有一个element 属，它是表单中所有表单元素的集合。是一个有序列表。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"form1"</span>);</span><br><span class="line"><span class="comment">//取得表单中的的一个字段</span></span><br><span class="line"><span class="keyword">var</span> field1 = form.elements[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//取得表单中为"textbox1"的字段</span></span><br><span class="line"><span class="keyword">var</span> field2 = form.elements[<span class="string">"textbox1"</span>];</span><br><span class="line"><span class="comment">//取得表单中包含字段的数量</span></span><br><span class="line"><span class="keyword">var</span> fieldCount = form.elements.length;</span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<p><strong>1、共有的表单字段属性</strong></p>
+<ul>
+<li>disabled:布尔值，表示当前字段是否被禁用。</li>
+<li>form:指向当前字段所属表单的指针;只读。</li>
+<li>name :当前字段的名称。</li>
+<li>readonly:布尔值，表示当前字段是否只读。</li>
+<li>tabIndex:表示当前字段的切换( tab)序号。</li>
+<li>type:当前字段的类型，如” checkbox”、”radio”,等等。</li>
+<li>value:当前字段将被提交给服务器的值。对文件字段来说，这个属性是只读的，包含着文件<br>在计算机中的路径。</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">"myForm"</span>);</span><br><span class="line"><span class="keyword">var</span> field = form.elements[<span class="number">0</span>];</span><br><span class="line"><span class="comment">//修改value 属性</span></span><br><span class="line">field.value = <span class="string">"Another value"</span>;</span><br><span class="line"><span class="comment">//检查 form 属性的值</span></span><br><span class="line">alert(field.form === form); <span class="comment">//true</span></span><br><span class="line"><span class="comment">//把焦点设置当前字段</span></span><br><span class="line">field.focus();</span><br><span class="line"><span class="comment">//禁用当前字段</span></span><br><span class="line">field.disabled = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">//修改 type 属性（不推荐，但对&lt;input&gt;是可行的）</span></span><br><span class="line">field.type = <span class="string">"checkbox"</span>;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>防止多次点击提交按钮</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">EventUtil.addHandler(form, <span class="string">"submit"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>{</span><br><span class="line">event = EventUtil.getEvent(event);</span><br><span class="line"><span class="keyword">var</span> target = EventUtil.getTarget(event);</span><br><span class="line"><span class="comment">//取得提交按钮</span></span><br><span class="line"><span class="keyword">var</span> btn = target.elements[<span class="string">"submit-btn"</span>];</span><br><span class="line"><span class="comment">//禁用它</span></span><br><span class="line">btn.disabled = <span class="literal">true</span>;</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<p>除了&lt;fieldset&gt;之外 ，所有表单都有 type 属性。但是&lt;input&gt;和&lt;button&gt;元素的 type 属性是可以动态修改的，而&lt;select&gt;元素的 type 属性则是只读的。<br><img src="https://img-blog.csdnimg.cn/20200531132456844.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<br>
+
+<p><strong>2、focus() 和 blur()</strong> </p>
+<p>focus() 方法用于将浏览器的焦点设置到表单字段上。<br>blur() 方法把焦点移走。</p>
+<p>HTML5中新增一个 autofocus 属性。自动吧焦点设置到相应的字段。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> autofocus&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<p><strong>3、共有的字段事件</strong></p>
+<p>除了支持鼠标、键盘、更改和HTML事件之外，所有表单字段都支持下列3个事件。</p>
+<ul>
+<li>blur:当前字段失去焦点时触发。</li>
+<li>change:对于&lt;input&gt;和&lt;textarea&gt;元素，在它们失去焦点且value值改变时触发;对于&lt;select&gt;元素，在其选项改变时触发。</li>
+<li>focus:当前字段获得焦点时触发。</li>
+</ul>
+<br>
+<br>
+
+<h1 id="文本框脚本"><a href="#文本框脚本" class="headerlink" title="文本框脚本"></a>文本框脚本</h1><p>&lt;input&gt; 单行文本框</p>
+<ul>
+<li>size特性：指定文本框中能够显示的字符数。</li>
+<li>value特性：设置文本框的初值。</li>
+<li>maxlength 特性：指定文本框可以接受的最大字符数。</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> size=<span class="string">"25"</span> maxlength=<span class="string">"50"</span> value=<span class="string">"aqingya"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+<br>
+
+<p>&lt;textarea&gt; 多行文本框</p>
+<ul>
+<li>rows：指定文本框中的字符行数</li>
+<li>cols：指定文本框中的字符列数</li>
+</ul>
+<br>
+<br>
+
+<h2 id="1、选择文本"><a href="#1、选择文本" class="headerlink" title="1、选择文本"></a>1、选择文本</h2><p>select() 方法：用于选择文本框中的所有文本。&lt;inpout&gt;和&lt;textarea&gt;都支持 。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EventUtil.addHandler(textbox, <span class="string">"focus"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>{</span><br><span class="line">    event = EventUtil.getEvent(event);</span><br><span class="line">    <span class="keyword">var</span> target = EventUtil.getTarget(event);</span><br><span class="line">    target.select();</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+<br>
+
+<p><strong>1、选择（select）事件</strong></p>
+<p>选择文本框中的文本就会触发该事件。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> textbox = <span class="built_in">document</span>.forms[<span class="number">0</span>].elements[<span class="string">"textbox1"</span>];</span><br><span class="line">EventUtil.addHandler(textbox, <span class="string">"select"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>{</span><br><span class="line"><span class="keyword">var</span> alert(<span class="string">"Text selected"</span> + textbox.value);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>2、取得选择的文本</p>
+<p>通过select 事件我们知道用户什么时候选择了文本，但是不知道选择了什么样的文本。<br>两个属性：selectionStart 和selectionEnd 表示选择文本的范围（文本的开头和结尾）</p>
+<p>兼容IE8及更早的版本中有一个document. selection对象。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getSelectedText</span>(<span class="params">textbox</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> textbox.selectionStart == <span class="string">"number"</span>) {</span><br><span class="line">        <span class="keyword">return</span> textbox.value.substring(textbox.selectionStart,textbox.selectionEnd);</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.selection) {</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">document</span>.selection.createRange().text;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<p><strong>3、选择部分文本</strong></p>
+<p>setSelectionRange() 方法，这个方法接收两个参数:要选择的第一个字符的索引和要 选择的最后一个字符之后的字符的索引(类似于substring()方法的两个参数)。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">textbox.value = <span class="string">"Hello world!"</span></span><br><span class="line"><span class="comment">//选择所有字符</span></span><br><span class="line">textbox.setSelectionRange(<span class="number">0</span>, textbox.value.length); <span class="comment">//"Hello world!"</span></span><br><span class="line"><span class="comment">//选择前 3 个字符</span></span><br><span class="line">textbox.setSelectionRange(<span class="number">0</span>, <span class="number">3</span>); <span class="comment">//"Hel"</span></span><br><span class="line"><span class="comment">//选择第4到第6个字符</span></span><br><span class="line">textbox.setSelectionRange(<span class="number">4</span>, <span class="number">7</span>); <span class="comment">//"o w"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>兼容IE8<br>createTextRange() 方法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">textbox.value = <span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="keyword">var</span> range = textbox.createTextRange();</span><br><span class="line"><span class="comment">//选择所有字符</span></span><br><span class="line">range.collapse(<span class="literal">true</span>);</span><br><span class="line">range.moveStart(<span class="string">"character"</span>, <span class="number">0</span>);</span><br><span class="line">range.moveEnd(<span class="string">"character"</span>, textbox.value.length); <span class="comment">//"Hello world!"</span></span><br><span class="line">range.select();</span><br><span class="line"><span class="comment">//选择前 3 个字符</span></span><br><span class="line">range.collapse(<span class="literal">true</span>);</span><br><span class="line">range.moveStart(<span class="string">"character"</span>, <span class="number">0</span>);</span><br><span class="line">range.moveEnd(<span class="string">"character"</span>, <span class="number">3</span>);</span><br><span class="line">range.select(); <span class="comment">//"Hel"</span></span><br><span class="line"><span class="comment">//选择第4到第6个字符</span></span><br><span class="line">range.collapse(<span class="literal">true</span>);</span><br><span class="line">range.moveStart(<span class="string">"character"</span>, <span class="number">4</span>);</span><br><span class="line">range.moveEnd(<span class="string">"character"</span>, <span class="number">3</span>);</span><br><span class="line">range.select(); <span class="comment">//"o w"</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>跨浏览器方法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">selectText</span>(<span class="params">textbox, startIndex, stopIndex</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (textbox.setSelectionRange) {</span><br><span class="line">        textbox.setSelectionRange(startIndex, stopIndex);</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (textbox.createTextRange) {</span><br><span class="line">        <span class="keyword">var</span> range = textbox.createTextRange();</span><br><span class="line">        range.collapse(<span class="literal">true</span>);</span><br><span class="line">        range.moveStart(<span class="string">"character"</span>, startIndex);</span><br><span class="line">        range.moveEnd(<span class="string">"character"</span>, stopIndex - startIndex);</span><br><span class="line">        range.select();</span><br><span class="line">    }</span><br><span class="line">    textbox.focus();</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">textbox.value = <span class="string">"Hello world!"</span></span><br><span class="line"><span class="comment">//选择所有字符</span></span><br><span class="line">selectText(textbox, <span class="number">0</span>, textbox.value.length); <span class="comment">//"Hello world!"</span></span><br><span class="line"><span class="comment">//选择前 3 个字符</span></span><br><span class="line">selectText(textbox, <span class="number">0</span>, <span class="number">3</span>); <span class="comment">//"Hel"</span></span><br><span class="line"><span class="comment">//选择第4到第6个字符</span></span><br><span class="line">selectText(textbox, <span class="number">4</span>, <span class="number">7</span>); <span class="comment">//"o w"</span></span><br></pre></td></tr></tbody></table></figure>
+<br>
+<br>
+
+<h2 id="2、过滤输入"><a href="#2、过滤输入" class="headerlink" title="2、过滤输入"></a>2、过滤输入</h2><p><strong>1、屏蔽字符</strong></p>
+<p>响应文本输入框中插入字符操作的是keypress 事件。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">EventUtil.addHandler(textbox, <span class="string">"keypress"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>{</span><br><span class="line">    event = EventUtil.getEvent(event);</span><br><span class="line">    <span class="keyword">var</span> target = EventUtil.getTarget(event);</span><br><span class="line">    <span class="keyword">var</span> charCode = EventUtil.getCharCode(event);</span><br><span class="line">    <span class="keyword">if</span> (!<span class="regexp">/\d/</span>.test(<span class="built_in">String</span>.fromCharCode(charCode)) &amp;&amp; charCode &gt; <span class="number">9</span> &amp;&amp;</span><br><span class="line">        !event.ctrlKey) {</span><br><span class="line">        <span class="comment">//屏蔽不符合的按键</span></span><br><span class="line">        EventUtil.preventDefault(event);</span><br><span class="line">    }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<p><strong>2、操作剪切板</strong></p>
+<p>剪切板事件</p>
+<ul>
+<li>beforecopy:在发生复制操作前触发。</li>
+<li>copy :在发生复制操作时触发。</li>
+<li>beforecut:在发生剪切操作前触发。</li>
+<li>cut :在发生剪切操作时触发。</li>
+<li>be forepaste:在发生粘贴操作前触发。</li>
+<li>paste:在发生粘贴操作时触发。</li>
+</ul>
+<p>向EventUtil中添加方法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取粘贴板内容</span></span><br><span class="line">getClipboardText: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">    <span class="comment">// 兼容浏览器 ，在IE中clipboardData是window对象。</span></span><br><span class="line">    <span class="keyword">var</span> clipboardData = (event.clipboardData || <span class="built_in">window</span>.clipboardData);</span><br><span class="line">    <span class="keyword">return</span> clipboardData.getData(<span class="string">"text"</span>);</span><br><span class="line">},</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置粘贴板内容</span></span><br><span class="line">setClipboardText: <span class="function"><span class="keyword">function</span>(<span class="params">event, value</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (event.clipboardData) {</span><br><span class="line">        <span class="keyword">return</span> event.clipboardData.setData(<span class="string">"text/plain"</span>, value);</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.clipboardData) {</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">window</span>.clipboardData.setData(<span class="string">"text"</span>, value);</span><br><span class="line">    }</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+<p>在需要确保粘贴到文本框中的文本中包含某些字符，或者符合某种格式要求时，能够访问剪贴板是非常有用的。例如，如果一个文本框只接受数值，那么就必须检测粘贴过来的值，以确保有效。在paste事件中，可以确定剪贴板中的值是否有效，如果无效，就可以像下面示例中那样，取消默认的行为。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">EventUtil.addHandler(textbox, <span class="string">"paste"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>{</span><br><span class="line">    event = EventUtil.getEvent(event);</span><br><span class="line">    <span class="keyword">var</span> text = EventUtil.getClipboardText(event);</span><br><span class="line">    <span class="keyword">if</span> (!<span class="regexp">/^\d*$/</span>.test(text)) {</span><br><span class="line">        EventUtil.preventDefault(event);</span><br><span class="line">    }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<p><strong>到目前EventUtil 如下：</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventUtil = {</span><br><span class="line">            addHandler: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>{</span><br><span class="line">                <span class="keyword">if</span> (element.addEventListener) {</span><br><span class="line">                    element.addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) {</span><br><span class="line">                    element.attachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    element[<span class="string">"on"</span> + type] = handler;</span><br><span class="line">                }</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 解决浏览器兼容性问题</span></span><br><span class="line">            getEvent: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="keyword">return</span> event ? event : <span class="built_in">window</span>.event;</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 返回事件目标</span></span><br><span class="line">            getTarget: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="keyword">return</span> event.target || event.srcElement;</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line">            <span class="comment">//取消事件的默认行为。</span></span><br><span class="line">            preventDefault: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="keyword">if</span> (event.preventDefault) {</span><br><span class="line">                    event.preventDefault();</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    event.returnValue = <span class="literal">false</span>;</span><br><span class="line">                }</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 移除事件处理程序</span></span><br><span class="line">            removeHandler: <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>{</span><br><span class="line">                <span class="keyword">if</span> (element.removeEventListener) {</span><br><span class="line">                    element.removeEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (element.detachEvent) {</span><br><span class="line">                    element.detachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    element[<span class="string">"on"</span> + type] = <span class="literal">null</span>;</span><br><span class="line">                }</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line">            <span class="comment">//提供相关元素的信息，relatedTarget这个属性只对与mouseover和mouseout事件才包含值。</span></span><br><span class="line">            getRelatedTarget: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="keyword">if</span> (event.relatedTarget) {</span><br><span class="line">                    <span class="keyword">return</span> event.relatedTarget;</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (event.toElement) {</span><br><span class="line">                    <span class="keyword">return</span> event.toElement;</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (event.fromElement) {</span><br><span class="line">                    <span class="keyword">return</span> event.fromElement;</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">                }</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取鼠标按钮</span></span><br><span class="line">            <span class="comment">/**</span></span><br><span class="line"><span class="comment">             *  0: 表示没有按下按钮。</span></span><br><span class="line"><span class="comment">                1: 表示按下了主鼠标按钮。</span></span><br><span class="line"><span class="comment">                2: 表示按下了次鼠标按钮。</span></span><br><span class="line"><span class="comment">                3: 表示同时按下了主、次鼠标按钮</span></span><br><span class="line"><span class="comment">                4: 表示按下了中间的鼠标按钮。</span></span><br><span class="line"><span class="comment">                5: 表示同时按下了主鼠标按钮和中间的鼠标按钮。</span></span><br><span class="line"><span class="comment">                6: 表示同时按下了次鼠标按钮和中间的鼠标按钮。</span></span><br><span class="line"><span class="comment">                7: 表示同时按下了三个鼠标按钮。*/</span></span><br><span class="line">            getButton: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">document</span>.implementation.hasFeature(<span class="string">"MouseEvents"</span>, <span class="string">"2.0"</span>)) {</span><br><span class="line">                    <span class="keyword">return</span> event.button;</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="keyword">switch</span> (event.button) {</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">0</span>:</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">7</span>:</span><br><span class="line">                            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">                        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获得鼠标滚轮的增量值delta</span></span><br><span class="line">            getWheelDelta: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="keyword">if</span> (event.wheelDelta) {</span><br><span class="line">                    <span class="keyword">return</span> (client.engine.opera &amp;&amp; client.engine.opera &lt; <span class="number">9.5</span> ?</span><br><span class="line">                        -event.wheelDelta : event.wheelDelta);</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="keyword">return</span> -event.detail * <span class="number">40</span>;</span><br><span class="line">                }</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取字符串编码  主要用于文本框 监听事件是keypress</span></span><br><span class="line">            getCharCode: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">typeof</span> event.charCode == <span class="string">"number"</span>) {</span><br><span class="line">                    <span class="keyword">return</span> event.charCode;</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    <span class="keyword">return</span> event.keyCode;</span><br><span class="line">                }</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line">            <span class="comment">//获取粘贴板内容</span></span><br><span class="line">            getClipboardText: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="comment">// 兼容浏览器 ，在IE中clipboardData是window对象。</span></span><br><span class="line">                <span class="keyword">var</span> clipboardData = (event.clipboardData || <span class="built_in">window</span>.clipboardData);</span><br><span class="line">                <span class="keyword">return</span> clipboardData.getData(<span class="string">"text"</span>);</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line">            <span class="comment">//设置粘贴板内容</span></span><br><span class="line">            setClipboardText: <span class="function"><span class="keyword">function</span>(<span class="params">event, value</span>) </span>{</span><br><span class="line">                <span class="keyword">if</span> (event.clipboardData) {</span><br><span class="line">                    <span class="keyword">return</span> event.clipboardData.setData(<span class="string">"text/plain"</span>, value);</span><br><span class="line">                } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.clipboardData) {</span><br><span class="line">                    <span class="keyword">return</span> <span class="built_in">window</span>.clipboardData.setData(<span class="string">"text"</span>, value);</span><br><span class="line">                }</span><br><span class="line">            },</span><br><span class="line"></span><br><span class="line">            <span class="comment">//取消进一步的事件捕获或者冒泡</span></span><br><span class="line">            stopPropagation: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">                <span class="keyword">if</span> (event.stopPropagation) {</span><br><span class="line">                    event.stopPropagation();</span><br><span class="line">                } <span class="keyword">else</span> {</span><br><span class="line">                    event.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        };</span><br></pre></td></tr></tbody></table></figure>
+
+
+<br>
+
+<h2 id="4、HTML5-约束验证API"><a href="#4、HTML5-约束验证API" class="headerlink" title="4、HTML5 约束验证API"></a>4、HTML5 约束验证API</h2><p><strong>1、必填字段</strong></p>
+<p>required 属性：带有required 属性的字段必须填。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> name=<span class="string">"username"</span> required&gt;</span><br></pre></td></tr></tbody></table></figure>
+<br>
+
+<p><strong>2、其他输入类型</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"email"</span> name =<span class="string">"email"</span>&gt;</span><br><span class="line">&lt;input type=<span class="string">"url"</span> name=<span class="string">"homepage"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<p><strong>3、数值范围</strong></p>
+<p>比如想让用户只能输入 0 到 100 的值，而且还是5的倍数。·</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"number"</span> min=<span class="string">"0"</span> max=<span class="string">"100"</span> step=<span class="string">"5"</span> name=<span class="string">"count"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+<br>
+
+<p>4、输入模式</p>
+<p>pattern 属性：这个属性的值的一个正则表达式。用于匹配文本框中的值。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"text"</span> pattern=<span class="string">"\d+"</span> name=<span class="string">"count"</span>&gt;</span><br></pre></td></tr></tbody></table></figure>
+<br>
+
+<p><strong>5、检测有效性</strong></p>
+<p>checkValidity() 方法可以检查表单中的某个字段是否有效。所有的表单字段都有这个方法。</p>
+<p><strong>话句话说：必填字段中如果没有值就是无效的，而字段中的值与pattern属性不匹配也是无效的。</strong></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.forms[<span class="number">0</span>].elements[<span class="number">0</span>].checkValidity()){</span><br><span class="line">	<span class="comment">//字符有效，继续</span></span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">	<span class="comment">//字符无效</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>要检测整个表单是否有效，可以在表单自身调用checkValidity()方法。如果所有表单字段都有效，这个方法返回true;即使有一一个字段无效，这个方法也会返回false。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">document</span>.forms[<span class="number">0</span>].checkValidity()){</span><br><span class="line">	<span class="comment">//表单有效，继续</span></span><br><span class="line">} <span class="keyword">else</span> {</span><br><span class="line">	<span class="comment">//表单无效</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<p><strong>6、禁用验证</strong></p>
+<p>novalidate 属性：设置它，表单就不需要进行验证。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form method=<span class="string">"post"</span> action=<span class="string">" "</span> novalidate&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/form&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>formnovalidate 属性：某一个按钮不需要验证。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=<span class="string">"submit"</span>  name=<span class="string">"阿清"</span> value=<span class="string">"aqing"</span> formnovalidate&gt;</span><br></pre></td></tr></tbody></table></figure>
+<br>
+<br>
+
+
+<h1 id="选择框脚本"><a href="#选择框脚本" class="headerlink" title="选择框脚本"></a>选择框脚本</h1><p>选择框是通过&lt;select&gt;和&lt;option&gt;元素创建的。为了方便与这个控件交互，除了所有表单字段共有的属性和方法外，HTMLSelectElement 类型还提供了下列属性和方法。</p>
+<ul>
+<li>add (newoption, relOption): 向控件中插人新&lt;option&gt;元素，其位置在相关项( relOption)之前。</li>
+<li>multiple:布尔值，表示是否允许多项选择;等价于HTML中的multiple特性。</li>
+<li>options:控件中所有&lt;option&gt;元素的HTMLCollection。</li>
+<li>remove ( index) :移除给定位置的选项。</li>
+<li>selectedIndex:基于0的选中项的索引，如果没有选中项，则值为-1。对于支持多选的控件,只保存选中项中第一项的索引。</li>
+<li>size:选择框中可见的行数;等价于HTML中的size特性。</li>
+</ul>
+<br>
+
+<p>选择框的type属性不是”select-one”,就是”select- multiple”,这取决于HTML代码中有没有multiple特性。选择框的value属性由当前选中项决定，相应规则如下。</p>
+<ul>
+<li>如果没有选中的项，则选择框的value属性保存空字符串。</li>
+<li>如果有一个选中项，而且该项的value特性已经在HTML中指定，则选择框的value属性等于选中项的value特性。即使value特性的值是空字符串，也同样遵循此条规则。</li>
+<li>如果有一个选中项，但该项的value特性在HTML中未指定，则选择框的value属性等于该项的文本。</li>
+<li>如果有多个选中项，则选择框的value属性将依据前两条规则取得第一个选中项的值。</li>
+</ul>
+<p>举个栗子：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;select name=<span class="string">"location"</span> id=<span class="string">"selLocation"</span>&gt;</span><br><span class="line">	&lt;option value=<span class="string">"Sunnyvale, CA"</span>&gt;Sunnyvale&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">	&lt;option value="Los Angeles, CA"&gt;Los Angeles&lt;/</span>option&gt;</span><br><span class="line">	&lt;option value=<span class="string">"Mountain View, CA"</span>&gt;Mountain View&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">	&lt;option value=""&gt;China&lt;/</span>option&gt;</span><br><span class="line">	&lt;option&gt;Australia&lt;<span class="regexp">/option&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>select&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>如果用户选择了其中第一项，则选择框的值就是” Sunnyvale, CA”。 如果文本为”China “的选项被选中，则选择框的值就是-一个空字符串，因为其value特性是空的。如果选择了最后一项，那么由于&lt;option&gt;中没有指定value特性，则选择框的值就是” Australia”。</p>
+<br>
+
+<p>在DOM中，每个&lt;option&gt;元素都有一个HTMLOptionElement 对象表示。为便于访问数据，HTMLOptionElement对象添加了下列属性:<strong>（这些属性的目的都是为了方便选项的访问）</strong></p>
+<ul>
+<li>index:当前选项在options集合中的索引。</li>
+<li>label:当前选项的标签;等价于HTML中的label特性。</li>
+<li>selected:布尔值，表示当前选项是否被选中。将这个属性设置为true可以选中当前选项。</li>
+<li>text:选项的文本。</li>
+<li>value:选项的值(等价于HTML中的value特性)。</li>
+</ul>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> selectbox = <span class="built_in">document</span>.forms[<span class="number">0</span>]. elements[<span class="string">"location"</span>];</span><br><span class="line"><span class="comment">// 推荐</span></span><br><span class="line"><span class="keyword">var</span> text = selectbox.options[<span class="number">0</span>].text; <span class="comment">// 选项中的文本</span></span><br><span class="line"><span class="keyword">var</span> value = selectbox.options[<span class="number">0</span>].value; <span class="comment">//选项的值</span></span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<h2 id="1、添加选项"><a href="#1、添加选项" class="headerlink" title="1、添加选项"></a>1、添加选项</h2><p>有两种方法<br>1、使用DOM方法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newOption = <span class="built_in">document</span>.createElement(<span class="string">"option"</span>);</span><br><span class="line">newOption.appendChild(<span class="built_in">document</span>.createTextNode(<span class="string">"Option text"</span>));</span><br><span class="line">newOption.setAttribute(<span class="string">"value"</span>, <span class="string">"Option value"</span>);</span><br><span class="line">selectbox.appendChild(newOption);</span><br></pre></td></tr></tbody></table></figure>
+<p>2、添加新选项的方式是使用选择框的add()方法。DOM规定这个方法接受两个参数:要添加的新选项和将位于新选项之后的选项。如果想在列表的最后添加一个选项，应该将第二个参数设置为null。在IE中第二个参数设置为undefined。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> newOption = <span class="keyword">new</span> Option(<span class="string">"Option text"</span>, <span class="string">"Option value"</span>);</span><br><span class="line">selectbox.add(newOption, <span class="literal">undefined</span>); <span class="comment">//最佳方案</span></span><br></pre></td></tr></tbody></table></figure>
+<p><strong>推荐使用第二种</strong></p>
+<br>
+
+<h2 id="2、移除选项"><a href="#2、移除选项" class="headerlink" title="2、移除选项"></a>2、移除选项</h2><p>1、使用DOM方法中的removeChild() 方法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selectbox.removeChild(selectbox.options[<span class="number">0</span>]); <span class="comment">//移除第一个选项</span></span><br></pre></td></tr></tbody></table></figure>
+<p>2、使用选项框中的remove() 方法<br> 一个参数：移除选项的索引</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selectbox.remove(<span class="number">0</span>);  <span class="comment">//移除第一个选项</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>3、就是将相应选项设置为null。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selectbox.options[<span class="number">0</span>] = <span class="literal">null</span>; <span class="comment">//移除第一个选项</span></span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<h2 id="3、移动和重排选项"><a href="#3、移动和重排选项" class="headerlink" title="3、移动和重排选项"></a>3、移动和重排选项</h2><p>移动：使用DOM中的appendChild() 方法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> selectbox1 = <span class="built_in">document</span>.getElementById(<span class="string">"selLocations1"</span>);</span><br><span class="line"><span class="keyword">var</span> selectbox2 = <span class="built_in">document</span>.getElementById(<span class="string">"selLocations2"</span>);</span><br><span class="line">selectbox2.appendChild(selectbox1.options[<span class="number">0</span>]);</span><br></pre></td></tr></tbody></table></figure>
+<p><span style="color:red">移动选项与移除选项有一个共同之处，即会重置每-一个选项的index属性。</span></p>
+<br>
+
+<p>重排：使用DOM方法 insertBefore() 方法。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> optionToMove = selectbox.options[<span class="number">1</span>];</span><br><span class="line">selectbox.insertBefore(optionToMove, selectbox.options[optionToMove.index<span class="number">-1</span>]);</span><br></pre></td></tr></tbody></table></figure>
+
+
+<hr>
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+
+
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+                                                <!-- 《添加版权声明 -->
+                                                
+                                                    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+                                                        
+                                                            <!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                                                                                    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/05/31/29/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
+
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+                
+
   
     <article id="post-28" class="article article-type-post  article-index" itemscope itemprop="blogPost">
 <div class="article-inner">
@@ -2569,330 +3022,6 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
                                                                                         
                                                                                             <p class="article-more-link">
                                                                                                 <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/05/21/20/">
-                                                                                                    展开全文 >></a>
-                                                                                            </p>
-                                                                                            
-
-                                                                                                
-                                                                                                            <div class="clearfix"></div>
-                                                                    </div>
-                </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-                
-
-  
-    <article id="post-19" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-<div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/20/19/">JavaScript  ---  闭包详解</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/20/19/" class="archive-article-date">
-  	<time datetime="2020-05-20T09:04:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-20</time>
-</a>
-
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">5.8k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">23分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-
-        
-      </header>
-            
-
-            
-
-
-
-<!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-
-
-                <div class="article-entry" itemprop="articleBody">
-                    
-
-                                
-                                            <h2 id="闭包的几种概念理解："><a href="#闭包的几种概念理解：" class="headerlink" title="闭包的几种概念理解："></a>闭包的几种概念理解：</h2><ol>
-<li>能够访问另一个函数作用域的变量的函数。清晰的讲：<strong>闭包就是一个函数，这个函数能够访问其他函数的作用域中的变量</strong>。</li>
-<li>闭包是一种保护私有变量的机制，在函数执行时形成私有的作用域，保护里面的私有变量不受外界干扰。直观的说就是形成一个不销毁的栈环境。</li>
-<li>闭包是由函数以及创建该函数的词法环境组合而成。这个环境包含了这个闭包创建时所能访问的所有局部变量。</li>
-<li><strong>闭包是指有权访问另一个函数作用域中的变量的函数</strong></li>
-<li>能够读取其他函数内部变量的函数。或简单理解为<strong>定义在一个函数内部的函数，内部函数持有外部函数内变量的引用。</strong></li>
-</ol>
-<p>我们都知道，js的作用域分两种，全局和局部，基于我们所熟悉的<a href="https://aqingya.cn/2020/05/19/twenty-eight/">作用域链相关知识</a>，我们知道在js作用域环境中访问变量的权利是由内向外的，内部作用域可以获得当前作用域下的变量并且可以获得当前包含当前作用域的外层作用域下的变量，反之则不能，也就是说在外层作用域下无法获取内层作用域下的变量，同样在不同的函数作用域中也是不能相互访问彼此变量的，那么我们想在一个函数内部也有限权访问另一个函数内部的变量该怎么办呢？闭包就是用来解决这一需求的，闭包的本质就是在一个函数内部创建另一个函数。</p>
-<br>
-
-<p><strong>我们首先知道闭包有3个特性：</strong></p>
-<p><strong>①函数嵌套函数</strong></p>
-<p><strong>②函数内部可以引用函数外部的参数和变量</strong></p>
-<p><strong>③参数和变量不会被垃圾回收机制回收</strong></p>
-<hr>
-<h2 id="闭包的理解"><a href="#闭包的理解" class="headerlink" title="闭包的理解"></a>闭包的理解</h2><p><strong>例子1</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"Chrome"</span>;    <span class="comment">//创建局部变量name和局部函数alertName</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">alertName</span>(<span class="params"></span>) </span>{ <span class="comment">//alertName()是函数内部方法，是一个闭包</span></span><br><span class="line">        alert(name); <span class="comment">//使用了外部函数声明的变量，内部函数可以访问外部函数的变量</span></span><br><span class="line">    }</span><br><span class="line">    alertName();</span><br><span class="line">}</span><br><span class="line">init();</span><br><span class="line"><span class="comment">//一个变量在源码中声明的位置作为它的作用域，同时嵌套的函数可以访问到其外层作用域中声明的变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outFun</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"Chrome"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">alertName</span>(<span class="params"></span>)</span>{</span><br><span class="line">        alert(name);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> alertName;   <span class="comment">//alertName被外部函数作为返回值返回了,返回的是一个闭包</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myFun = outFun();</span><br><span class="line">myFun();</span><br></pre></td></tr></tbody></table></figure>
-
-<p>闭包有函数+它的词法环境；词法环境指函数创建时可访问的所有变量。<br>myFun引用了一个闭包，闭包由alertName()和闭包创建时存在的“Chrome”字符串组成。<br>alertName（）持有了name的引用，<br>myFunc持有了alertName（）的的访问，<br>因此myFunc调用时，name还是处于可以访问的状态。</p>
-<hr>
-<p><strong>例子2</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">inc</span>(<span class="params"></span>) </span>{</span><br><span class="line">        n++;</span><br><span class="line">        <span class="built_in">console</span>.log(n);</span><br><span class="line">    }</span><br><span class="line">    inc();  </span><br><span class="line">    inc(); </span><br><span class="line">}</span><br><span class="line">a();</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>例子3</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">inc</span>(<span class="params"></span>)</span>{</span><br><span class="line">       n++; </span><br><span class="line">       <span class="built_in">console</span>.log(n);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> inc;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> c = a();</span><br><span class="line">c();    <span class="comment">//控制台输出1</span></span><br><span class="line">c();    <span class="comment">//控制台输出2</span></span><br></pre></td></tr></tbody></table></figure>
-<p>看看是怎么执行的：</p>
-<p>var c = a()，这一句 a()返回的是函数 inc，那这句等同于 var c = inc;<br>c()，这一句等同于 inc();  注意，函数名只是一个标识（指向函数的指针），而()才是执行函数。<br>后面三句翻译过来就是：  var c = inc;  inc();  inc();，跟第一段代码有区别吗？ 没有。</p>
-<p><strong>为啥要这样写？</strong><br><strong>我们知道，js的每个函数都是一个个小黑屋，它可以获取外界信息，但是外界却无法直接看到里面的内容。将变量 n 放进小黑屋里，除了 inc 函数之外，没有其他办法能接触到变量 n，而且在函数 a 外定义同名的变量 n 也是互不影响的，这就是所谓的增强“封装性”。</strong></p>
-<p><strong>而之所以要用 return 返回函数标识 inc，是因为在 a 函数外部无法直接调用 inc 函数，所以 return inc 与外部联系起来。</strong></p>
-<hr>
-<p><strong>例子4</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> x + y;</span><br><span class="line">    };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> addFun1 = add(<span class="number">4</span>);</span><br><span class="line"><span class="keyword">var</span> addFun2 = add(<span class="number">9</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(addFun1(<span class="number">2</span>)); <span class="comment">//6</span></span><br><span class="line"><span class="built_in">console</span>.log(addFun2(<span class="number">2</span>));  <span class="comment">//11</span></span><br></pre></td></tr></tbody></table></figure>
-<p>add接受一个参数x，返回一个函数,它的参数是y，返回x+y。<br>add是一个函数工厂，传入一个参数，就可以创建一个参数和其他参数求值的函数。<br>addFun1和addFun2都是闭包。他们使用相同的函数定义，但词法环境不同，addFun1中x是4，后者是5。</p>
-<hr>
-<p><strong>例子5</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(++n);</span><br><span class="line">        <span class="built_in">console</span>.log(++num);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> fn1 = fn();</span><br><span class="line">fn1(); <span class="comment">// 1  4</span></span><br><span class="line">fn1(); <span class="comment">// 1  5</span></span><br></pre></td></tr></tbody></table></figure>
-<p>一般情况下，在函数fn执行完后，就应该连同它里面的变量一同被销毁，但是在这个例子中，匿名函数作为fn的返回值被赋值给了fn1，这时候相当于fn1=function(){var n = 0 … }，并且匿名函数内部引用着fn里的变量num，所以变量num无法被销毁，而变量n是每次被调用时新创建的，所以每次fn1执行完后它就把属于自己的变量连同自己一起销毁，于是乎最后就剩下孤零零的num，于是这里就产生了内存消耗的问题。</p>
-<hr>
-<p><strong>例子6</strong><br>经典例子-定时器与闭包<br>写一个for循环，让它按顺序打印出当前循环次数</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    }, <span class="number">100</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>按照预期它应该依次输出1 2 3 4 5，而结果它输出了五次5，这是为什么呢？原来<strong>由于js是单线程的，所以在执行for循环的时候定时器setTimeout被安排到任务队列中排队等待执行，而在等待过程中for循环就已经在执行，等到setTimeout可以执行的时候，for循环已经结束，i的值也已经编程5，所以打印出来五个5</strong>，那么我们为了实现预期结果应该怎么改这段代码呢？</p>
-<p><strong>解决办法：</strong><br>1、<span style="color:#f33b45;">（ps:如果把for循环里面的var变成let，也能实现预期结果  ES6新增 利用块级作用域(最简单，推荐)）</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    }, <span class="number">100</span>);</span><br><span class="line">} </span><br><span class="line"><span class="comment">//  控制台输出  0,1,2,3,4</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>2、利用自执行函数，将i作为参数传入</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>{</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="built_in">console</span>.log(i)</span><br><span class="line">        },  <span class="number">100</span>);</span><br><span class="line">    })(i);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//  控制台输出  0,1,2,3,4</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>引入闭包来保存变量i，将setTimeout放入立即执行函数中，将for循环中的循环值i作为参数传递，100毫秒后同时打印出1 2 3 4 5。</p>
-<p>那如果我们想实现每隔100毫秒分别依次输出数字，又该怎么改呢?</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>{</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="built_in">console</span>.log(i)</span><br><span class="line">        }, i * <span class="number">100</span>);</span><br><span class="line">    })(i);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//  控制台输出  0,1,2,3,4</span></span><br></pre></td></tr></tbody></table></figure>
-<p>在这段代码中，相当于同时启动3个定时器，i*100是为4个定时器分别设置了不同的时间，同时启动，但是执行时间不同，每个定时器间隔都是100毫秒，实现了每隔100毫秒就执行一次打印的效果。</p>
-<p>2、利用setTimeout的第三个参数，将i作为参数传入function</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    }, <span class="number">100</span>, i);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//  控制台输出  0,1,2,3,4</span></span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<p><strong>例子7</strong><br>闭包作为函数传递</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">15</span>;</span><br><span class="line"><span class="keyword">var</span> fn1 = <span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (x &gt; num) {</span><br><span class="line">        <span class="built_in">console</span>.log(x);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> <span class="function"><span class="keyword">function</span>(<span class="params">fn2</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line">    fn2(<span class="number">30</span>);</span><br><span class="line">}(fn1);</span><br><span class="line"><span class="comment">//控制台打印  30</span></span><br></pre></td></tr></tbody></table></figure>
-<p>在这段代码中，函数fn1作为参数传入立即执行函数中，在执行到fn2(30)的时候，30作为参数传入fn1中，这时候if(x&gt;num)中的num取的并不是立即执行函数中的num，而是取创建函数的作用域中的num这里函数创建的作用域是全局作用域下，所以num取的是全局作用域中的值15，即30&gt;15，打印30</p>
-<hr>
-<h2 id="闭包应用场景"><a href="#闭包应用场景" class="headerlink" title="闭包应用场景"></a>闭包应用场景</h2><p><strong>1、闭包应用场景之回调</strong></p>
-<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"IE=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;/title&gt;</span><br><span class="line">    &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">""</span>&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    body {</span><br><span class="line">        font-size: <span class="number">12</span>px;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    h1 {</span><br><span class="line">        font-size: <span class="number">1.5</span>rem;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    h2 {</span><br><span class="line">        font-size: <span class="number">1.2</span>rem;</span><br><span class="line">    }</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;p&gt;欧力给&lt;/p&gt;</span><br><span class="line">    &lt;h1&gt;嘤嘤嘤&lt;/h1&gt;</span><br><span class="line">    &lt;h2&gt;啊啊啊&lt;/h2&gt;</span><br><span class="line"></span><br><span class="line">    &lt;a href="#" id="size-12"&gt;12&lt;/a&gt;</span><br><span class="line">    &lt;a href="#" id="size-14"&gt;14&lt;/a&gt;</span><br><span class="line">    &lt;a href="#" id="size-16"&gt;16&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        <span class="function">function <span class="title">changeSize</span><span class="params">(size)</span> </span>{</span><br><span class="line">            <span class="keyword">return</span> function() {</span><br><span class="line">                document.body.style.fontSize = size + <span class="string">'px'</span>;</span><br><span class="line">            };</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> size12 = changeSize(<span class="number">12</span>);</span><br><span class="line">        <span class="keyword">var</span> size14 = changeSize(<span class="number">14</span>);</span><br><span class="line">        <span class="keyword">var</span> size16 = changeSize(<span class="number">16</span>);</span><br><span class="line"></span><br><span class="line">        document.getElementById(<span class="string">'size-12'</span>).onclick = size12;</span><br><span class="line">        document.getElementById(<span class="string">'size-14'</span>).onclick = size14;</span><br><span class="line">        document.getElementById(<span class="string">'size-16'</span>).onclick = size16;</span><br><span class="line">        <span class="comment">//我们定义行为，然后把它关联到某个用户事件上（点击或者按键）。我们的代码通常会作为一个回调（事件触发时调用的函数）绑定到事件上</span></span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<hr>
-<p><strong>2、闭包应用场景之封装变量</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用闭包定义能访问私有函数和私有变量的公有函数。</span></span><br><span class="line"><span class="keyword">var</span> counter = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> privateCounter = <span class="number">0</span>; <span class="comment">//私有变量</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">val</span>) </span>{</span><br><span class="line">        privateCounter += val;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> {</span><br><span class="line">        increment: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{ <span class="comment">//三个闭包共享一个词法环境</span></span><br><span class="line">            change(<span class="number">1</span>);</span><br><span class="line">        },</span><br><span class="line">        decrement: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            change(<span class="number">-1</span>);</span><br><span class="line">        },</span><br><span class="line">        value: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="keyword">return</span> privateCounter;</span><br><span class="line">        }</span><br><span class="line">    };</span><br><span class="line">})();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(counter.value()); <span class="comment">//0</span></span><br><span class="line">counter.increment();</span><br><span class="line"><span class="built_in">console</span>.log(counter.value()); <span class="comment">//1</span></span><br><span class="line">counter.increment();</span><br><span class="line"><span class="built_in">console</span>.log(counter.value()); <span class="comment">//2</span></span><br></pre></td></tr></tbody></table></figure>
-<p> 共享的环境创建在一个匿名函数体内，立即执行。<br> 环境中有一个局部变量一个局部函数，通过匿名函数返回的对象的三个公共函数访问。</p>
-<p><strong>3、闭包应用场景之为节点循环绑定click事件</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;meta http-equiv=<span class="string">"X-UA-Compatible"</span> content=<span class="string">"IE=edge"</span>&gt;</span><br><span class="line">    &lt;title&gt;&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">    &lt;link rel="stylesheet" href=""&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">    &lt;p id=<span class="string">"info"</span>&gt;<span class="number">123</span>&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">    &lt;p&gt;E-mail: &lt;input type="text" id="email" name="email"&gt;&lt;/</span>p&gt;</span><br><span class="line">    &lt;p&gt;Name: <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"name"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line">    &lt;p&gt;Age: <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"age"</span> <span class="attr">name</span>=<span class="string">"age"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">showContent</span>(<span class="params">content</span>)</span>{</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'info'</span>).innerHTML = content;</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setContent</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> infoArr = [</span><br><span class="line">            {<span class="string">'id'</span>:<span class="string">'email'</span>,<span class="string">'content'</span>:<span class="string">'your email address'</span>},</span><br><span class="line">            {<span class="string">'id'</span>:<span class="string">'name'</span>,<span class="string">'content'</span>:<span class="string">'your name'</span>},</span><br><span class="line">            {<span class="string">'id'</span>:<span class="string">'age'</span>,<span class="string">'content'</span>:<span class="string">'your age'</span>}</span><br><span class="line">        ];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; infoArr.length; i++) {</span><br><span class="line">            <span class="keyword">var</span> item = infoArr[i];</span><br><span class="line">            <span class="built_in">document</span>.getElementById(item.id).onfocus = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">                showContent(item.content)</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    setContent()</span><br><span class="line">    <span class="comment">//循环中创建了三个闭包，他们使用了相同的词法环境item，item.content是变化的变量</span></span><br><span class="line">    <span class="comment">//当onfocus执行时，item.content才确定，此时循环已经结束，三个闭包共享的item已经指向数组最后一项。</span></span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>body&gt;</span><br><span class="line">&lt;<span class="regexp">/html&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<br>
-
-<p><strong>解决方法1</strong>           通过函数工厂，则函数为每一个回调都创建一个新的词法环境</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 解决方法1     通过函数工厂，则函数为每一个回调都创建一个新的词法环境</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showContent</span>(<span class="params">content</span>)</span>{</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'info'</span>).innerHTML = content;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callBack</span>(<span class="params">content</span>)</span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        showContent(content)</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setContent</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> infoArr = [</span><br><span class="line">        {<span class="string">'id'</span>:<span class="string">'email'</span>,<span class="string">'content'</span>:<span class="string">'your email address'</span>},</span><br><span class="line">        {<span class="string">'id'</span>:<span class="string">'name'</span>,<span class="string">'content'</span>:<span class="string">'your name'</span>},</span><br><span class="line">        {<span class="string">'id'</span>:<span class="string">'age'</span>,<span class="string">'content'</span>:<span class="string">'your age'</span>}</span><br><span class="line">    ];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; infoArr.length; i++) {</span><br><span class="line">        <span class="keyword">var</span> item = infoArr[i];</span><br><span class="line">        <span class="built_in">document</span>.getElementById(item.id).onfocus = callBack(item.content)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">setContent()</span><br></pre></td></tr></tbody></table></figure>
-<br>
-
-<p><strong>解决方法2</strong>              绑定事件放在立即执行函数中</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 解决方法2        绑定事件放在立即执行函数中</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">showContent</span>(<span class="params">content</span>)</span>{</span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">'info'</span>).innerHTML = content;</span><br><span class="line">    };</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setContent</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> infoArr = [</span><br><span class="line">            {<span class="string">'id'</span>:<span class="string">'email'</span>,<span class="string">'content'</span>:<span class="string">'your email address'</span>},</span><br><span class="line">            {<span class="string">'id'</span>:<span class="string">'name'</span>,<span class="string">'content'</span>:<span class="string">'your name'</span>},</span><br><span class="line">            {<span class="string">'id'</span>:<span class="string">'age'</span>,<span class="string">'content'</span>:<span class="string">'your age'</span>}</span><br><span class="line">        ];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; infoArr.length; i++) {</span><br><span class="line">            (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">                <span class="keyword">var</span> item = infoArr[i];</span><br><span class="line">                <span class="built_in">document</span>.getElementById(item.id).onfocus = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">                    showContent(item.content)</span><br><span class="line">                }</span><br><span class="line">            })()<span class="comment">//放立即执行函数，立即绑定，用每次的值绑定到事件上，而不是循环结束的值</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    setContent()</span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-
-<p><strong>解决方案3</strong>              用ES6声明，避免声明提前，作用域只在当前块内</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 解决方案3        用ES6声明，避免声明提前，作用域只在当前块内</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">showContent</span>(<span class="params">content</span>)</span>{</span><br><span class="line">      <span class="built_in">document</span>.getElementById(<span class="string">'info'</span>).innerHTML = content;</span><br><span class="line">  };</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">setContent</span>(<span class="params"></span>)</span>{</span><br><span class="line">      <span class="keyword">var</span> infoArr = [</span><br><span class="line">          {<span class="string">'id'</span>:<span class="string">'email'</span>,<span class="string">'content'</span>:<span class="string">'your email address'</span>},</span><br><span class="line">          {<span class="string">'id'</span>:<span class="string">'name'</span>,<span class="string">'content'</span>:<span class="string">'your name'</span>},</span><br><span class="line">          {<span class="string">'id'</span>:<span class="string">'age'</span>,<span class="string">'content'</span>:<span class="string">'your age'</span>}</span><br><span class="line">      ];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; infoArr.length; i++) {</span><br><span class="line">          <span class="keyword">let</span> item = infoArr[i];      <span class="comment">//限制作用域只在当前块内</span></span><br><span class="line">          <span class="built_in">document</span>.getElementById(item.id).onfocus = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">              showContent(item.content)</span><br><span class="line">          }</span><br><span class="line">      }</span><br><span class="line">  }</span><br><span class="line">  setContent()</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>解决方案4</strong>           使用 forEach()来遍历helpText数组并给每一个</p><p>添加一个监听器</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showContent</span>(<span class="params">content</span>) </span>{</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'info'</span>).innerHTML = content;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setContent</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> infoArr = [{</span><br><span class="line">        <span class="string">'id'</span>: <span class="string">'email'</span>,</span><br><span class="line">        <span class="string">'content'</span>: <span class="string">'your email address'</span></span><br><span class="line">    }, {</span><br><span class="line">        <span class="string">'id'</span>: <span class="string">'name'</span>,</span><br><span class="line">        <span class="string">'content'</span>: <span class="string">'your name'</span></span><br><span class="line">    }, {</span><br><span class="line">        <span class="string">'id'</span>: <span class="string">'age'</span>,</span><br><span class="line">        <span class="string">'content'</span>: <span class="string">'your age'</span></span><br><span class="line">    }];</span><br><span class="line">    infoArr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">text</span>) </span>{</span><br><span class="line">        <span class="built_in">document</span>.getElementById(text.id).onfocus = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            showContent(text.content);</span><br><span class="line">        }</span><br><span class="line">    });</span><br><span class="line">}</span><br><span class="line">setContent()</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<br>
-
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><h2 id="从堆栈的角度看待js函数"><a href="#从堆栈的角度看待js函数" class="headerlink" title="从堆栈的角度看待js函数"></a>从堆栈的角度看待js函数</h2><p>基本变量的值一般都是存在栈内存中，而对象类型的变量的值存储在堆内存中，栈内存存储对应空间地址。基本的数据类型: Number 、Boolean、Undefined、String、Null。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span>  a = <span class="number">1</span>   <span class="comment">//a是一个基本类型</span></span><br><span class="line"><span class="keyword">var</span>  b = {<span class="attr">m</span>: <span class="number">20</span> }   <span class="comment">//b是一个对象</span></span><br></pre></td></tr></tbody></table></figure>
-<p>对应内存存储：<br><img src="https://img-blog.csdnimg.cn/20200520134555480.png" alt="在这里插入图片描述"><br>当我们执行 b={m:30}时，堆内存就有新的对象{m：30}，栈内存的b指向新的空间地址( 指向{m：30} )，而堆内存中原来的{m：20}就会被程序引擎垃圾回收掉，节约内存空间。我们知道js函数也是对象，它也是在堆与栈内存中存储的，我们来看一下转化：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(b);</span><br><span class="line">    }</span><br><span class="line">    fn1();</span><br><span class="line">}</span><br><span class="line">fn();</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://img-blog.csdnimg.cn/20200520134802643.png" alt="在这里插入图片描述"><br><strong>栈是一种先进后出的数据结构：</strong><br><strong>1 在执行fn前，此时我们在全局执行环境(浏览器就是window作用域)，全局作用域里有个变量a；</strong></p>
-<p><strong>2 进入fn，此时栈内存就会push一个fn的执行环境，这个环境里有变量b和函数对象fn1，这里可以访问自身执行环境和全局执行环境所定义的变量</strong></p>
-<p><strong>3 进入fn1，此时栈内存就会push 一个fn1的执行环境，这里面没有定义其他变量，但是我们可以访问到fn和全局执行环境里面的变量，因为程序在访问变量时，是向底层栈一个个找，如果找到全局执行环境里都没有对应变量，则程序抛出underfined的错误。</strong></p>
-<p> <strong>4 随着fn1()执行完毕，fn1的执行环境被杯销毁，接着执行完fn()，fn的执行环境也会被销毁，只剩全局的执行环境下，现在没有b变量，和fn1函数对象了，只有a 和 fn(函数声明作用域是window下)</strong><br><br><br>在函数内访问某个变量是根据函数作用域链来判断变量是否存在的，而函数作用域链是程序根据函数所在的执行环境栈来初始化的，所以上面的例子，我们在fn1里面打印变量b，根据fn1的作用域链的找到对应fn执行环境下的变量b。所以当程序在调用某个函数时，做了一下的工作：准备执行环境，初始函数作用域链和arguments参数对象<br><br><br>我们现在看回最初的例子outer与inner</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>{</span><br><span class="line">     <span class="keyword">var</span>  a = <span class="string">'变量1'</span></span><br><span class="line">     <span class="keyword">var</span>  inner = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">            <span class="built_in">console</span>.info(a)</span><br><span class="line">     }</span><br><span class="line">    <span class="keyword">return</span> inner    <span class="comment">// inner 就是一个闭包函数，因为他能够访问到outer函数的作用域</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span>  inner = outer()   <span class="comment">// 获得inner闭包函数</span></span><br><span class="line">inner()   <span class="comment">//"变量1"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>当程序执行完var inner = outer()，其实outer的执行环境并没有被销毁，因为他里面的变量a仍然被被inner的函数作用域链所引用，当程序执行完inner(), 这时候，inner和outer的执行环境才会被销毁调；《JavaScript高级编程》书中建议：由于闭包会携带包含它的函数的作用域，因为会比其他函数占用更多内容，过度使用闭包，会导致内存占用过多。</p>
-<hr>
-<h2 id="js闭包的各种坑"><a href="#js闭包的各种坑" class="headerlink" title="js闭包的各种坑"></a>js闭包的各种坑</h2><p><strong>坑点1： 引用的变量可能发生变化</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>{</span><br><span class="line">         <span class="keyword">var</span> result = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">         <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line">             result[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                 <span class="keyword">return</span> i;</span><br><span class="line">             };</span><br><span class="line">         }</span><br><span class="line">         <span class="keyword">return</span> result;</span><br><span class="line">     }</span><br></pre></td></tr></tbody></table></figure>
-<p>看样子result每个闭包函数对打印对应数字，1,2,3,4,…,10, 实际不是，因为每个闭包函数访问变量i是outer执行环境下的变量i，随着循环的结束，i已经变成10了，所以每个函数内部的 i 值都是10，<br>怎么解决这个问题呢？</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> result = []</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) {</span><br><span class="line">        result[i] = (<span class="function"><span class="keyword">function</span>(<span class="params">num</span>) </span>{</span><br><span class="line">            <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                <span class="keyword">return</span> num; <span class="comment">// 此时访问的num，是上层函数执行环境的num，数组有10个函数对象，每个对象的执行环境下的number都不一样</span></span><br><span class="line">            }();</span><br><span class="line">        })(i);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(outer()); <span class="comment">//0,1,2,3,4,5,6,7,8,9</span></span><br></pre></td></tr></tbody></table></figure>
-<p>`我们没有直接把闭包赋值给数组，而是定义一个匿名函数，并立即执行该匿名函数的结果赋值给数组。我们在调用匿名函数时，我们传入的变量 i 。由于函数是按值传递的，所以将变量 i 的当前值复制给num。而这个匿名函数的内部，又创建并返回一个访问num的闭包。这样一来result数组中的每个函数都有自己的num变量的一个副本，因此返回不同的数值。</p>
-<br>
-
-<p><strong>坑点2: this指向问题</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"><span class="keyword">var</span> object = {</span><br><span class="line">    name: <span class="string">"My Object"</span>,</span><br><span class="line">    getNameFuce: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="built_in">console</span>.log(object.getNameFuce()()); <span class="comment">// The Window</span></span><br></pre></td></tr></tbody></table></figure>
-<p>由于getNameFuce()返回的是一个函数，因此调用object.getNameFuce()()就会立即调用它返回的函数，所以它返回的函数就相当于Window调用的，结果就返回一个全局的字符串The Window”。<br><strong>因为里面的闭包函数是在window作用域下执行的，也就是说，this指向windows</strong></p>
-<br>
-
-<p><strong>this和arguments。内部函数在搜索这两个对象时，只会搜索到其活动对象为止，因此永远不能直接访问外部函数中的这两个变量。如果想访问作用域中的 this 和 arguments 对象，必须将该对象的引用保存到另一个闭包能够访问的变量之中。</strong></p>
-<p>我们可以把外部作用域中的this对象保存在一个闭包能够访问到的变量里，就可以让闭包访问该对象了。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"><span class="keyword">var</span> object = {</span><br><span class="line">    name: <span class="string">"My Object"</span>,</span><br><span class="line">    getNameFuce: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="keyword">return</span> that.name;</span><br><span class="line">        };</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="built_in">console</span>.log(object.getNameFuce()()); <span class="comment">// My Object</span></span><br></pre></td></tr></tbody></table></figure>
-<p>在定义匿名函数之前，我们把 this 对象赋值给一个名叫that的变量。而定义了闭包之后，闭包可以访问这变量，因为它是我们在包含函数中特意声明的变量。即使在函数返回之后，that 也仍然引用着 object ，所以调用object.getNameFuce()() 就返回了  “My Object”。</p>
-<p>下面几种特殊情况，this 的值也可能发生意外的改变。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"> object = {</span><br><span class="line">     name: <span class="string">"My Object"</span>,</span><br><span class="line">     getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">     }</span><br><span class="line"> };</span><br><span class="line"> <span class="built_in">console</span>.log(object.getName()); <span class="comment">// My Object</span></span><br><span class="line"> <span class="built_in">console</span>.log((object.getName)()); <span class="comment">// My Object</span></span><br><span class="line"> <span class="built_in">console</span>.log((object.getName = object.getName)()); <span class="comment">// The Window 非严格模式下</span></span><br></pre></td></tr></tbody></table></figure>
-<p>第一行是代码正常调用。第二行(object.getName)()调用 和object.getName() 是一样的。我们看一下第三行，先执行一条赋值语句，再调用赋值后的结果。因为这个赋值表达式的值是函数本身所有 this 的值不能得到维持，结果就返回了”The Window”。<br>当然我们在开发的时候，不会用第二行和第三行代码，不过，这个例子有助于说明即使是语法的细微变化，都有可能意外的改变 this 值。</p>
-<br>
-
-<p><strong>坑点3：内存泄露问题</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">showId</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">"app"</span>)</span><br><span class="line">    el.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">      aler(el.id)   <span class="comment">// 这样会导致闭包引用外层的el，当执行完showId后，el无法释放</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 改成下面</span></span><br><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">showId</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(<span class="string">"app"</span>)</span><br><span class="line">    <span class="keyword">var</span> id  = el.id</span><br><span class="line">    el.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">      aler(id) </span><br><span class="line">    }</span><br><span class="line">    el = <span class="literal">null</span>    <span class="comment">// 主动释放el</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p><strong>闭包会引用包含函数的整个活动对象，而其中包含着el。即使闭包不直接引用el，包含函数的活动对象中也会保存一个引用，因此有必要吧el变量设置为null。</strong></p>
-<br>
-
-<p><strong>技巧1： 用闭包解决递归调用问题（当然现在大多用es6的let 和const 定义）</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (num &lt;= <span class="number">1</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> num * factorial(num - <span class="number">1</span>); <span class="comment">//会产生耦合</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> f = factorial;</span><br><span class="line">factorial = <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">3</span>)); <span class="comment">//报错 1.html:2030 Uncaught TypeError: factorial is not a function</span></span><br></pre></td></tr></tbody></table></figure>
-<p>以上代码先把 factorial() 函数保存到变量 f 中，然后将 factorial 变量设置为null。结果指向原始函数的引用就只有一个 f ，但接下来调用 f() 时，由于必须执行 factorial() ,而 factorial 已经不再是函数了，所以就会导致错误，在这种情况下可以使用 arguments.callee() 可以解决这个问题。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">factorial</span>(<span class="params">num</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (num &lt;= <span class="number">1</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> num * <span class="built_in">arguments</span>.callee(num - <span class="number">1</span>);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> f = factorial;</span><br><span class="line">factorial = <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">3</span>)); <span class="comment">//6</span></span><br></pre></td></tr></tbody></table></figure>
-<p> <strong>arguments.callee 是一个指向正在执行的函数的指针</strong>。但是在严格模式下，不能通过脚本访问 arguments.callee ，我们还可以用闭包的方式来解决。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> factorial = (<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">num</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (num &lt;= <span class="number">1</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> num * f(num - <span class="number">1</span>);</span><br><span class="line">    }</span><br><span class="line">});</span><br><span class="line"><span class="keyword">var</span> f = factorial;</span><br><span class="line">factorial = <span class="literal">null</span>;</span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">3</span>)); <span class="comment">//6</span></span><br></pre></td></tr></tbody></table></figure>
-<p>这样就没有问题了，实际上起作用的是闭包函数f，而不是外面的函数newFactorial，这样在严格模式和非严格模式都能使用。</p>
-<br>
-
-<p><strong>技巧2：用闭包模仿块级作用域</strong></p>
-<p>es6没出来之前，用var定义变量存在变量提升问题</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">//这里是块级作用域</span></span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
-<p>这是立即调用一个匿名函数</p>
-<br>
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> someFunction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="comment">//这里是块级作用域</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>先定义一个函数然后再立即调用它，定义函数的方式是创建一个匿名函数，并把匿名函数赋值给变量someFunction  。<br>那么是不是也可以用函数的值直接取代函数名呢？然而下面的代码会导致错误。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="comment">//这里是块级作用域</span></span><br><span class="line">}();    <span class="comment">//报错</span></span><br></pre></td></tr></tbody></table></figure>
-<p>这段代码会导致语法错误，是因为JavaScript将function 关键字作为一个函数声明的开始，而函数声明后面不能跟圆括号。然而，<strong>函数表达式</strong>的后面可以跟圆括号，要将函数声明转化为函数表达式，加上圆括号即可。</p>
-<br>
-
-<p>无论在什么地方，只要临时需要一些变量，就可以使用私有作用域，例如：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outputNumber</span>(<span class="params">count</span>) </span>{</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; count; i++) {</span><br><span class="line">            <span class="built_in">console</span>.log(i);</span><br><span class="line">        }</span><br><span class="line">    })();</span><br><span class="line">    <span class="built_in">console</span>.log(i); <span class="comment">// 报错 Uncaught ReferenceError: i is not defined</span></span><br><span class="line">}</span><br><span class="line">outputNumber(<span class="number">10</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总结一下闭包的好处与坏处</p>
-<p><strong>好处</strong></p>
-<p><strong>①保护函数内的变量安全 ，实现封装，防止变量流入其他环境发生命名冲突<br>②在内存中维持一个变量，可以做缓存（但使用多了同时也是一项缺点，消耗内存）<br>③匿名自执行函数可以减少内存消耗</strong></p>
-<p><strong>坏处</strong></p>
-<p><strong>①其中一点上面已经有体现了，就是被引用的私有变量不能被销毁，增大了内存消耗，造成内存泄漏，解决方法是可以在使用完变量后手动为它赋值为null；<br>②其次由于闭包涉及跨域访问，所以会导致性能损失，我们可以通过把跨作用域变量存储在局部变量中，然后直接访问局部变量，来减轻对执行速度的影响</strong></p>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
-                                                                
-                                                                    <div class="article-info article-info-index">
-                                                                        
-                                                                                
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-                                                                                    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-                                                                                        
-                                                                                            <p class="article-more-link">
-                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/05/20/19/">
                                                                                                     展开全文 >></a>
                                                                                             </p>
                                                                                             
