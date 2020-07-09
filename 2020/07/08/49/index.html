@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>ES6箭头函数与普通函数的区别 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ES6箭头函数与普通函数的区别ES6箭头函数与普通函数的区别普通函数中的this指向函数被调用的对象，因此对于不同的调用者，this的值是不同的。而箭头函数中并没有自己的this（同时，箭头函数中也没有其他的局部变量，如this，argument，super等），所以箭头函数中的this是固定的，它指向定义该函数时所在的对象。 普通函数下面我们举一个简单的例子。 12345678910111213">
+  <meta name="description" content="ES6箭头函数与普通函数的区别">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES6箭头函数与普通函数的区别">
 <meta property="og:url" content="https://aqingya.cn/2020/07/08/49/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="ES6箭头函数与普通函数的区别ES6箭头函数与普通函数的区别普通函数中的this指向函数被调用的对象，因此对于不同的调用者，this的值是不同的。而箭头函数中并没有自己的this（同时，箭头函数中也没有其他的局部变量，如this，argument，super等），所以箭头函数中的this是固定的，它指向定义该函数时所在的对象。 普通函数下面我们举一个简单的例子。 12345678910111213">
+<meta property="og:description" content="ES6箭头函数与普通函数的区别">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-08T09:10:57.000Z">
-<meta property="article:modified_time" content="2020-07-08T09:12:17.933Z">
+<meta property="article:modified_time" content="2020-07-08T09:20:56.630Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="ES6">
 <meta name="twitter:card" content="summary">
@@ -193,9 +193,11 @@
                                 
                                 <a class="csdn" target="_blank" href="https://blog.csdn.net/wzg0817" title="csdn"><i class="icon-csdn"></i></a>
                                 
+                                <a class="juejin" target="_blank" href="https://juejin.im/user/5f071753f265da22ee7fad09/posts" title="juejin"><i class="icon-juejin"></i></a>
+                                
                                 <a class="gitee" target="_blank" href="https://gitee.com/wu_zhiguang/dashboard/projects" title="gitee"><i class="icon-gitee"></i></a>
                                 
-                                <a class="bilibili" target="_blank" href="https://space.bilibili.com/407958858" title="bilibili"><i class="icon-bilibili"></i></a>
+                                <a class="weixin" target="_blank" href="https://gitee.com/wu_zhiguang/blog/raw/master/img/0A8B8A109F211AE9BA66D8E725CD27A5.jpg" title="weixin"><i class="icon-weixin"></i></a>
                                 
                         </div>
                         <!-- 网易云音乐 -->
@@ -250,9 +252,11 @@
 			        
 						<a class="csdn" target="_blank" href="https://blog.csdn.net/wzg0817" title="csdn"><i class="icon-csdn"></i></a>
 			        
+						<a class="juejin" target="_blank" href="https://juejin.im/user/5f071753f265da22ee7fad09/posts" title="juejin"><i class="icon-juejin"></i></a>
+			        
 						<a class="gitee" target="_blank" href="https://gitee.com/wu_zhiguang/dashboard/projects" title="gitee"><i class="icon-gitee"></i></a>
 			        
-						<a class="bilibili" target="_blank" href="https://space.bilibili.com/407958858" title="bilibili"><i class="icon-bilibili"></i></a>
+						<a class="weixin" target="_blank" href="https://gitee.com/wu_zhiguang/blog/raw/master/img/0A8B8A109F211AE9BA66D8E725CD27A5.jpg" title="weixin"><i class="icon-weixin"></i></a>
 			        
 				</div>
 			</nav>
@@ -360,7 +364,11 @@
                     
 
                                 
-                                            <h1 id="ES6箭头函数与普通函数的区别"><a href="#ES6箭头函数与普通函数的区别" class="headerlink" title="ES6箭头函数与普通函数的区别"></a>ES6箭头函数与普通函数的区别</h1><h2 id="ES6箭头函数与普通函数的区别-1"><a href="#ES6箭头函数与普通函数的区别-1" class="headerlink" title="ES6箭头函数与普通函数的区别"></a>ES6箭头函数与普通函数的区别</h2><p>普通函数中的<code>this</code>指向函数被调用的对象，因此对于不同的调用者，<code>this</code>的值是不同的。而箭头函数中并没有自己的<code>this</code>（同时，箭头函数中也没有其他的局部变量，如this，argument，super等），所以箭头函数中的<code>this</code>是固定的，它指向定义该函数时所在的对象。</p>
+                                            <h1 id="ES6箭头函数与普通函数的区别"><a href="#ES6箭头函数与普通函数的区别" class="headerlink" title="ES6箭头函数与普通函数的区别"></a>ES6箭头函数与普通函数的区别</h1><a id="more"></a>
+
+
+
+<h2 id="ES6箭头函数与普通函数的区别-1"><a href="#ES6箭头函数与普通函数的区别-1" class="headerlink" title="ES6箭头函数与普通函数的区别"></a>ES6箭头函数与普通函数的区别</h2><p>普通函数中的<code>this</code>指向函数被调用的对象，因此对于不同的调用者，<code>this</code>的值是不同的。而箭头函数中并没有自己的<code>this</code>（同时，箭头函数中也没有其他的局部变量，如this，argument，super等），所以箭头函数中的<code>this</code>是固定的，它指向定义该函数时所在的对象。</p>
 <h2 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h2><p>下面我们举一个简单的例子。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a  = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">obj.foo(); <span class="comment">//1</span></span><br><span class="line"><span class="keyword">var</span> bar = obj;</span><br><span class="line">bar.a = <span class="number">2</span>;</span><br><span class="line">bar.foo(); <span class="comment">//2</span></span><br><span class="line"><span class="keyword">var</span> baz = obj.foo;</span><br><span class="line">baz(); <span class="comment">//3</span></span><br></pre></td></tr></tbody></table></figure>
 <p>上述代码中，出现了三种情况：</p>
@@ -861,6 +869,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           
             <li class="search-li">
               <a href="https://wua.coding.net/p/wua/d/wua/git" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>我的Coding</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://juejin.im/user/5f071753f265da22ee7fad09/posts" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>我的掘金</a>
             </li>
           
             <li class="search-li">
