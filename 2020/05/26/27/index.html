@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200525175136185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200525175559137.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-05-26T08:34:33.000Z">
-<meta property="article:modified_time" content="2020-06-28T07:08:57.988Z">
+<meta property="article:modified_time" content="2020-07-10T13:01:26.224Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="DOM">
@@ -171,7 +171,7 @@
                     </nav>
                     <nav>
                         <a>总文章数 59</a>
-                        <a>总字数 <span class="post-count">82.1k</span></a>
+                        <a>总字数 <span class="post-count">81.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -350,6 +350,22 @@
 
 <!-- 目录内容 -->
 
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
 
@@ -683,7 +699,6 @@
 
 
 
-
 <hr>
 <h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p>“DOM2级遍历和范围”模块定义了两个用于辅助完成顺序遍历DOM结构的类型: <strong>NodeIterator和TreeWalker</strong>。这两个类型能够基于给定的起点对DOM结构执行<strong>深度优先</strong>( depth-first )的遍历操作。</p>
 <p>DOM遍历是深度优先的DOM结构遍历，也就是说，移动的方向至少有两个(取决于使用的遍历类型)。遍历以给定节点为根，不可能向上超出DOM树的根节点。<br><img src="https://img-blog.csdnimg.cn/20200525175136185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -800,7 +815,7 @@
     2020-05-26
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-06-28
+    2020-07-10
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/05/26/27/" title="JavaScript DOM" target="_blank">JavaScript DOM</a>
@@ -948,6 +963,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM简介："><span class="toc-number">1.</span> <span class="toc-text">DOM简介：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Document-对象"><span class="toc-number">2.</span> <span class="toc-text">Document 对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态脚本"><span class="toc-number">3.</span> <span class="toc-text">动态脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态样式"><span class="toc-number">4.</span> <span class="toc-text">动态样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择符API"><span class="toc-number">5.</span> <span class="toc-text">选择符API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#与类相关的扩充"><span class="toc-number">6.</span> <span class="toc-text">与类相关的扩充</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#焦点管理"><span class="toc-number">7.</span> <span class="toc-text">焦点管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTMLDocument的变化"><span class="toc-number">8.</span> <span class="toc-text">HTMLDocument的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字符集属性"><span class="toc-number">9.</span> <span class="toc-text">字符集属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#插入标记"><span class="toc-number">10.</span> <span class="toc-text">插入标记</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#scrollIntoView-方法"><span class="toc-number">11.</span> <span class="toc-text">scrollIntoView()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#contains-方法"><span class="toc-number">12.</span> <span class="toc-text">contains()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#访问元素的样式"><span class="toc-number">13.</span> <span class="toc-text">访问元素的样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#元素的大小"><span class="toc-number">14.</span> <span class="toc-text">元素的大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、客户区大小"><span class="toc-number">15.</span> <span class="toc-text">2、客户区大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、滚动大小"><span class="toc-number">16.</span> <span class="toc-text">3、滚动大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、确定元素的大小"><span class="toc-number">17.</span> <span class="toc-text">4、确定元素的大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遍历"><span class="toc-number">18.</span> <span class="toc-text">遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、NodeIterator"><span class="toc-number">19.</span> <span class="toc-text">1、NodeIterator</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TrreWalker"><span class="toc-number">20.</span> <span class="toc-text">TrreWalker</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>

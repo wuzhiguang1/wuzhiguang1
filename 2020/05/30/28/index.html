@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript  DOM事件总结 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是事件 事件流 1、事件冒泡 2、事件捕获 3、DOM事件流   事件处理程序 1、HTML事件处理程序 2、DOM0 级事件处理程序 3、DOM2 级事件处理程序 4、IE事件处理程序 5、跨浏览器事件处理程序   事件对象 1、DOM中的事件对象 2、IE中的事件对象   事件类型 1、UI事件 2、 焦点事件 3、鼠标与滚轮事件 4、键盘与文本事件 5、复合事件 6、变动事件 7、HT">
+  <meta name="description" content="什么是事件事件就是文档或者浏览器窗口中发生的一些特定的交互瞬间。JavaScript与HTML是交互是通过事件来实现的。 事件流事件流描述的是从页面接受事件的顺序。   1、事件冒泡事件开始时由最具体的元素接收，然后逐渐向上传播到较为不具体的节点（文档） 2、事件捕获事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件。事件捕获的用意是到达预定目标之前捕获它。 3、D">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript  DOM事件总结">
 <meta property="og:url" content="https://aqingya.cn/2020/05/30/28/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="什么是事件 事件流 1、事件冒泡 2、事件捕获 3、DOM事件流   事件处理程序 1、HTML事件处理程序 2、DOM0 级事件处理程序 3、DOM2 级事件处理程序 4、IE事件处理程序 5、跨浏览器事件处理程序   事件对象 1、DOM中的事件对象 2、IE中的事件对象   事件类型 1、UI事件 2、 焦点事件 3、鼠标与滚轮事件 4、键盘与文本事件 5、复合事件 6、变动事件 7、HT">
+<meta property="og:description" content="什么是事件事件就是文档或者浏览器窗口中发生的一些特定的交互瞬间。JavaScript与HTML是交互是通过事件来实现的。 事件流事件流描述的是从页面接受事件的顺序。   1、事件冒泡事件开始时由最具体的元素接收，然后逐渐向上传播到较为不具体的节点（文档） 2、事件捕获事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件。事件捕获的用意是到达预定目标之前捕获它。 3、D">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200529143146469.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200529143449345.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200529214004256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200529215022954.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-05-30T03:40:42.000Z">
-<meta property="article:modified_time" content="2020-05-30T07:49:18.487Z">
+<meta property="article:modified_time" content="2020-07-10T13:04:20.474Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="DOM">
@@ -171,7 +171,7 @@
                     </nav>
                     <nav>
                         <a>总文章数 59</a>
-                        <a>总字数 <span class="post-count">82.1k</span></a>
+                        <a>总字数 <span class="post-count">81.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -324,7 +324,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">10.5k字</span>
+        <span class="post-count">10.3k字</span>
       </span>
     </span>
 
@@ -350,6 +350,22 @@
 
 <!-- 目录内容 -->
 
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
 
@@ -358,45 +374,7 @@
                     
 
                                 
-                                            <ul>
-<li><a href="#什么是事件">什么是事件</a></li>
-<li><a href="#事件流">事件流</a><ul>
-<li><a href="#1事件冒泡">1、事件冒泡</a></li>
-<li><a href="#2事件捕获">2、事件捕获</a></li>
-<li><a href="#3dom事件流">3、DOM事件流</a></li>
-</ul>
-</li>
-<li><a href="#事件处理程序">事件处理程序</a><ul>
-<li><a href="#1html事件处理程序">1、HTML事件处理程序</a></li>
-<li><a href="#2dom0-级事件处理程序">2、DOM0 级事件处理程序</a></li>
-<li><a href="#3dom2-级事件处理程序">3、DOM2 级事件处理程序</a></li>
-<li><a href="#4ie事件处理程序">4、IE事件处理程序</a></li>
-<li><a href="#5跨浏览器事件处理程序">5、跨浏览器事件处理程序</a></li>
-</ul>
-</li>
-<li><a href="#事件对象">事件对象</a><ul>
-<li><a href="#1dom中的事件对象">1、DOM中的事件对象</a></li>
-<li><a href="#2ie中的事件对象">2、IE中的事件对象</a></li>
-</ul>
-</li>
-<li><a href="#事件类型">事件类型</a><ul>
-<li><a href="#1ui事件">1、UI事件</a></li>
-<li><a href="#2-焦点事件">2、 焦点事件</a></li>
-<li><a href="#3鼠标与滚轮事件">3、鼠标与滚轮事件</a></li>
-<li><a href="#4键盘与文本事件">4、键盘与文本事件</a></li>
-<li><a href="#5复合事件">5、复合事件</a></li>
-<li><a href="#6变动事件">6、变动事件</a></li>
-<li><a href="#7htm5事件">7、HTM/5事件</a></li>
-<li><a href="#8设备事件">8、设备事件</a></li>
-</ul>
-</li>
-<li><a href="#5内存和性能">5、内存和性能</a><ul>
-<li><a href="#1事件委派事件委托">1、事件委派（事件委托）</a></li>
-<li><a href="#2移除事件处理程序">2、移除事件处理程序</a></li>
-</ul>
-</li>
-</ul>
-<h1 id="什么是事件"><a href="#什么是事件" class="headerlink" title="什么是事件"></a>什么是事件</h1><p>事件就是文档或者浏览器窗口中发生的一些特定的交互瞬间。JavaScript与HTML是交互是通过事件来实现的。<br><br></p>
+                                            <h1 id="什么是事件"><a href="#什么是事件" class="headerlink" title="什么是事件"></a>什么是事件</h1><p>事件就是文档或者浏览器窗口中发生的一些特定的交互瞬间。JavaScript与HTML是交互是通过事件来实现的。<br><br></p>
 <h1 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h1><p>事件流描述的是从页面接受事件的顺序。</p>
 <br>
 
@@ -798,7 +776,6 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
 </ul>
 </span>
 
-
 <hr>
 <br>
 <br>
@@ -842,7 +819,7 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
     2020-05-30
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-05-30
+    2020-07-10
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/05/30/28/" title="JavaScript  DOM事件总结" target="_blank">JavaScript  DOM事件总结</a>
@@ -990,6 +967,19 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是事件"><span class="toc-number">1.</span> <span class="toc-text">什么是事件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件流"><span class="toc-number">2.</span> <span class="toc-text">事件流</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、事件冒泡"><span class="toc-number">2.1.</span> <span class="toc-text">1、事件冒泡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、事件捕获"><span class="toc-number">2.2.</span> <span class="toc-text">2、事件捕获</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、DOM事件流"><span class="toc-number">2.3.</span> <span class="toc-text">3、DOM事件流</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件处理程序"><span class="toc-number">3.</span> <span class="toc-text">事件处理程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、HTML事件处理程序"><span class="toc-number">3.1.</span> <span class="toc-text">1、HTML事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、DOM0-级事件处理程序"><span class="toc-number">3.2.</span> <span class="toc-text">2、DOM0 级事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、DOM2-级事件处理程序"><span class="toc-number">3.3.</span> <span class="toc-text">3、DOM2 级事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、IE事件处理程序"><span class="toc-number">3.4.</span> <span class="toc-text">4、IE事件处理程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、跨浏览器事件处理程序"><span class="toc-number">3.5.</span> <span class="toc-text">5、跨浏览器事件处理程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件对象"><span class="toc-number">4.</span> <span class="toc-text">事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、DOM中的事件对象"><span class="toc-number">4.1.</span> <span class="toc-text">1、DOM中的事件对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、IE中的事件对象"><span class="toc-number">4.2.</span> <span class="toc-text">2、IE中的事件对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事件类型"><span class="toc-number">5.</span> <span class="toc-text">事件类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、UI事件"><span class="toc-number">5.1.</span> <span class="toc-text">1、UI事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、-焦点事件"><span class="toc-number">5.2.</span> <span class="toc-text">2、 焦点事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、鼠标与滚轮事件"><span class="toc-number">5.3.</span> <span class="toc-text">3、鼠标与滚轮事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、键盘与文本事件"><span class="toc-number">5.4.</span> <span class="toc-text">4、键盘与文本事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、复合事件"><span class="toc-number">5.5.</span> <span class="toc-text">5、复合事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、变动事件"><span class="toc-number">5.6.</span> <span class="toc-text">6、变动事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、HTM-5事件"><span class="toc-number">5.7.</span> <span class="toc-text">7、HTM&#x2F;5事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、设备事件"><span class="toc-number">5.8.</span> <span class="toc-text">8、设备事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5、内存和性能"><span class="toc-number">6.</span> <span class="toc-text">5、内存和性能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、事件委派（事件委托）"><span class="toc-number">6.1.</span> <span class="toc-text">1、事件委派（事件委托）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、移除事件处理程序"><span class="toc-number">6.2.</span> <span class="toc-text">2、移除事件处理程序</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
