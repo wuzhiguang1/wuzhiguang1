@@ -157,8 +157,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 59</a>
-                        <a>总字数 <span class="post-count">81.9k</span></a>
+                        <a>总文章数 60</a>
+                        <a>总字数 <span class="post-count">84.7k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -284,6 +284,184 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 
+  
+    <article id="post-40" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/04/40/">JavaScript性能优化之高级定时器</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/04/40/" class="archive-article-date">
+  	<time datetime="2020-06-04T07:20:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
+</a>
+
+ <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">769字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+            
+
+            
+
+
+
+<!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+
+
+
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p><strong>定时器对队列的工作方式：</strong>当特定时间过去后将代码插人。注意，给队列添加代码并不意味着对它立刻执行，而只能表示它会尽快执行。<span style="color:red;background-color:yellow"><strong>设定一个150ms后执行的定时器不代表到了150ms代码就立刻执行，它表示代码会在150ms后被加入到队列中。如果在这个时间点上，队列中没有其他东西，那么这段代码就会被执行</strong></span>，表面上看上去好像代码就在精确指定的时间点上执行了。其他情况下，代码可能明显地等待更长时间才执行。</p>
+<br>
+
+<p>重复定时器：</p>
+<p>这种重复定时器的规则有两个问题: <strong>(1)、 某些间隔会被跳过; (2) 、多个定时器的代码执行之间的间隔可能会比预期的小。</strong>假设，某个onclick事件处理程序使用setInterval()设置了一个200ms间隔的重复定时器。如果事件处理程序花了300ms多-点的时间完成，同时定时器代码也花了差不多的时间，就会同时出现跳过间隔且连续运行定时器代码的情况。</p>
+<p><img src="https://img-blog.csdnimg.cn/2020060414401171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>这个例子中的第1个定时器是在205ms处添加到队列中的，但是直到过了300ms处才能够执行。当执行这个定时器代码时，在405ms处又给队列添加了另外一个副本。在下一个间隔，即605ms处，第一个定时器代码仍在运行，同时在队列中已经有了一个定时器代码的实例。结果是，在这个时间点上的定时器代码不会被添加到队列中。结果在5ms处添加的定时器代码结束之后，405ms处添加的定时器代码就立刻执行。</p>
+<p>解决方法： 使用链式调用。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">     <span class="comment">//处理程序</span></span><br><span class="line">     setTimeout(<span class="built_in">arguments</span>.callee, interval);</span><br><span class="line"> }, interval);</span><br></pre></td></tr></tbody></table></figure>
+<p>这个模式链式调用了<strong>setTimeout()</strong>,每次函数执行的时候都会创建一个 新的定时器。第二个<strong>setrimeout ()</strong>调用使用了<strong>arguments.callee</strong>来获取对当前执行的函数的引用，并为其设置另外一个定时器。这样做的好处是，在前一个定时 器代码执行完之前， 不会向队列插 人新的定时器代码，确保不会有任何缺失的间隔。而且，它可以保证在下一次定时器代码执行之前，至少要等待指定的间隔，避免了连续的运行。这个模式主要用于重复定时器。</p>
+<p>举个栗子：<br>每隔一段时间，div就会向右移动，当左坐标为200时就停止移动。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">"div"</span>);</span><br><span class="line">    left = <span class="built_in">parseInt</span>(div.style.left) + <span class="number">5</span>;</span><br><span class="line">    div.style.left = left + <span class="string">"px"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (left &lt; <span class="number">200</span>) {</span><br><span class="line">        setTimeout(<span class="built_in">arguments</span>.callee, <span class="number">50</span>);</span><br><span class="line">    }</span><br><span class="line">}, <span class="number">50</span>);</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<br>
+<br>
+愿你的坚持终有收获。
+<br>
+<br>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+                                                <!-- 《添加版权声明 -->
+                                                
+                                                    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+                                                        
+                                                            <!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                                                                                    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/06/04/40/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
+
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+                
+
   
     <article id="post-39" class="article article-type-post  article-index" itemscope itemprop="blogPost">
 <div class="article-inner">
@@ -1914,173 +2092,6 @@
                 
 
   
-    <article id="post-30" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-<div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/01/30/">Canvas绘图</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/01/30/" class="archive-article-date">
-  	<time datetime="2020-06-01T08:03:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">61字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-
-        
-      </header>
-            
-
-            
-
-
-
-<!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-
-
-                <div class="article-entry" itemprop="articleBody">
-                    
-
-                                
-                                            <br>
-
-<h2 id="canvas绘图"><a href="#canvas绘图" class="headerlink" title="canvas绘图"></a>canvas绘图</h2><br>
-
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Basic_usage" target="_blank" rel="noopener">canvas教程</a></p>
-<br>
-
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/WebGL_API/Tutorial" target="_blank" rel="noopener">WebGL教程</a></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
-                                                                
-                                                                    <div class="article-info article-info-index">
-                                                                        
-                                                                                
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-                                                                                    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-                                                                                        
-                                                                                            <p class="article-more-link">
-                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/06/01/30/">
-                                                                                                    展开全文 >></a>
-                                                                                            </p>
-                                                                                            
-
-                                                                                                
-                                                                                                            <div class="clearfix"></div>
-                                                                    </div>
-                </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-                
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
@@ -2289,6 +2300,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">nodeJs</a>
               </li>
             
             <div class="clearfix"></div>
