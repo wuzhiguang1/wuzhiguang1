@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://aqingya.cn">
-  <title>详谈js中isPrototypeOf()、hasOwnProperty()、propertyIsEnumerable()的区别。 | 阿清的小站</title>
+  <title>详谈js中isPrototypeOf()、hasOwnProperty()、instanceof、propertyIsEnumerable()的区别。 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="isPrototypeOf()isPrototypeOf是用来判断指定对象object1是否存在于另一个对象object2的原型链中，是则返回true，否则返回false。格式如下：  object1.isPrototypeOf(object2);  object1是一个对象的实例；  object2是另一个将要检查其原型链的对象。原型链可以用来在同一个对象类型的不同实例之间共享功能。如果 obj">
+  <meta name="description" content="instanceofinstanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。 语法1object instanceof constructor  参数object ：某个实例对象 constructor ：某个构造函数 描述instanceof 运算符用来检测 constructor.prototype是否存在于参数 object 的原型链上。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="详谈js中isPrototypeOf()、hasOwnProperty()、propertyIsEnumerable()的区别。">
+<meta property="og:title" content="详谈js中isPrototypeOf()、hasOwnProperty()、instanceof、propertyIsEnumerable()的区别。">
 <meta property="og:url" content="https://aqingya.cn/2020/04/29/twenty-one/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="isPrototypeOf()isPrototypeOf是用来判断指定对象object1是否存在于另一个对象object2的原型链中，是则返回true，否则返回false。格式如下：  object1.isPrototypeOf(object2);  object1是一个对象的实例；  object2是另一个将要检查其原型链的对象。原型链可以用来在同一个对象类型的不同实例之间共享功能。如果 obj">
+<meta property="og:description" content="instanceofinstanceof 运算符用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上。 语法1object instanceof constructor  参数object ：某个实例对象 constructor ：某个构造函数 描述instanceof 运算符用来检测 constructor.prototype是否存在于参数 object 的原型链上。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-04-29T10:39:34.000Z">
-<meta property="article:modified_time" content="2020-04-29T11:57:55.611Z">
+<meta property="article:modified_time" content="2020-07-12T01:06:22.837Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@
                     </nav>
                     <nav>
                         <a>总文章数 61</a>
-                        <a>总字数 <span class="post-count">91.1k</span></a>
+                        <a>总字数 <span class="post-count">91.7k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -293,7 +293,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      详谈js中isPrototypeOf()、hasOwnProperty()、propertyIsEnumerable()的区别。
+      详谈js中isPrototypeOf()、hasOwnProperty()、instanceof、propertyIsEnumerable()的区别。
     </h1>
   
 
@@ -314,7 +314,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">668字</span>
+        <span class="post-count">1.1k字</span>
       </span>
     </span>
 
@@ -323,7 +323,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">4分</span>
       </span>
     </span>
 </div>
@@ -348,32 +348,41 @@
                     
 
                                 
-                                            <h2 id="isPrototypeOf-NaN"><a href="#isPrototypeOf-NaN" class="headerlink" title="isPrototypeOf()"></a>isPrototypeOf()</h2><p>isPrototypeOf是用来判断指定对象object1是否存在于另一个对象object2的原型链中，是则返回true，否则返回false。<br>格式如下：<br>  object1.isPrototypeOf(object2);<br>  object1是一个对象的实例；<br>  object2是另一个将要检查其原型链的对象。<br>原型链可以用来在同一个对象类型的不同实例之间共享功能。<br>如果 object2 的原型链中包含object1，那么 isPrototypeOf 方法返回 true。<br>如果 object2 不是一个对象或者 object1 没有出现在 object2 中的原型链中，isPrototypeOf 方法将返回 false。 </p>
-<p>示例:<br>本示例展示了 Baz.prototype, Bar.prototype, Foo.prototype 和 Object.prototype 在 baz 对象的原型链上：</p>
+                                            <a id="more"></a>
+
+<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p><strong><code>instanceof</code></strong> <strong>运算符</strong>用于检测构造函数的 <code>prototype</code> 属性是否出现在某个实例对象的原型链上。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object <span class="keyword">instanceof</span> <span class="keyword">constructor</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>object</code> ：某个实例对象</p>
+<p><code>constructor</code> ：某个构造函数</p>
+<h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p><code>instanceof</code> 运算符用来检测 <code>constructor.prototype</code>是否存在于参数 <code>object</code> 的原型链上。</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">C</span>(<span class="params"></span>)</span>{} </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">D</span>(<span class="params"></span>)</span>{} </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> C();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> C; <span class="comment">// true，因为 Object.getPrototypeOf(o) === C.prototype</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> D; <span class="comment">// false，因为 D.prototype 不在 o 的原型链上</span></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// true，因为 Object.prototype.isPrototypeOf(o) 返回 true</span></span><br><span class="line">C.prototype <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true，同上</span></span><br><span class="line"></span><br><span class="line">C.prototype = {};</span><br><span class="line"><span class="keyword">var</span> o2 = <span class="keyword">new</span> C();</span><br><span class="line"></span><br><span class="line">o2 <span class="keyword">instanceof</span> C; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> C; <span class="comment">// false，C.prototype 指向了一个空对象,这个空对象不在 o 的原型链上.</span></span><br><span class="line"></span><br><span class="line">D.prototype = <span class="keyword">new</span> C(); <span class="comment">// 继承</span></span><br><span class="line"><span class="keyword">var</span> o3 = <span class="keyword">new</span> D();</span><br><span class="line">o3 <span class="keyword">instanceof</span> D; <span class="comment">// true</span></span><br><span class="line">o3 <span class="keyword">instanceof</span> C; <span class="comment">// true 因为 C.prototype 现在在 o3 的原型链上</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>需要注意的是，</strong>如果表达式 <code>obj instanceof Foo</code> 返回 <code>true</code>，则并不意味着该表达式会永远返回 <code>true</code>，因为 <code>Foo.prototype</code> 属性的值有可能会改变，改变之后的值很有可能不存在于 <code>obj</code> 的原型链上，这时原表达式的值就会成为 <code>false</code>。另外一种情况下，原表达式的值也会改变，就是改变对象 <code>obj</code> 的原型链的情况，虽然在目前的ES规范中，我们只能读取对象的原型而不能改变它，但借助于非标准的 <code>__proto__</code> 伪属性，是可以实现的。比如执行 <code>obj.__proto__ = {}</code> 之后，<code>obj instanceof Foo</code> 就会返回 <code>false</code> 了。</p>
+<h2 id="isPrototypeOf-NaN"><a href="#isPrototypeOf-NaN" class="headerlink" title="isPrototypeOf()"></a>isPrototypeOf()</h2><p><strong><code>isPrototypeOf()</code> 与 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank" rel="noopener"><code>instanceof</code></a> 运算符不同。在表达式 “<code>object instanceof AFunction</code>“中，<code>object</code> 的原型链是针对 <code>AFunction.prototype</code> 进行检查的，而不是针对 <code>AFunction</code> 本身。</strong></p>
+<p><code>isPrototypeOf</code>是用来判断指定对象<code>object1</code>是否存在于另一个对象<code>object2</code>的原型链中，是则返回true，否则返回false。<br>格式如下：<br>  object1.isPrototypeOf(object2);<br>  object1是一个对象的实例；<br>  object2是另一个将要检查其原型链的对象。<br>原型链可以用来在同一个对象类型的不同实例之间共享功能。<br>如果 object2 的原型链中包含object1，那么 <code>isPrototypeOf</code>方法返回 true。<br>如果 object2 不是一个对象或者 object1 没有出现在 object2 中的原型链中，<code>isPrototypeOf</code>方法将返回 false。 </p>
+<p>示例:<br>本示例展示了 <code>Baz.prototype, Bar.prototype, Foo.prototype</code>和 <code>Object.prototype</code> 在 <code>baz</code> 对象的原型链上：</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>{}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>) </span>{}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Baz</span>(<span class="params"></span>) </span>{}</span><br><span class="line"></span><br><span class="line">Bar.prototype = <span class="built_in">Object</span>.create(Foo.prototype);</span><br><span class="line">Baz.prototype = <span class="built_in">Object</span>.create(Bar.prototype);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> baz = <span class="keyword">new</span> Baz();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Baz.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Bar.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
 <br>
 
-<h2 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty()"></a>hasOwnProperty()</h2><p>hasOwnProperty() 检查对象自身中是否含有该属性。使用该方法时，只有对象自身中含有属性时才会返回true。</p>
-<p>格式如下：<br>object.hasOwnProperty(proName);<br>判断proName的名称是不是object对象的一个属性或对象。</p>
+<h2 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty()"></a>hasOwnProperty()</h2><p><code>hasOwnProperty()</code> 检查对象自身中是否含有该属性。使用该方法时，只有对象自身中含有属性时才会返回true。</p>
+<p>格式如下：<br><code>object.hasOwnProperty(proName);</code><br>判断proName的名称是不是object对象的一个属性或对象。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = {</span><br><span class="line">            x: <span class="number">1</span></span><br><span class="line">        };</span><br><span class="line">        <span class="built_in">console</span>.log(a.hasOwnProperty(<span class="string">"x"</span>)); <span class="comment">//true</span></span><br><span class="line">        <span class="built_in">console</span>.log(a.hasOwnProperty(<span class="string">"y"</span>)); <span class="comment">//false</span></span><br><span class="line">        <span class="built_in">console</span>.log(a.hasOwnProperty(<span class="string">"toString"</span>)); <span class="comment">//false toString是继承属性</span></span><br></pre></td></tr></tbody></table></figure>
 <br>
 
-<h2 id="propertyIsEnumerable-NaN"><a href="#propertyIsEnumerable-NaN" class="headerlink" title="propertyIsEnumerable()"></a>propertyIsEnumerable()</h2><p>propertyIsEnumerable()是hasOwnProperty()的增强版，只有检侧到是目有属性且这个属性的可枚举性(enumerable attribute)为true时它才返回true.某些内置属性是不可枚举的。通常由JavaScript代码创建的属性都是可枚举的。除非调用Object.defineProperty() 方法来修改。</p>
-<p>propertyIsEnumerable() 方法返回一个布尔值，表示指定的属性是否可枚举。<br>语法</p>
-<blockquote>
+<h2 id="propertyIsEnumerable-NaN"><a href="#propertyIsEnumerable-NaN" class="headerlink" title="propertyIsEnumerable()"></a>propertyIsEnumerable()</h2><p><code>propertyIsEnumerable()</code>是<code>hasOwnProperty()</code>的增强版，只有检侧到是目有属性且这个属性的可枚举性(enumerable attribute)为true时它才返回true.某些内置属性是不可枚举的。通常由JavaScript代码创建的属性都是可枚举的。除非调用``Object.defineProperty() `方法来修改。</p>
+<p><code>propertyIsEnumerable()</code>方法返回一个布尔值，表示指定的属性是否可枚举。</p>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><blockquote>
 <p>obj.propertyIsEnumerable(prop)</p>
 </blockquote>
-<p>参数</p>
-<blockquote>
+<h3 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h3><blockquote>
 <p>prop<br>   需要测试的属性名。</p>
 </blockquote>
-<p>返回值</p>
-<blockquote>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><blockquote>
 <p>用来表示指定的属性名是否可枚举的布尔值。</p>
 </blockquote>
-<p>描述</p>
-<blockquote>
-<p>每个对象都有一个 propertyIsEnumerable 方法。此方法可以确定对象中指定的属性是否可以被 for…in<br>循环枚举，但是通过原型链继承的属性除外。如果对象没有指定的属性，则此方法返回 false。</p>
+<h3 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h3><blockquote>
+<p>每个对象都有一个 <code>propertyIsEnumerable</code>方法。此方法可以确定对象中指定的属性是否可以被 for…in<br>循环枚举，但是通过原型链继承的属性除外。如果对象没有指定的属性，则此方法返回 false。</p>
 </blockquote>
 <p>例子</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> object1 = {};</span><br><span class="line"><span class="keyword">const</span> array1 = [];</span><br><span class="line">object1.property1 = <span class="number">42</span>;</span><br><span class="line">array1[<span class="number">0</span>] = <span class="number">42</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(object1.propertyIsEnumerable(<span class="string">'property1'</span>));</span><br><span class="line"><span class="comment">// expected output: true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(array1.propertyIsEnumerable(<span class="number">0</span>));</span><br><span class="line"><span class="comment">// expected output: true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(array1.propertyIsEnumerable(<span class="string">'length'</span>));</span><br><span class="line"><span class="comment">// expected output: false</span></span><br></pre></td></tr></tbody></table></figure>
@@ -422,13 +431,13 @@
     2020-04-29
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-04-29
+    2020-07-12
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://aqingya.cn/2020/04/29/twenty-one/" title="详谈js中isPrototypeOf()、hasOwnProperty()、propertyIsEnumerable()的区别。" target="_blank">详谈js中isPrototypeOf()、hasOwnProperty()、propertyIsEnumerable()的区别。</a>
+    <a href="https://aqingya.cn/2020/04/29/twenty-one/" title="详谈js中isPrototypeOf()、hasOwnProperty()、instanceof、propertyIsEnumerable()的区别。" target="_blank">详谈js中isPrototypeOf()、hasOwnProperty()、instanceof、propertyIsEnumerable()的区别。</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://aqingya.cn/2020/04/29/twenty-one/" title="详谈js中isPrototypeOf()、hasOwnProperty()、propertyIsEnumerable()的区别。" target="_blank">https://aqingya.cn/2020/04/29/twenty-one/</a>
+    <a href="https://aqingya.cn/2020/04/29/twenty-one/" title="详谈js中isPrototypeOf()、hasOwnProperty()、instanceof、propertyIsEnumerable()的区别。" target="_blank">https://aqingya.cn/2020/04/29/twenty-one/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
