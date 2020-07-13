@@ -157,8 +157,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 61</a>
-                        <a>总字数 <span class="post-count">91.7k</span></a>
+                        <a>总文章数 62</a>
+                        <a>总字数 <span class="post-count">95.8k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -284,6 +284,178 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 
+  
+    <article id="post-32" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/02/32/">JavaScript  XML 解析器</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/02/32/" class="archive-article-date">
+  	<time datetime="2020-06-02T11:13:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-02</time>
+</a>
+
+ <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.8k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">10分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+            
+
+            
+
+
+
+<!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+
+
+
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                            <p>所有现代浏览器都内建了供读取和操作 XML 的 XML 解析器。</p>
+<p>解析器把 XML 转换为 XML DOM 对象 - 可通过 JavaScript 操作的对象。JavaScript 访问的 XML DOM 对象。</p>
+<h2 id="解析-XML-文档"><a href="#解析-XML-文档" class="headerlink" title="解析 XML 文档"></a>解析 XML 文档</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) { <span class="comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span></span><br><span class="line">    xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">} <span class="keyword">else</span> { <span class="comment">// code for IE6, IE5</span></span><br><span class="line">    xmlhttp = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">xmlhttp.open(<span class="string">"GET"</span>, <span class="string">"books.xml"</span>, <span class="literal">false</span>);</span><br><span class="line">xmlhttp.send();</span><br><span class="line">xmlDoc = xmlhttp.responseXML;</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="解析-XML-字符串"><a href="#解析-XML-字符串" class="headerlink" title="解析 XML 字符串"></a>解析 XML 字符串</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">txt = <span class="string">"&lt;bookstore&gt;&lt;book&gt;"</span>;</span><br><span class="line">txt = txt + <span class="string">"&lt;title&gt;Everyday Italian&lt;/title&gt;"</span>;</span><br><span class="line">txt = txt + <span class="string">"&lt;author&gt;Giada De Laurentiis&lt;/author&gt;"</span>;</span><br><span class="line">txt = txt + <span class="string">"&lt;year&gt;2005&lt;/year&gt;"</span>;</span><br><span class="line">txt = txt + <span class="string">"&lt;/book&gt;&lt;/bookstore&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.DOMParser) {</span><br><span class="line">    parser = <span class="keyword">new</span> DOMParser();</span><br><span class="line">    xmlDoc = parser.parseFromString(txt, <span class="string">"text/xml"</span>);</span><br><span class="line">} <span class="keyword">else</span> <span class="comment">// Internet Explorer</span></span><br><span class="line">{</span><br><span class="line">    xmlDoc = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLDOM"</span>);</span><br><span class="line">    xmlDoc.async = <span class="string">"false"</span>;</span><br><span class="line">    xmlDoc.loadXML(txt);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>例子：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body onload=<span class="string">"displayCD()"</span>&gt;</span><br><span class="line">    &lt;div id=<span class="string">"showCD"</span>&gt;</span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">    &lt;input type="button" onclick="previous()" value="&lt;&lt;"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;input type="button" onclick="next()" value="&gt;&gt;"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">        if (window.XMLHttpRequest) {</span></span><br><span class="line"><span class="regexp">            var xmlhttp = new XMLHttpRequest();</span></span><br><span class="line"><span class="regexp">        } else {</span></span><br><span class="line"><span class="regexp">            var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");</span></span><br><span class="line"><span class="regexp">        }</span></span><br><span class="line"><span class="regexp">        xmlhttp.open("GET", "/</span>xml/aqing.xml<span class="string">", false);</span></span><br><span class="line"><span class="string">        xmlhttp.send();</span></span><br><span class="line"><span class="string">        var xmlDoc = xmlhttp.responseXML; //xmlDoc 成为一个 XML DOM 对象，可由 JavaScript 访问。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        x = xmlDoc.getElementsByTagName("</span>CD<span class="string">");</span></span><br><span class="line"><span class="string">        i = 0;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        function displayCD() {</span></span><br><span class="line"><span class="string">            a = (x[i].getElementsByTagName("</span>ARTIST<span class="string">")[0].childNodes[0].nodeValue);</span></span><br><span class="line"><span class="string">            aa = (x[i].getElementsByTagName("</span>COUNTRY<span class="string">")[0].childNodes[0].nodeValue);</span></span><br><span class="line"><span class="string">            aaa = (x[i].getElementsByTagName("</span>COMPANY<span class="string">")[0].childNodes[0].nodeValue);</span></span><br><span class="line"><span class="string">            aaa = (x[i].getElementsByTagName("</span>PRICE<span class="string">")[0].childNodes[0].nodeValue);</span></span><br><span class="line"><span class="string">            aaaa = (x[i].getElementsByTagName("</span>YEAR<span class="string">")[0].childNodes[0].nodeValue);</span></span><br><span class="line"><span class="string">            text = "</span>ARTIST :<span class="string">" + a + "</span>&lt;br&gt;COUNTRY :<span class="string">" + aa + "</span>&lt;br&gt;COMPANY :<span class="string">" + aaa + "</span>&lt;br&gt;PRICE :<span class="string">" + aaaa;</span></span><br><span class="line"><span class="string">            document.getElementById("</span>showCD<span class="string">").innerHTML = text;</span></span><br><span class="line"><span class="string">        }</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        function previous() {</span></span><br><span class="line"><span class="string">            if (i &gt; 0) {</span></span><br><span class="line"><span class="string">                i--;</span></span><br><span class="line"><span class="string">                displayCD();</span></span><br><span class="line"><span class="string">            }</span></span><br><span class="line"><span class="string">        }</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        function next() {</span></span><br><span class="line"><span class="string">            if (i &lt; x.length - 1) {</span></span><br><span class="line"><span class="string">                i++;</span></span><br><span class="line"><span class="string">                displayCD();</span></span><br><span class="line"><span class="string">            }</span></span><br><span class="line"><span class="string">        }</span></span><br><span class="line"><span class="string">    &lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>XML文件：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br></pre></td><td class="code"><pre><span class="line">&lt;CATALOG&gt;</span><br><span class="line">&lt;CD&gt;</span><br><span class="line">&lt;TITLE&gt;Empire Burlesque&lt;<span class="regexp">/TITLE&gt;</span></span><br><span class="line"><span class="regexp">&lt;ARTIST&gt;Bob Dylan&lt;/</span>ARTIST&gt;</span><br><span class="line">&lt;COUNTRY&gt;USA&lt;<span class="regexp">/COUNTRY&gt;</span></span><br><span class="line"><span class="regexp">&lt;COMPANY&gt;Columbia&lt;/</span>COMPANY&gt;</span><br><span class="line">&lt;PRICE&gt;<span class="number">10.90</span>&lt;<span class="regexp">/PRICE&gt;</span></span><br><span class="line"><span class="regexp">&lt;YEAR&gt;1985&lt;/</span>YEAR&gt;</span><br><span class="line">&lt;<span class="regexp">/CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;TITLE&gt;Hide your heart&lt;/</span>TITLE&gt;</span><br><span class="line">&lt;ARTIST&gt;Bonnie Tyler&lt;<span class="regexp">/ARTIST&gt;</span></span><br><span class="line"><span class="regexp">&lt;COUNTRY&gt;UK&lt;/</span>COUNTRY&gt;</span><br><span class="line">&lt;COMPANY&gt;CBS Records&lt;<span class="regexp">/COMPANY&gt;</span></span><br><span class="line"><span class="regexp">&lt;PRICE&gt;9.90&lt;/</span>PRICE&gt;</span><br><span class="line">&lt;YEAR&gt;<span class="number">1988</span>&lt;<span class="regexp">/YEAR&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CD&gt;</span><br><span class="line">&lt;CD&gt;</span><br><span class="line">&lt;TITLE&gt;Greatest Hits&lt;<span class="regexp">/TITLE&gt;</span></span><br><span class="line"><span class="regexp">&lt;ARTIST&gt;Dolly Parton&lt;/</span>ARTIST&gt;</span><br><span class="line">&lt;COUNTRY&gt;USA&lt;<span class="regexp">/COUNTRY&gt;</span></span><br><span class="line"><span class="regexp">&lt;COMPANY&gt;RCA&lt;/</span>COMPANY&gt;</span><br><span class="line">&lt;PRICE&gt;<span class="number">9.90</span>&lt;<span class="regexp">/PRICE&gt;</span></span><br><span class="line"><span class="regexp">&lt;YEAR&gt;1982&lt;/</span>YEAR&gt;</span><br><span class="line">&lt;<span class="regexp">/CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;TITLE&gt;Still got the blues&lt;/</span>TITLE&gt;</span><br><span class="line">&lt;ARTIST&gt;Gary Moore&lt;<span class="regexp">/ARTIST&gt;</span></span><br><span class="line"><span class="regexp">&lt;COUNTRY&gt;UK&lt;/</span>COUNTRY&gt;</span><br><span class="line">&lt;COMPANY&gt;Virgin records&lt;<span class="regexp">/COMPANY&gt;</span></span><br><span class="line"><span class="regexp">&lt;PRICE&gt;10.20&lt;/</span>PRICE&gt;</span><br><span class="line">&lt;YEAR&gt;<span class="number">1990</span>&lt;<span class="regexp">/YEAR&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CD&gt;</span><br><span class="line">&lt;CD&gt;</span><br><span class="line">&lt;TITLE&gt;Eros&lt;<span class="regexp">/TITLE&gt;</span></span><br><span class="line"><span class="regexp">&lt;ARTIST&gt;Eros Ramazzotti&lt;/</span>ARTIST&gt;</span><br><span class="line">&lt;COUNTRY&gt;EU&lt;<span class="regexp">/COUNTRY&gt;</span></span><br><span class="line"><span class="regexp">&lt;COMPANY&gt;BMG&lt;/</span>COMPANY&gt;</span><br><span class="line">&lt;PRICE&gt;<span class="number">9.90</span>&lt;<span class="regexp">/PRICE&gt;</span></span><br><span class="line"><span class="regexp">&lt;YEAR&gt;1997&lt;/</span>YEAR&gt;</span><br><span class="line">&lt;<span class="regexp">/CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;TITLE&gt;One night only&lt;/</span>TITLE&gt;</span><br><span class="line">&lt;ARTIST&gt;Bee Gees&lt;<span class="regexp">/ARTIST&gt;</span></span><br><span class="line"><span class="regexp">&lt;COUNTRY&gt;UK&lt;/</span>COUNTRY&gt;</span><br><span class="line">&lt;COMPANY&gt;Polydor&lt;<span class="regexp">/COMPANY&gt;</span></span><br><span class="line"><span class="regexp">&lt;PRICE&gt;10.90&lt;/</span>PRICE&gt;</span><br><span class="line">&lt;YEAR&gt;<span class="number">1998</span>&lt;<span class="regexp">/YEAR&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CD&gt;</span><br><span class="line">&lt;CD&gt;</span><br><span class="line">&lt;TITLE&gt;Sylvias Mother&lt;<span class="regexp">/TITLE&gt;</span></span><br><span class="line"><span class="regexp">&lt;ARTIST&gt;Dr.Hook&lt;/</span>ARTIST&gt;</span><br><span class="line">&lt;COUNTRY&gt;UK&lt;<span class="regexp">/COUNTRY&gt;</span></span><br><span class="line"><span class="regexp">&lt;COMPANY&gt;CBS&lt;/</span>COMPANY&gt;</span><br><span class="line">&lt;PRICE&gt;<span class="number">8.10</span>&lt;<span class="regexp">/PRICE&gt;</span></span><br><span class="line"><span class="regexp">&lt;YEAR&gt;1973&lt;/</span>YEAR&gt;</span><br><span class="line">&lt;<span class="regexp">/CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;TITLE&gt;Maggie May&lt;/</span>TITLE&gt;</span><br><span class="line">&lt;ARTIST&gt;Rod Stewart&lt;<span class="regexp">/ARTIST&gt;</span></span><br><span class="line"><span class="regexp">&lt;COUNTRY&gt;UK&lt;/</span>COUNTRY&gt;</span><br><span class="line">&lt;COMPANY&gt;Pickwick&lt;<span class="regexp">/COMPANY&gt;</span></span><br><span class="line"><span class="regexp">&lt;PRICE&gt;8.50&lt;/</span>PRICE&gt;</span><br><span class="line">&lt;YEAR&gt;<span class="number">1990</span>&lt;<span class="regexp">/YEAR&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CD&gt;</span><br><span class="line">&lt;CD&gt;</span><br><span class="line">&lt;TITLE&gt;Romanza&lt;<span class="regexp">/TITLE&gt;</span></span><br><span class="line"><span class="regexp">&lt;ARTIST&gt;Andrea Bocelli&lt;/</span>ARTIST&gt;</span><br><span class="line">&lt;COUNTRY&gt;EU&lt;<span class="regexp">/COUNTRY&gt;</span></span><br><span class="line"><span class="regexp">&lt;COMPANY&gt;Polydor&lt;/</span>COMPANY&gt;</span><br><span class="line">&lt;PRICE&gt;<span class="number">10.80</span>&lt;<span class="regexp">/PRICE&gt;</span></span><br><span class="line"><span class="regexp">&lt;YEAR&gt;1996&lt;/</span>YEAR&gt;</span><br><span class="line">&lt;<span class="regexp">/CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;TITLE&gt;When a man loves a woman&lt;/</span>TITLE&gt;</span><br><span class="line">&lt;ARTIST&gt;Percy Sledge&lt;<span class="regexp">/ARTIST&gt;</span></span><br><span class="line"><span class="regexp">&lt;COUNTRY&gt;USA&lt;/</span>COUNTRY&gt;</span><br><span class="line">&lt;COMPANY&gt;Atlantic&lt;<span class="regexp">/COMPANY&gt;</span></span><br><span class="line"><span class="regexp">&lt;PRICE&gt;8.70&lt;/</span>PRICE&gt;</span><br><span class="line">&lt;YEAR&gt;<span class="number">1987</span>&lt;<span class="regexp">/YEAR&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CD&gt;</span><br><span class="line">&lt;CD&gt;</span><br><span class="line">&lt;TITLE&gt;Black angel&lt;<span class="regexp">/TITLE&gt;</span></span><br><span class="line"><span class="regexp">&lt;ARTIST&gt;Savage Rose&lt;/</span>ARTIST&gt;</span><br><span class="line">&lt;COUNTRY&gt;EU&lt;<span class="regexp">/COUNTRY&gt;</span></span><br><span class="line"><span class="regexp">&lt;COMPANY&gt;Mega&lt;/</span>COMPANY&gt;</span><br><span class="line">&lt;PRICE&gt;<span class="number">10.90</span>&lt;<span class="regexp">/PRICE&gt;</span></span><br><span class="line"><span class="regexp">&lt;YEAR&gt;1995&lt;/</span>YEAR&gt;</span><br><span class="line">&lt;<span class="regexp">/CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;TITLE&gt;1999 Grammy Nominees&lt;/</span>TITLE&gt;</span><br><span class="line">&lt;ARTIST&gt;Many&lt;<span class="regexp">/ARTIST&gt;</span></span><br><span class="line"><span class="regexp">&lt;COUNTRY&gt;USA&lt;/</span>COUNTRY&gt;</span><br><span class="line">&lt;COMPANY&gt;Grammy&lt;<span class="regexp">/COMPANY&gt;</span></span><br><span class="line"><span class="regexp">&lt;PRICE&gt;10.20&lt;/</span>PRICE&gt;</span><br><span class="line">&lt;YEAR&gt;<span class="number">1999</span>&lt;<span class="regexp">/YEAR&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CD&gt;</span><br><span class="line">&lt;CD&gt;</span><br><span class="line">&lt;TITLE&gt;For the good times&lt;<span class="regexp">/TITLE&gt;</span></span><br><span class="line"><span class="regexp">&lt;ARTIST&gt;Kenny Rogers&lt;/</span>ARTIST&gt;</span><br><span class="line">&lt;COUNTRY&gt;UK&lt;<span class="regexp">/COUNTRY&gt;</span></span><br><span class="line"><span class="regexp">&lt;COMPANY&gt;Mucik Master&lt;/</span>COMPANY&gt;</span><br><span class="line">&lt;PRICE&gt;<span class="number">8.70</span>&lt;<span class="regexp">/PRICE&gt;</span></span><br><span class="line"><span class="regexp">&lt;YEAR&gt;1995&lt;/</span>YEAR&gt;</span><br><span class="line">&lt;<span class="regexp">/CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;TITLE&gt;Big Willie style&lt;/</span>TITLE&gt;</span><br><span class="line">&lt;ARTIST&gt;Will Smith&lt;<span class="regexp">/ARTIST&gt;</span></span><br><span class="line"><span class="regexp">&lt;COUNTRY&gt;USA&lt;/</span>COUNTRY&gt;</span><br><span class="line">&lt;COMPANY&gt;Columbia&lt;<span class="regexp">/COMPANY&gt;</span></span><br><span class="line"><span class="regexp">&lt;PRICE&gt;9.90&lt;/</span>PRICE&gt;</span><br><span class="line">&lt;YEAR&gt;<span class="number">1997</span>&lt;<span class="regexp">/YEAR&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CD&gt;</span><br><span class="line">&lt;CD&gt;</span><br><span class="line">&lt;TITLE&gt;Tupelo Honey&lt;<span class="regexp">/TITLE&gt;</span></span><br><span class="line"><span class="regexp">&lt;ARTIST&gt;Van Morrison&lt;/</span>ARTIST&gt;</span><br><span class="line">&lt;COUNTRY&gt;UK&lt;<span class="regexp">/COUNTRY&gt;</span></span><br><span class="line"><span class="regexp">&lt;COMPANY&gt;Polydor&lt;/</span>COMPANY&gt;</span><br><span class="line">&lt;PRICE&gt;<span class="number">8.20</span>&lt;<span class="regexp">/PRICE&gt;</span></span><br><span class="line"><span class="regexp">&lt;YEAR&gt;1971&lt;/</span>YEAR&gt;</span><br><span class="line">&lt;<span class="regexp">/CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;TITLE&gt;The very best of&lt;/</span>TITLE&gt;</span><br><span class="line">&lt;ARTIST&gt;Cat Stevens&lt;<span class="regexp">/ARTIST&gt;</span></span><br><span class="line"><span class="regexp">&lt;COUNTRY&gt;UK&lt;/</span>COUNTRY&gt;</span><br><span class="line">&lt;COMPANY&gt;Island&lt;<span class="regexp">/COMPANY&gt;</span></span><br><span class="line"><span class="regexp">&lt;PRICE&gt;8.90&lt;/</span>PRICE&gt;</span><br><span class="line">&lt;YEAR&gt;<span class="number">1990</span>&lt;<span class="regexp">/YEAR&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CD&gt;</span><br><span class="line">&lt;CD&gt;</span><br><span class="line">&lt;TITLE&gt;Stop&lt;<span class="regexp">/TITLE&gt;</span></span><br><span class="line"><span class="regexp">&lt;ARTIST&gt;Sam Brown&lt;/</span>ARTIST&gt;</span><br><span class="line">&lt;COUNTRY&gt;UK&lt;<span class="regexp">/COUNTRY&gt;</span></span><br><span class="line"><span class="regexp">&lt;COMPANY&gt;A and M&lt;/</span>COMPANY&gt;</span><br><span class="line">&lt;PRICE&gt;<span class="number">8.90</span>&lt;<span class="regexp">/PRICE&gt;</span></span><br><span class="line"><span class="regexp">&lt;YEAR&gt;1988&lt;/</span>YEAR&gt;</span><br><span class="line">&lt;<span class="regexp">/CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;CD&gt;</span></span><br><span class="line"><span class="regexp">&lt;TITLE&gt;Bridge of Spies&lt;/</span>TITLE&gt;</span><br><span class="line">&lt;ARTIST&gt;T<span class="string">'Pau&lt;/ARTIST&gt;</span></span><br><span class="line"><span class="string">&lt;COUNTRY&gt;UK&lt;/COUNTRY&gt;</span></span><br><span class="line"><span class="string">&lt;COMPANY&gt;Siren&lt;/COMPANY&gt;</span></span><br><span class="line"><span class="string">&lt;PRICE&gt;7.90&lt;/PRICE&gt;</span></span><br><span class="line"><span class="string">&lt;YEAR&gt;1987&lt;/YEAR&gt;</span></span><br><span class="line"><span class="string">&lt;/CD&gt;</span></span><br><span class="line"><span class="string">&lt;CD&gt;</span></span><br><span class="line"><span class="string">&lt;TITLE&gt;Private Dancer&lt;/TITLE&gt;</span></span><br><span class="line"><span class="string">&lt;ARTIST&gt;Tina Turner&lt;/ARTIST&gt;</span></span><br><span class="line"><span class="string">&lt;COUNTRY&gt;UK&lt;/COUNTRY&gt;</span></span><br><span class="line"><span class="string">&lt;COMPANY&gt;Capitol&lt;/COMPANY&gt;</span></span><br><span class="line"><span class="string">&lt;PRICE&gt;8.90&lt;/PRICE&gt;</span></span><br><span class="line"><span class="string">&lt;YEAR&gt;1983&lt;/YEAR&gt;</span></span><br><span class="line"><span class="string">&lt;/CD&gt;</span></span><br><span class="line"><span class="string">&lt;CD&gt;</span></span><br><span class="line"><span class="string">&lt;TITLE&gt;Midt om natten&lt;/TITLE&gt;</span></span><br><span class="line"><span class="string">&lt;ARTIST&gt;Kim Larsen&lt;/ARTIST&gt;</span></span><br><span class="line"><span class="string">&lt;COUNTRY&gt;EU&lt;/COUNTRY&gt;</span></span><br><span class="line"><span class="string">&lt;COMPANY&gt;Medley&lt;/COMPANY&gt;</span></span><br><span class="line"><span class="string">&lt;PRICE&gt;7.80&lt;/PRICE&gt;</span></span><br><span class="line"><span class="string">&lt;YEAR&gt;1983&lt;/YEAR&gt;</span></span><br><span class="line"><span class="string">&lt;/CD&gt;</span></span><br><span class="line"><span class="string">&lt;CD&gt;</span></span><br><span class="line"><span class="string">&lt;TITLE&gt;Pavarotti Gala Concert&lt;/TITLE&gt;</span></span><br><span class="line"><span class="string">&lt;ARTIST&gt;Luciano Pavarotti&lt;/ARTIST&gt;</span></span><br><span class="line"><span class="string">&lt;COUNTRY&gt;UK&lt;/COUNTRY&gt;</span></span><br><span class="line"><span class="string">&lt;COMPANY&gt;DECCA&lt;/COMPANY&gt;</span></span><br><span class="line"><span class="string">&lt;PRICE&gt;9.90&lt;/PRICE&gt;</span></span><br><span class="line"><span class="string">&lt;YEAR&gt;1991&lt;/YEAR&gt;</span></span><br><span class="line"><span class="string">&lt;/CD&gt;</span></span><br><span class="line"><span class="string">&lt;CD&gt;</span></span><br><span class="line"><span class="string">&lt;TITLE&gt;The dock of the bay&lt;/TITLE&gt;</span></span><br><span class="line"><span class="string">&lt;ARTIST&gt;Otis Redding&lt;/ARTIST&gt;</span></span><br><span class="line"><span class="string">&lt;COUNTRY&gt;USA&lt;/COUNTRY&gt;</span></span><br><span class="line"><span class="string">&lt;COMPANY&gt;Atlantic&lt;/COMPANY&gt;</span></span><br><span class="line"><span class="string">&lt;PRICE&gt;7.90&lt;/PRICE&gt;</span></span><br><span class="line"><span class="string">&lt;YEAR&gt;1987&lt;/YEAR&gt;</span></span><br><span class="line"><span class="string">&lt;/CD&gt;</span></span><br><span class="line"><span class="string">&lt;CD&gt;</span></span><br><span class="line"><span class="string">&lt;TITLE&gt;Picture book&lt;/TITLE&gt;</span></span><br><span class="line"><span class="string">&lt;ARTIST&gt;Simply Red&lt;/ARTIST&gt;</span></span><br><span class="line"><span class="string">&lt;COUNTRY&gt;EU&lt;/COUNTRY&gt;</span></span><br><span class="line"><span class="string">&lt;COMPANY&gt;Elektra&lt;/COMPANY&gt;</span></span><br><span class="line"><span class="string">&lt;PRICE&gt;7.20&lt;/PRICE&gt;</span></span><br><span class="line"><span class="string">&lt;YEAR&gt;1985&lt;/YEAR&gt;</span></span><br><span class="line"><span class="string">&lt;/CD&gt;</span></span><br><span class="line"><span class="string">&lt;CD&gt;</span></span><br><span class="line"><span class="string">&lt;TITLE&gt;Red&lt;/TITLE&gt;</span></span><br><span class="line"><span class="string">&lt;ARTIST&gt;The Communards&lt;/ARTIST&gt;</span></span><br><span class="line"><span class="string">&lt;COUNTRY&gt;UK&lt;/COUNTRY&gt;</span></span><br><span class="line"><span class="string">&lt;COMPANY&gt;London&lt;/COMPANY&gt;</span></span><br><span class="line"><span class="string">&lt;PRICE&gt;7.80&lt;/PRICE&gt;</span></span><br><span class="line"><span class="string">&lt;YEAR&gt;1987&lt;/YEAR&gt;</span></span><br><span class="line"><span class="string">&lt;/CD&gt;</span></span><br><span class="line"><span class="string">&lt;CD&gt;</span></span><br><span class="line"><span class="string">&lt;TITLE&gt;Unchain my heart&lt;/TITLE&gt;</span></span><br><span class="line"><span class="string">&lt;ARTIST&gt;Joe Cocker&lt;/ARTIST&gt;</span></span><br><span class="line"><span class="string">&lt;COUNTRY&gt;USA&lt;/COUNTRY&gt;</span></span><br><span class="line"><span class="string">&lt;COMPANY&gt;EMI&lt;/COMPANY&gt;</span></span><br><span class="line"><span class="string">&lt;PRICE&gt;8.20&lt;/PRICE&gt;</span></span><br><span class="line"><span class="string">&lt;YEAR&gt;1987&lt;/YEAR&gt;</span></span><br><span class="line"><span class="string">&lt;/CD&gt;</span></span><br><span class="line"><span class="string">&lt;/CATALOG&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+                                                <!-- 《添加版权声明 -->
+                                                
+                                                    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare" hidden="hidden"></div>
+
+<!-- 添加版权声明》 -->
+                                                        
+                                                            <!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                                                                                    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/06/02/32/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
+
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+                
+
   
     <article id="post-31" class="article article-type-post  article-index" itemscope itemprop="blogPost">
 <div class="article-inner">
@@ -2738,228 +2910,6 @@ stopPropagation() 方法 用于立即停止事件在DOM中的传播，取消事�
                 
 
   
-    <article id="post-22" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-<div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/22/">JavaScript --- DOM  document类型</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/22/22/" class="archive-article-date">
-  	<time datetime="2020-05-22T10:01:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.5k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-
-        
-      </header>
-            
-
-            
-
-
-
-<!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-
-
-                <div class="article-entry" itemprop="articleBody">
-                    
-
-                                
-                                            <h2 id="Document-对象"><a href="#Document-对象" class="headerlink" title="Document 对象"></a>Document 对象</h2><p>每个载入浏览器的 HTML 文档都会成为 Document 对象。</p>
-<p>Document 对象使我们可以从脚本中对 HTML 页面中的所有元素进行访问。</p>
-<p>提示：Document 对象是 Window 对象的一部分，可通过 window.document 属性对其进行访问。</p>
-<hr>
-<p><strong>一、文档子节点</strong></p>
-<p>1、在document中有一个属性body，它保存的是body的引用（<strong>比通过childNodes列表访问的更快，更直接）</strong><br>  Var body = document.body;</p>
-<p>2、Doucument.doucumentElement保存的是html根标签<br>  Var html = document.documentElenmet;</p>
-<p>3、Document.all 代表页面中的所有元素<br>  var all = document.all;<br>  （var all = document.getElementsByTagName(“*”)）效果一样。<br>  它返回一个数组</p>
-<p>4、根据元素的class属性查询一组元素节点对象<br>  GetElementsByClassNmae() 可以根据class属性值获取一组元素节点对象（类数组）<br>  但是该方法 不支持IE8及以下浏览器。</p>
-<p>5、documen.querySelector()<br>   需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象<br>   虽然IE8中没有getElementByTagName() 但是可以使用querySelector，他可以支持IE8.<br>   使用该方法总会返回<strong>一个唯一的一个元素</strong>，如果满足条件的元素有多个，那么它会返回第一个。</p>
-<p>6、documen.querySelectorAll()<br>  该方法和querySelector()用法类似，不同的是他会将符合条件的元素<strong>封装到一个数组中</strong>。<br>  即使符合条件的元素只有一个，他也会返回数组。</p>
-<hr>
-<p><strong>二、文档信息</strong></p>
-<p>1.document.title<br>  可以取得当前界面的标题，也可以修改当前界面的标题并反映给浏览器的标题栏中。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.title)  <span class="comment">//查看标题</span></span><br><span class="line"><span class="built_in">document</span>.title = <span class="string">"aqing"</span>     <span class="comment">//修改标题</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-<p>2.属性 URL、domain、referrer  都和网页请求有关。<br>  URL属性包含完整的URL<br>  domain属性中只包含了页面的域名。<br>  referrer属性中保存着连接到当前页面的哪个页面的URL，在没有来源页面的情况下，referrer属性中可能会包含空字符串</p>
-<hr>
-<p><strong>三、查找元素</strong></p>
-<p>1.getElementById()<br>  通过id属性来获取一个元素节点的对象</p>
-<p>2.getElementsByTagName()<br>  可以根据标签名来获取一组元素节点对象<br>  这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象<br>  即使查询到的元素只有一个，也会封装到数组中返回。</p>
-<p>3.getElementsByName()<br>  通过name属性来获取一组元素节点对象。<br>  这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象。<br>  即使查询到的元素只有一个，也会封装到数组中返回。</p>
-<hr>
-<p><strong>四、特殊集合</strong></p>
-<p>1、document.anchors<br>  包含文档中所有带name特性的 a 元素</p>
-<p>2、document.forms<br>  包含文档中所有的</p><form>元素，与documen.getElementByTagName（“form”）结果相同。<p></p>
-<p>3、document.images<br>  包含文档中所有的<img>元素，与documen.getElementByTagName（“img”）结果相同。</p>
-<p>4、document.links<br>  包含文档中所带href特性的 a 元素</p>
-<p><strong>集合中的项也会随着当前文档内容的更新而更新</strong></p>
-<hr>
-<p><strong>五、DOM一致性检测</strong></p>
-<p>hasFeature()<br>  这个方法有两个参数：要检测的DOM功能的名称及版本号。如果浏览器支持给定的名称和版本的功能，则该方法会返回 true 。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.implementation.hasFeature(<span class="string">"XML"</span>, <span class="string">"1.0"</span>));</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<p><strong>六、文档写入</strong></p>
-<p><strong>1、write()方法</strong><br>定义和用法<br>  write() 方法可向文档写入 HTML 表达式或 JavaScript 代码。</p>
-<p>可列出多个参数(exp1,exp2,exp3,…) ，它们将按顺序被追加到文档中。</p>
-<p>语法<br>  document.write(exp1,exp2,exp3,….)</p>
-<p>说明<br>  虽然根据 DOM 标准，该方法只接受单个字符串作为参数。不过根据经验，write() 可接受任何多个参数。</p>
-<p>我们通常按照两种的方式使用 write() 方法：一是在使用该方在文档中输出 HTML，另一种是在调用该方法的的窗口之外的窗口、框架中产生新文档。在第二种情况中，请务必使用 close() 方法来关闭文档。</p>
-<p><strong>2、writeln() 方法</strong></p>
-<p>定义和用法<br>  writeln() 方法与 write() 方法作用相同，外加可在每个表达式后写一个换行符。</p>
-<p>3、open()方法</p>
-<p>定义和用法<br>  open() 方法可打开一个新文档，并擦除当前文档的内容。</p>
-<p>语法<br>  document.open(mimetype,replace)<br>|参数| 描述 |<br>|–|–|<br>| mimetype |可选。规定正在写的文档的类型。默认值是 “text/html”。  |<br>|replace|可选。当此参数设置后，可引起新文档从父文档继承历史条目。|</p>
-<p>说明<br>  该方法将擦除当前 HTML 文档的内容，开始一个新的文档，新文档用 write() 方法或 writeln() 方法编写。</p>
-<p>提示和注释<br>  重要事项：调用 open() 方法打开一个新文档并且用 write() 方法设置文档内容后，必须记住用 close 方法关闭文档，并迫使其内容显示出来。</p>
-<p>注释：属于被覆盖的文档的一部分的脚本或事件句柄不能调用该方法，因为脚本或事件句柄自身也会被覆盖。</p>
-<p>4、close() 方法</p>
-<p>定义和用法<br>  close() 方法可关闭一个由 document.open 方法打开的输出流，并显示选定的数据。</p>
-<p>语法<br>  document.close()<br>说明<br>  该方法将关闭 open() 方法打开的文档流，并强制地显示出所有缓存的输出内容。如果您使用 write() 方法动态地输出一个文档，必须记住当你这么做的时候要调用 close() 方法，以确保所有文档内容都能显示。</p>
-<p>  一旦调用了 close()，就不应该再次调用 write()，因为这会隐式地调用 open() 来擦除当前文档并开始一个新的文档。</p>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-</form><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
-                                                                
-                                                                    <div class="article-info article-info-index">
-                                                                        
-                                                                                
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-                                                                                    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-                                                                                        
-                                                                                            <p class="article-more-link">
-                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/05/22/22/">
-                                                                                                    展开全文 >></a>
-                                                                                            </p>
-                                                                                            
-
-                                                                                                
-                                                                                                            <div class="clearfix"></div>
-                                                                    </div>
-                </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-                
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
@@ -3176,6 +3126,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript基础面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
             
             <div class="clearfix"></div>
