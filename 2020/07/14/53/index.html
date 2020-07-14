@@ -6,17 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://aqingya.cn">
-  <title>Tag: DOM | 阿清的小站</title>
+  <title>webpack  开发环境的基本配置 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="阿清的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿清的小站">
-<meta property="og:url" content="https://aqingya.cn/tags/DOM/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="webpack  开发环境的基本配置">
+<meta property="og:url" content="https://aqingya.cn/2020/07/14/53/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="阿清的博客">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/photo-1516093491926-a4c43060540a.jpg">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714175134.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714180434.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714180929.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714180656.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714181105.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714181538.png">
+<meta property="og:image" content="c:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200714182650903.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714182558.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714182755.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714183007.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714183149.png">
+<meta property="article:published_time" content="2020-07-14T10:55:01.000Z">
+<meta property="article:modified_time" content="2020-07-14T10:58:44.962Z">
 <meta property="article:author" content="阿清そ">
+<meta property="article:tag" content="WebPack">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/photo-1516093491926-a4c43060540a.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -283,487 +297,456 @@
                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                             </div>
                             <div id="js-content" class="content-ll">
+                                <article id="post-53" class="article article-type-post " itemscope itemprop="blogPost">
+<div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      webpack  开发环境的基本配置
+    </h1>
+  
+
+        
+        <a href="/2020/07/14/53/" class="archive-article-date">
+  	<time datetime="2020-07-14T10:55:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-14</time>
+</a>
+
+ <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">2.1k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">9分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+            
+
+            
+
+
+
+<!-- 目录内容 -->
+
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
+<!-- 目录内容结束 -->
+
+
+
+                <div class="article-entry" itemprop="articleBody">
+                    
+
                                 
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/30/28/" class="archive-article-date">
-  	<time datetime="2020-05-30T03:40:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
-</a>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/photo-1516093491926-a4c43060540a.jpg" alt=""></p>
+<a id="more"></a>
 
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/30/28/">JavaScript  DOM事件总结</a>
-    </h1>
-  
+<h2 id="1-webpack-初体验"><a href="#1-webpack-初体验" class="headerlink" title="1. webpack 初体验"></a>1. webpack 初体验</h2><h3 id="1-1-初始化配置"><a href="#1-1-初始化配置" class="headerlink" title="1.1  初始化配置"></a>1.1  初始化配置</h3><ol>
+<li><p>初始化 package.json</p>
+<p>输入指令:<br><code>npm init</code></p>
+</li>
+<li><p>下载并安装 webpack<br>输入指令:<br><code>npm install webpack webpack-cli -g</code><br><code>npm install webpack webpack-cli -D</code></p>
+</li>
+</ol>
+<h3 id="1-2-编译打包应用"><a href="#1-2-编译打包应用" class="headerlink" title="1.2 编译打包应用"></a>1.2 编译打包应用</h3><ol>
+<li>创建文件</li>
+<li>运行指令<br>开发环境指令：<code>webpack src/js/index.js -o build/js/built.js --mode=development</code><br>功能：webpack 能够编译打包 js 和 json 文件，并且能将 es6 的模块化语法转换成<br>浏览器能识别的语法。<br>生产环境指令：<code>webpack src/js/index.js -o build/js/built.js --mode=production</code><br>功能：在开发配置功能上多一个功能，压缩代码。</li>
+<li>结论<br>webpack 能够编译打包 js 和 json 文件。<br>能将 es6 的模块化语法转换成浏览器能识别的语法。<br>能压缩代码。</li>
+<li>问题<br>不能编译打包 css、img 等文件。<br>不能将 js 的 es6 基本语法转化为 es5 以下语法。</li>
+</ol>
+<h2 id="2-webpack-开发环境的基本配置"><a href="#2-webpack-开发环境的基本配置" class="headerlink" title="2. webpack  开发环境的基本配置"></a>2. webpack  开发环境的基本配置</h2><h3 id="2-1-创建配置文件"><a href="#2-1-创建配置文件" class="headerlink" title="2.1 创建配置文件"></a>2.1 创建配置文件</h3><ol>
+<li>创建文件 webpack.config.js</li>
+<li>配置内容如下</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> { resolve } = <span class="built_in">require</span>(<span class="string">'path'</span>); <span class="comment">// node 内置核心模块，用来处理路径问题。</span></span><br><span class="line"></span><br><span class="line">modules.exports = {</span><br><span class="line">    entry: <span class="string">'./src/js/index.js'</span>, <span class="comment">// 入口文件</span></span><br><span class="line">    output: { <span class="comment">// 输出配置</span></span><br><span class="line">        filename: <span class="string">'./built.js'</span>, <span class="comment">// 输出文件名</span></span><br><span class="line">        path: resolve(__dirname, <span class="string">'build/js'</span>) <span class="comment">// 输出文件路径配置</span></span><br><span class="line">    },</span><br><span class="line">    mode: <span class="string">'development'</span> <span class="comment">//开发环境</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<ol start="3">
+<li>运行指令: <code>webpack</code></li>
+</ol>
+<h3 id="2-2-打包样式资源"><a href="#2-2-打包样式资源" class="headerlink" title="2.2 打包样式资源"></a>2.2 打包样式资源</h3><ol>
+<li><p>创建文件</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714175134.png" alt=""></p>
+<p><span style="background-color:yellow"> 入口文件<code>ndex.js</code>中，要引入<code>.less</code> 文件</span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./index.less'</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="2">
+<li><p>下载安装 loader 包</p>
+<p><code>npm i css-loader style-loader less-loader less -D</code></p>
+</li>
+<li><p>修改配置文件</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  webpack.config.js  webpack的配置文件</span></span><br><span class="line"><span class="comment">    作用: 指示 webpack 干哪些活（当你运行 webpack 指令时，会加载里面的配置）</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    所有构建工具都是基于nodejs平台运行的~模块化默认采用commonjs。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// resolve用来拼接绝对路径的方法</span></span><br><span class="line"><span class="keyword">const</span> { resolve } = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">    <span class="comment">// webpack配置</span></span><br><span class="line">    <span class="comment">// 入口起点</span></span><br><span class="line">    entry: <span class="string">"./src/index.js"</span>,</span><br><span class="line">    <span class="comment">// 输出</span></span><br><span class="line">    output: {</span><br><span class="line">        <span class="comment">// 输出文件名</span></span><br><span class="line">        filename: <span class="string">"built.js"</span>,</span><br><span class="line">        <span class="comment">// 输出路径</span></span><br><span class="line">        <span class="comment">// __dirname nodejs的变量，代表当前文件的目录绝对路径</span></span><br><span class="line">        path: resolve(__dirname, <span class="string">"build"</span>),</span><br><span class="line">    },</span><br><span class="line">    <span class="comment">// loader的配置</span></span><br><span class="line">    <span class="built_in">module</span>: {</span><br><span class="line">        rules: [</span><br><span class="line">            <span class="comment">// 详细loader配置</span></span><br><span class="line">            <span class="comment">// 不同文件必须配置不同loader处理</span></span><br><span class="line">            {</span><br><span class="line">                <span class="comment">// 匹配哪些文件</span></span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                <span class="comment">// 使用哪些loader进行处理</span></span><br><span class="line">                use: [</span><br><span class="line">                    <span class="comment">// use数组中loader执行顺序：从右到左，从下到上 依次执行</span></span><br><span class="line">                    <span class="comment">// 创建style标签，将js中的样式资源插入进行，添加到head中生效</span></span><br><span class="line">                    <span class="string">"style-loader"</span>,</span><br><span class="line">                    <span class="comment">// 将css文件变成commonjs模块加载js中，里面内容是样式字符串</span></span><br><span class="line">                    <span class="string">"css-loader"</span>,</span><br><span class="line">                ],</span><br><span class="line">            },</span><br><span class="line">            {</span><br><span class="line">                test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">                use: [</span><br><span class="line">                    <span class="string">"style-loader"</span>,</span><br><span class="line">                    <span class="string">"css-loader"</span>,</span><br><span class="line">                    <span class="comment">// 将less文件编译成css文件</span></span><br><span class="line">                    <span class="comment">// 需要下载 less-loader和less</span></span><br><span class="line">                    <span class="string">"less-loader"</span>,</span><br><span class="line">                ],</span><br><span class="line">            },</span><br><span class="line">        ],</span><br><span class="line">    },</span><br><span class="line">    <span class="comment">// plugins的配置</span></span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="comment">// 详细plugins的配置</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="comment">// 模式</span></span><br><span class="line">    mode: <span class="string">"development"</span>, <span class="comment">// 开发模式</span></span><br><span class="line">    <span class="comment">// mode: 'production'</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="4">
+<li>运行指令: <code>webpack</code></li>
+</ol>
+<h3 id="2-3-打包-HTML资源"><a href="#2-3-打包-HTML资源" class="headerlink" title="2.3  打包 HTML资源"></a>2.3  打包 HTML资源</h3><ol>
+<li><p>创建文件</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714180434.png" alt=""></p>
+</li>
+<li><p>下载安装 plugin 包<br><code>npm install --save-dev html-webpack-plugin</code></p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  loader: 1. 下载   2. 使用（配置loader）</span></span><br><span class="line"><span class="comment">  plugins: 1. 下载  2. 引入  3. 使用</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> { resolve } = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">"html-webpack-plugin"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">    entry: <span class="string">"./src/index.js"</span>,</span><br><span class="line">    output: {</span><br><span class="line">        filename: <span class="string">"built.js"</span>,</span><br><span class="line">        path: resolve(__dirname, <span class="string">"build"</span>),</span><br><span class="line">    },</span><br><span class="line">    <span class="built_in">module</span>: {</span><br><span class="line">        rules: [</span><br><span class="line">            <span class="comment">// loader的配置</span></span><br><span class="line">        ],</span><br><span class="line">    },</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="comment">// plugins的配置</span></span><br><span class="line">        <span class="comment">// html-webpack-plugin</span></span><br><span class="line">        <span class="comment">// 功能：默认会创建一个空的HTML，自动引入打包输出的所有资源（JS/CSS）</span></span><br><span class="line">        <span class="comment">// 需求：需要有结构的HTML文件</span></span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin({</span><br><span class="line">            <span class="comment">// 复制 './src/index.html' 文件，并自动引入打包输出的所有资源（JS/CSS）</span></span><br><span class="line">            template: <span class="string">"./src/index.html"</span>,</span><br><span class="line">        }),</span><br><span class="line">    ],</span><br><span class="line">    mode: <span class="string">"development"</span>,</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<ol start="4">
+<li>运行指令: <code>webpack</code></li>
+</ol>
+<h3 id="2-4-打包图片资源"><a href="#2-4-打包图片资源" class="headerlink" title="2.4  打包图片资源"></a>2.4  打包图片资源</h3><ol>
+<li><p>创建文件</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714180929.png" alt=""></p>
+</li>
+</ol>
+<ol start="2">
+<li>下载安装 loader 包<br><code>npm install --save-dev html-loader url-loader file-loader</code></li>
+<li>修改配置文件</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> { resolve } = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">"html-webpack-plugin"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">    entry: <span class="string">"./src/index.js"</span>,</span><br><span class="line">    output: {</span><br><span class="line">        filename: <span class="string">"built.js"</span>,</span><br><span class="line">        path: resolve(__dirname, <span class="string">"build"</span>),</span><br><span class="line">    },</span><br><span class="line">    <span class="built_in">module</span>: {</span><br><span class="line">        rules: [{</span><br><span class="line">                test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">                <span class="comment">// 要使用多个loader处理用use</span></span><br><span class="line">                use: [<span class="string">"style-loader"</span>, <span class="string">"css-loader"</span>, <span class="string">"less-loader"</span>],</span><br><span class="line">            },</span><br><span class="line">            {</span><br><span class="line">                <span class="comment">// 问题：默认处理不了html中img图片</span></span><br><span class="line">                <span class="comment">// 处理图片资源</span></span><br><span class="line">                test: <span class="regexp">/\.(jpg|png|gif)$/</span>,</span><br><span class="line">                <span class="comment">// 使用一个loader</span></span><br><span class="line">                <span class="comment">// 下载 url-loader file-loader</span></span><br><span class="line">                loader: <span class="string">"url-loader"</span>,</span><br><span class="line">                options: {</span><br><span class="line">                    <span class="comment">// 图片大小小于8kb，就会被base64处理</span></span><br><span class="line">                    <span class="comment">// 优点: 减少请求数量（减轻服务器压力）</span></span><br><span class="line">                    <span class="comment">// 缺点：图片体积会更大（文件请求速度更慢）</span></span><br><span class="line">                    limit: <span class="number">8</span> * <span class="number">1024</span>,</span><br><span class="line">                    <span class="comment">// 问题：因为url-loader默认使用es6模块化解析，而html-loader引入图片是commonjs</span></span><br><span class="line">                    <span class="comment">// 解析时会出问题：[object Module]</span></span><br><span class="line">                    <span class="comment">// 解决：关闭url-loader的es6模块化，使用commonjs解析</span></span><br><span class="line">                    esModule: <span class="literal">false</span>,</span><br><span class="line">                    <span class="comment">// 给图片进行重命名</span></span><br><span class="line">                    <span class="comment">// [hash:10]取图片的hash的前10位</span></span><br><span class="line">                    <span class="comment">// [ext]取文件原来扩展名</span></span><br><span class="line">                    name: <span class="string">"[hash:10].[ext]"</span>,</span><br><span class="line">                },</span><br><span class="line">            },</span><br><span class="line">            {</span><br><span class="line">                test: <span class="regexp">/\.html$/</span>,</span><br><span class="line">                <span class="comment">// 处理html文件的img图片（负责引入img，从而能被url-loader进行处理）</span></span><br><span class="line">                loader: <span class="string">"html-loader"</span>,</span><br><span class="line">            },</span><br><span class="line">        ],</span><br><span class="line">    },</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin({</span><br><span class="line">            template: <span class="string">"./src/index.html"</span>,</span><br><span class="line">        }),</span><br><span class="line">    ],</span><br><span class="line">    mode: <span class="string">"development"</span>,</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="4">
+<li>运行指令: <code>webpack</code></li>
+</ol>
+<h3 id="2-5-打包其他资源"><a href="#2-5-打包其他资源" class="headerlink" title="2.5  打包其他资源"></a>2.5  打包其他资源</h3><ol>
+<li><p>创建文件</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714180656.png" alt=""></p>
+</li>
+<li><p>修改配置文件</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> { resolve } = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">  entry: <span class="string">'./src/index.js'</span>,</span><br><span class="line">  output: {</span><br><span class="line">    filename: <span class="string">'built.js'</span>,</span><br><span class="line">    path: resolve(__dirname, <span class="string">'build'</span>)</span><br><span class="line">  },</span><br><span class="line">  <span class="built_in">module</span>: {</span><br><span class="line">    rules: [</span><br><span class="line">      {</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]</span><br><span class="line">      },</span><br><span class="line">      <span class="comment">// 打包其他资源(除了html/js/css资源以外的资源)</span></span><br><span class="line">      {</span><br><span class="line">        <span class="comment">// 排除css/js/html资源</span></span><br><span class="line">        exclude: <span class="regexp">/\.(css|js|html|less)$/</span>,</span><br><span class="line">        loader: <span class="string">'file-loader'</span>,</span><br><span class="line">        options: {</span><br><span class="line">          name: <span class="string">'[hash:10].[ext]'</span></span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">    ]</span><br><span class="line">  },</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin({</span><br><span class="line">      template: <span class="string">'./src/index.html'</span></span><br><span class="line">    })</span><br><span class="line">  ],</span><br><span class="line">  mode: <span class="string">'development'</span></span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<ol start="4">
+<li>运行指令: <code>webpack</code></li>
+</ol>
+<h3 id="2-6-devserver"><a href="#2-6-devserver" class="headerlink" title="2.6 devserver"></a>2.6 devserver</h3><blockquote>
+<p>开发服务器 devServer：用来自动化（自动编译，自动打开浏览器，自动刷新浏览器~~）。</p>
+<p>特点：只会在内存中编译打包，不会有任何输出。</p>
+<p>启动devServer指令为：<code>npx webpack-dev-server</code>。</p>
+</blockquote>
+<ol>
+<li><p>创建文件</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714181105.png" alt=""></p>
+</li>
+<li><p>下载webpack-dev-server依赖包</p>
+<p><code>npm i webpack-dev-server -D</code></p>
+</li>
+</ol>
+<ol start="3">
+<li>修改配置文件</li>
+</ol>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> { resolve } = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">    entry: <span class="string">'./src/index.js'</span>,</span><br><span class="line">    output: {</span><br><span class="line">        filename: <span class="string">'built.js'</span>,</span><br><span class="line">        path: resolve(__dirname, <span class="string">'build'</span>)</span><br><span class="line">    },</span><br><span class="line">    <span class="built_in">module</span>: {</span><br><span class="line">        rules: [{</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]</span><br><span class="line">            },</span><br><span class="line">            <span class="comment">// 打包其他资源(除了html/js/css资源以外的资源)</span></span><br><span class="line">            {</span><br><span class="line">                <span class="comment">// 排除css/js/html资源</span></span><br><span class="line">                exclude: <span class="regexp">/\.(css|js|html|less)$/</span>,</span><br><span class="line">                loader: <span class="string">'file-loader'</span>,</span><br><span class="line">                options: {</span><br><span class="line">                    name: <span class="string">'[hash:10].[ext]'</span></span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        ]</span><br><span class="line">    },</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> HtmlWebpackPlugin({</span><br><span class="line">            template: <span class="string">'./src/index.html'</span></span><br><span class="line">        })</span><br><span class="line">    ],</span><br><span class="line">    mode: <span class="string">'development'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 开发服务器 devServer：用来自动化（自动编译，自动打开浏览器，自动刷新浏览器~~）</span></span><br><span class="line">    <span class="comment">// 特点：只会在内存中编译打包，不会有任何输出</span></span><br><span class="line">    <span class="comment">// 启动devServer指令为：npx webpack-dev-server</span></span><br><span class="line">    devServer: {</span><br><span class="line">        <span class="comment">// 项目构建后路径</span></span><br><span class="line">        contentBase: resolve(__dirname, <span class="string">'build'</span>),</span><br><span class="line">        <span class="comment">// 启动gzip压缩</span></span><br><span class="line">        compress: <span class="literal">true</span>,</span><br><span class="line">        <span class="comment">// 端口号</span></span><br><span class="line">        port: <span class="number">3000</span>,</span><br><span class="line">        <span class="comment">// 自动打开浏览器</span></span><br><span class="line">        open: <span class="literal">true</span></span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="4">
+<li>运行指令: <code>npx webpack-dev-server</code></li>
+</ol>
+<h3 id="2-7-开发环境的配置"><a href="#2-7-开发环境的配置" class="headerlink" title="2.7 开发环境的配置"></a>2.7 开发环境的配置</h3><blockquote>
+<p>  开发环境配置：能让代码运行<br>    运行项目指令：<br>      webpack 会将打包结果输出出去<br>      <code>npx webpack-dev-server</code> 只会在内存中编译打包，没有输出</p>
+</blockquote>
+<p><span style="background-color:yellow"> <strong>下载依赖包的时候，尽量下载到包含所有项目的最上面的文件夹，这样可以不用多次下载。</strong></span></p>
+<p>1、下载并安装 webpack</p>
+<p><code>npm install webpack webpack-cli -g</code>   只装一次 -g 的全局安装 （也可装多次，可以更新版本）<br><code>npm install webpack webpack-cli -D</code>   本地安装 -D 这样webpack都是属于开发依赖 不属于生成依赖</p>
+<p>2、初始化 package.json</p>
+<p><code>npm init</code></p>
+<p>3、下载安装 loader 包</p>
+<p><code>npm i css-loader style-loader less-loader less -D</code></p>
+<p>4、下载安装 plugin 包<br><code>npm install --save-dev html-webpack-plugin</code></p>
+<p>5、下载安装 loader 包<br><code>npm install --save-dev html-loader url-loader file-loader</code></p>
+<p>6、下载webpack-dev-server依赖包</p>
+<p><code>npm i webpack-dev-server -D</code></p>
+<ol>
+<li><p>创建文件</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714181538.png" alt=""></p>
+</li>
+</ol>
+<ol start="2">
+<li>修改配置文件</li>
+</ol>
+<p><span style="background-color:yellow"> 注意文件的路径，为了归类方便，将它们进行归档。<strong>要特别注意</strong></span></p>
+<p>字体文件iconfont.css 文件中的路径</p>
+<p><img src="C:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200714182650903.png" alt=""></p>
+<p>背景图片的路径</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714182558.png" alt=""></p>
+<p>入口文件中 引入的路径</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714182755.png" alt=""></p>
+<p>html中的图片路径</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714183007.png" alt=""></p>
+<p><span style="background-color:yellow"> <strong>总之要特别注意引入文件的路径</strong></span></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> { resolve } = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">  entry: <span class="string">'./src/js/index.js'</span>,           <span class="comment">// 注意路径的变化</span></span><br><span class="line">  output: {</span><br><span class="line">    filename: <span class="string">'js/built.js'</span>,            <span class="comment">// 注意路径的变化</span></span><br><span class="line">    path: resolve(__dirname, <span class="string">'build'</span>)</span><br><span class="line">  },</span><br><span class="line">  <span class="built_in">module</span>: {</span><br><span class="line">    rules: [</span><br><span class="line">      <span class="comment">// loader的配置</span></span><br><span class="line">      {</span><br><span class="line">        <span class="comment">// 处理less资源</span></span><br><span class="line">        test: <span class="regexp">/\.less$/</span>,</span><br><span class="line">        use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'less-loader'</span>]</span><br><span class="line">      },</span><br><span class="line">      {</span><br><span class="line">        <span class="comment">// 处理css资源</span></span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        use: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>]</span><br><span class="line">      },</span><br><span class="line">      {</span><br><span class="line">        <span class="comment">// 处理图片资源</span></span><br><span class="line">        test: <span class="regexp">/\.(jpg|png|gif)$/</span>,    </span><br><span class="line">        loader: <span class="string">'url-loader'</span>,</span><br><span class="line">        options: {</span><br><span class="line">          limit: <span class="number">8</span> * <span class="number">1024</span>,</span><br><span class="line">          name: <span class="string">'[hash:10].[ext]'</span>,</span><br><span class="line">          <span class="comment">// 关闭es6模块化</span></span><br><span class="line">          esModule: <span class="literal">false</span>,</span><br><span class="line">          outputPath: <span class="string">'imgs'</span>       <span class="comment">//  输出文件路径 是在imgs问价目录下</span></span><br><span class="line">        }</span><br><span class="line">      },</span><br><span class="line">      {</span><br><span class="line">        <span class="comment">// 处理html中img资源</span></span><br><span class="line">        test: <span class="regexp">/\.html$/</span>,</span><br><span class="line">        loader: <span class="string">'html-loader'</span></span><br><span class="line">      },</span><br><span class="line">      {</span><br><span class="line">        <span class="comment">// 处理其他资源</span></span><br><span class="line">        exclude: <span class="regexp">/\.(html|js|css|less|jpg|png|gif)/</span>,</span><br><span class="line">        loader: <span class="string">'file-loader'</span>,</span><br><span class="line">        options: {</span><br><span class="line">          name: <span class="string">'[hash:10].[ext]'</span>,</span><br><span class="line">          outputPath: <span class="string">'media'</span>      <span class="comment">//  输出文件路径 是在media问价目录下</span></span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">    ]</span><br><span class="line">  },</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// plugins的配置</span></span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin({</span><br><span class="line">      template: <span class="string">'./src/index.html'</span>  <span class="comment">// 注意路径的变化 </span></span><br><span class="line">    })</span><br><span class="line">  ],</span><br><span class="line">  mode: <span class="string">'development'</span>,</span><br><span class="line">  devServer: {</span><br><span class="line">    contentBase: resolve(__dirname, <span class="string">'build'</span>),</span><br><span class="line">    compress: <span class="literal">true</span>,</span><br><span class="line">    port: <span class="number">3000</span>,</span><br><span class="line">    open: <span class="literal">true</span></span><br><span class="line">  }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<ol start="3">
+<li>运行指令: <code>npx webpack-dev-server</code>或者<code>webpack</code></li>
+<li>生成的目录结构</li>
+</ol>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200714183149.png" alt=""></p>
+<p><br><br></p>
+<p>愿你的坚持终有收获</p>
+<p><br><br></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+                                                <!-- 《添加版权声明 -->
+                                                
+                                                    <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      阿清そ
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-07-14
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-07-14
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="https://aqingya.cn/2020/07/14/53/" title="webpack  开发环境的基本配置" target="_blank">webpack  开发环境的基本配置</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="https://aqingya.cn/2020/07/14/53/" title="webpack  开发环境的基本配置" target="_blank">https://aqingya.cn/2020/07/14/53/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://myblog12.qiniu.yansheng.xyz/picgo/by-nc-sa-4.0-88x31.png"/></a>
+    
+  </div>
+
+<!-- 添加版权声明》 -->
+                                                        
+                                                            <!-- 添加版权声明》 -->
+
+
+                                                            
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">WebPack</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+                                                                                    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        			<a href="/categories/WebPack//" class="article-tag-list-link color3">WebPack</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+                                                                                        
+
+                                                                                                
+                                                                                                    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
   </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/07/14/53/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+                                                                                                        
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/26/27/" class="archive-article-date">
-  	<time datetime="2020-05-26T08:34:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-26</time>
-</a>
 
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/13/52/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git操作——简单可直接食用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+        
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/26/27/">JavaScript DOM</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-webpack-初体验"><span class="toc-number">1.</span> <span class="toc-text">1. webpack 初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-初始化配置"><span class="toc-number">1.1.</span> <span class="toc-text">1.1  初始化配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-编译打包应用"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 编译打包应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-webpack-开发环境的基本配置"><span class="toc-number">2.</span> <span class="toc-text">2. webpack  开发环境的基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-创建配置文件"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 创建配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-打包样式资源"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 打包样式资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-打包-HTML资源"><span class="toc-number">2.3.</span> <span class="toc-text">2.3  打包 HTML资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-打包图片资源"><span class="toc-number">2.4.</span> <span class="toc-text">2.4  打包图片资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-打包其他资源"><span class="toc-number">2.5.</span> <span class="toc-text">2.5  打包其他资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-devserver"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 devserver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-开发环境的配置"><span class="toc-number">2.7.</span> <span class="toc-text">2.7 开发环境的配置</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/25/26/" class="archive-article-date">
-  	<time datetime="2020-05-25T11:20:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
-
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/25/26/">JavaScript DOM2 - 遍历</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/25/25/" class="archive-article-date">
-  	<time datetime="2020-05-25T07:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-25</time>
-</a>
 
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/25/25/">JavaScript DOM ---样式</a>
-    </h1>
-  
+                
+                    
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
-        		</li>
-      		
-		</ul>
-	</div>
+                                
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
+                                            
+
+                                                        
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/24/24/" class="archive-article-date">
-  	<time datetime="2020-05-24T13:48:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-24</time>
-</a>
+<!-- 《utteranc评论：基于github issue的评论系统 -->
 
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/24/24/">JavaScript --- DOM  document 扩展</a>
-    </h1>
-  
+    <section id="comments" class="comments">
+      <style>
+        .utterances{max-width: 100%;}
+      </style>
+        <script src="https://utteranc.es/client.js"
+                repo="wuzhiguang1/wuzhiguang1.github.io"
+                issue-term="title"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+        </script>
+  </section>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<!-- utteranc评论》 -->
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/23/23/" class="archive-article-date">
-  	<time datetime="2020-05-23T13:31:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-23</time>
-</a>
-
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/23/23/">JavaScript DOM操作技术---动态脚本和动态样式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/22/22/" class="archive-article-date">
-  	<time datetime="2020-05-22T10:01:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/22/22/">JavaScript --- DOM  document类型</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/22/21/" class="archive-article-date">
-  	<time datetime="2020-05-22T06:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
-</a>
-
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/22/21/">JavaScript  ---  DOM简介 和  DOM Node节点的增删改查</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-
+                                                                
+                                                                            
 
                             </div>
                         </div>
@@ -826,9 +809,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
