@@ -6,20 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://aqingya.cn">
-  <title>JavaScript ---事件的委派 | 阿清的小站</title>
+  <title>Tag: npm | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript ---事件的委派">
-<meta property="og:url" content="https://aqingya.cn/2020/04/24/fifteen/index.html">
+  <meta name="description" content="阿清的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="阿清的小站">
+<meta property="og:url" content="https://aqingya.cn/tags/npm/index.html">
 <meta property="og:site_name" content="阿清的小站">
+<meta property="og:description" content="阿清的博客">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg">
-<meta property="article:published_time" content="2020-04-24T04:42:09.000Z">
-<meta property="article:modified_time" content="2020-07-15T10:32:25.267Z">
 <meta property="article:author" content="阿清そ">
-<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -286,303 +283,77 @@
                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                             </div>
                             <div id="js-content" class="content-ll">
-                                <article id="post-fifteen" class="article article-type-post " itemscope itemprop="blogPost">
-<div class="article-inner">
+                                
+  
+  
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JavaScript ---事件的委派
-    </h1>
-  
-
-        
-        <a href="/2020/04/24/fifteen/" class="archive-article-date">
-  	<time datetime="2020-04-24T04:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/07/15/55/" class="archive-article-date">
+  	<time datetime="2020-07-15T15:13:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
 </a>
 
  <!-- 不蒜子统计 -->
         <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">486字</span>
-      </span>
-    </span>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/07/15/55/">npm 淘宝镜像的安装</a>
+    </h1>
+  
 
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
+        <div class="article-info info-on-right">
           
-        <!-- 添加完成 -->
-
-        
-      </header>
-            
-
-            
-
-
-
-<!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-
-
-                <div class="article-entry" itemprop="articleBody">
-                    
-
-                                
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg" alt=""></p>
-<a id="more"></a>
-
-<br>
-<br>
-
-<ul>
-<li>指将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的时间触发时，会一直冒泡到祖先元素。从而通过祖先元素的响应事件来处理事件。</li>
-<li>事件委派是利用了冒泡，通过委派可以减少事件的绑定次数，提高程序的性能。</li>
-</ul>
-<p>target：<br>target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。</p>
-<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() {</span><br><span class="line">            <span class="keyword">var</span> lis = document.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">            <span class="keyword">var</span> u1 = document.getElementById(<span class="string">"u1"</span>);</span><br><span class="line">            <span class="keyword">var</span> btn = document.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">            <span class="comment">// for (var i = 0; i &lt; lis.length; i++) {</span></span><br><span class="line">            <span class="comment">//     lis[i].onclick = function() {</span></span><br><span class="line">            <span class="comment">//         alert("我是超链接");</span></span><br><span class="line">            <span class="comment">//     }</span></span><br><span class="line">            <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">            u1.onclick = function(event) {</span><br><span class="line">                <span class="comment">//解决event浏览器兼容性问题</span></span><br><span class="line">                event = event || window.event;</span><br><span class="line">                <span class="comment">//如果触发的事件是我们期望的元素，否则不执行。</span></span><br><span class="line">                <span class="comment">//创建一个正则表达式，判断一下含有link的class才能被触发。</span></span><br><span class="line">                <span class="keyword">var</span> patt1 = /[link]/ig;</span><br><span class="line">                <span class="keyword">if</span> (patt1.test(event.target.className)) {</span><br><span class="line">                    alert(<span class="string">"我是超链接"</span>);</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            btn.onclick = function() {</span><br><span class="line">                <span class="keyword">var</span> li = document.createElement(<span class="string">"li"</span>);</span><br><span class="line">                li.innerHTML = <span class="string">"&lt;a href='javascript: ;'class='link'&gt;新的超链接&lt;/a&gt;"</span>;</span><br><span class="line">                u1.appendChild(li);</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id="btn"&gt;点击&lt;/button&gt;</span><br><span class="line">    &lt;ul id=<span class="string">"u1"</span>&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="s link s"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare">
-    <strong class="author">本文作者：</strong>
-    
-      阿清そ
-    
-    <br>
-    <strong class="create-time">发布时间：</strong>
-    2020-04-24
-    <br>
-    <strong class="update-time">最后更新：</strong>
-    2020-07-15
-    <br>
-    <strong class="article-titles">本文标题：</strong>
-    <a href="https://aqingya.cn/2020/04/24/fifteen/" title="JavaScript ---事件的委派" target="_blank">JavaScript ---事件的委派</a>
-    <br>
-    <strong class="article-url">本文链接：</strong>
-    <a href="https://aqingya.cn/2020/04/24/fifteen/" title="JavaScript ---事件的委派" target="_blank">https://aqingya.cn/2020/04/24/fifteen/</a>
-    <br>
-    <strong class="copyright">版权声明：</strong>
-    本作品采用
-    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
-    许可协议进行许可。转载请注明出处！
-    
-      <br>
-      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="https://myblog12.qiniu.yansheng.xyz/picgo/by-nc-sa-4.0-88x31.png"/></a>
-    
-  </div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
-                                                                
-                                                                    <div class="article-info article-info-index">
-                                                                        
-                                                                                
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
         		</li>
       		
 		</ul>
 	</div>
 
-                                                                                    
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        			<a href="/categories/npm//" class="article-tag-list-link color4">npm</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-                                                                                        
-
-                                                                                                
-                                                                                                    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
+        <div class="clearfix"></div>
+    </header>
   </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/04/24/fifteen/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-                                                                                                        
-                                                                                                            <div class="clearfix"></div>
-                                                                    </div>
-                </div>
 </article>
+  
+  
+    </div></section>
+  
 
     
-<nav id="article-nav">
-  
-    <a href="/2020/04/25/sixteen/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript ---鼠标拖拽元素问题总结
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/04/24/fourteen/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
 
-        
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-                
-                    
-
-                                
-
-                                            
-
-                                                        
-
-
-<!-- 《utteranc评论：基于github issue的评论系统 -->
-
-    <section id="comments" class="comments">
-      <style>
-        .utterances{max-width: 100%;}
-      </style>
-        <script src="https://utteranc.es/client.js"
-                repo="wuzhiguang1/wuzhiguang1.github.io"
-                issue-term="title"
-                theme="github-light"
-                crossorigin="anonymous"
-                async>
-        </script>
-  </section>
-
-<!-- utteranc评论》 -->
-
-                                                                
-                                                                            
 
                             </div>
                         </div>
@@ -645,9 +416,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

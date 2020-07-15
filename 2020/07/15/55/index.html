@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://aqingya.cn">
-  <title>JavaScript ---事件的委派 | 阿清的小站</title>
+  <title>npm 淘宝镜像的安装 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript ---事件的委派">
-<meta property="og:url" content="https://aqingya.cn/2020/04/24/fifteen/index.html">
+<meta property="og:title" content="npm 淘宝镜像的安装">
+<meta property="og:url" content="https://aqingya.cn/2020/07/15/55/index.html">
 <meta property="og:site_name" content="阿清的小站">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg">
-<meta property="article:published_time" content="2020-04-24T04:42:09.000Z">
-<meta property="article:modified_time" content="2020-07-15T10:32:25.267Z">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/bedb48f87ec34fc8997e26ad4624f728.jpg">
+<meta property="article:published_time" content="2020-07-15T15:13:14.000Z">
+<meta property="article:modified_time" content="2020-07-15T15:35:55.327Z">
 <meta property="article:author" content="阿清そ">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="npm">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/bedb48f87ec34fc8997e26ad4624f728.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -286,20 +286,20 @@
                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                             </div>
                             <div id="js-content" class="content-ll">
-                                <article id="post-fifteen" class="article article-type-post " itemscope itemprop="blogPost">
+                                <article id="post-55" class="article article-type-post " itemscope itemprop="blogPost">
 <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript ---事件的委派
+      npm 淘宝镜像的安装
     </h1>
   
 
         
-        <a href="/2020/04/24/fifteen/" class="archive-article-date">
-  	<time datetime="2020-04-24T04:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+        <a href="/2020/07/15/55/" class="archive-article-date">
+  	<time datetime="2020-07-15T15:13:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
 </a>
 
  <!-- 不蒜子统计 -->
@@ -314,7 +314,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">486字</span>
+        <span class="post-count">347字</span>
       </span>
     </span>
 
@@ -323,7 +323,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">1分</span>
       </span>
     </span>
 </div>
@@ -340,6 +340,22 @@
 
 <!-- 目录内容 -->
 
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
 
@@ -348,25 +364,45 @@
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg" alt=""></p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/bedb48f87ec34fc8997e26ad4624f728.jpg" alt=""></p>
 <a id="more"></a>
 
-<br>
-<br>
+<h1 id="npm-淘宝镜像的安装"><a href="#npm-淘宝镜像的安装" class="headerlink" title="npm 淘宝镜像的安装"></a>npm 淘宝镜像的安装</h1><h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>使用阿里定制的cnpm命令行工具代替默认的npm，输入以下代码</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></tbody></table></figure>
 
-<ul>
-<li>指将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的时间触发时，会一直冒泡到祖先元素。从而通过祖先元素的响应事件来处理事件。</li>
-<li>事件委派是利用了冒泡，通过委派可以减少事件的绑定次数，提高程序的性能。</li>
-</ul>
-<p>target：<br>target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。</p>
-<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() {</span><br><span class="line">            <span class="keyword">var</span> lis = document.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">            <span class="keyword">var</span> u1 = document.getElementById(<span class="string">"u1"</span>);</span><br><span class="line">            <span class="keyword">var</span> btn = document.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">            <span class="comment">// for (var i = 0; i &lt; lis.length; i++) {</span></span><br><span class="line">            <span class="comment">//     lis[i].onclick = function() {</span></span><br><span class="line">            <span class="comment">//         alert("我是超链接");</span></span><br><span class="line">            <span class="comment">//     }</span></span><br><span class="line">            <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">            u1.onclick = function(event) {</span><br><span class="line">                <span class="comment">//解决event浏览器兼容性问题</span></span><br><span class="line">                event = event || window.event;</span><br><span class="line">                <span class="comment">//如果触发的事件是我们期望的元素，否则不执行。</span></span><br><span class="line">                <span class="comment">//创建一个正则表达式，判断一下含有link的class才能被触发。</span></span><br><span class="line">                <span class="keyword">var</span> patt1 = /[link]/ig;</span><br><span class="line">                <span class="keyword">if</span> (patt1.test(event.target.className)) {</span><br><span class="line">                    alert(<span class="string">"我是超链接"</span>);</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            btn.onclick = function() {</span><br><span class="line">                <span class="keyword">var</span> li = document.createElement(<span class="string">"li"</span>);</span><br><span class="line">                li.innerHTML = <span class="string">"&lt;a href='javascript: ;'class='link'&gt;新的超链接&lt;/a&gt;"</span>;</span><br><span class="line">                u1.appendChild(li);</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id="btn"&gt;点击&lt;/button&gt;</span><br><span class="line">    &lt;ul id=<span class="string">"u1"</span>&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="s link s"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>检查是否安装成功：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm -v</span><br></pre></td></tr></tbody></table></figure>
 
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
+<p>安装成功之后，以后安装依赖包的方式和npm的是一样的，只是npm的命令换成是cnpm就可以了。</p>
+<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><p>a:单次使用：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></tbody></table></figure>
 
+<p>b:永久替换：</p>
+<p>在开发react-native的时候，不要使用cnpm，cnpm安装的模块路径比较奇怪，packager不能正常识别。</p>
+<p>所以，为了方便开发，我们最好是直接永久使用淘宝的镜像源</p>
+<p>直接命令行的设置</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></tbody></table></figure>
+
+<p>手动修改设置</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.打开.npmrc文件（C:\Program Files\nodejs\node_modules\npm\npmrc，没有的话可以使用git命令行建一个( touch .npmrc)，用cmd命令建会报错）</span><br><span class="line">2.增加 registry =https://registry.npm.taobao.org  即可。</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>如果需要恢复成原来的官方地址只需要执行如下命令:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npmjs.org</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>检测是否安装成功：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<p><br><br></p>
+<p>愿你的坚持终有收获</p>
+<p><br><br></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -401,16 +437,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-04-24
+    2020-07-15
     <br>
     <strong class="update-time">最后更新：</strong>
     2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://aqingya.cn/2020/04/24/fifteen/" title="JavaScript ---事件的委派" target="_blank">JavaScript ---事件的委派</a>
+    <a href="https://aqingya.cn/2020/07/15/55/" title="npm 淘宝镜像的安装" target="_blank">npm 淘宝镜像的安装</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://aqingya.cn/2020/04/24/fifteen/" title="JavaScript ---事件的委派" target="_blank">https://aqingya.cn/2020/04/24/fifteen/</a>
+    <a href="https://aqingya.cn/2020/07/15/55/" title="npm 淘宝镜像的安装" target="_blank">https://aqingya.cn/2020/07/15/55/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -437,7 +473,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
         		</li>
       		
 		</ul>
@@ -449,7 +485,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        			<a href="/categories/npm//" class="article-tag-list-link color4">npm</a>
         		</li>
       		
 		</ul>
@@ -504,7 +540,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/04/24/fifteen/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/07/15/55/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -518,18 +554,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/04/25/sixteen/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript ---鼠标拖拽元素问题总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/24/fourteen/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。</div>
+    <a href="/2020/07/15/54/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack生产环境的基本配置</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -548,6 +575,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#npm-淘宝镜像的安装"><span class="toc-number">1.</span> <span class="toc-text">npm 淘宝镜像的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法一："><span class="toc-number">1.1.</span> <span class="toc-text">方法一：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法二："><span class="toc-number">1.2.</span> <span class="toc-text">方法二：</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
