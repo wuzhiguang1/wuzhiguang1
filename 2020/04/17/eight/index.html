@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>细谈apply()与call() | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="两者使用的目的：改变调用的函数体内部的this的指向。  相同点：均是调用某对象的方法，格式：obj.函数名.call()  call(obj,参数1，参数2）:两个参数,前者将代替Function类里this对象，后者（多个元素）作为参数传递给被调用的函数。 12345678910var foo &#x3D; {  name:&quot;name1&quot;,  logName:function(){    console">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="细谈apply()与call()">
 <meta property="og:url" content="https://aqingya.cn/2020/04/17/eight/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="两者使用的目的：改变调用的函数体内部的this的指向。  相同点：均是调用某对象的方法，格式：obj.函数名.call()  call(obj,参数1，参数2）:两个参数,前者将代替Function类里this对象，后者（多个元素）作为参数传递给被调用的函数。 12345678910var foo &#x3D; {  name:&quot;name1&quot;,  logName:function(){    console">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/94b7a45ee1c049bda243f034e6172c19.jpg">
 <meta property="article:published_time" content="2020-04-17T03:22:48.000Z">
-<meta property="article:modified_time" content="2020-07-05T02:22:32.671Z">
+<meta property="article:modified_time" content="2020-07-15T10:32:22.070Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/94b7a45ee1c049bda243f034e6172c19.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -160,8 +160,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -348,7 +348,10 @@
                     
 
                                 
-                                            <p><strong>两者使用的目的</strong>：改变调用的函数体内部的this的指向。<br>  相同点：均是调用某对象的方法，格式：obj.函数名.call()<br>  call(obj,参数1，参数2）:两个参数,前者将代替Function类里this对象，后者（多个元素）作为参数传递给被调用的函数。</p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/94b7a45ee1c049bda243f034e6172c19.jpg" alt=""></p>
+<a id="more"></a>
+
+<p><strong>两者使用的目的</strong>：改变调用的函数体内部的this的指向。<br>  相同点：均是调用某对象的方法，格式：obj.函数名.call()<br>  call(obj,参数1，参数2）:两个参数,前者将代替Function类里this对象，后者（多个元素）作为参数传递给被调用的函数。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = {</span><br><span class="line">  name:<span class="string">"name1"</span>,</span><br><span class="line">  logName:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> bar={</span><br><span class="line">  name:<span class="string">"name2"</span></span><br><span class="line">};</span><br><span class="line">foo.logName.call(bar);<span class="comment">//name2</span></span><br></pre></td></tr></tbody></table></figure>
 <p>  apply（obj，[参数1，参数2]），同上，不同点是第二个参数是数组。（将数组的每个元素作为一个个参数传递给被调用的函数，性质与call（）方法一样）</p>
 <p>  利用apply（）这一特性的一些小场景：</p>
@@ -397,7 +400,7 @@
     2020-04-17
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-07-05
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/04/17/eight/" title="细谈apply()与call()" target="_blank">细谈apply()与call()</a>
@@ -794,6 +797,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

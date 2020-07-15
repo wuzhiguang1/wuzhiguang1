@@ -8,23 +8,22 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript中正则表达式的常用总结 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="正则表达式的思维导图： 正则的捕获exec()  exec() 方法用于检索字符串中的正则表达式的匹配。 1RegExpObject.exec(string)     参数 描述    string 必需。要检索的字符串。   返回值：返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。    （1）懒惰性  我们先看一个例子： 123456let reg &#x3D; &#x2F;\d+&#x2F;let">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript中正则表达式的常用总结">
 <meta property="og:url" content="https://aqingya.cn/2020/04/20/nine/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="正则表达式的思维导图： 正则的捕获exec()  exec() 方法用于检索字符串中的正则表达式的匹配。 1RegExpObject.exec(string)     参数 描述    string 必需。要检索的字符串。   返回值：返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null。    （1）懒惰性  我们先看一个例子： 123456let reg &#x3D; &#x2F;\d+&#x2F;let">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/51479d14d0014d2ebbc2c58d5f0c478d.jpg">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200420100401772.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200420101034504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2020042010115215.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200420101444766.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-04-20T02:38:53.000Z">
-<meta property="article:modified_time" content="2020-05-12T08:39:59.890Z">
+<meta property="article:modified_time" content="2020-07-15T10:34:12.591Z">
 <meta property="article:author" content="阿清そ">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="正则表达式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200420100401772.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/51479d14d0014d2ebbc2c58d5f0c478d.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -165,8 +164,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -353,7 +352,10 @@
                     
 
                                 
-                                            <p>正则表达式的思维导图：<br><img src="https://img-blog.csdnimg.cn/20200420100401772.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/51479d14d0014d2ebbc2c58d5f0c478d.jpg" alt=""></p>
+<a id="more"></a>
+
+<p>正则表达式的思维导图：<br><img src="https://img-blog.csdnimg.cn/20200420100401772.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h2 id="正则的捕获exec"><a href="#正则的捕获exec" class="headerlink" title="正则的捕获exec()"></a>正则的捕获exec()</h2><p>  exec() 方法用于检索字符串中的正则表达式的匹配。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RegExpObject.exec(string)</span><br></pre></td></tr></tbody></table></figure>
 
@@ -464,7 +466,7 @@
     2020-04-20
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-05-12
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/04/20/nine/" title="JavaScript中正则表达式的常用总结" target="_blank">JavaScript中正则表达式的常用总结</a>
@@ -497,7 +499,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
         		</li>
       		
 		</ul>
@@ -509,7 +511,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        			<a href="/categories/正则表达式//" class="article-tag-list-link color1">正则表达式</a>
         		</li>
       		
 		</ul>
@@ -861,6 +863,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

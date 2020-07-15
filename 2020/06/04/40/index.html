@@ -8,20 +8,19 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript性能优化之高级定时器 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="定时器对队列的工作方式：当特定时间过去后将代码插人。注意，给队列添加代码并不意味着对它立刻执行，而只能表示它会尽快执行。设定一个150ms后执行的定时器不代表到了150ms代码就立刻执行，它表示代码会在150ms后被加入到队列中。如果在这个时间点上，队列中没有其他东西，那么这段代码就会被执行，表面上看上去好像代码就在精确指定的时间点上执行了。其他情况下，代码可能明显地等待更长时间才执行。   重复">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript性能优化之高级定时器">
 <meta property="og:url" content="https://aqingya.cn/2020/06/04/40/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="定时器对队列的工作方式：当特定时间过去后将代码插人。注意，给队列添加代码并不意味着对它立刻执行，而只能表示它会尽快执行。设定一个150ms后执行的定时器不代表到了150ms代码就立刻执行，它表示代码会在150ms后被加入到队列中。如果在这个时间点上，队列中没有其他东西，那么这段代码就会被执行，表面上看上去好像代码就在精确指定的时间点上执行了。其他情况下，代码可能明显地等待更长时间才执行。   重复">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/124.jpg">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/2020060414401171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-06-04T07:20:16.000Z">
-<meta property="article:modified_time" content="2020-06-04T07:23:54.169Z">
+<meta property="article:modified_time" content="2020-07-15T10:52:22.285Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2020060414401171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/124.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -162,8 +161,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -350,7 +349,12 @@
                     
 
                                 
-                                            <p><strong>定时器对队列的工作方式：</strong>当特定时间过去后将代码插人。注意，给队列添加代码并不意味着对它立刻执行，而只能表示它会尽快执行。<span style="color:red;background-color:yellow"><strong>设定一个150ms后执行的定时器不代表到了150ms代码就立刻执行，它表示代码会在150ms后被加入到队列中。如果在这个时间点上，队列中没有其他东西，那么这段代码就会被执行</strong></span>，表面上看上去好像代码就在精确指定的时间点上执行了。其他情况下，代码可能明显地等待更长时间才执行。</p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/124.jpg" alt=""></p>
+<a id="more"></a>
+
+
+
+<p><strong>定时器对队列的工作方式：</strong>当特定时间过去后将代码插人。注意，给队列添加代码并不意味着对它立刻执行，而只能表示它会尽快执行。<span style="color:red;background-color:yellow"><strong>设定一个150ms后执行的定时器不代表到了150ms代码就立刻执行，它表示代码会在150ms后被加入到队列中。如果在这个时间点上，队列中没有其他东西，那么这段代码就会被执行</strong></span>，表面上看上去好像代码就在精确指定的时间点上执行了。其他情况下，代码可能明显地等待更长时间才执行。</p>
 <br>
 
 <p>重复定时器：</p>
@@ -406,7 +410,7 @@
     2020-06-04
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-06-04
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/06/04/40/" title="JavaScript性能优化之高级定时器" target="_blank">JavaScript性能优化之高级定时器</a>
@@ -803,6 +807,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

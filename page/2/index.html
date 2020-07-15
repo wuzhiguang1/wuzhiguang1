@@ -157,8 +157,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -284,6 +284,132 @@
                             </div>
                             <div id="js-content" class="content-ll">
                                 
+  
+    <article id="post-44" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/27/44/">es6之 Object.assign()详解</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/27/44/" class="archive-article-date">
+  	<time datetime="2020-06-27T06:29:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-27</time>
+</a>
+
+ <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.7k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">7分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+            
+
+            
+
+
+
+<!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+
+
+
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/172a2a72642a945e.png" alt=""></p>
+                                        
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                                                                                    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/ES6//" class="article-tag-list-link color4">ES6</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/06/27/44/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
+
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+                
+
   
     <article id="post-42" class="article article-type-post  article-index" itemscope itemprop="blogPost">
 <div class="article-inner">
@@ -496,7 +622,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/AJAX//" class="article-tag-list-link color5">AJAX</a>
+        			<a href="/categories/Javascript//" class="article-tag-list-link color1">Javascript</a>
         		</li>
       		
 		</ul>
@@ -725,60 +851,8 @@
                     
 
                                 
-                                            <p><strong>定时器对队列的工作方式：</strong>当特定时间过去后将代码插人。注意，给队列添加代码并不意味着对它立刻执行，而只能表示它会尽快执行。<span style="color:red;background-color:yellow"><strong>设定一个150ms后执行的定时器不代表到了150ms代码就立刻执行，它表示代码会在150ms后被加入到队列中。如果在这个时间点上，队列中没有其他东西，那么这段代码就会被执行</strong></span>，表面上看上去好像代码就在精确指定的时间点上执行了。其他情况下，代码可能明显地等待更长时间才执行。</p>
-<br>
-
-<p>重复定时器：</p>
-<p>这种重复定时器的规则有两个问题: <strong>(1)、 某些间隔会被跳过; (2) 、多个定时器的代码执行之间的间隔可能会比预期的小。</strong>假设，某个onclick事件处理程序使用setInterval()设置了一个200ms间隔的重复定时器。如果事件处理程序花了300ms多-点的时间完成，同时定时器代码也花了差不多的时间，就会同时出现跳过间隔且连续运行定时器代码的情况。</p>
-<p><img src="https://img-blog.csdnimg.cn/2020060414401171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>这个例子中的第1个定时器是在205ms处添加到队列中的，但是直到过了300ms处才能够执行。当执行这个定时器代码时，在405ms处又给队列添加了另外一个副本。在下一个间隔，即605ms处，第一个定时器代码仍在运行，同时在队列中已经有了一个定时器代码的实例。结果是，在这个时间点上的定时器代码不会被添加到队列中。结果在5ms处添加的定时器代码结束之后，405ms处添加的定时器代码就立刻执行。</p>
-<p>解决方法： 使用链式调用。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">     <span class="comment">//处理程序</span></span><br><span class="line">     setTimeout(<span class="built_in">arguments</span>.callee, interval);</span><br><span class="line"> }, interval);</span><br></pre></td></tr></tbody></table></figure>
-<p>这个模式链式调用了<strong>setTimeout()</strong>,每次函数执行的时候都会创建一个 新的定时器。第二个<strong>setrimeout ()</strong>调用使用了<strong>arguments.callee</strong>来获取对当前执行的函数的引用，并为其设置另外一个定时器。这样做的好处是，在前一个定时 器代码执行完之前， 不会向队列插 人新的定时器代码，确保不会有任何缺失的间隔。而且，它可以保证在下一次定时器代码执行之前，至少要等待指定的间隔，避免了连续的运行。这个模式主要用于重复定时器。</p>
-<p>举个栗子：<br>每隔一段时间，div就会向右移动，当左坐标为200时就停止移动。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">"div"</span>);</span><br><span class="line">    left = <span class="built_in">parseInt</span>(div.style.left) + <span class="number">5</span>;</span><br><span class="line">    div.style.left = left + <span class="string">"px"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (left &lt; <span class="number">200</span>) {</span><br><span class="line">        setTimeout(<span class="built_in">arguments</span>.callee, <span class="number">50</span>);</span><br><span class="line">    }</span><br><span class="line">}, <span class="number">50</span>);</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/124.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -903,72 +977,8 @@
                     
 
                                 
-                                            <p>我们在开发中有时候会不经意的修改了别人的代码，可能会造成严重的后果，于是ES5定义了防篡改对象。<span style="color:red"><strong>但是要注意，一旦把对象定义为防篡改对象，就无法撤销了。</strong></span></p>
-<h2 id="不可扩展对象"><a href="#不可扩展对象" class="headerlink" title="不可扩展对象"></a>不可扩展对象</h2><p>默认情况下，所有对象都是可以扩展的。也就是说，任何时候都可以向对象中添加属性和方法。比如：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">          name: <span class="string">"阿清"</span></span><br><span class="line">      }</span><br><span class="line">      person.age = <span class="number">14</span>;</span><br><span class="line">      <span class="built_in">console</span>.log(person);<span class="comment">//{name: "阿清", age: 14}</span></span><br><span class="line">      <span class="built_in">console</span>.log(person.age);<span class="comment">//14</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>如果我们使用<strong>Object.preventExtensions()</strong> 方法可以改变这一行为。不能再添加属性或者方法。<strong>虽然不能扩展该对象，但是不影响原有的属性，原有的属性仍然可以进行修改或者删除。</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">    name: <span class="string">"阿清"</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(person); <span class="comment">//将person设置为不可扩展对象</span></span><br><span class="line"></span><br><span class="line">person.age = <span class="number">14</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">//{name: "阿清"}</span></span><br><span class="line"><span class="built_in">console</span>.log(person.age); <span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line">person.name = <span class="string">"阿广"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.name);<span class="comment">//阿广</span></span><br></pre></td></tr></tbody></table></figure>
-<p>使用 <strong>Object.isExtensible()</strong> 方法可以确定该对象是否为可扩展对象。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">    name: <span class="string">"阿清"</span></span><br><span class="line">}</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.isExtensible(person)); <span class="comment">//ture</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(person);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.isExtensible(person)); <span class="comment">//false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-
-<h2 id="密封对象"><a href="#密封对象" class="headerlink" title="密封对象"></a>密封对象</h2><p>ECMAScript 5为对象定义的第二个保护级别是密封对象( sealed object)。密封对象不可扩展，而且已有成员的  [ [Configurable] ] 特性将被设置为false。这就意味着不能删除属性和方法，因为不能使用<strong>Object.defineProperty ()</strong>把数据属性修改为访问器属性，或者相反。属性值是可以修改的。<br>要密封对象，使用 <strong>Object.seal( )</strong> 。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">    name: <span class="string">"阿清"</span></span><br><span class="line">}</span><br><span class="line"><span class="built_in">Object</span>.seal(person);</span><br><span class="line"></span><br><span class="line">person.age = <span class="number">19</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.age); <span class="comment">//undefined</span></span><br><span class="line"><span class="comment">//无法给密封对象添加属性</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> person.name;</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">//阿清</span></span><br><span class="line"><span class="comment">// 无法修改密封对象中的属性。</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>可以使用<strong>Object.isSealed()</strong> 方法确定对象是否被密封。而且由于被密封的对象不可扩展，所以<strong>Object.isExtensible()</strong> 检测也会返回 <strong>false</strong>。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">    name: <span class="string">"阿清"</span></span><br><span class="line">}</span><br><span class="line"><span class="built_in">Object</span>.seal(person);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.isSealed(person)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.isExtensible(person)); <span class="comment">//false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-
-<h2 id="冻结对象"><a href="#冻结对象" class="headerlink" title="冻结对象"></a>冻结对象</h2><p>最严格的防篡改级别是冻结对象( frozen object)。冻结的对象既不可扩展，又是密封的，而且对象，数据属性的[ [Writable] ]特性会被设置为<strong>false</strong>。 如果定义[ [Set] ]函数，访问器属性仍然是可写的。ES5定义的Object. freeze()方法可以用来冻结对象。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">    name: <span class="string">"阿清"</span></span><br><span class="line">};</span><br><span class="line"><span class="built_in">Object</span>.freeze(person);</span><br><span class="line">person.age = <span class="number">18</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.age); <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">delete</span> person.name;</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">//"阿清"</span></span><br><span class="line">person.name = <span class="string">"阿广"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.name); <span class="comment">//"阿清"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>当然，也有一个<strong>Object. isFrozen()</strong>方法用于检测冻结对象。因为冻结对象既是密封的又是不可扩展的，所以用<strong>Object. isExtensible()</strong>和<strong>Object.isSealed ()</strong>检测冻结对象将分别返回<strong>false</strong>和<strong>true</strong>。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = {</span><br><span class="line">    name: <span class="string">"阿清"</span></span><br><span class="line">};</span><br><span class="line">alert(<span class="built_in">Object</span>.isExtensible(person)); <span class="comment">//true</span></span><br><span class="line">alert(<span class="built_in">Object</span>.isSealed(person)); <span class="comment">//false</span></span><br><span class="line">alert(<span class="built_in">Object</span>.isFrozen(person)); <span class="comment">//false</span></span><br><span class="line"><span class="built_in">Object</span>.freeze(person);</span><br><span class="line">alert(<span class="built_in">Object</span>.isExtensible(person)); <span class="comment">//false</span></span><br><span class="line">alert(<span class="built_in">Object</span>.isSealed(person)); <span class="comment">//true</span></span><br><span class="line">alert(<span class="built_in">Object</span>.isFrozen(person)); <span class="comment">//true</span></span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<p><span style="color:red"><strong>有一点要注意：在对防篡改对象进行非法操作时，在非严格模式是会忽略，但是在严格模式下会抛出错误。</strong></span></p>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/614471271c9441f7875fd85189ccd300.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -979,6 +989,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -1093,60 +1107,8 @@
                     
 
                                 
-                                            <p><span style="color:red"><strong>函数绑定</strong>：在特定的 this 环境中，以指定参数调用另一个函数。常常与回调函数和事件处理程序一起使用一遍在将函数作为变量传递的同时保留代码执行环境。</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = {</span><br><span class="line">    name: <span class="string">"阿清"</span>,</span><br><span class="line">    sayName: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">btn.addEventListener(<span class="string">"click"</span>, handler.sayName, <span class="literal">false</span>) <span class="comment">//undefiend</span></span><br></pre></td></tr></tbody></table></figure>
-<p>结果显示的是undefiend，这是因为没有保存handler .sayName() 的环境，所以 this 指向DOM按钮而非handler（在IE8中 this 指向window）。</p>
-<br>
-
-<p>解决方法：<br>ES5为所有的函数定义一个原生的 bind() 方法。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = {</span><br><span class="line">    name: <span class="string">"阿清"</span>,</span><br><span class="line">    sayName: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{</span><br><span class="line">        alert(<span class="keyword">this</span>.name + <span class="string">":"</span> + event.type);</span><br><span class="line">    }</span><br><span class="line">};</span><br><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">btn.addEventListener(<span class="string">"click"</span>, handler.sayName.bind(handler), <span class="literal">false</span>) <span class="comment">//阿清:click</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-<p><span style="color:red"><strong>bind函数接收一个参数：一个环境。在给定的环境中调用函数。</strong></span></p>
-<p>只要是将某个函数指针以值的形式进行传递，同时该函数必须在特定环境中执行，被绑定函数的效用就突显出来了。<strong>它们主要用于事件处理程序以及setTimeout() 和setInterval()。</strong> <strong>然而，被绑定函数与普通函数相比有更多的开销，它们需要更多内存，同时也因为多重函数调用稍微慢一点，所以最好只在必要时使用。</strong></p>
-<hr>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/0a53b3c5738d4b368d5a6c9cc9d693c2.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -1157,6 +1119,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -1271,75 +1237,8 @@
                     
 
                                 
-                                            <p>我们想看两个例子：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"阿清"</span>,</span><br><span class="line">          age = <span class="number">18</span>;</span><br><span class="line">      <span class="keyword">var</span> obj = {</span><br><span class="line">          name: <span class="string">"阿广"</span>,</span><br><span class="line">          objAge: <span class="keyword">this</span>.age,</span><br><span class="line">          myFun: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">              <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">"年龄是"</span> + <span class="keyword">this</span>.age);</span><br><span class="line">          }</span><br><span class="line">      }</span><br><span class="line">      </span><br><span class="line">      <span class="built_in">console</span>.log(obj.objAge); <span class="comment">//18</span></span><br><span class="line">      obj.myFun(); <span class="comment">//阿广年龄是undefined</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">"小明"</span>;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">showname</span>(<span class="params"></span>) </span>{</span><br><span class="line">         <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">     }</span><br><span class="line">     showname(); <span class="comment">//小明</span></span><br></pre></td></tr></tbody></table></figure>
-<p>由这两个例子可以看出来，第一个<strong>this</strong>指向<strong>obj</strong>，第二个例子<strong>this</strong>指向<strong>window</strong>。 </p>
-<br>
-
-<p><span style="color:red">我们要知道 <strong>call()、apply()、bind()</strong> 都是对this的重定向。改变调用函数体内的 <strong>this</strong> 指向。</span></p>
-<p>如下：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"阿清"</span>,</span><br><span class="line">    age = <span class="number">18</span>;</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    name: <span class="string">"阿广"</span>,</span><br><span class="line">    objAge: <span class="keyword">this</span>.age,</span><br><span class="line">    myFun: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">"年龄是"</span> + <span class="keyword">this</span>.age);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> a = {</span><br><span class="line">    name: <span class="string">"小明"</span>,</span><br><span class="line">    age: <span class="number">20</span></span><br><span class="line">}</span><br><span class="line">obj.myFun.call(a); <span class="comment">//小明年龄是20</span></span><br><span class="line">obj.myFun.apply(a); <span class="comment">//小明年龄是20</span></span><br><span class="line">obj.myFun.bind(a)(); <span class="comment">//小明年龄是20</span></span><br></pre></td></tr></tbody></table></figure>
-<p><strong>this 都指向的 a ，除了bind方法后面多了一个（），其他都一样，因为bind返回是一个新的函数，我们必须调用它，才会执行。</strong></p>
-<br>
-
-<p> <strong>call()、apply()、bind()</strong> 也可以进行传参：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"阿清"</span>,</span><br><span class="line">            age = <span class="number">18</span>;</span><br><span class="line">        <span class="keyword">var</span> obj = {</span><br><span class="line">            name: <span class="string">"阿广"</span>,</span><br><span class="line">            objAge: <span class="keyword">this</span>.age,</span><br><span class="line">            myFun: <span class="function"><span class="keyword">function</span>(<span class="params">from, place</span>) </span>{</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">"年龄是"</span> + <span class="keyword">this</span>.age + <span class="string">" ,他的家乡是："</span> + <span class="keyword">from</span> + place + <span class="string">"区"</span>);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">var</span> a = {</span><br><span class="line">            name: <span class="string">"小明"</span>,</span><br><span class="line">            age: <span class="number">20</span></span><br><span class="line">        }</span><br><span class="line">        obj.myFun.call(a, <span class="string">"开封市"</span>, <span class="string">"祥符"</span>); <span class="comment">//小明年龄是20 ,他的家乡是：开封市祥符区</span></span><br><span class="line">        obj.myFun.apply(a, [<span class="string">"开封市"</span>, <span class="string">"祥符"</span>]); <span class="comment">//小明年龄是20 ,他的家乡是：开封市祥符区</span></span><br><span class="line">        obj.myFun.bind(a, <span class="string">"开封市"</span>, <span class="string">"祥符"</span>)(); <span class="comment">//小明年龄是20 ,他的家乡是：开封市祥符区</span></span><br><span class="line">        obj.myFun.bind(a, [<span class="string">"开封市"</span>, <span class="string">"祥符"</span>])(); <span class="comment">//小明年龄是20 ,他的家乡是：开封市,祥符undefined区</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>我们可以看出</p>
-<span style="color:red">
-
-<ul>
-<li><strong>call 、bind 、 apply</strong> 这三个函数的第一个参数都是 this 的指向对象，第二个参数就有区别了。</li>
-<li><strong>call</strong>的参数是直接放进去的，第二第三第n个参数全都用逗号分隔，直接放到后面。</li>
-<li><strong>apply</strong>的参数必须放到一个数组里面才能传进去。</li>
-<li><strong>bind</strong> 除了返回是一个函数之外，其他都是<strong>call</strong> 相同。</li>
-<li>参数可以为String类型，函数类型，Object类型等等各种类型。</li>
-</ul>
-</span>
-
-<hr>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/16b44df571e443ceb289df69a853ff1c.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -1350,6 +1249,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -1464,54 +1367,8 @@
                     
 
                                 
-                                            <p>JavaScript内置的类型检测机制并非完全可靠。比如：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isArray = value <span class="keyword">instanceof</span> <span class="built_in">Array</span>;</span><br></pre></td></tr></tbody></table></figure>
-
-<p>以上代码要返回true,value必须是一个数组，而且还必须与Array构造函数在同个全局作用域中。(别忘了，Array是window的属性。)如果value是在另个frame中定义的数组，那么以上代码就会返回false。</p>
-<p><strong>解决方法：</strong> 众所周知，在任何值上调用Object原生的toString()方法，都会返回一个[obj ect NativeConstructorName] 格式的字符串。每个类在内部都有一个[ [Class]]属性，这个属性中就指定了上述字符串中的构造函数名。</p>
-<p>由于原生数组的构造函数名与全局作用域无关，因此使用toString()就能保证返回一致的值。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测是否是原生数组</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">value</span>) </span>{</span><br><span class="line">             <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) == <span class="string">"[object Array]"</span>;</span><br><span class="line">         }</span><br><span class="line"><span class="comment">//检测是否是原生函数	</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">isFunction</span>(<span class="params">value</span>) </span>{</span><br><span class="line">             <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) == <span class="string">"[object Function]"</span>;</span><br><span class="line">         }</span><br><span class="line"><span class="comment">//检测是否是原生正则</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">isRegExp</span>(<span class="params">value</span>) </span>{</span><br><span class="line">             <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(value) == <span class="string">"[object RegExp]"</span>;</span><br><span class="line">         }</span><br><span class="line"><span class="comment">//检测是否是原生JSON</span></span><br><span class="line">         <span class="keyword">var</span> isNativeJSON = <span class="built_in">window</span>.JSON &amp;&amp; <span class="built_in">Object</span>.prototype.toString.call(<span class="built_in">JSON</span>) == <span class="string">"[object JSON]"</span>;</span><br></pre></td></tr></tbody></table></figure>
-<p><span style="color:red">有一点我们要注意object . prototpye. toString()本身也可能会被修改。所以我们讨论的技巧是假设0bject. prototpye. toString()是未被修改过的原生版本的情况下。</span></p>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/ebe11dec2238427496340fe86c4f5d61.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -1522,6 +1379,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -1636,63 +1497,8 @@
                     
 
                                 
-                                            <p>构造函数其实就是一个使用new操作符调用的函数。当使用new调用时，构造函数内用到的this对象会指向新创建的对象实例，如下面的例子所示:</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">"aqingya"</span>, <span class="number">18</span>, <span class="string">"吴志广"</span>);</span><br></pre></td></tr></tbody></table></figure>
-<p>上面这个例子中，Person构造函数使用this对象给三个属性赋值: name、age和 job。当和new操作符连用时，则会创建一个新的 Person对象，同时会给它 分配这些属性。问题出在当没有使用new操作符来调用该构造函数的情况上。由于该this对象是在运行时绑定的，所以直接调用Person(),this会映射到全局对象window.上，导致错误对象属性的意外增加。例如:</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = Person(<span class="string">"aqingya"</span>, <span class="number">18</span>, <span class="string">"吴志广"</span>);</span><br><span class="line">alert(<span class="built_in">window</span>.name); <span class="comment">//"aqingya"</span></span><br><span class="line">alert(<span class="built_in">window</span>.age); <span class="comment">//18</span></span><br><span class="line">alert(<span class="built_in">window</span>.job); <span class="comment">//吴志广</span></span><br></pre></td></tr></tbody></table></figure>
-<p>原本针对Person实例的三个属性被加到window对象上，因为构造函数是作为普通函数调用的，忽略了new操作符。这个问题是由this 对象的晚绑定造成的，在这里this被解析成了window对象。</p>
-<p><strong>解决方法</strong>：就是创建一个<strong>作用域安全的构造函数</strong>。<span style="color:red">在进行更改之前，首先确认this对象的正确类型的实例，如果不是就会创建新的实例并返回。</span></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>{</span><br><span class="line">     <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> Person) {</span><br><span class="line">         <span class="keyword">this</span>.name = name;</span><br><span class="line">         <span class="keyword">this</span>.age = age;</span><br><span class="line">         <span class="keyword">this</span>.job = job;</span><br><span class="line">     } <span class="keyword">else</span> {</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">new</span> Person(name, age, job);</span><br><span class="line">     }</span><br><span class="line"> }</span><br><span class="line"> <span class="keyword">var</span> person1 = Person(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br><span class="line"> alert(<span class="built_in">window</span>.name); <span class="comment">//""</span></span><br><span class="line"> alert(person1.name); <span class="comment">//"Nicholas"</span></span><br><span class="line"> <span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">"Shelby"</span>, <span class="number">34</span>, <span class="string">"Ergonomist"</span>);</span><br><span class="line"> alert(person2.name); <span class="comment">//"Shelby"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>Person构造函数添加了一个检查并确保this对象是Person实例的 if 语句，它表示要么使用new操作符，要么在现有的Person实例环境中调用构造函数。任何一种情况下，对象初始化都能正常进行。如果this并非Person的实例，那么会再次使用new操作符调用构造函数并返回结果。</p>
-<br>
-
-<p><strong>但是这也会出现一个问题</strong>：实现这个模式后，你就锁定了可以调用构造函数的环境。如果你使用构造函数窃取模式的继承且不使用原型链，那么这个继承很可能被破坏。如下：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Polygon</span>(<span class="params">sides</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> Polygon) {</span><br><span class="line">        <span class="keyword">this</span>.sides = sides;</span><br><span class="line">        <span class="keyword">this</span>.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        };</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Polygon(sides);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params">width, height</span>) </span>{</span><br><span class="line">    Polygon.call(<span class="keyword">this</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">this</span>.width = width;</span><br><span class="line">    <span class="keyword">this</span>.height = height;</span><br><span class="line">    <span class="keyword">this</span>.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.width * <span class="keyword">this</span>.height;</span><br><span class="line">    };</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> Rectangle(<span class="number">5</span>, <span class="number">10</span>);</span><br><span class="line">alert(rect.sides); <span class="comment">//undefined</span></span><br></pre></td></tr></tbody></table></figure>
-<p>在这段代码中，Polygon 构造函数是作用域安全的，然而Rectangle构造函数则不是。新创建一个Rectangle实例之后，这个实例应该通过Polygon. call ()来继承Polygon的sides属性。但是，由于Polygon构造函数是作用域安全的，this 对象并非Polygon的实例，所以会创建并返回一个新的Polygon对象。Rectangle 构造函数中的this对象并没有得到增长，同时Polygon. call ()返回的值也没有用到，所以Rectangle实例中就不会有sides属性。</p>
-<p><strong>解决方法</strong>：构造函数窃取结合使用原型链的方法可以解决该问题。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Polygon</span>(<span class="params">sides</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> <span class="keyword">instanceof</span> Polygon) {</span><br><span class="line">        <span class="keyword">this</span>.sides = sides;</span><br><span class="line">        <span class="keyword">this</span>.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        };</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Polygon(sides);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params">width, height</span>) </span>{</span><br><span class="line">    Polygon.call(<span class="keyword">this</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">this</span>.width = width;</span><br><span class="line">    <span class="keyword">this</span>.height = height;</span><br><span class="line">    <span class="keyword">this</span>.getArea = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.width * <span class="keyword">this</span>.height;</span><br><span class="line">    };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">Rectangle.prototype = <span class="keyword">new</span> Polygon();</span><br><span class="line"><span class="comment">//让Rectangle的原型成为 Polygon的实例。Rectangle的实例同时也是Polygon的实例。</span></span><br><span class="line"><span class="comment">//所以 Polygon.call()会按照原意执行。为Rectangle添加sides属性</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> Rectangle(<span class="number">5</span>, <span class="number">10</span>);</span><br><span class="line">alert(rect.sides); <span class="comment">//2</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/accc4dfe993948518693431ee9ce56b6.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -1703,6 +1509,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -1724,183 +1534,6 @@
                                                                                         
                                                                                             <p class="article-more-link">
                                                                                                 <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/06/03/35/">
-                                                                                                    展开全文 >></a>
-                                                                                            </p>
-                                                                                            
-
-                                                                                                
-                                                                                                            <div class="clearfix"></div>
-                                                                    </div>
-                </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-                
-
-  
-    <article id="post-34" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-<div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/03/34/">JavaScript 性能优化之惰性加载函数</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/03/34/" class="archive-article-date">
-  	<time datetime="2020-06-03T09:21:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-03</time>
-</a>
-
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">758字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-
-        
-      </header>
-            
-
-            
-
-
-
-<!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-
-
-                <div class="article-entry" itemprop="articleBody">
-                    
-
-                                
-                                            <p>在实际开发中，我们编写的大多数JavaScript代码包含大量的 if…else语句或者 try… catch 语句来做功能检测。<br>举一个简单的例子：事件的绑定，我们会首先想到下列的代码</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addHandler= <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>{</span><br><span class="line">              <span class="keyword">if</span> (element.addEventListener) {</span><br><span class="line">                  element.addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">              } <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) {</span><br><span class="line">                  element.attachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">              } <span class="keyword">else</span> {</span><br><span class="line">                  element[<span class="string">"on"</span> + type] = handler;</span><br><span class="line">              }</span><br><span class="line">          }</span><br></pre></td></tr></tbody></table></figure>
-<p>分析以上代码，为了兼容不同浏览器，每次执行 <strong>addHandler</strong> 时我们会去做功能检测，逐一去走 <strong>addHandler</strong> 中的if，获取到可以兼容的代码块。无可厚非，我们通过这两三个判断保证了每次都能使用到兼容浏览器的代码，注意到，我用了“每次”这个词。是的，以上代码每次调用 <strong>addHandler</strong> 都要做功能检测，而我们知道，当我们用某个浏览器打开网页时，其实就已经确定了哪个if/try可用了，完全没必要每次调用都检测。因此，我们引入了惰性加载函数的概念。</p>
-<p><span style="color:red"><strong>惰性加载表示函数执行的分支仅会发生一次。有两种实现惰性加载的方式：在函数被调用时再处理函数；在声明函数时就指定适当函数。</strong></span></p>
-<p>我们来优化一下addHandler 函数：</p>
-<p>1、在函数被调用时再处理函数</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addHandler= <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>{</span><br><span class="line">              <span class="keyword">if</span> (element.addEventListener) {</span><br><span class="line">                  addHandler = <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>{</span><br><span class="line">                      element.addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">                  };</span><br><span class="line">              } <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) {</span><br><span class="line">                  addHandler = <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>{</span><br><span class="line">                      element.attachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">                  }</span><br><span class="line"></span><br><span class="line">              } <span class="keyword">else</span> {</span><br><span class="line">                  addHandler = <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>{</span><br><span class="line">                      element[<span class="string">"on"</span> + type] = handler;</span><br><span class="line">                  }</span><br><span class="line"></span><br><span class="line">              }</span><br><span class="line">              <span class="keyword">return</span> addHandler(element, type, handler);</span><br><span class="line">          },</span><br></pre></td></tr></tbody></table></figure>
-<p><span style="color:red">if语句中的每一个分支都会给addHandler 变量赋值，有效覆盖了原有的函数，最后一步就是调用新赋的函数。下一次就会直接调用新赋的函数。</span></p>
-<br>
-
-<p>2、在声明函数时就指定适当的函数：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> addEvent2 = <span class="function">(<span class="params">(type, element, fun</span>) =&gt;</span> {</span><br><span class="line">    <span class="keyword">if</span> (element.addEventListener) {</span><br><span class="line">        <span class="keyword">return</span> <span class="function">(<span class="params">type, element, fun</span>) =&gt;</span> {</span><br><span class="line">            element.addEventListener(type, fun, <span class="literal">false</span>);</span><br><span class="line">        }</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) {</span><br><span class="line">        <span class="keyword">return</span> <span class="function">(<span class="params">type, element, fun</span>) =&gt;</span> {</span><br><span class="line">            element.attachEvent(<span class="string">'on'</span> + type, fun);</span><br><span class="line">        }</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="function">(<span class="params">type, element, fun</span>) =&gt;</span> {</span><br><span class="line">            element[<span class="string">'on'</span> + type] = fun;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">})()</span><br></pre></td></tr></tbody></table></figure>
-<p>我们发现第二种方法在此例中并不适用，因为它是一个立即执行函数，带参显然并不合适（各种undefined），那么我们可以用 JavaScript高级程序设计 中的一个例子：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> createXHR = <span class="function">(<span class="params"> (</span>) =&gt;</span> {</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> XMLHttpRequest != <span class="string">'undefined'</span>){</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">            ...</span><br><span class="line">        }</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">typeof</span> ActiveXobject != <span class="string">'undefined'</span>) {</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">            ...</span><br><span class="line">        }</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">            ...</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">})();</span><br></pre></td></tr></tbody></table></figure>
-
-<p>总结：</p>
-<p><strong>可以总结到，所谓在声明函数时就指定适当函数，即声明函数为匿名、立即执行函数，根据功能检测（if/try判断）结果指定函数体，当然，既然是一个立即执行函数，我们得注意使用场合。</strong></p>
-<p><strong>以上两种方式都只在第一次执行函数时做了性能检测，省去了后续调用时多余的操作，优化了性能。</strong><br><br><br><br><br>愿你的坚持终有收获。<br><br><br><br></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
-                                                                
-                                                                    <div class="article-info article-info-index">
-                                                                        
-                                                                                
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-                                                                                    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-                                                                                        
-                                                                                            <p class="article-more-link">
-                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/06/03/34/">
                                                                                                     展开全文 >></a>
                                                                                             </p>
                                                                                             
@@ -2156,6 +1789,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

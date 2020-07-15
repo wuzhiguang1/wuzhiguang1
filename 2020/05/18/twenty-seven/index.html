@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript  ---  继承总结 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ES5中的继承一、 原型链继承 原型链继承的原理：直接让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性和方法的继承。 123456789101112131415161718&#x2F;&#x2F; 父类function fat () {	this.name &#x3D; &#39;aqing&#39;}&#x2F;&#x2F; 父类上的原型方法fat.prototype.getName">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript  ---  继承总结">
 <meta property="og:url" content="https://aqingya.cn/2020/05/18/twenty-seven/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="ES5中的继承一、 原型链继承 原型链继承的原理：直接让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性和方法的继承。 123456789101112131415161718&#x2F;&#x2F; 父类function fat () {	this.name &#x3D; &#39;aqing&#39;}&#x2F;&#x2F; 父类上的原型方法fat.prototype.getName">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/2fb0db544bd443fc92a359d3a9941076.jpg">
 <meta property="article:published_time" content="2020-05-18T07:05:59.000Z">
-<meta property="article:modified_time" content="2020-05-18T07:06:34.761Z">
+<meta property="article:modified_time" content="2020-07-15T10:40:20.744Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/2fb0db544bd443fc92a359d3a9941076.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -160,8 +160,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -340,6 +340,22 @@
 
 <!-- 目录内容 -->
 
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
 
@@ -348,7 +364,10 @@
                     
 
                                 
-                                            <h2 id="ES5中的继承"><a href="#ES5中的继承" class="headerlink" title="ES5中的继承"></a>ES5中的继承</h2><p><strong>一、 原型链继承</strong></p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/2fb0db544bd443fc92a359d3a9941076.jpg" alt=""></p>
+<a id="more"></a>
+
+<h2 id="ES5中的继承"><a href="#ES5中的继承" class="headerlink" title="ES5中的继承"></a>ES5中的继承</h2><p><strong>一、 原型链继承</strong></p>
 <p>原型链继承的原理：直接让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性和方法的继承。</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span> (<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="string">'aqing'</span></span><br><span class="line">}</span><br><span class="line"><span class="comment">// 父类上的原型方法</span></span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">child</span> (<span class="params"></span>) </span>{}</span><br><span class="line"><span class="comment">// 子类的原型对象方法指向父类 子类中找不到的属性方法就会向父类找</span></span><br><span class="line">child.prototype = <span class="keyword">new</span> fat()</span><br><span class="line"><span class="comment">// 不影响继承 顺便绑一下constructor</span></span><br><span class="line">child.prototype.constructor = child</span><br><span class="line"><span class="comment">// child实例就可以访问父类及其原型上的属性和方法了</span></span><br><span class="line"><span class="keyword">const</span> Child = <span class="keyword">new</span> child()</span><br><span class="line">Child.name <span class="comment">// 'aqing'</span></span><br><span class="line">Child.getName() <span class="comment">// 'aqing'</span></span><br></pre></td></tr></tbody></table></figure>
 <p><strong>原型链继承的缺点</strong></p>
@@ -424,7 +443,7 @@
     2020-05-18
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-05-18
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/05/18/twenty-seven/" title="JavaScript  ---  继承总结" target="_blank">JavaScript  ---  继承总结</a>
@@ -568,6 +587,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ES5中的继承"><span class="toc-number">1.</span> <span class="toc-text">ES5中的继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6中的继承"><span class="toc-number">2.</span> <span class="toc-text">ES6中的继承</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -821,6 +853,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

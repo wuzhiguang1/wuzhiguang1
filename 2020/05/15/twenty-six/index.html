@@ -8,13 +8,12 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript中的原型和原型链（图解） | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JS中的原型和原型链讲原型的时候，我们应该先要记住以下几个要点，这几个要点是理解原型的关键： 1、所有的引用类型（数组、函数、对象）可以自由扩展属性（除null以外）。 2、所有的引用类型都有一个’_ _ proto_ _’属性(也叫隐式原型，它是一个普通的对象)。 3、所有的函数都有一个’prototype’属性(这也叫显式原型，它也是一个普通的对象)。 4、所有引用类型，它的’_ _ prot">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript中的原型和原型链（图解）">
 <meta property="og:url" content="https://aqingya.cn/2020/05/15/twenty-six/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="JS中的原型和原型链讲原型的时候，我们应该先要记住以下几个要点，这几个要点是理解原型的关键： 1、所有的引用类型（数组、函数、对象）可以自由扩展属性（除null以外）。 2、所有的引用类型都有一个’_ _ proto_ _’属性(也叫隐式原型，它是一个普通的对象)。 3、所有的函数都有一个’prototype’属性(这也叫显式原型，它也是一个普通的对象)。 4、所有引用类型，它的’_ _ prot">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/9e59b1cfbfef402e9f1e7b01fbe72497.jpg">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200515132717836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200515152136840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200515153434949.png">
@@ -28,11 +27,11 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200515150503562.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200515150517395.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-05-15T07:52:16.000Z">
-<meta property="article:modified_time" content="2020-05-18T07:48:40.640Z">
+<meta property="article:modified_time" content="2020-07-15T10:40:36.519Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200515132717836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/9e59b1cfbfef402e9f1e7b01fbe72497.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -173,8 +172,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -353,6 +352,22 @@
 
 <!-- 目录内容 -->
 
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
 
@@ -361,7 +376,10 @@
                     
 
                                 
-                                            <h2 id="JS中的原型和原型链"><a href="#JS中的原型和原型链" class="headerlink" title="JS中的原型和原型链"></a>JS中的原型和原型链</h2><p>讲原型的时候，我们应该先要记住以下几个要点，这几个要点是理解原型的关键：</p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/9e59b1cfbfef402e9f1e7b01fbe72497.jpg" alt=""></p>
+<a id="more"></a>
+
+<h2 id="JS中的原型和原型链"><a href="#JS中的原型和原型链" class="headerlink" title="JS中的原型和原型链"></a>JS中的原型和原型链</h2><p>讲原型的时候，我们应该先要记住以下几个要点，这几个要点是理解原型的关键：</p>
 <p>1、所有的引用类型（数组、函数、对象）可以自由扩展属性（除null以外）。</p>
 <p>2、所有的引用类型都有一个’_ _ proto_ _’属性(也叫隐式原型，它是一个普通的对象)。</p>
 <p>3、所有的函数都有一个’prototype’属性(这也叫显式原型，它也是一个普通的对象)。</p>
@@ -462,7 +480,7 @@ console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img
     2020-05-15
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-05-18
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/05/15/twenty-six/" title="JavaScript中的原型和原型链（图解）" target="_blank">JavaScript中的原型和原型链（图解）</a>
@@ -606,6 +624,19 @@ console.log(Object instanceof Foo); //false</code></pre><p><img src="https://img
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS中的原型和原型链"><span class="toc-number">1.</span> <span class="toc-text">JS中的原型和原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型"><span class="toc-number">2.</span> <span class="toc-text">原型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型链"><span class="toc-number">3.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#探索instanceof"><span class="toc-number">4.</span> <span class="toc-text">探索instanceof</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -859,6 +890,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

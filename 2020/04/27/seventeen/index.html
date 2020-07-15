@@ -8,18 +8,20 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript元素类的操作总结。 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="封装成方法如下：  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051&#x2F;*  定义一个函数 addClass() 用来向元素中添加指定的class属性值            参数：                obj ：要添加class属性值的元素">
+  <meta name="description" content="I">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript元素类的操作总结。">
 <meta property="og:url" content="https://aqingya.cn/2020/04/27/seventeen/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="封装成方法如下：  123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051&#x2F;*  定义一个函数 addClass() 用来向元素中添加指定的class属性值            参数：                obj ：要添加class属性值的元素">
+<meta property="og:description" content="I">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/7e750125367b4afca94b08fb2e19d6da.jpg">
 <meta property="article:published_time" content="2020-04-27T02:27:28.000Z">
-<meta property="article:modified_time" content="2020-04-27T02:29:39.224Z">
+<meta property="article:modified_time" content="2020-07-15T10:14:24.849Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/7e750125367b4afca94b08fb2e19d6da.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -160,8 +162,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -314,7 +316,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">277字</span>
+        <span class="post-count">278字</span>
       </span>
     </span>
 
@@ -348,7 +350,10 @@
                     
 
                                 
-                                            <br>
+                                            <p>I<img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/7e750125367b4afca94b08fb2e19d6da.jpg" alt=""></p>
+<a id="more"></a>
+
+<br>
 封装成方法如下：
 
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  定义一个函数 addClass() 用来向元素中添加指定的class属性值</span></span><br><span class="line"><span class="comment">            参数：</span></span><br><span class="line"><span class="comment">                obj ：要添加class属性值的元素</span></span><br><span class="line"><span class="comment">                cn ： 套添加的class属性      为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="keyword">if</span> (!hasClass(obj, cn)) {</span><br><span class="line">                obj.className += <span class="string">" "</span> + cn;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 判断一个class中是否含有指定的class属性值</span></span><br><span class="line"><span class="comment">        * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn ： 检查的class属性         为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">hasClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="comment">// 检查obj中是否含有cn</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="string">"\\b"</span> + cn + <span class="string">"\\b"</span>);</span><br><span class="line">            <span class="keyword">return</span> reg.test(obj.className);</span><br><span class="line"></span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 移除指定元素中指定的class属性值</span></span><br><span class="line"><span class="comment">         * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn ： 检查的class属性           为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">moveClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="string">"\\b"</span> + cn + <span class="string">"\\b"</span>);</span><br><span class="line">            obj.className = obj.className.replace(reg, <span class="string">""</span>);</span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 切换class属性值</span></span><br><span class="line"><span class="comment">        * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn  ：检查的class属性          为字符串</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">toggleClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="keyword">if</span> (hasClass(obj, cn)) {</span><br><span class="line">                moveClass(obj, cn);</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                addClass(obj, cn);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        };</span><br></pre></td></tr></tbody></table></figure>
@@ -397,7 +402,7 @@
     2020-04-27
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-04-27
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/04/27/seventeen/" title="JavaScript元素类的操作总结。" target="_blank">JavaScript元素类的操作总结。</a>
@@ -794,6 +799,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

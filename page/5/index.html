@@ -157,8 +157,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -285,6 +285,132 @@
                             <div id="js-content" class="content-ll">
                                 
   
+    <article id="post-twenty-four" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+<div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/10/twenty-four/">JavaScript中正则表达式--  (?=a)、先行断言、现行否定断言</a>
+    </h1>
+  
+
+        
+        <a href="/2020/05/10/twenty-four/" class="archive-article-date">
+  	<time datetime="2020-05-10T09:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-10</time>
+</a>
+
+ <!-- 不蒜子统计 -->
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+          <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">880字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+          
+        <!-- 添加完成 -->
+
+        
+      </header>
+            
+
+            
+
+
+
+<!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+
+
+
+                <div class="article-entry" itemprop="articleBody">
+                    
+
+                                
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/d702ed22f9ac4156b9b1c6c596d1a950.jpg" alt=""></p>
+                                        
+                                                                
+                                                                    <div class="article-info article-info-index">
+                                                                        
+                                                                                
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                                                                                    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/正则表达式//" class="article-tag-list-link color1">正则表达式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+                                                                                        
+                                                                                            <p class="article-more-link">
+                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/05/10/twenty-four/">
+                                                                                                    展开全文 >></a>
+                                                                                            </p>
+                                                                                            
+
+                                                                                                
+                                                                                                            <div class="clearfix"></div>
+                                                                    </div>
+                </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+                
+
+  
     <article id="post-twenty-three" class="article article-type-post  article-index" itemscope itemprop="blogPost">
 <div class="article-inner">
     
@@ -347,85 +473,8 @@
                     
 
                                 
-                                            <p>但在开始详细介绍之前，很有必要对ECMAScript 5中的数组方法做一个概述。首先，大多数方法的第一个参数接收一个函数，并且对数组的每个元素(或一些元素)调用一次该函数。如果是稀疏数组，对不存在的元素不调用传递的函数。在大多数情况下，调用提供的函数使用三个参数:数组元素、元素的索引和数组本身。通常，只需要第一个参数值，可以忽略后两个参数。大多数ECMAScript 5数组方法的第一个参数是一个函数，第二个参数是可选的。如果有第二个参数，则调用的函数被看做是第二个参数的方法。也就是说，在调用函数时传递进去的第二个参数作为它的this关键字的值来使用。被调用的函数的返回值非常重要，但是不同的方法处理返回值的方式也不一样。ECMAScript 5中的数组方法都不会修改它们调用的原始数组。当然，传递给这些方法的函数是可以修改这些数组的。</p>
-<h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h2><p>forEach()方法从头到尾遍历数组，每一个元素调用指定的函数。如上所述，传递的函数作为forEach()的第一个参数，然后forEach()使用三个参数调用该函数：数组元素、元素的索引和数组本身。如果只关心数组元素的值，可以编写只有一个参数的函数—额外的参数将忽略。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</span><br><span class="line">a.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> sum += x;</span><br><span class="line">})</span><br><span class="line"><span class="built_in">console</span>.log(sum);    <span class="comment">// 10</span></span><br></pre></td></tr></tbody></table></figure>
-<p><strong>注意</strong>：forEach()无法在所有元素都传递给调用的函数之前终止遍历。也就是说，没有像for循环中使用的响应的break()语句。如果要提前终止，必须把forEach()方法放在一个try块中，并能抛出一个异常。如果forEach()调用的函数抛出foreach.break异常，循环会提前终止。</p>
-<h2 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h2><p>map()方法将调用的数组的每一个元素传递给指定的函数，并且返回一个数组，它包含该函数的返回值。例如：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">b = a.map(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x += <span class="number">1</span>;</span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(b);    <span class="comment">//  [2, 3, 4]</span></span><br></pre></td></tr></tbody></table></figure>
-<p>传递给map()的函数的调用方式和传递给forEach()的函数的调用方式一样，但出传递给map()的函数应该有返回值。注意，map()返回的是一个新数组：它不修改调用的数组。如果是稀疏数组，返回的也是相同方式的稀疏数组：它具有相同的长度，相同的缺失元素。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, , <span class="literal">undefined</span>, <span class="number">5</span>];</span><br><span class="line">b = a.map(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x += <span class="number">1</span>;</span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">//  [2, 3, 4, empty, NaN, 6]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h2><p>filter()方法返回的数组元素是调用的数组的一个子集。传递的函数是用来逻辑判定的：该函数返回true或者false。调用判定函数就像调用forEach()和map()一样，如果返回值为true或者能转化为true的值，那么传递给判定函数的元素就是这个子集的成员，他将被添加到一个作为返回值的数组中。例如：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">b = a.filter(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x &gt; <span class="number">3</span>;</span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(b)    <span class="comment">//  [4, 5, 6]</span></span><br></pre></td></tr></tbody></table></figure>
-<p><strong>注意</strong>：filter()会跳过稀疏数组中缺少的元素，它的返回数组总是稠密的。为了压缩稀疏数组的空缺，代码如下：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, , , ]</span><br><span class="line"><span class="keyword">var</span> aa = a.filter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">})</span><br><span class="line"><span class="built_in">console</span>.log(aa);   <span class="comment">//  [1, 2, 3]</span></span><br></pre></td></tr></tbody></table></figure>
-<p>甚至，压缩空缺并删除Undefined和null元素，可以这样使用filter():</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="literal">undefined</span>, <span class="literal">null</span>, <span class="number">6</span>]</span><br><span class="line"><span class="keyword">var</span> aaa = a.filter(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x !== <span class="literal">undefined</span> &amp;&amp; x != <span class="literal">null</span>;</span><br><span class="line">})</span><br><span class="line"><span class="built_in">console</span>.log(aaa);    <span class="comment">//   [1, 2, 3, 6]</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h2 id="every-和some"><a href="#every-和some" class="headerlink" title="every()和some()"></a>every()和some()</h2><p>every()和some()方法是数组的逻辑判定：它们对数组元素应用指定的函数进行判定，返回true或者false。</p>
-<ol>
-<li>every()方法就像数学中的‘针对所有” 的量词:当且仅当针对数组中的所有元素调用判定函数都返回true,它才返回true :</li>
-</ol>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a.every(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x &lt; <span class="number">10</span>;</span><br><span class="line">}));      <span class="comment">// true  所有的值都小于10</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a.every(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x &lt; <span class="number">5</span>;</span><br><span class="line">}));      <span class="comment">// false  不是所有的值都小于5</span></span><br></pre></td></tr></tbody></table></figure>
-
-<ol start="2">
-<li>some()方法就像数学中的“存在” 的量词:当数组中至少有一个元素调用判定函数返回true,它就返回true;并且当且仅当数值中的所有元素调用判定函数都返回false，它才返回false:</li>
-</ol>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a.some(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x == <span class="number">10</span>;</span><br><span class="line">})); <span class="comment">// false   a中元素没有等于10的</span></span><br><span class="line"><span class="built_in">console</span>.log(a.some(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x % <span class="number">2</span> == <span class="number">0</span>;</span><br><span class="line">})); <span class="comment">// true    a中包含有偶数</span></span><br></pre></td></tr></tbody></table></figure>
-<p><strong>注意</strong>：一旦every()和some()确认该返回什么值它们就会停止遍历数组元素。some()在判定函数第一次返回true后就返回true,但如果判定函数一直返回false， 它将会遍历整个数组。every( )恰好相反:它在判定函数第一次返回false后就返回false，但如果判定函数一直返回true，它将会遍历整个数组。注意，根据数学上的惯例，在空数组上调用时，every()返回true,some()返回false。</p>
-<h2 id="reduce-和reduceRight"><a href="#reduce-和reduceRight" class="headerlink" title="reduce()和reduceRight()"></a>reduce()和reduceRight()</h2><p>reduce()和reduceRight()方法使用指定的函数将数组元素进行组合，生成单个值，这在函数式编程中是常见的操作，也可以称为“注入”和“折叠”。例如：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> sum = a.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">}, <span class="number">0</span>); </span><br><span class="line"><span class="built_in">console</span>.log(sum);     <span class="comment">//  20  数组求和</span></span><br><span class="line"><span class="keyword">var</span> product = a.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x * y;</span><br><span class="line">}, <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(product); <span class="comment">//  600   数组求积</span></span><br><span class="line"><span class="keyword">var</span> max = a.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> (x &gt; y) ? x : y</span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(max);     <span class="comment">//  5     求最大值</span></span><br></pre></td></tr></tbody></table></figure>
-<p>reduce()需要两个参数，第一个是执行化简操作的函数，化简函数的任务就是用某种方法把两个值组合或化简为一个值，并返回化简后的值，在上面的例子中，函数通过加法、乘法、或取最大值的方法组合两个值。第二个（可选）的参数是一个传递给函数的初始值。</p>
-<p>reduce()使用的函数与forEach( )和map( )使用的函数不同。比较熟悉的是，数组元素、元素的索引和数组本身将作为第2~4个参数传递给函数。第一个参数是到目前为止的化简操作累积的结果。第一次调用函数时，第一个参数是一个初始值，它就是传递给reduce()的第二个参数。在接下来的调用中，这个值就是上一次化简函数的返回值。在上面的第一个例子中，第一次调用化简函数时的参数是0和1。将两者相加并返回1。再次调用时的参数是1和2，它返回3。然后它计算3+3=6、6+4=10， 最后计算10+5=15。最后的值是15，reduce()返回这个值。</p>
-<p>可能已经注意到了，上面第三次调用reduce()时只有一个参数:没有指定初始值。当不指定初始值调用reduce()时，它将使用数组的第一个 元素作为其初始值。这意味着第一次调用化简函数就使用了第一个和第二个数组元素作为其第一个和第二个参数。在上面求和与求积的例子中，可以省略初始值参数。</p>
-<p>在空数组上，不带初始值参数调用reduce()将导致类型错误异常。如果调用它的时候只有一个值——数组只有一个元素并且没有指定初始值，或者有一个空数组并且指定一个初始值——reduce()只是简单地返回那个值而不会调用化简函数。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> sum = a.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">//0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="keyword">var</span> sum = a.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">}, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">//0</span></span><br></pre></td></tr></tbody></table></figure>
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="keyword">var</span> sum = a.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">//报错</span></span><br></pre></td></tr></tbody></table></figure>
-<p>报错：<br><img src="https://img-blog.csdnimg.cn/20200506213645655.png" alt="在这里插入图片描述"></p>
-<p>reduceRight()的工作原理和reduce()-样，不同的是它按照数组索引从高到低(从右到左)处理数组，而不是从低到高。如果化简操作的优先顺序是从右到左，你可能想会使用它。</p>
-<h2 id="indexOf-和lastIndexOf"><a href="#indexOf-和lastIndexOf" class="headerlink" title="indexOf()和lastIndexOf()"></a>indexOf()和lastIndexOf()</h2><p>indexOf()和lastIndexOf()搜索整个数组中具有给定值的元素，返回找到第一个元素的索引或者如果没有找到就返回-1。indexOf()从头至尾搜索，而lastIndexOf()则反向搜索。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">0</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a.indexOf(<span class="number">1</span>));      <span class="comment">//   1  a[1]是1</span></span><br><span class="line"><span class="built_in">console</span>.log(a.lastIndexOf(<span class="number">1</span>));  <span class="comment">//   4  a[4]是1</span></span><br><span class="line"><span class="built_in">console</span>.log(a.indexOf(<span class="number">4</span>));      <span class="comment">//  -1  a中没有4</span></span><br></pre></td></tr></tbody></table></figure>
-<p>不同于本节描述的其他方法，index0f()和lastIndex0f()方法 不接收一个函数作为其参数。第一个参数是需要搜索的值，第二个参数是可选的:它指定数组中的一个索引，从那里开始搜索。如果省略该参数，index0f()从头开始搜索，而lastIndex0f()从末尾开始搜索。第二个参数也可以是负数，它代表相对数组末尾的偏移量，对于splice()方法:例如，- 1指定数组的最后一个元素。</p>
-<p>如下函数在一个数组中搜索指定的值并返回包含所有匹配的数组索引的一个数组。它展示了如何运用indexOf()的第二个参数来查找除了第一个以外匹配的值。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在数组a中查找所有出现的x，并且返回一个包含匹配索引的数组</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params">a, x</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> result = [];             <span class="comment">//将会返回的数组</span></span><br><span class="line">    <span class="keyword">var</span> len = a.length;          <span class="comment">//待搜索数组的长度</span></span><br><span class="line">    <span class="keyword">var</span> pos = <span class="number">0</span>;                 <span class="comment">//开始搜索的位置</span></span><br><span class="line">    <span class="keyword">while</span> (pos &lt; len) {          <span class="comment">//循环搜索多个数组</span></span><br><span class="line">        pos = a.indexOf(x, pos); <span class="comment">//搜索</span></span><br><span class="line">        <span class="keyword">if</span> (pos === <span class="number">-1</span>) <span class="keyword">break</span>;   <span class="comment">//未找到，就完成搜索</span></span><br><span class="line">        result.push(pos);        <span class="comment">//否则，在数组中存储索引</span></span><br><span class="line">        pos++;                   <span class="comment">//并从下一个位置开始</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> result;               <span class="comment">//返回包含索引的数组</span></span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> a = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">32</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(find(a, <span class="number">2</span>));</span><br></pre></td></tr></tbody></table></figure>
-<p><strong>注意</strong>：字符串也有indexOf()和lastIndexOf()方法，它们和数组方法的功能类似。<br><br><br><br><br>愿你的坚持终有收获。<br><br><br><br></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p>![](<a href="https://gitee.com/wu_zhiguang/blog/raw/master/img/37073a4791b24b428442d8a82fccc5d3" target="_blank" rel="noopener">https://gitee.com/wu_zhiguang/blog/raw/master/img/37073a4791b24b428442d8a82fccc5d3</a> (1).jpg)</p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -550,64 +599,8 @@
                     
 
                                 
-                                            <h2 id="稀疏数组"><a href="#稀疏数组" class="headerlink" title="稀疏数组"></a>稀疏数组</h2><p>概念</p>
-<p>在一些后端语言中，如 C，数组内的值通常被分配在一系列连续的内存地址上，但是在 js 中，某些数组内存则不是连续的，所谓稀疏，顾名思义，不连续，存在一些空隙；<br><br><br>例如：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"><span class="comment">// (3) [empty × 3]</span></span><br></pre></td></tr></tbody></table></figure>
-<p>通过以上方法创建数组，其中 Array(3) 中的参数 3 表示数组的长度，这个数组就是稀疏的，控制台输出一般带有 empty 字样，或者像下面这样创建数组：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,,<span class="number">2</span>];</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"><span class="comment">// (3) [1, empty, 2]</span></span><br></pre></td></tr></tbody></table></figure>
-<p>因为定义语句中两个逗号之间无字符，没有定义值，同样带有 empty 字样，代表稀疏数组，这里可以把 empty 理解为上面讲到的 空隙；<br><br></p>
-<p>特点<br>接下来看一下稀疏数组特殊在什么地方，举个例子说明：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];  <span class="comment">// 正常数组</span></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);  <span class="comment">// 稀疏数组</span></span><br><span class="line"><span class="keyword">var</span> arr3 = [<span class="number">1</span>, , <span class="number">3</span>];  <span class="comment">// 稀疏数组</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr1.length, arr2.length, arr3.length);</span><br><span class="line"><span class="comment">// 3 3 3</span></span><br><span class="line"><span class="built_in">console</span>.log(arr2[<span class="number">0</span>], arr3[<span class="number">1</span>]);</span><br><span class="line"><span class="comment">// undefined undefined</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) {</span><br><span class="line">    <span class="built_in">console</span>.log(arr1[i], arr2[i], arr3[i]);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 1 undefined 1</span></span><br><span class="line"><span class="comment">// 2 undefined undefined</span></span><br><span class="line"><span class="comment">// 3 undefined 3</span></span><br><span class="line">arr1.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">});</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line">arr2.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">});</span><br><span class="line"><span class="comment">// （无输出）</span></span><br><span class="line">arr3.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">});</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0</span> <span class="keyword">in</span> arr3, <span class="number">1</span> <span class="keyword">in</span> arr3);</span><br><span class="line"><span class="comment">// true false</span></span><br></pre></td></tr></tbody></table></figure>
-<p>总结一下，创建的稀疏数组，其长度（length）与定义长度值一致；空隙 值可以被单独访问到，并且不是之前出现的 empty 字样，而是 undefined，比如例子中出现 undefined 时都是使用 arr[i] 这样的索引直接访问方式；使用某些数组方法如 forEach() 时，会忽略掉空隙值，只处理正常值，所以也会使得 1 in arr3 值为 false，即数组中不存在该索引；<br><br><br>细想一下，js 这样处理的原因多半是去除不必要的性能开销，当数组相当大时，可以避免处理一些未初始化的值，但这样也同时使得开发中会出现一些问题，所以应尽量避免；<br><br><br>举个例子来查看一下性能如何：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">'one'</span>);</span><br><span class="line"><span class="comment">// 密集数组</span></span><br><span class="line"><span class="built_in">Array</span>(...Array(<span class="number">1e5</span>)).forEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    ;</span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'one'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">'two'</span>);</span><br><span class="line"><span class="comment">// 稀疏数组</span></span><br><span class="line"><span class="built_in">Array</span>(<span class="number">1e5</span>).forEach(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">    ;</span><br><span class="line">});</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'two'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// one: 26.3759765625ms</span></span><br><span class="line"><span class="comment">// two: 5.701171875ms</span></span><br></pre></td></tr></tbody></table></figure>
-<p>可以看出在处理较大数组时，稀疏数组确实能降低不少性能开销；<br><br></p>
-<h2 id="密集数组"><a href="#密集数组" class="headerlink" title="密集数组"></a>密集数组</h2><p>概念</p>
-<p>与稀疏相对应，则存在密集，定义也就是元素中不存在 空隙 值，其实密集数组基本就是平时常见的正常数组；</p>
-<p>例如：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">arr2.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">});</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>以上都是一些定义密集数组的方法，并且数组中的值都能被正常访问或遍历处理；</p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>运用时需要注意以下情况：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="literal">undefined</span>, <span class="literal">undefined</span>, <span class="literal">undefined</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr1[<span class="number">0</span>], arr2[<span class="number">0</span>]);</span><br><span class="line"><span class="comment">// undefined undefined</span></span><br><span class="line">arr1.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">})</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line">arr2.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>{</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">})</span><br><span class="line"><span class="comment">// （无输出）</span></span><br></pre></td></tr></tbody></table></figure>
-<p>即显式的声明值为 undefined 并不代表这个值就是之前提到的空隙值，虽然二者通过索引访问时的值都返回 undefined，但是其根本还是有区别的，显式声明过的是可以被遍历等操作访问的，不会被当成空隙值被忽略；</p>
-<h2 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h2><p>通常在很多情况下，我们想要直接声明一个数组并赋予其一些特定的初始值，并且为了避免问题，通常是希望申明为密集数组的，下面就介绍一些常用的方法或技巧：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>).fill(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr1);</span><br><span class="line"><span class="comment">// [1, 1, 1]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="built_in">Array</span>.fill().map(<span class="function">(<span class="params">x, i</span>) =&gt;</span> i);</span><br><span class="line"><span class="built_in">console</span>.log(arr2);</span><br><span class="line"><span class="comment">// [0, 1, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr3 = <span class="built_in">Array</span>.apply(<span class="literal">null</span>, <span class="built_in">Array</span>(<span class="number">3</span>));</span><br><span class="line"><span class="built_in">console</span>.log(arr3);</span><br><span class="line"><span class="comment">// [undefined, undefined, undefined]</span></span><br><span class="line"><span class="comment">// 这样声明的是密集数组，不是稀疏的</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr4 = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">4</span>).join(<span class="string">'a'</span>).split(<span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr4);</span><br><span class="line"><span class="comment">// ['a', 'a', 'a']</span></span><br><span class="line"><span class="comment">// 注意定义数组长度比输出数组大 1</span></span><br></pre></td></tr></tbody></table></figure>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/77ed7b55b8fe417e8e65fa87a7ad2ed2.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -732,87 +725,8 @@
                     
 
                                 
-                                            <a id="more"></a>
-
-<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><p><strong><code>instanceof</code></strong> <strong>运算符</strong>用于检测构造函数的 <code>prototype</code> 属性是否出现在某个实例对象的原型链上。</p>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">object <span class="keyword">instanceof</span> <span class="keyword">constructor</span></span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p><code>object</code> ：某个实例对象</p>
-<p><code>constructor</code> ：某个构造函数</p>
-<h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p><code>instanceof</code> 运算符用来检测 <code>constructor.prototype</code>是否存在于参数 <code>object</code> 的原型链上。</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">C</span>(<span class="params"></span>)</span>{} </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">D</span>(<span class="params"></span>)</span>{} </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> C();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> C; <span class="comment">// true，因为 Object.getPrototypeOf(o) === C.prototype</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> D; <span class="comment">// false，因为 D.prototype 不在 o 的原型链上</span></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> <span class="built_in">Object</span>; <span class="comment">// true，因为 Object.prototype.isPrototypeOf(o) 返回 true</span></span><br><span class="line">C.prototype <span class="keyword">instanceof</span> <span class="built_in">Object</span> <span class="comment">// true，同上</span></span><br><span class="line"></span><br><span class="line">C.prototype = {};</span><br><span class="line"><span class="keyword">var</span> o2 = <span class="keyword">new</span> C();</span><br><span class="line"></span><br><span class="line">o2 <span class="keyword">instanceof</span> C; <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">o <span class="keyword">instanceof</span> C; <span class="comment">// false，C.prototype 指向了一个空对象,这个空对象不在 o 的原型链上.</span></span><br><span class="line"></span><br><span class="line">D.prototype = <span class="keyword">new</span> C(); <span class="comment">// 继承</span></span><br><span class="line"><span class="keyword">var</span> o3 = <span class="keyword">new</span> D();</span><br><span class="line">o3 <span class="keyword">instanceof</span> D; <span class="comment">// true</span></span><br><span class="line">o3 <span class="keyword">instanceof</span> C; <span class="comment">// true 因为 C.prototype 现在在 o3 的原型链上</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>需要注意的是，</strong>如果表达式 <code>obj instanceof Foo</code> 返回 <code>true</code>，则并不意味着该表达式会永远返回 <code>true</code>，因为 <code>Foo.prototype</code> 属性的值有可能会改变，改变之后的值很有可能不存在于 <code>obj</code> 的原型链上，这时原表达式的值就会成为 <code>false</code>。另外一种情况下，原表达式的值也会改变，就是改变对象 <code>obj</code> 的原型链的情况，虽然在目前的ES规范中，我们只能读取对象的原型而不能改变它，但借助于非标准的 <code>__proto__</code> 伪属性，是可以实现的。比如执行 <code>obj.__proto__ = {}</code> 之后，<code>obj instanceof Foo</code> 就会返回 <code>false</code> 了。</p>
-<h2 id="isPrototypeOf-NaN"><a href="#isPrototypeOf-NaN" class="headerlink" title="isPrototypeOf()"></a>isPrototypeOf()</h2><p><strong><code>isPrototypeOf()</code> 与 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank" rel="noopener"><code>instanceof</code></a> 运算符不同。在表达式 “<code>object instanceof AFunction</code>“中，<code>object</code> 的原型链是针对 <code>AFunction.prototype</code> 进行检查的，而不是针对 <code>AFunction</code> 本身。</strong></p>
-<p><code>isPrototypeOf</code>是用来判断指定对象<code>object1</code>是否存在于另一个对象<code>object2</code>的原型链中，是则返回true，否则返回false。<br>格式如下：<br>  object1.isPrototypeOf(object2);<br>  object1是一个对象的实例；<br>  object2是另一个将要检查其原型链的对象。<br>原型链可以用来在同一个对象类型的不同实例之间共享功能。<br>如果 object2 的原型链中包含object1，那么 <code>isPrototypeOf</code>方法返回 true。<br>如果 object2 不是一个对象或者 object1 没有出现在 object2 中的原型链中，<code>isPrototypeOf</code>方法将返回 false。 </p>
-<p>示例:<br>本示例展示了 <code>Baz.prototype, Bar.prototype, Foo.prototype</code>和 <code>Object.prototype</code> 在 <code>baz</code> 对象的原型链上：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>{}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>) </span>{}</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Baz</span>(<span class="params"></span>) </span>{}</span><br><span class="line"></span><br><span class="line">Bar.prototype = <span class="built_in">Object</span>.create(Foo.prototype);</span><br><span class="line">Baz.prototype = <span class="built_in">Object</span>.create(Bar.prototype);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> baz = <span class="keyword">new</span> Baz();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(Baz.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Bar.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Foo.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.isPrototypeOf(baz)); <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
-<br>
-
-<h2 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty()"></a>hasOwnProperty()</h2><p><code>hasOwnProperty()</code> 检查对象自身中是否含有该属性。使用该方法时，只有对象自身中含有属性时才会返回true。</p>
-<p>格式如下：<br><code>object.hasOwnProperty(proName);</code><br>判断proName的名称是不是object对象的一个属性或对象。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = {</span><br><span class="line">            x: <span class="number">1</span></span><br><span class="line">        };</span><br><span class="line">        <span class="built_in">console</span>.log(a.hasOwnProperty(<span class="string">"x"</span>)); <span class="comment">//true</span></span><br><span class="line">        <span class="built_in">console</span>.log(a.hasOwnProperty(<span class="string">"y"</span>)); <span class="comment">//false</span></span><br><span class="line">        <span class="built_in">console</span>.log(a.hasOwnProperty(<span class="string">"toString"</span>)); <span class="comment">//false toString是继承属性</span></span><br></pre></td></tr></tbody></table></figure>
-<br>
-
-<h2 id="propertyIsEnumerable-NaN"><a href="#propertyIsEnumerable-NaN" class="headerlink" title="propertyIsEnumerable()"></a>propertyIsEnumerable()</h2><p><code>propertyIsEnumerable()</code>是<code>hasOwnProperty()</code>的增强版，只有检侧到是目有属性且这个属性的可枚举性(enumerable attribute)为true时它才返回true.某些内置属性是不可枚举的。通常由JavaScript代码创建的属性都是可枚举的。除非调用``Object.defineProperty() `方法来修改。</p>
-<p><code>propertyIsEnumerable()</code>方法返回一个布尔值，表示指定的属性是否可枚举。</p>
-<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><blockquote>
-<p>obj.propertyIsEnumerable(prop)</p>
-</blockquote>
-<h3 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h3><blockquote>
-<p>prop<br>   需要测试的属性名。</p>
-</blockquote>
-<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><blockquote>
-<p>用来表示指定的属性名是否可枚举的布尔值。</p>
-</blockquote>
-<h3 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h3><blockquote>
-<p>每个对象都有一个 <code>propertyIsEnumerable</code>方法。此方法可以确定对象中指定的属性是否可以被 for…in<br>循环枚举，但是通过原型链继承的属性除外。如果对象没有指定的属性，则此方法返回 false。</p>
-</blockquote>
-<p>例子</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> object1 = {};</span><br><span class="line"><span class="keyword">const</span> array1 = [];</span><br><span class="line">object1.property1 = <span class="number">42</span>;</span><br><span class="line">array1[<span class="number">0</span>] = <span class="number">42</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(object1.propertyIsEnumerable(<span class="string">'property1'</span>));</span><br><span class="line"><span class="comment">// expected output: true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(array1.propertyIsEnumerable(<span class="number">0</span>));</span><br><span class="line"><span class="comment">// expected output: true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(array1.propertyIsEnumerable(<span class="string">'length'</span>));</span><br><span class="line"><span class="comment">// expected output: false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>下面的例子演示了用户自定义对象和内置对象上属性可枚举性的区别.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'is enumerable'</span>];</span><br><span class="line"></span><br><span class="line">a.propertyIsEnumerable(<span class="number">0</span>);        <span class="comment">// 返回 true</span></span><br><span class="line">a.propertyIsEnumerable(<span class="string">'length'</span>); <span class="comment">// 返回 false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Math</span>.propertyIsEnumerable(<span class="string">'random'</span>); <span class="comment">// 返回 false</span></span><br><span class="line"><span class="keyword">this</span>.propertyIsEnumerable(<span class="string">'Math'</span>);   <span class="comment">// 返回 false</span></span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/d88ecbcfd18a4cdf916f7ac8b500be31.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -937,75 +851,8 @@
                     
 
                                 
-                                            <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
-<p>arr.forEach(callback(currentValue [, index [, array]])[, thisArg])</p>
-</blockquote>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><blockquote>
-<p>callback<br>   为数组中每个元素执行的函数，该函数接收一至三个参数：<br>currentValue<br>    数组中正在处理的当前元素。<br> index (可选)<br>     数组中正在处理的当前元素的索引。<br> array  (可选)<br>    forEach() 方法正在操作的数组。<br>  thisArg (可选)<br>  可选参数。当执行回调函数 callback 时，用作 this 的值。</p>
-</blockquote>
-<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><blockquote>
-<p>undefined。</p>
-</blockquote>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><blockquote>
-<p>   forEach() 方法按升序为数组中含有效值的每一项执行一次 callback 函数，那些已删除或者未初始化的项将被跳过（例如在稀疏数组上）。<br>  可依次向 callback 函数传入三个参数：<br>    1、数组当前项的值<br>    2、数组当前项的索引<br>    3、数组对象本身<br>  如果 thisArg 参数有值，则每次 callback 函数被调用时，this 都会指向 thisArg 参数。如果省略了 thisArg 参数，或者其值为 null 或 undefined，this 则指向全局对象。按照函数观察到 this 的常用规则，callback 函数最终可观察到 this 值。<br>  forEach() 遍历的范围在第一次调用 callback 前就会确定。调用 forEach 后添加到数组中的项不会被 callback 访问到。如果已经存在的值被改变，则传递给 callback 的值是 forEach() 遍历到他们那一刻的值。已删除的项不会被遍历到。如果已访问的元素在迭代时被删除了（例如使用 shift()），之后的元素将被跳过<br>  forEach() 为每个数组元素执行一次 callback 函数；与 map() 或者 reduce() 不同的是，它总是返回 undefined 值，并且不可链式调用。其典型用例是在一个调用链的最后执行副作用（side effects，函数式编程上，指函数进行 返回结果值 以外的操作）。<br>  forEach() 被调用时，不会改变原数组，也就是调用它的数组（尽管 callback 函数在被调用时可能会改变原数组）。（译注：此处说法可能不够明确，具体可参考EMCA语言规范：’forEach does not directly mutate the object on which it is called but the object may be mutated by the calls to callbackfn.’，即 forEach 不会直接改变调用它的对象，但是那个对象可能会被 callback 函数改变。）</p>
-</blockquote>
-<p><strong><span style="“color:red”">注意</span>： 除了抛出异常以外，没有办法中止或跳出 forEach() 循环。如果你需要中止或跳出循环，forEach() 方法不是应当使用的工具。</strong></p>
-<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><p>3 和 7 之间空缺的数组单元未被 forEach() 调用 callback 函数，或进行任何其他操作。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arraySparse = [<span class="number">1</span>,<span class="number">3</span>,,<span class="number">7</span>];</span><br><span class="line"><span class="keyword">let</span> numCallbackRuns = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">arraySparse.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>{</span><br><span class="line">  <span class="built_in">console</span>.log(element);</span><br><span class="line">  numCallbackRuns++;</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"numCallbackRuns: "</span>, numCallbackRuns);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 7</span></span><br><span class="line"><span class="comment">// numCallbackRuns: 3</span></span><br></pre></td></tr></tbody></table></figure>
-<br>
-将 for 循环转换为 forEach
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> items = [<span class="string">'item1'</span>, <span class="string">'item2'</span>, <span class="string">'item3'</span>];</span><br><span class="line"><span class="keyword">const</span> copy = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// before</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;items.length; i++) {</span><br><span class="line">  copy.push(items[i]);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// after</span></span><br><span class="line">items.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>{</span><br><span class="line">  copy.push(item);</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
-<br>
-打印出数组的内容
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logArrayElements</span>(<span class="params">element, index, array</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'a['</span> + index + <span class="string">'] = '</span> + element);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意索引 2 被跳过了，因为在数组的这个位置没有项</span></span><br><span class="line">[<span class="number">2</span>, <span class="number">5</span>, , <span class="number">9</span>].forEach(logArrayElements);</span><br><span class="line"><span class="comment">// logs:</span></span><br><span class="line"><span class="comment">// a[0] = 2</span></span><br><span class="line"><span class="comment">// a[1] = 5</span></span><br><span class="line"><span class="comment">// a[3] = 9</span></span><br></pre></td></tr></tbody></table></figure>
-<br>
-如果数组在迭代时被修改了，则其他元素会被跳过。
-
-<p>  下面的例子会输出 “one”, “two”, “four”。当到达包含值 “two” 的项时，整个数组的第一个项被移除了，这导致所有剩下的项上移一个位置。因为元素 “four” 正位于在数组更前的位置，所以 “three” 会被跳过。 forEach() 不会在迭代之前创建数组的副本。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> words = [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>, <span class="string">'four'</span>];</span><br><span class="line">words.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">word</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(word);</span><br><span class="line">  <span class="keyword">if</span> (word === <span class="string">'two'</span>) {</span><br><span class="line">    words.shift();</span><br><span class="line">  }</span><br><span class="line">});</span><br><span class="line"><span class="comment">// one</span></span><br><span class="line"><span class="comment">// two</span></span><br><span class="line"><span class="comment">// four</span></span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/bfa60f4389414aedbb61140ee5cdb8ab.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -1130,84 +977,8 @@
                     
 
                                 
-                                            <p>    除了for/in循环之外，ECMAScript 5定义了两个用以枚举属性名称的函数。第一个是Object.keys(), 它返回一个数组，这个数组由对象中可枚举的自有属性的名称组成。</p>
-<h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><blockquote>
-<p>Object.keys(obj)</p>
-</blockquote>
-<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><blockquote>
-<p>obj<br>    要返回其枚举自身属性的对象。</p>
-</blockquote>
-<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><blockquote>
-<p>一个表示给定对象的所有可枚举属性的字符串数组。</p>
-</blockquote>
-<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><blockquote>
-<p>Object.keys 返回一个所有元素为字符串的数组，其元素来自于从给定的object上面可直接枚举的属性。这些属性的顺序与手动遍历该对象属性时的一致。</p>
-</blockquote>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子:"></a>例子:</h2><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// simple array</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(arr)); <span class="comment">// console: ['0', '1', '2']</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// array like object</span></span><br><span class="line"><span class="keyword">var</span> obj = { <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>, <span class="number">2</span>: <span class="string">'c'</span> };</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj)); <span class="comment">// console: ['0', '1', '2']</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// array like object with random key ordering</span></span><br><span class="line"><span class="keyword">var</span> anObj = { <span class="number">100</span>: <span class="string">'a'</span>, <span class="number">2</span>: <span class="string">'b'</span>, <span class="number">7</span>: <span class="string">'c'</span> };</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(anObj)); <span class="comment">// console: ['2', '7', '100']</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>    要在原生不支持的旧环境中添加兼容的Object.keys，请复制以下代码段</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="built_in">Object</span>.keys) {</span><br><span class="line">  <span class="built_in">Object</span>.keys = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> hasOwnProperty = <span class="built_in">Object</span>.prototype.hasOwnProperty,</span><br><span class="line">        hasDontEnumBug = !({<span class="attr">toString</span>: <span class="literal">null</span>}).propertyIsEnumerable(<span class="string">'toString'</span>),</span><br><span class="line">        dontEnums = [</span><br><span class="line">          <span class="string">'toString'</span>,</span><br><span class="line">          <span class="string">'toLocaleString'</span>,</span><br><span class="line">          <span class="string">'valueOf'</span>,</span><br><span class="line">          <span class="string">'hasOwnProperty'</span>,</span><br><span class="line">          <span class="string">'isPrototypeOf'</span>,</span><br><span class="line">          <span class="string">'propertyIsEnumerable'</span>,</span><br><span class="line">          <span class="string">'constructor'</span></span><br><span class="line">        ],</span><br><span class="line">        dontEnumsLength = dontEnums.length;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>{</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span> &amp;&amp; <span class="keyword">typeof</span> obj !== <span class="string">'function'</span> || obj === <span class="literal">null</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Object.keys called on non-object'</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">var</span> result = [];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> obj) {</span><br><span class="line">        <span class="keyword">if</span> (hasOwnProperty.call(obj, prop)) result.push(prop);</span><br><span class="line">      }</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (hasDontEnumBug) {</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>; i &lt; dontEnumsLength; i++) {</span><br><span class="line">          <span class="keyword">if</span> (hasOwnProperty.call(obj, dontEnums[i])) result.push(dontEnums[i]);</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">    }</span><br><span class="line">  })()</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
-<p>    上面的代码在IE7（也许IE8也是）下有个问题，就是如果传入一个来自其他 window 对象下的对象时，不可枚举的属性也会获取到。</p>
-<hr>
-<p>    ECMAScript 5中第二E个枚举属性的函数是Object.getOwnPropertyNames()，它和Ojbect.keys()似，只是它返回对象的所有自有属性的名称，而不仅仅是可枚举的属性。在ECMAScript 3中是无法实现的类似的函数的，因为ECMAScript 3中没有提供任何方法来获取对象不可枚举的属性。</p>
-<blockquote>
-<p>Object.getOwnPropertyNames()方法返回一个由指定对象的所有自身属性的属性名（包括不可枚举属性但不包括Symbol值作为名称的属性）组成的数组。</p>
-</blockquote>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><blockquote>
-<p>Object.getOwnPropertyNames(obj)</p>
-</blockquote>
-<h2 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h2><blockquote>
-<p>obj<br>    一个对象，其自身的可枚举和不可枚举属性的名称被返回。</p>
-</blockquote>
-<h2 id="返回值-1"><a href="#返回值-1" class="headerlink" title="返回值"></a>返回值</h2><blockquote>
-<p>在给定对象上找到的自身属性对应的字符串数组。</p>
-</blockquote>
-<h2 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h2><blockquote>
-<p>Object.getOwnPropertyNames() 返回一个数组，该数组对元素是 obj自身拥有的枚举或不可枚举属性名称字符串。<br>数组中枚举属性的顺序与通过 for…in 循环（或 Object.keys）迭代该对象属性时一致。数组中不可枚举属性的顺序未定义。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(arr).sort()); <span class="comment">// ["0", "1", "2", "length"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 类数组对象</span></span><br><span class="line"><span class="keyword">var</span> obj = { <span class="number">0</span>: <span class="string">"a"</span>, <span class="number">1</span>: <span class="string">"b"</span>, <span class="number">2</span>: <span class="string">"c"</span>};</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyNames(obj).sort()); <span class="comment">// ["0", "1", "2"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Array.forEach输出属性名和属性值</span></span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(obj).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">val, idx, array</span>) </span>{</span><br><span class="line">  <span class="built_in">console</span>.log(val + <span class="string">" -&gt; "</span> + obj[val]);</span><br><span class="line">});</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="comment">// 0 -&gt; a</span></span><br><span class="line"><span class="comment">// 1 -&gt; b</span></span><br><span class="line"><span class="comment">// 2 -&gt; c</span></span><br></pre></td></tr></tbody></table></figure>
-<p>    如果你只要获取到可枚举属性，查看Object.keys或用for…in循环（还会获取到原型链上的可枚举属性，不过可以使用hasOwnProperty()方法过滤掉）。getOwnPropertyNames()并不会获取到原型链上的属性。<br>如下：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ParentClass</span>(<span class="params"></span>) </span>{}</span><br><span class="line">ParentClass.prototype.inheritedMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{};</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ChildClass</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">this</span>.prop = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">this</span>.method = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{};</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">ChildClass.prototype = <span class="keyword">new</span> ParentClass;</span><br><span class="line">ChildClass.prototype.prototypeMethod = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{};</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(</span><br><span class="line">  <span class="built_in">Object</span>.getOwnPropertyNames(</span><br><span class="line">    <span class="keyword">new</span> ChildClass()  <span class="comment">// ["prop", "method"]</span></span><br><span class="line">  )</span><br><span class="line">);</span><br></pre></td></tr></tbody></table></figure>
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/34eecd91b0654f22af2538bc7c380cc3.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -1332,54 +1103,8 @@
                     
 
                                 
-                                            <br>
-index.html
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;<span class="regexp">/title&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    * {</span><br><span class="line">        padding: <span class="number">0</span>px;</span><br><span class="line">        margin: <span class="number">0</span>px;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #out {</span><br><span class="line">        width: <span class="number">520</span>px;</span><br><span class="line">        height: <span class="number">333</span>px;</span><br><span class="line">        background-color: #bfa;</span><br><span class="line">        margin: <span class="number">50</span>px auto;</span><br><span class="line">        padding: <span class="number">10</span>px <span class="number">0</span>px;</span><br><span class="line">        position: relative;</span><br><span class="line">        overflow: hidden;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #imglist {</span><br><span class="line">        list-style: none;</span><br><span class="line">        <span class="comment">/* width: 2600px; */</span></span><br><span class="line">        position: absolute;</span><br><span class="line">        left: <span class="number">0</span>px;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #imglist li {</span><br><span class="line">        float: left;</span><br><span class="line">        margin: <span class="number">0</span>px <span class="number">10</span>px;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #navdiv {</span><br><span class="line">        position: absolute;</span><br><span class="line">        bottom: <span class="number">15</span>px;</span><br><span class="line">        <span class="comment">/* left: 200px; */</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #navdiv a {</span><br><span class="line">        float: left;</span><br><span class="line">        width: <span class="number">15</span>px;</span><br><span class="line">        height: <span class="number">15</span>px;</span><br><span class="line">        background-color: red;</span><br><span class="line">        margin: <span class="number">0</span> <span class="number">5</span>px;</span><br><span class="line">        opacity: <span class="number">0.5</span>;</span><br><span class="line">        border-radius: <span class="number">50</span>%;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line">    #navdiv a:hover {</span><br><span class="line">        background-color: #686269;</span><br><span class="line">    }</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="js/</span>tool.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">    window.onload = function() {</span></span><br><span class="line"><span class="string">        var img = document.getElementsByTagName("</span>img<span class="string">");</span></span><br><span class="line"><span class="string">        var imglist = document.getElementById("</span>imglist<span class="string">");</span></span><br><span class="line"><span class="string">        imglist.style.width = 520 * img.length + "</span>px<span class="string">";</span></span><br><span class="line"><span class="string">        // 设置导航块居中</span></span><br><span class="line"><span class="string">        var navdiv = document.getElementById("</span>navdiv<span class="string">");</span></span><br><span class="line"><span class="string">        var out = document.getElementById("</span>out<span class="string">");</span></span><br><span class="line"><span class="string">        navdiv.style.left = (out.offsetWidth - navdiv.offsetWidth) / 2 + "</span>px<span class="string">";</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        var index = 0;</span></span><br><span class="line"><span class="string">        var arra = document.getElementsByTagName("</span>a<span class="string">");</span></span><br><span class="line">        arra[index].style.backgroundColor = "#686269";</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 为每一个超链接添加单机响应事件</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arra.length; i++) {</span><br><span class="line">            arra[i].num = i;</span><br><span class="line">            arra[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                <span class="comment">// 当我们手动去切换的时候，去停止轮播图</span></span><br><span class="line">                clearInterval(timer);</span><br><span class="line">                <span class="comment">// 为每个超链接做标记</span></span><br><span class="line">                index = <span class="keyword">this</span>.num;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// imglist.style.left = -520 * index + "px";</span></span><br><span class="line">                setA();</span><br><span class="line">                move(imglist, <span class="string">"left"</span>, <span class="number">-520</span> * index, <span class="number">20</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                    <span class="comment">// 手动点击切换结束之后，再次开启定时器。</span></span><br><span class="line">                    autoChenge();</span><br><span class="line"></span><br><span class="line">                });</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">        autoChenge();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">setA</span>(<span class="params"></span>) </span>{</span><br><span class="line">            <span class="comment">// 判断索引是否是最后一张</span></span><br><span class="line">            <span class="keyword">if</span> (index &gt;= arra.length) {</span><br><span class="line">                index = <span class="number">0</span>;</span><br><span class="line">                <span class="comment">//如果为最后一张，直接将imglist的left设置为0，</span></span><br><span class="line">                imglist.style.left = <span class="number">0</span>;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arra.length; i++) {</span><br><span class="line">                <span class="comment">// 设置为空，防止设置颜色之后，在内联样式里优先级过高，</span></span><br><span class="line">                arra[i].style.backgroundColor = <span class="string">""</span>;</span><br><span class="line">            }</span><br><span class="line">            arra[index].style.backgroundColor = <span class="string">"#686269"</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 设置定时器</span></span><br><span class="line">        <span class="comment">// 定义定时器标识</span></span><br><span class="line">        <span class="keyword">var</span> timer;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">autoChenge</span>(<span class="params"></span>) </span>{</span><br><span class="line">            timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                index++;</span><br><span class="line">                <span class="comment">//  %= 算法 判断index的长度是否超过img的长度，如果超过就返回0</span></span><br><span class="line">                index %= img.length;</span><br><span class="line">                move(imglist, <span class="string">"left"</span>, <span class="number">-520</span> * index, <span class="number">20</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">                    setA();</span><br><span class="line">                });</span><br><span class="line">            }, <span class="number">3000</span>);</span><br><span class="line"></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;div id="out"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;ul id="imglist"&gt;</span></span><br><span class="line"><span class="regexp">            &lt;li&gt;&lt;img src="img/</span><span class="number">1.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">2.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">3.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">4.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">5.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">            &lt;li&gt;&lt;img src="</span>img/<span class="number">1.</span>jpg<span class="string">" alt="</span><span class="string">"&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">        &lt;/ul&gt;</span></span><br><span class="line"><span class="string">        &lt;div id="</span>navdiv<span class="string">"&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">            &lt;a href="</span>javascript:;<span class="string">"&gt;&lt;/a&gt;</span></span><br><span class="line"><span class="string">        &lt;/div&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;/html&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>tool.js</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//实现动画效果</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">move</span>(<span class="params">obj, arrtr, target, speed, callback</span>) </span>{</span><br><span class="line">    clearInterval(obj.timer);</span><br><span class="line">    <span class="comment">// 获取当前位置</span></span><br><span class="line">    <span class="keyword">var</span> current = <span class="built_in">parseInt</span>(getstyle(obj, arrtr));</span><br><span class="line">    <span class="comment">// 判断speed正负</span></span><br><span class="line">    <span class="comment">// 0-800 向左移</span></span><br><span class="line">    <span class="comment">//800-0 向右移</span></span><br><span class="line">    <span class="keyword">if</span> (current &gt; target) {</span><br><span class="line">        speed = -speed;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 将timer作为属性 给自身的obj元素。</span></span><br><span class="line">    obj.timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">var</span> oldvalue = <span class="built_in">parseInt</span>(getstyle(obj, arrtr));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> newvalue = oldvalue + speed;</span><br><span class="line">        <span class="comment">// 向左移时，需要判断newvalue是否小于target</span></span><br><span class="line">        <span class="comment">// 向右移时，需要判断newvalue是否大于target</span></span><br><span class="line">        <span class="keyword">if</span> ((speed &lt; <span class="number">0</span> &amp;&amp; newvalue &lt; target) || (speed &gt; <span class="number">0</span> &amp;&amp; newvalue &gt; target)) {</span><br><span class="line">            newvalue = target;</span><br><span class="line">        }</span><br><span class="line">        obj.style[arrtr] = newvalue + <span class="string">"px"</span>;</span><br><span class="line">        <span class="keyword">if</span> (newvalue == target) {</span><br><span class="line">            clearInterval(obj.timer);</span><br><span class="line">            <span class="comment">// 如果有回调函数就调用，没有则不调用。</span></span><br><span class="line">            callback &amp;&amp; callback();</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">    }, <span class="number">20</span>);</span><br><span class="line">    <span class="comment">// return false;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取元素的样式</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getstyle</span>(<span class="params">obj, name</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.getComputedStyle) {</span><br><span class="line">        <span class="keyword">return</span> getComputedStyle(obj, <span class="literal">null</span>)[name];</span><br><span class="line"></span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">return</span> obj.currentStyle[name];</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-愿你的坚持终有收获。
-
-<br>
-<br>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/5ddc1a4438e546e0bd480c83cc37b5c1.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -1470,7 +1195,7 @@ index.html
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">277字</span>
+        <span class="post-count">278字</span>
       </span>
     </span>
 
@@ -1504,53 +1229,8 @@ index.html
                     
 
                                 
-                                            <br>
-封装成方法如下：
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  定义一个函数 addClass() 用来向元素中添加指定的class属性值</span></span><br><span class="line"><span class="comment">            参数：</span></span><br><span class="line"><span class="comment">                obj ：要添加class属性值的元素</span></span><br><span class="line"><span class="comment">                cn ： 套添加的class属性      为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">addClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="keyword">if</span> (!hasClass(obj, cn)) {</span><br><span class="line">                obj.className += <span class="string">" "</span> + cn;</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        * 判断一个class中是否含有指定的class属性值</span></span><br><span class="line"><span class="comment">        * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn ： 检查的class属性         为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">hasClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="comment">// 检查obj中是否含有cn</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="string">"\\b"</span> + cn + <span class="string">"\\b"</span>);</span><br><span class="line">            <span class="keyword">return</span> reg.test(obj.className);</span><br><span class="line"></span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 移除指定元素中指定的class属性值</span></span><br><span class="line"><span class="comment">         * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn ： 检查的class属性           为字符串</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">moveClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="keyword">var</span> reg = <span class="built_in">RegExp</span>(<span class="string">"\\b"</span> + cn + <span class="string">"\\b"</span>);</span><br><span class="line">            obj.className = obj.className.replace(reg, <span class="string">""</span>);</span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">        * 切换class属性值</span></span><br><span class="line"><span class="comment">        * 参数：</span></span><br><span class="line"><span class="comment">                obj ：要检查的元素</span></span><br><span class="line"><span class="comment">                cn  ：检查的class属性          为字符串</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">toggleClass</span>(<span class="params">obj, cn</span>) </span>{</span><br><span class="line">            <span class="keyword">if</span> (hasClass(obj, cn)) {</span><br><span class="line">                moveClass(obj, cn);</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                addClass(obj, cn);</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        };</span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-愿你的坚持终有收获。
-
-<br>
-<br>
-<br>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p>I<img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/7e750125367b4afca94b08fb2e19d6da.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -1675,59 +1355,8 @@ index.html
                     
 
                                 
-                                            <p>大致分为三个步骤：</p>
-<ol>
-<li>鼠标摁下       onmousedown</li>
-<li>鼠标移动    onmousemove</li>
-<li>鼠标抬起    onmouseup</li>
-</ol>
-<p> <strong>注意的一点是 onmousemove事件和onmouseup事件是在onmousedown事件里面的</strong></p>
-<h2 id="代码如下（不支持IE8及以下浏览器）：代码一"><a href="#代码如下（不支持IE8及以下浏览器）：代码一" class="headerlink" title="代码如下（不支持IE8及以下浏览器）：代码一"></a>代码如下（不支持IE8及以下浏览器）：代码一</h2><figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        body {</span><br><span class="line">            height: <span class="number">3000</span>px;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        #box1 {</span><br><span class="line">            width: <span class="number">100</span>px;</span><br><span class="line">            height: <span class="number">100</span>px;</span><br><span class="line">            background-color: #bbffaa;</span><br><span class="line">            position: absolute;</span><br><span class="line">            margin-left: <span class="number">100</span>px;</span><br><span class="line">            z-index: <span class="number">33</span>;</span><br><span class="line">        }</span><br><span class="line">        </span><br><span class="line">        #box2 {</span><br><span class="line">            width: <span class="number">100</span>px;</span><br><span class="line">            height: <span class="number">100</span>px;</span><br><span class="line">            background-color: red;</span><br><span class="line">            position: absolute;</span><br><span class="line">            top: <span class="number">300</span>px;</span><br><span class="line">            left: <span class="number">300</span>px;</span><br><span class="line">        }</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() {</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> box1 = document.getElementById(<span class="string">"box1"</span>);</span><br><span class="line">            dary(box1);</span><br><span class="line">            dary(box2);</span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="function">function <span class="title">dary</span><span class="params">(obj)</span> </span>{</span><br><span class="line">            <span class="comment">// 为box设置鼠标按下事件  </span></span><br><span class="line">            obj.onmousedown = function(event) {</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 解决 event兼容性</span></span><br><span class="line">                event = event || window.event;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//元素上偏移量 = 鼠标.clientY-元素。offsetTop +元素的上外边距 </span></span><br><span class="line">                <span class="comment">//元素左偏移量 = 鼠标.clientX-元素。offsetleft +元素的下外边距</span></span><br><span class="line">                <span class="keyword">var</span> ot = event.pageY - obj.offsetTop + parseInt(getComputedStyle(obj, <span class="keyword">null</span>)[<span class="string">"margin-top"</span>]);</span><br><span class="line">                <span class="keyword">var</span> ol = event.pageX - obj.offsetLeft + parseInt(getComputedStyle(obj, <span class="keyword">null</span>)[<span class="string">"margin-left"</span>]);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 设置鼠标在box上的移动事件</span></span><br><span class="line">                document.onmousemove = function(event) {</span><br><span class="line">                    event = event || window.event;</span><br><span class="line">                    <span class="comment">// 获取鼠标的位置坐标</span></span><br><span class="line">                    <span class="keyword">var</span> top = event.pageY - ot;</span><br><span class="line">                    <span class="keyword">var</span> left = event.pageX - ol;</span><br><span class="line">                    <span class="comment">// 设置元素的位置</span></span><br><span class="line">                    obj.style.top = top + <span class="string">"px"</span>;</span><br><span class="line">                    obj.style.left = left + <span class="string">"px"</span>;</span><br><span class="line">                };</span><br><span class="line">                <span class="comment">// 设置鼠标在box上的抬起事件</span></span><br><span class="line">                document.onmouseup = function() {</span><br><span class="line">                    <span class="comment">// 当鼠标抬起时，取消onmousemove事件</span></span><br><span class="line">                    document.onmousemove = <span class="keyword">null</span>;</span><br><span class="line">                    <span class="comment">// 当鼠标抬起时，取消onmouseup事件</span></span><br><span class="line">                    document.onmouseup = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">                };</span><br><span class="line"></span><br><span class="line">                <span class="comment">/*</span></span><br><span class="line"><span class="comment">                        当我们拖拽一个网页中的内容时，浏览器会默认去搜索引擎汇总的搜索内容，</span></span><br><span class="line"><span class="comment">                        此时会导致拖拽功能的异常，这个是浏览器提供的默认行为，</span></span><br><span class="line"><span class="comment">                        如果不希望发生这个行为 ，则可以通过return false来取消默认行为</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">                        该方法解决对IE8及以下浏览器 不适用， 其他都好使</span></span><br><span class="line"><span class="comment">                    */</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            }</span><br><span class="line">        };</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;p&gt;asdfasd&lt;/p&gt;</span><br><span class="line">    &lt;div id="box1"&gt;&lt;/div&gt;</span><br><span class="line">    &lt;div id="box2"&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-<br>
-
-<hr>
-<br>
-<br>
-<br>
-愿你的坚持终有收获。
-
-
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/6982b2ca728b489ead7ed596fe50552c.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -1852,57 +1481,8 @@ index.html
                     
 
                                 
-                                            <br>
-<br>
-
-<ul>
-<li>指将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的时间触发时，会一直冒泡到祖先元素。从而通过祖先元素的响应事件来处理事件。</li>
-<li>事件委派是利用了冒泡，通过委派可以减少事件的绑定次数，提高程序的性能。</li>
-</ul>
-<p>target：<br>target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。</p>
-<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() {</span><br><span class="line">            <span class="keyword">var</span> lis = document.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">            <span class="keyword">var</span> u1 = document.getElementById(<span class="string">"u1"</span>);</span><br><span class="line">            <span class="keyword">var</span> btn = document.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">            <span class="comment">// for (var i = 0; i &lt; lis.length; i++) {</span></span><br><span class="line">            <span class="comment">//     lis[i].onclick = function() {</span></span><br><span class="line">            <span class="comment">//         alert("我是超链接");</span></span><br><span class="line">            <span class="comment">//     }</span></span><br><span class="line">            <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">            u1.onclick = function(event) {</span><br><span class="line">                <span class="comment">//解决event浏览器兼容性问题</span></span><br><span class="line">                event = event || window.event;</span><br><span class="line">                <span class="comment">//如果触发的事件是我们期望的元素，否则不执行。</span></span><br><span class="line">                <span class="comment">//创建一个正则表达式，判断一下含有link的class才能被触发。</span></span><br><span class="line">                <span class="keyword">var</span> patt1 = /[link]/ig;</span><br><span class="line">                <span class="keyword">if</span> (patt1.test(event.target.className)) {</span><br><span class="line">                    alert(<span class="string">"我是超链接"</span>);</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            btn.onclick = function() {</span><br><span class="line">                <span class="keyword">var</span> li = document.createElement(<span class="string">"li"</span>);</span><br><span class="line">                li.innerHTML = <span class="string">"&lt;a href='javascript: ;'class='link'&gt;新的超链接&lt;/a&gt;"</span>;</span><br><span class="line">                u1.appendChild(li);</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id="btn"&gt;点击&lt;/button&gt;</span><br><span class="line">    &lt;ul id=<span class="string">"u1"</span>&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="s link s"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
+                                    <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg" alt=""></p>
+                                        
                                                                 
                                                                     <div class="article-info article-info-index">
                                                                         
@@ -1934,191 +1514,6 @@ index.html
                                                                                         
                                                                                             <p class="article-more-link">
                                                                                                 <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/04/24/fifteen/">
-                                                                                                    展开全文 >></a>
-                                                                                            </p>
-                                                                                            
-
-                                                                                                
-                                                                                                            <div class="clearfix"></div>
-                                                                    </div>
-                </div>
-</article>
-
-            <aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-                
-
-  
-    <article id="post-fourteen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-<div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/24/fourteen/">JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/24/fourteen/" class="archive-article-date">
-  	<time datetime="2020-04-24T03:41:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
-</a>
-
- <!-- 不蒜子统计 -->
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-          <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">575字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
-      </span>
-    </span>
-</div>
-          
-        <!-- 添加完成 -->
-
-        
-      </header>
-            
-
-            
-
-
-
-<!-- 目录内容 -->
-
-<!-- 目录内容结束 -->
-
-
-
-                <div class="article-entry" itemprop="articleBody">
-                    
-
-                                
-                                            <br>
-<br>
-  为一个元素绑定多事件有两种方法：addEventListener（）和  attachEvent()
-
-<p>addEventListener（）  —IE8及以下不支持</p>
-<ul>
-<li>通过这个方法也可以为元素绑定响应函数  </li>
-<li>参数：<br>  1.事件的字符串，不要on<br>  2.回调函数，当事件触发时该函数会被调用<br>  3.是否在捕获阶段触发事件，需要一个布尔值，一般都传false</li>
-<li>使用addEventListener () 可以同时为一个元素的相同事件同时绑定多个响应函数，这样当事件被触发时，响应函数将会按照函数的绑定顺序执行。</li>
-</ul>
-<p>attachEvent()</p>
-<ul>
-<li>在IE8中可以使用attachEvent()来绑定事件</li>
-<li>参数：<br>  1.事件的字符串，要on。<br>  2.回调函数。</li>
-<li>这个方法也可以同时为一个事件绑定多个处理函数。<br>不同的是它是后绑定的先执行，执行顺序和addEventListener()相反。br</li>
-</ul>
-<br>
-  但是这样就出现了浏览器不兼容的问题，我们可以自己定义一个方法来解决该问题。
-
-<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() {</span><br><span class="line">            <span class="keyword">var</span> btn = document.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">            <span class="comment">// btn.onclick = function() {</span></span><br><span class="line">            <span class="comment">//     alert("1");</span></span><br><span class="line">            <span class="comment">// };</span></span><br><span class="line">            <span class="comment">// btn.onclick = function() {</span></span><br><span class="line">            <span class="comment">//     alert("2");</span></span><br><span class="line">            <span class="comment">// };</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// btn.addEventListener("click", function() {</span></span><br><span class="line">            <span class="comment">//     alert("1");</span></span><br><span class="line">            <span class="comment">// }, false);</span></span><br><span class="line">            <span class="comment">// btn.addEventListener("click", function() {</span></span><br><span class="line">            <span class="comment">//     alert("2");</span></span><br><span class="line">            <span class="comment">// }, false);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            <span class="comment">// btn.attachEvent("onclick", function() {</span></span><br><span class="line">            <span class="comment">//     alert("1");</span></span><br><span class="line">            <span class="comment">// });</span></span><br><span class="line">            <span class="comment">// btn.attachEvent("onclick", function() {</span></span><br><span class="line">            <span class="comment">//     alert("2");</span></span><br><span class="line">            <span class="comment">// });</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// btn.addEventListener("click", function () {</span></span><br><span class="line">            <span class="comment">//     alert(this);</span></span><br><span class="line">            <span class="comment">// }, false);</span></span><br><span class="line">            <span class="comment">// btn.attachEvent("onclick", function() {</span></span><br><span class="line">            <span class="comment">//     alert(this);</span></span><br><span class="line">            <span class="comment">// });</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 测试this是指向的谁</span></span><br><span class="line">            <span class="comment">// bing(btn, "click", function() {</span></span><br><span class="line">            <span class="comment">//     alert(this);</span></span><br><span class="line">            <span class="comment">// });</span></span><br><span class="line"></span><br><span class="line">            bing(btn, <span class="string">"click"</span>, function() {</span><br><span class="line">                alert(<span class="string">"1"</span>);</span><br><span class="line">            });</span><br><span class="line">            bing(btn, <span class="string">"click"</span>, function() {</span><br><span class="line">                alert(<span class="string">"2"</span>);</span><br><span class="line">            });</span><br><span class="line"></span><br><span class="line">        };</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 我们可以自己定义一个函数，来兼容这个问题：</span></span><br><span class="line">        <span class="comment">//     addEventListener()中的this，是绑定事件的对象。</span></span><br><span class="line">        <span class="comment">//     attachEvent()    中的this，是window。</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 参数：</span></span><br><span class="line">        <span class="comment">//       obj       绑定的事件对象</span></span><br><span class="line">        <span class="comment">//       eventStr  事件的字符串(不要on)</span></span><br><span class="line">        <span class="comment">//       callback  回调函数</span></span><br><span class="line"></span><br><span class="line">        <span class="function">function <span class="title">bing</span><span class="params">(obj, eventStr, callback)</span> </span>{</span><br><span class="line">            <span class="keyword">if</span> (obj.addEventListener) {</span><br><span class="line">                obj.addEventListener(eventStr, callback, <span class="keyword">false</span>)</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">            	<span class="comment">// 创建一个匿名函数来调用callback，去指定this指向的元素</span></span><br><span class="line">                obj.attachEvent(<span class="string">"on"</span> + eventStr, function() {</span><br><span class="line">                    callback.call(obj);</span><br><span class="line">                });</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">        };</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id="btn"&gt;点击&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
-
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
-                                                <!-- 《添加版权声明 -->
-                                                
-                                                    <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-                                                        
-                                                            <!-- 添加版权声明》 -->
-
-
-                                                            
-                                                                
-                                                                    <div class="article-info article-info-index">
-                                                                        
-                                                                                
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-                                                                                    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-                                                                                        
-                                                                                            <p class="article-more-link">
-                                                                                                <a class="article-more-a  hvr-shutter-in-horizontal" href="/2020/04/24/fourteen/">
                                                                                                     展开全文 >></a>
                                                                                             </p>
                                                                                             
@@ -2374,6 +1769,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript中的稀疏数组和密集数组 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="稀疏数组概念 在一些后端语言中，如 C，数组内的值通常被分配在一系列连续的内存地址上，但是在 js 中，某些数组内存则不是连续的，所谓稀疏，顾名思义，不连续，存在一些空隙；例如： 123var arr &#x3D; new Array(3);console.log(arr);&#x2F;&#x2F; (3) [empty × 3] 通过以上方法创建数组，其中 Array(3) 中的参数 3 表示数组的长度，这个数组就是稀疏的，">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript中的稀疏数组和密集数组">
 <meta property="og:url" content="https://aqingya.cn/2020/05/06/twenty-two/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="稀疏数组概念 在一些后端语言中，如 C，数组内的值通常被分配在一系列连续的内存地址上，但是在 js 中，某些数组内存则不是连续的，所谓稀疏，顾名思义，不连续，存在一些空隙；例如： 123var arr &#x3D; new Array(3);console.log(arr);&#x2F;&#x2F; (3) [empty × 3] 通过以上方法创建数组，其中 Array(3) 中的参数 3 表示数组的长度，这个数组就是稀疏的，">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/77ed7b55b8fe417e8e65fa87a7ad2ed2.jpg">
 <meta property="article:published_time" content="2020-05-06T00:25:18.000Z">
-<meta property="article:modified_time" content="2020-05-06T00:26:19.451Z">
+<meta property="article:modified_time" content="2020-07-15T10:41:29.299Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/77ed7b55b8fe417e8e65fa87a7ad2ed2.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -160,8 +160,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -340,6 +340,22 @@
 
 <!-- 目录内容 -->
 
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
 
@@ -348,7 +364,10 @@
                     
 
                                 
-                                            <h2 id="稀疏数组"><a href="#稀疏数组" class="headerlink" title="稀疏数组"></a>稀疏数组</h2><p>概念</p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/77ed7b55b8fe417e8e65fa87a7ad2ed2.jpg" alt=""></p>
+<a id="more"></a>
+
+<h2 id="稀疏数组"><a href="#稀疏数组" class="headerlink" title="稀疏数组"></a>稀疏数组</h2><p>概念</p>
 <p>在一些后端语言中，如 C，数组内的值通常被分配在一系列连续的内存地址上，但是在 js 中，某些数组内存则不是连续的，所谓稀疏，顾名思义，不连续，存在一些空隙；<br><br><br>例如：</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"><span class="comment">// (3) [empty × 3]</span></span><br></pre></td></tr></tbody></table></figure>
 <p>通过以上方法创建数组，其中 Array(3) 中的参数 3 表示数组的长度，这个数组就是稀疏的，控制台输出一般带有 empty 字样，或者像下面这样创建数组：</p>
@@ -408,7 +427,7 @@
     2020-05-06
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-05-06
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/05/06/twenty-two/" title="JavaScript中的稀疏数组和密集数组" target="_blank">JavaScript中的稀疏数组和密集数组</a>
@@ -552,6 +571,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#稀疏数组"><span class="toc-number">1.</span> <span class="toc-text">稀疏数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#密集数组"><span class="toc-number">2.</span> <span class="toc-text">密集数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区别"><span class="toc-number">3.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拓展"><span class="toc-number">4.</span> <span class="toc-text">拓展</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -805,6 +837,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,23 +8,22 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript --- 作用域与作用域链 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作用域1、理解  就是一块“地盘”，一个代码所在的区域  它是静态的（相对于上下文对象），在编写代码时就确定了 2、分类  全局作用域  函数作用域  块级作用域 3、作用  隔离变量，不同作用域下的同名变量不会有冲突。 作用域与执行上下文1、区别1  全局作用域之外，每个函数都会创建自己的作用域，作用域在函数定义时就已经确定了。而不是在函数调用时。  全局执行上下文环境是在全局作用域确定之后，j">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript --- 作用域与作用域链">
 <meta property="og:url" content="https://aqingya.cn/2020/05/19/twenty-eight/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="作用域1、理解  就是一块“地盘”，一个代码所在的区域  它是静态的（相对于上下文对象），在编写代码时就确定了 2、分类  全局作用域  函数作用域  块级作用域 3、作用  隔离变量，不同作用域下的同名变量不会有冲突。 作用域与执行上下文1、区别1  全局作用域之外，每个函数都会创建自己的作用域，作用域在函数定义时就已经确定了。而不是在函数调用时。  全局执行上下文环境是在全局作用域确定之后，j">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/8b87a15fbd9b443fa3b322c68b9b1423.jpg">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200519155909763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200519161000612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200519162258104.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20200519164317171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
 <meta property="article:published_time" content="2020-05-19T09:08:25.000Z">
-<meta property="article:modified_time" content="2020-05-19T09:09:09.674Z">
+<meta property="article:modified_time" content="2020-07-15T10:38:42.921Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200519155909763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/8b87a15fbd9b443fa3b322c68b9b1423.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -165,8 +164,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -345,6 +344,22 @@
 
 <!-- 目录内容 -->
 
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
 
@@ -353,7 +368,10 @@
                     
 
                                 
-                                            <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>1、理解<br>  就是一块“地盘”，一个代码所在的区域<br>  它是静态的（相对于上下文对象），在编写代码时就确定了</p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/8b87a15fbd9b443fa3b322c68b9b1423.jpg" alt=""></p>
+<a id="more"></a>
+
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>1、理解<br>  就是一块“地盘”，一个代码所在的区域<br>  它是静态的（相对于上下文对象），在编写代码时就确定了</p>
 <p>2、分类<br>  全局作用域<br>  函数作用域<br>  块级作用域</p>
 <p>3、作用<br>  隔离变量，不同作用域下的同名变量不会有冲突。<br><img src="https://img-blog.csdnimg.cn/20200519155909763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <h2 id="作用域与执行上下文"><a href="#作用域与执行上下文" class="headerlink" title="作用域与执行上下文"></a>作用域与执行上下文</h2><p>1、区别1<br>  全局作用域之外，每个函数都会创建自己的作用域，作用域在函数定义时就已经确定了。而不是在函数调用时。<br>  全局执行上下文环境是在全局作用域确定之后，js代码马上执行之前创建。<br>  函数执行_上下文环境是在调用函数时，函数体代码执行之 前创建。</p>
@@ -428,7 +446,7 @@
     2020-05-19
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-05-19
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/05/19/twenty-eight/" title="JavaScript --- 作用域与作用域链" target="_blank">JavaScript --- 作用域与作用域链</a>
@@ -572,6 +590,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域"><span class="toc-number">1.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域与执行上下文"><span class="toc-number">2.</span> <span class="toc-text">作用域与执行上下文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域链"><span class="toc-number">3.</span> <span class="toc-text">作用域链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于作用域链的两道面试题：（具有迷惑性，要注意）"><span class="toc-number">4.</span> <span class="toc-text">关于作用域链的两道面试题：（具有迷惑性，要注意）</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -825,6 +856,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

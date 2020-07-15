@@ -8,18 +8,19 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript 性能优化之作用域安全的构造函数 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="构造函数其实就是一个使用new操作符调用的函数。当使用new调用时，构造函数内用到的this对象会指向新创建的对象实例，如下面的例子所示: 123456function Person(name, age, job) {    this.name &#x3D; name;    this.age &#x3D; age;    this.job &#x3D; job;}var person &#x3D; new Person(&quot;aqingy">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 性能优化之作用域安全的构造函数">
 <meta property="og:url" content="https://aqingya.cn/2020/06/03/35/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="构造函数其实就是一个使用new操作符调用的函数。当使用new调用时，构造函数内用到的this对象会指向新创建的对象实例，如下面的例子所示: 123456function Person(name, age, job) {    this.name &#x3D; name;    this.age &#x3D; age;    this.job &#x3D; job;}var person &#x3D; new Person(&quot;aqingy">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/accc4dfe993948518693431ee9ce56b6.jpg">
 <meta property="article:published_time" content="2020-06-03T14:28:28.000Z">
-<meta property="article:modified_time" content="2020-06-03T14:29:13.733Z">
+<meta property="article:modified_time" content="2020-07-15T10:51:47.425Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="性能优化">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/accc4dfe993948518693431ee9ce56b6.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -160,8 +161,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -348,7 +349,10 @@
                     
 
                                 
-                                            <p>构造函数其实就是一个使用new操作符调用的函数。当使用new调用时，构造函数内用到的this对象会指向新创建的对象实例，如下面的例子所示:</p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/accc4dfe993948518693431ee9ce56b6.jpg" alt=""></p>
+<a id="more"></a>
+
+<p>构造函数其实就是一个使用new操作符调用的函数。当使用new调用时，构造函数内用到的this对象会指向新创建的对象实例，如下面的例子所示:</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">"aqingya"</span>, <span class="number">18</span>, <span class="string">"吴志广"</span>);</span><br></pre></td></tr></tbody></table></figure>
 <p>上面这个例子中，Person构造函数使用this对象给三个属性赋值: name、age和 job。当和new操作符连用时，则会创建一个新的 Person对象，同时会给它 分配这些属性。问题出在当没有使用new操作符来调用该构造函数的情况上。由于该this对象是在运行时绑定的，所以直接调用Person(),this会映射到全局对象window.上，导致错误对象属性的意外增加。例如:</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = Person(<span class="string">"aqingya"</span>, <span class="number">18</span>, <span class="string">"吴志广"</span>);</span><br><span class="line">alert(<span class="built_in">window</span>.name); <span class="comment">//"aqingya"</span></span><br><span class="line">alert(<span class="built_in">window</span>.age); <span class="comment">//18</span></span><br><span class="line">alert(<span class="built_in">window</span>.job); <span class="comment">//吴志广</span></span><br></pre></td></tr></tbody></table></figure>
@@ -407,7 +411,7 @@
     2020-06-03
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-06-03
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/06/03/35/" title="JavaScript 性能优化之作用域安全的构造函数" target="_blank">JavaScript 性能优化之作用域安全的构造函数</a>
@@ -441,6 +445,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -804,6 +812,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,18 +8,19 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript 性能优化之惰性加载函数 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在实际开发中，我们编写的大多数JavaScript代码包含大量的 if…else语句或者 try… catch 语句来做功能检测。举一个简单的例子：事件的绑定，我们会首先想到下列的代码 123456789var addHandler&#x3D; function(element, type, handler) {              if (element.addEventListener) {">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 性能优化之惰性加载函数">
 <meta property="og:url" content="https://aqingya.cn/2020/06/03/34/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="在实际开发中，我们编写的大多数JavaScript代码包含大量的 if…else语句或者 try… catch 语句来做功能检测。举一个简单的例子：事件的绑定，我们会首先想到下列的代码 123456789var addHandler&#x3D; function(element, type, handler) {              if (element.addEventListener) {">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/f9878666c86e49efa8e6.jpg">
 <meta property="article:published_time" content="2020-06-03T09:21:53.000Z">
-<meta property="article:modified_time" content="2020-06-03T09:22:25.038Z">
+<meta property="article:modified_time" content="2020-07-15T10:51:34.124Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="性能优化">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/f9878666c86e49efa8e6.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -160,8 +161,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -348,7 +349,10 @@
                     
 
                                 
-                                            <p>在实际开发中，我们编写的大多数JavaScript代码包含大量的 if…else语句或者 try… catch 语句来做功能检测。<br>举一个简单的例子：事件的绑定，我们会首先想到下列的代码</p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/f9878666c86e49efa8e6.jpg" alt=""></p>
+<a id="more"></a>
+
+<p>在实际开发中，我们编写的大多数JavaScript代码包含大量的 if…else语句或者 try… catch 语句来做功能检测。<br>举一个简单的例子：事件的绑定，我们会首先想到下列的代码</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addHandler= <span class="function"><span class="keyword">function</span>(<span class="params">element, type, handler</span>) </span>{</span><br><span class="line">              <span class="keyword">if</span> (element.addEventListener) {</span><br><span class="line">                  element.addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">              } <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) {</span><br><span class="line">                  element.attachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">              } <span class="keyword">else</span> {</span><br><span class="line">                  element[<span class="string">"on"</span> + type] = handler;</span><br><span class="line">              }</span><br><span class="line">          }</span><br></pre></td></tr></tbody></table></figure>
 <p>分析以上代码，为了兼容不同浏览器，每次执行 <strong>addHandler</strong> 时我们会去做功能检测，逐一去走 <strong>addHandler</strong> 中的if，获取到可以兼容的代码块。无可厚非，我们通过这两三个判断保证了每次都能使用到兼容浏览器的代码，注意到，我用了“每次”这个词。是的，以上代码每次调用 <strong>addHandler</strong> 都要做功能检测，而我们知道，当我们用某个浏览器打开网页时，其实就已经确定了哪个if/try可用了，完全没必要每次调用都检测。因此，我们引入了惰性加载函数的概念。</p>
 <p><span style="color:red"><strong>惰性加载表示函数执行的分支仅会发生一次。有两种实现惰性加载的方式：在函数被调用时再处理函数；在声明函数时就指定适当函数。</strong></span></p>
@@ -403,7 +407,7 @@
     2020-06-03
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-06-03
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/06/03/34/" title="JavaScript 性能优化之惰性加载函数" target="_blank">JavaScript 性能优化之惰性加载函数</a>
@@ -437,6 +441,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -800,6 +808,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>

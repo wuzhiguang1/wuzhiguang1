@@ -8,18 +8,19 @@
   <link rel="dns-prefetch" href="https://aqingya.cn">
   <title>JavaScript 性能优化之安全类型检测 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript内置的类型检测机制并非完全可靠。比如： 1var isArray &#x3D; value instanceof Array;  以上代码要返回true,value必须是一个数组，而且还必须与Array构造函数在同个全局作用域中。(别忘了，Array是window的属性。)如果value是在另个frame中定义的数组，那么以上代码就会返回false。 解决方法： 众所周知，在任何值上调用">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 性能优化之安全类型检测">
 <meta property="og:url" content="https://aqingya.cn/2020/06/03/36/index.html">
 <meta property="og:site_name" content="阿清的小站">
-<meta property="og:description" content="JavaScript内置的类型检测机制并非完全可靠。比如： 1var isArray &#x3D; value instanceof Array;  以上代码要返回true,value必须是一个数组，而且还必须与Array构造函数在同个全局作用域中。(别忘了，Array是window的属性。)如果value是在另个frame中定义的数组，那么以上代码就会返回false。 解决方法： 众所周知，在任何值上调用">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/ebe11dec2238427496340fe86c4f5d61.jpg">
 <meta property="article:published_time" content="2020-06-03T14:43:47.000Z">
-<meta property="article:modified_time" content="2020-06-03T14:44:14.356Z">
+<meta property="article:modified_time" content="2020-07-15T10:51:59.436Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="性能优化">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/ebe11dec2238427496340fe86c4f5d61.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -160,8 +161,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 63</a>
-                        <a>总字数 <span class="post-count">97.8k</span></a>
+                        <a>总文章数 64</a>
+                        <a>总字数 <span class="post-count">99.6k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -348,7 +349,10 @@
                     
 
                                 
-                                            <p>JavaScript内置的类型检测机制并非完全可靠。比如：</p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/ebe11dec2238427496340fe86c4f5d61.jpg" alt=""></p>
+<a id="more"></a>
+
+<p>JavaScript内置的类型检测机制并非完全可靠。比如：</p>
 <figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isArray = value <span class="keyword">instanceof</span> <span class="built_in">Array</span>;</span><br></pre></td></tr></tbody></table></figure>
 
 <p>以上代码要返回true,value必须是一个数组，而且还必须与Array构造函数在同个全局作用域中。(别忘了，Array是window的属性。)如果value是在另个frame中定义的数组，那么以上代码就会返回false。</p>
@@ -398,7 +402,7 @@
     2020-06-03
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-06-03
+    2020-07-15
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/06/03/36/" title="JavaScript 性能优化之安全类型检测" target="_blank">JavaScript 性能优化之安全类型检测</a>
@@ -432,6 +436,10 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
         		</li>
       		
 		</ul>
@@ -795,6 +803,42 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">WebPack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">正则表达式面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">XML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">E4X</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">AJAX</a>
               </li>
             
             <div class="clearfix"></div>
