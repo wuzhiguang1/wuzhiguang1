@@ -15,10 +15,743 @@
         }
     </script>
     <link href="https://cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/indexmin.css" rel='stylesheet' type='text/css' />
+    <!-- <link href="css/style.css" rel='stylesheet' type='text/css' /> -->
     <link href='//fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+
     <link href='//fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
     <!-- start menu -->
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        
+        .sub-header {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .navbar-fixed-top {
+            border: 0;
+        }
+        
+        .sidebar {
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .sidebar {
+                position: fixed;
+                top: 51px;
+                bottom: 0;
+                left: 0;
+                z-index: 1000;
+                display: block;
+                padding: 20px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                /* Scrollable contents if viewport is shorter than content. */
+                background-color: #f5f5f5;
+            }
+            .main {
+                padding-right: 40px;
+                padding-left: 40px;
+            }
+            .project dt {
+                float: left;
+                width: 100px;
+                overflow: hidden;
+                clear: left;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .project dd {
+                margin-left: 112px;
+            }
+        }
+        /* Sidebar navigation */
+        
+        .nav-sidebar {
+            margin-right: -21px;
+            /* 20px padding + 1px border */
+            margin-bottom: 20px;
+            margin-left: -20px;
+        }
+        
+        .nav-sidebar>li>a {
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+        
+        .nav-sidebar>.active>a,
+        .nav-sidebar>.active>a:hover,
+        .nav-sidebar>.active>a:focus {
+            color: #fff;
+            background-color: #428bca;
+        }
+        /*
+ * Main content
+ */
+        
+        .main {
+            padding: 20px;
+        }
+        
+        .main .page-header {
+            margin-top: 0;
+        }
+        /*
+ * Placeholder dashboard ideas
+ */
+        
+        .placeholders {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .placeholders h4 {
+            margin-bottom: 0;
+        }
+        
+        .placeholder {
+            margin-bottom: 20px;
+        }
+        
+        .placeholder img {
+            display: inline-block;
+            border-radius: 50%;
+        }
+        
+        h4,
+        h5,
+        h6,
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+        }
+        
+        ul,
+        ol {
+            margin: 0;
+            padding: 0;
+        }
+        
+        p {
+            margin: 0;
+        }
+        
+        html,
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 100%;
+            background: #ffffff;
+        }
+        
+        body a {
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+            -ms-transition: 0.5s all;
+        }
+        
+        body {
+            padding-top: 0px;
+        }
+        
+        a:focus {
+            outline: thin dotted;
+            outline: 0px auto -webkit-focus-ring-color;
+            outline-offset: 0px;
+            text-decoration: none;
+        }
+        /*-- header_top --*/
+        
+        .sidebar {
+            /*background: #6ecadc;*/
+            background: #43808e;
+            top: 0px;
+            padding: 2em 30px;
+        }
+        
+        .sidebar h1 {
+            font-size: 2.5em;
+            font-weight: 600;
+            margin-bottom: 0.2em;
+            COLOR: #fff;
+            font-family: 'Varela Round', sans-serif;
+        }
+        
+        .sidebar h3 {
+            font-size: 1em;
+            font-weight: 500;
+            margin-bottom: 1em;
+            COLOR: #fff;
+            font-family: 'Varela Round', sans-serif;
+        }
+        
+        .sidebar img {
+            border: 1px solid #fff;
+            padding: 6px;
+            width: 80%;
+        }
+        
+        .details {
+            margin-top: 2em;
+        }
+        
+        .details h3 {
+            font-weight: 600;
+            font-size: 1em;
+            color: #fff;
+        }
+        
+        .details p {
+            color: #101010;
+            font-size: 15px;
+            margin: -8px 0 8px 0;
+        }
+        
+        .details p a {
+            color: #101010;
+            font-size: 15px;
+        }
+        /*----*/
+        
+        .main {
+            padding: 2em 0;
+        }
+        
+        .content {
+            margin-right: 3em;
+        }
+        
+        .glyphicon {
+            top: 1px;
+        }
+        
+        .glyphicon-tasks:before,
+        .glyphicon-home:before,
+        .glyphicon-print:before,
+        .glyphicon-envelope:before,
+        .glyphicon-picture:before {
+            margin-right: 9px;
+            font-size: 14px;
+            color: #6ecadc;
+        }
+        
+        .details_header {
+            padding-bottom: 2em;
+        }
+        
+        .details_header ul li {
+            display: inline-block;
+        }
+        
+        .details_header ul li a {
+            padding: 0 1em;
+            color: #333;
+        }
+        
+        .details_header ul li a:hover {
+            color: #6ecadc;
+        }
+        
+        .item {
+            margin-bottom: 2em;
+        }
+        
+        .clr {
+            color: #FFF;
+            padding: 5px 41px 5px 30px;
+            display: inline-block;
+        }
+        
+        .clr1 {
+            background: #6ecadc;
+        }
+        
+        .clr2 {
+            background: #e9a820;
+        }
+        
+        .clr3 {
+            background: #3eb991;
+        }
+        
+        .clr4 {
+            background: #40a4b9;
+        }
+        
+        .clr5 {
+            background: #52c160;
+        }
+        
+        .item h4 {
+            color: #333;
+            font-weight: 600;
+            font-size: 1.4em;
+            margin-bottom: 6px;
+            font-family: 'Varela Round', sans-serif;
+        }
+        
+        .item h5 {
+            color: #666;
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-bottom: 1em;
+        }
+        
+        .item h4 span,
+        .item h5 span {
+            font-size: 0.65em;
+            margin-left: 5px;
+            color: #999;
+            font-weight: 400;
+        }
+        
+        .item h6 {
+            font-weight: 400;
+            margin-bottom: 1.3em;
+            font-size: 0.9em;
+        }
+        
+        .item_detail {
+            margin: 1.5em 0 0 2em;
+            padding-bottom: 1.5em;
+            border-bottom: 1px solid #d8e6f8;
+        }
+        
+        .item_detail:last-child {
+            border-bottom: none;
+        }
+        
+        .item_detail p,
+        dl.project dd {
+            color: #666;
+            font-weight: 300;
+            line-height: 1.7em;
+        }
+        
+        dl.project dd .label {
+            margin-right: 5px;
+        }
+        
+        .project dt {
+            color: #8c8b8b;
+            line-height: 1.7em;
+        }
+        
+        .person_info li {
+            list-style: none;
+            color: #666;
+            display: inline-block;
+            white-space: nowrap;
+            width: 36%;
+        }
+        
+        .person_info li:before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border: 1px solid #999;
+            border-radius: 10px;
+            background: #aaa;
+            display: inline-block;
+            margin-right: 10px;
+            float: left;
+            margin-top: 7px;
+        }
+        
+        .skill ul {
+            list-style: none;
+        }
+        
+        .skill ul>li {
+            line-height: 32px;
+            white-space: nowrap;
+            overflow: hidden;
+            list-style: decimal-leading-zero inside;
+            color: #666;
+            font-weight: 300;
+        }
+        
+        .copywrite {
+            padding-left: 2em;
+            margin-top: 1em;
+        }
+        
+        .copywrite p {
+            color: #999;
+            font-size: 0.9em;
+        }
+        
+        .copywrite p a {
+            color: #999;
+        }
+        
+        .copywrite p a:hover {
+            color: #6ecadc;
+        }
+        /*--responsive--*/
+        
+        @media (max-width: 1366px) {
+            .sidebar h1 {
+                font-size: 2em;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar {
+                padding: 2em 17px;
+                width: 20%;
+            }
+            .sidebar h1 {
+                font-size: 1.6em;
+            }
+            .main {
+                margin-left: 19.666667%;
+                width: 80%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 22%;
+            }
+            .main {
+                margin-left: 21.666667%;
+                width: 78%;
+            }
+            .sidebar h1 {
+                font-size: 1.4em;
+            }
+            .sidebar img {
+                padding: 4px;
+                width: 54%;
+            }
+            .details_header {
+                padding-bottom: 2em;
+            }
+            .details_header ul li a {
+                padding: 0 1em;
+                font-size: 0.9em;
+            }
+            .item h3 {
+                font-size: 1.2em;
+            }
+            .item_detail h4 {
+                font-size: 1.1em;
+            }
+            .item_detail h5 {
+                font-size: 1em;
+            }
+            .item_detail h6 {
+                font-size: 0.8em;
+            }
+            .item_detail p {
+                font-size: 0.8em;
+            }
+            .person_info li {
+                width: 49%;
+                font-weight: 300;
+                line-height: 1.7em;
+                font-size: 0.8em;
+            }
+            .skill ul li,
+            dl.project dd {
+                font-size: 0.85em;
+            }
+            .details p {
+                font-size: 0.75em;
+            }
+        }
+        
+        @media (max-width: 736px) {
+            .sidebar {
+                width: 100%;
+            }
+            .main {
+                margin-left: 0;
+                width: 100%;
+            }
+            .sidebar_top {
+                width: 30%;
+                float: left;
+                margin-right: 5%;
+            }
+            .details {
+                width: 30%;
+                float: right;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .sidebar {
+                width: 100%;
+            }
+            .main {
+                margin-left: 0;
+                width: 100%;
+            }
+            .sidebar_top {
+                width: 30%;
+                float: left;
+                margin-right: 5%;
+            }
+            .details {
+                width: 30%;
+                float: right;
+            }
+            .sidebar img {
+                width: 100%;
+            }
+            .details p {
+                font-size: 0.9em;
+                margin: 5px 0 1em 0;
+            }
+            .details h3 {
+                font-size: 0.9em;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .sidebar_top {
+                width: 32%;
+            }
+            .sidebar img {
+                width: 85%;
+            }
+        }
+        
+        @media (max-width: 568px) {
+            .details_header ul li a {
+                padding: 0 0.5em;
+                font-size: 0.9em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content {
+                margin-right: 2em;
+            }
+            .glyphicon-tasks:before,
+            .glyphicon-home:before,
+            .glyphicon-print:before,
+            .glyphicon-envelope:before,
+            .glyphicon-picture:before {
+                margin-right: 6px;
+                font-size: 12px;
+            }
+            .details_header ul li a {
+                padding: 0 0.5em;
+                font-size: 0.85em;
+            }
+            .details {
+                width: 36%;
+            }
+            .sidebar h1 {
+                font-size: 1.3em;
+            }
+            .sidebar_top {
+                width: 38%;
+            }
+            .copywrite {
+                padding-left: 1em;
+            }
+        }
+        
+        @media (max-width: 414px) {
+            .sidebar_top {
+                width: 45%;
+            }
+            .sidebar img {
+                width: 91%;
+            }
+            .details {
+                width: 42%;
+            }
+            .details_header {
+                padding-bottom: 2em;
+            }
+            .details_header ul li a {
+                padding: 0 0.3em;
+                font-size: 0.75em;
+            }
+        }
+        
+        @media (max-width: 384px) {
+            .sidebar h1 {
+                font-size: 1.2em;
+            }
+            .details {
+                width: 45%;
+            }
+            .details_header ul {
+                text-align: center;
+            }
+            .details_header ul li a {
+                padding: 0 1em;
+                font-size: 0.75em;
+            }
+            .main {
+                padding: 1em 0 2em 0;
+            }
+            .item_detail {
+                padding: 0;
+                margin: 1em 1em;
+            }
+            .item_detail h4 {
+                font-size: 0.9em;
+            }
+            .item_detail h5 {
+                font-size: 0.8em;
+            }
+            .item_detail h6 {
+                font-size: 0.6em;
+            }
+            .item h3 {
+                font-size: 1em;
+            }
+            .clr {
+                padding: 5px 98px 5px 16px;
+            }
+            .copywrite p {
+                font-size: 0.7em;
+            }
+        }
+        
+        @media (max-width: 375px) {
+            .sidebar h1 {
+                font-size: 1em;
+            }
+            .sidebar img {
+                width: 50%;
+            }
+            .details h3 {
+                font-size: 0.8em;
+            }
+            .details p {
+                font-size: 0.75em;
+                margin: 5px 0 0.5em 0;
+            }
+            .sidebar {
+                padding: 1.5em 17px 1em 17px;
+            }
+            .details_header {
+                /*padding: 0 0 0 1em;*/
+                text-align: center;
+            }
+            .details_header ul li a {
+                line-height: 2em;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .sidebar_top {
+                width: 50%;
+            }
+            .sidebar img {
+                width: 80%;
+            }
+            .details h3 {
+                font-size: 0.7em;
+            }
+            .content {
+                margin-right: 1em;
+            }
+            .details_header ul li a {
+                padding: 0 0.5em;
+                font-size: 0.75em;
+            }
+        }
+        
+        .xian {
+            height: 1px;
+            width: 203px;
+            background-color: #282C34;
+            margin-top: -5px;
+            margin-bottom: 5px;
+        }
+        
+        .do {
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .col-sm-3 .skill_web {
+            margin: 0;
+            padding: 0;
+            margin-left: -29px;
+            width: 251px;
+            height: 200px;
+            font-family: "Open Sans", sans-serif;
+            color: #FFF;
+            /* background-color: #52c160; */
+        }
+        
+        .skills {
+            width: 200;
+            /* max-width: 70px; */
+            padding: 0 20px;
+            margin-left: 7px;
+        }
+        
+        .skill-name {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 10px 0;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: #52535358;
+            border-radius: 6px;
+        }
+        
+        .skill-per {
+            height: 10px;
+            background: #FC466B;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #3F5EFB, #FC466B);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            border-radius: 6px;
+            width: 0;
+            transition: 1s linear;
+            position: relative;
+        }
+        
+        .skill-per::before {
+            content: attr(per);
+            font-size: 10px;
+            position: absolute;
+            padding: 2px 3px;
+            background-color: #6D73E0;
+            color: #fff;
+            border-radius: 5px;
+            top: -25px;
+            right: 0;
+            transform: translateX(50%);
+        }
+        
+        .skill-per::after {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #6D73E0;
+            top: -12px;
+            right: 0;
+            transform: translateX(50%) rotate(45deg);
+            border-radius: 2px;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -26,15 +759,53 @@
     <div class="col-sm-3 col-md-2 sidebar">
         <div class="sidebar_top">
             <h1>吴志广</h1>
+            <h3>实习/前端工程师</h3>
             <img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/me6.jpg" alt="" />
         </div>
         <div class="details">
             <h3>手机</h3>
             <p>19939531325</p>
+            <h3>QQ</h3>
+            <p>2601311071</p>
             <h3>邮箱</h3>
-            <p><a href="mailto:wfyv@qq.com">2601311071@qq.com</a></p>
+            <p><a href="mailto:2601311071@qq.com">2601311071@qq.com</a></p>
         </div>
+        <div class="xian"></div>
         <div class="clearfix"></div>
+        <h4 class="do">技能条</h4>
+        <div class="skill_web">
+            <div class="skills">
+                <div class="skill">
+                    <div class="skill-name">HTML</div>
+                    <div class="skill-bar">
+                        <div class="skill-per" per="90"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">CSS</div>
+                    <div class="skill-bar">
+                        <div class="skill-per" per="70"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="skill-bar">
+                        <div class="skill-per" per="60"></div>
+                    </div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">Vue</div>
+                    <div class="skill-bar">
+                        <div class="skill-per" per="50"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <div class="content">
@@ -66,65 +837,21 @@
             <div class="item">
                 <h3 class="clr clr2">工作经历</h3>
 
-                <!-- <div class="item_detail">
-                    <h4>山东蓝翔汽车股份有限公司<span>2015.10 - 至今</span></h4>
-                    <h6>java工程师</h6>
-                    <p>1、参与需求分析、数据库设计、系统优化等工作</p>
-                    <p>2、解决开发过程中的技术问题</p>
-                </div> -->
+
+
+
 
             </div>
             <div class="item">
                 <h3 class="clr clr3">专业技能</h3>
-                <!-- <div class="item_detail">
-                    <div class="skill">
-                        <ul>
-                            <li>java基础扎实，有良好的编程思想和编码习惯。</li>
-                            <li>熟悉单例模式、工厂模式、适配器模式、代理模式、责任链模式。</li>
-                            <li>掌握SpringMVC、Spring、Mybatis等企业主流开发框架，研究Jfinal、latke、mybatis等开源项目源码。</li>
-                            <li>熟练应用MySQL、oracle等关系型数据库及redis非关系型数据库等技术。</li>
-                            <li>熟悉Javascript、jquery、ajax等前台技术。</li>
-                            <li>熟悉SVN、GIT、MAVEN工具，能够使用SVN和MAVEN构建项目。</li>
-                            <li>熟悉Linux，SHELL编程，服务器环境搭建及项目部署。</li>
-                        </ul>
-                    </div>
-                </div> -->
+
+
+
             </div>
             <div class="item">
                 <h3 class="clr clr4">项目经验</h3>
 
-                <!-- <div class="item_detail">
-                    <h5>B2C移动项目</h5>
-                    <dl class="project">
-                        <dt>开发环境</dt>
-                        <dd>
-                            <span class="label label-default">MyEclipse</span>
-                            <span class="label label-default">tomcat7</span>
-                            <span class="label label-default">Maven</span>
-                            <span class="label label-default">svn</span>
-                        </dd>
-                        <div class="clearfix"></div>
-                        <dt>技术架构</dt>
-                        <dd>
-                            <span class="label label-default">struts2</span>
-                            <span class="label label-default">spring</span>
-                            <span class="label label-default">hibernate</span>
-                            <span class="label label-default">oracle</span>
-                            <span class="label label-default">springMVC</span>
-                        </dd>
-                        <div class="clearfix"></div>
-                        <dt>开发时间</dt>
-                        <dd>2014.09 – 2015.10</dd>
-                        <dt>项目描述</dt>
-                        <dd>
-                            <p>该项目分为商城前台和后台，前台主于面向客户，后台主要用于管理员进行统一管理。商城前台分为web版和wap版。后台分为如下几个模块：系统配置，首页配置，商家管理，订单管理，银行购机，支付管理等。</p>
-                        </dd>
-                        <dt>责任描述</dt>
-                        <dd>1. 参与需求分析评审工作</dd>
-                        <dd>2. 统计分析模块开发及单元测试，集成测试</dd>
-                    </dl>
-                    <div class="clearfix"></div>
-                </div> -->
+
             </div>
             <div class="item">
                 <h3 class="clr clr5">自我评价</h3>
@@ -144,6 +871,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('.skill-per').each(function() {
+            var $this = $(this);
+            var per = $this.attr('per');
+            $this.css("width", per + '%');
+            $({
+                animatedValue: 0
+            }).animate({
+                animatedValue: per
+            }, {
+                duration: 1000,
+                step: function() {
+                    $this.attr("per", Math.floor(this.animatedValue) + "%");
+                },
+                complete: function() {
+                    $this.attr("per", Math.floor(this.animatedValue) + "%");
+
+                }
+            })
+        });
+    </script>
 </body>
 
 </html>
