@@ -469,3 +469,44 @@ canvas {
 }
 
 
+/* 代码块样式之评论：黄色 */
+pre .comment {
+    color:#ffec8b
+}
+/* 代码块样式之类的参数、函数的关键字、关键字：蓝色 */
+pre .class .params, pre .function .keyword, pre .keyword, pre .literal {
+    color:#66d9ef
+}
+/* 代码块样式之css的属性值、函数名、参数、标签：白色 */
+pre .css .value, pre .doctype, pre .function, pre .params, pre .tag {
+    color:#fff
+	/* color:#66d9ef; */
+}
+/* 代码块样式之HTML或者xml的头部元素：红色(颜色较浅) */
+pre .meta{
+    color:#f78da1;
+}
+/* 代码块样式之HTML的标签：红色 */
+pre .tag .name {
+    /* color:#dc3958; */
+	 color:#ff6481;
+}
+/* 代码块样式之：色 */
+pre .at_rule, pre .at_rule .keyword, pre .css~* .tag, pre .preprocessor, pre .preprocessor .keyword, pre .title{
+    color:#fa9400
+}
+/* 代码块样式之属性、类、函数的title：绿色 */
+pre .attr,pre .attribute, pre .built_in, pre .class, pre .css~* .class, pre .function .title {
+    color:#a6e22e
+}
+/* 代码块样式之字符串、属性值：猪肝色 */
+pre .string, pre .value {
+    color:#e6db74
+}
+/* 代码块样式之数字：粉红色 */
+pre .number {
+    color:#ffe4b5
+}
+pre .css~* .id, pre .id {
+    color:#fd971f
+}
