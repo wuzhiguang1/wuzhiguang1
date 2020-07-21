@@ -26,8 +26,15 @@
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200720175816.png">
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200720175836.png">
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200720231935.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721113747.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721122701.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721123207.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721130443.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721200523.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721133604.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721172414.png">
 <meta property="article:published_time" content="2020-07-20T15:24:43.000Z">
-<meta property="article:modified_time" content="2020-07-20T15:46:28.093Z">
+<meta property="article:modified_time" content="2020-07-21T12:16:50.836Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="Vue语法">
@@ -180,7 +187,7 @@
                     </nav>
                     <nav>
                         <a>总文章数 72</a>
-                        <a>总字数 <span class="post-count">130.8k</span></a>
+                        <a>总字数 <span class="post-count">132k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -333,7 +340,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">3k字</span>
+        <span class="post-count">4.2k字</span>
       </span>
     </span>
 
@@ -342,7 +349,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">13分</span>
+        <span class="post-count">18分</span>
       </span>
     </span>
 </div>
@@ -605,6 +612,73 @@
 </li>
 </ul>
 <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200720231935.png" alt=""></p>
+<h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><h3 id="v-if、v-else-if、v-else"><a href="#v-if、v-else-if、v-else" class="headerlink" title="v-if、v-else-if、v-else"></a>v-if、v-else-if、v-else</h3><p><code>v-if、v-else-if、v-else</code></p>
+<p>  这三个指令与JavaScript的条件语句if、else、else if类似。</p>
+<p>  Vue的条件指令可以根据表达式的值在DOM中渲染或销毁元素或组件</p>
+<p><code>v-if</code>的原理：</p>
+<p>  <code>v-if</code>后面的条件为false时，对应的元素以及其子元素不会渲染。</p>
+<p>  也就是根本没有不会有对应的标签出现在DOM中。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721113747.png" alt=""></p>
+<h3 id="条件渲染案例"><a href="#条件渲染案例" class="headerlink" title="条件渲染案例"></a>条件渲染案例</h3><ul>
+<li>我们来做一个简单的小案例：<ul>
+<li>用户再登录时，可以切换使用用户账号登录还是邮箱地址登录</li>
+<li>类似如下情景：</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721122701.png" alt=""></p>
+<p>代码实现：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-if</span>=<span class="string">"isuser"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"user"</span>&gt;</span>手机登陆<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"user"</span> <span class="attr">placeholder</span>=<span class="string">"手机登陆"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">v-else</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"emial"</span>&gt;</span>邮箱登陆<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"emial"</span> <span class="attr">placeholder</span>=<span class="string">"邮箱登陆"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"isuser=!isuser"</span>&gt;</span>登录转换<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">const</span> app = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">    el: <span class="string">'#app'</span>,</span></span><br><span class="line">    data: {</span><br><span class="line"><span class="actionscript">      isuser: <span class="literal">true</span></span></span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">  })</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>小问题：</p>
+<p>  如果我们在有输入内容的情况下，切换了类型，我们会发现文字依然显示之前的输入的内容。</p>
+<p>  但是按道理讲，我们应该切换到另外一个input元素中了。</p>
+<p>  在另一个input元素中，我们并没有输入内容。</p>
+<p>  为什么会出现这个问题呢？</p>
+<p>问题解答：</p>
+<p>  <span style="background-color:yellow">这是因为Vue在进行DOM渲染时，出于性能考虑，会尽可能的复用已经存在的元素，而不是重新创建新的元素。</span></p>
+<p>  <span style="background-color:yellow">在上面的案例中，Vue内部会发现原来的input元素不再使用，直接作为else中的input来使用了。</span></p>
+<p>解决方案：</p>
+<p>  如果我们不希望Vue出现类似重复利用的问题，可以给对应的input添加key。</p>
+<p>  并且我们需要保证key的不同。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721123207.png" alt=""></p>
+<h3 id="v-show"><a href="#v-show" class="headerlink" title="v-show"></a>v-show</h3><p><code>v-show</code> 和<code>v-if</code> 的用法类似，都是决定一个页面是否被渲染。</p>
+<p>那他们有什么区别呐？</p>
+<p>  <code>v-if</code>当条件为false时，压根不会有对应的元素在DOM中。</p>
+<p>  <code>v-show</code>当条件为false时，仅仅是将元素的<code>display</code>属性设置为<code>none</code>而已。</p>
+<p>​        <img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721130443.png" alt=""></p>
+<p>开发中如何选择呢？</p>
+<p>  当需要在显示与隐藏之间切片很频繁时，使用<code>v-show</code>。</p>
+<p>  当只有一次切换时，通过使用<code>v-if</code>。</p>
+<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><p>一个简单的过滤器：修改一个数据的样式。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721200523.png" alt=""></p>
+<h2 id="循环遍历"><a href="#循环遍历" class="headerlink" title="循环遍历"></a>循环遍历</h2><h3 id="v-for的基本使用"><a href="#v-for的基本使用" class="headerlink" title="v-for的基本使用"></a><code>v-for</code>的基本使用</h3><p>当我们有一组数据需要进行渲染时，我们就可以使用v-for来完成。</p>
+<p>遍历的时候没有下标值的情况 </p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in arr"</span>&gt;</span>{{item}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>  遍历的时候有下标值的情况</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in arr"</span>&gt;</span>{{index}}-{{item}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>  如果在遍历对象的时候，只有一个值，那么这值就是 value</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value) in obj"</span>&gt;</span>{{value}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>​      遍历对象时，也可以获取key值，格式：(value,key) </p>
+<pre><code><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value,key) in obj"</span>&gt;</span>{{value}}-{{key}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure></code></pre><p>​      遍历对象时，也可以获取下标值，格式：(value,key，index)</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value,key,index) in obj"</span>&gt;</span>{{value}}-{{key}}-{{index}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 遍历的时候没有下标值的情况 --&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in arr"</span>&gt;</span>{{item}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 遍历的时候有下标值的情况--&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(item,index) in arr"</span>&gt;</span>{{index}}-{{item}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 如果在遍历对象的时候，只有一个值，那么这值就是 value --&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value) in obj"</span>&gt;</span>{{value}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!-- 遍历对象时，也可以获取key值，格式：(value,key) --&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!--  遍历对象时，也可以获取下标值，格式：(value,key，index) --&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value,key,index) in obj"</span>&gt;</span>{{value}}-{{key}}-{{index}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">   <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">   <span class="keyword">const</span> app = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">     el: <span class="string">'#app'</span>,</span></span><br><span class="line">     data: {</span><br><span class="line"><span class="actionscript">       arr: [<span class="string">"张三"</span>, <span class="string">"李四"</span>, <span class="string">"王二"</span>],</span></span><br><span class="line">       obj: {</span><br><span class="line"><span class="actionscript">         name: <span class="string">"阿清"</span>,</span></span><br><span class="line">         age: 22,</span><br><span class="line">         heigth: 178</span><br><span class="line">       }</span><br><span class="line">     }</span><br><span class="line">   })</span><br><span class="line"> <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721133604.png" alt=""></p>
+<h3 id="检测数组更新"><a href="#检测数组更新" class="headerlink" title="检测数组更新"></a>检测数组更新</h3><p>因为Vue是响应式的，所以当数据发生变化时，Vue会自动检测数据变化，视图会发生对应的更新。</p>
+<p>Vue中包含了一组观察数组编译的方法，使用它们改变数组也会触发视图的更新。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721172414.png" alt=""></p>
+<p>有一点要注意的是，<strong><span style="background-color:yellow">通过数组的索引值来修改数组中的数据的时候，并不能使视图发生对应的更新。</span></strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -642,7 +716,7 @@
     2020-07-20
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-07-20
+    2020-07-21
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/07/20/62/" title="vue 模板语法" target="_blank">vue 模板语法</a>
@@ -789,7 +863,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-模板语法"><span class="toc-number">1.</span> <span class="toc-text">vue 模板语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#插值操作"><span class="toc-number">1.1.</span> <span class="toc-text">插值操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mustache语法（常用-，牢记）"><span class="toc-number">1.1.1.</span> <span class="toc-text">Mustache语法（常用 ，牢记）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-once"><span class="toc-number">1.1.2.</span> <span class="toc-text">v-once</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-html"><span class="toc-number">1.1.3.</span> <span class="toc-text">v-html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-pre"><span class="toc-number">1.1.4.</span> <span class="toc-text">v-pre</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-cloak-不常用"><span class="toc-number">1.1.5.</span> <span class="toc-text">v-cloak(不常用)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态绑定属性-v-bind"><span class="toc-number">1.2.</span> <span class="toc-text">动态绑定属性  v-bind</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind基础"><span class="toc-number">1.2.1.</span> <span class="toc-text">v-bind基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-语法糖"><span class="toc-number">1.2.2.</span> <span class="toc-text">v-bind 语法糖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-绑定class-对象语法"><span class="toc-number">1.2.3.</span> <span class="toc-text">v-bind 绑定class 对象语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-绑定class-数组语法"><span class="toc-number">1.2.4.</span> <span class="toc-text">v-bind 绑定class 数组语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind绑定style"><span class="toc-number">1.2.5.</span> <span class="toc-text">v-bind绑定style</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性-computed"><span class="toc-number">1.3.</span> <span class="toc-text">计算属性(computed)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的基本使用"><span class="toc-number">1.3.1.</span> <span class="toc-text">计算属性的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的setter和getter-理解"><span class="toc-number">1.3.2.</span> <span class="toc-text">计算属性的setter和getter(理解)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的缓存"><span class="toc-number">1.3.3.</span> <span class="toc-text">计算属性的缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件监听"><span class="toc-number">1.4.</span> <span class="toc-text">事件监听</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on参数"><span class="toc-number">1.4.1.</span> <span class="toc-text">v-on参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on修饰符"><span class="toc-number">1.4.2.</span> <span class="toc-text">v-on修饰符</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-模板语法"><span class="toc-number">1.</span> <span class="toc-text">vue 模板语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#插值操作"><span class="toc-number">1.1.</span> <span class="toc-text">插值操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mustache语法（常用-，牢记）"><span class="toc-number">1.1.1.</span> <span class="toc-text">Mustache语法（常用 ，牢记）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-once"><span class="toc-number">1.1.2.</span> <span class="toc-text">v-once</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-html"><span class="toc-number">1.1.3.</span> <span class="toc-text">v-html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-pre"><span class="toc-number">1.1.4.</span> <span class="toc-text">v-pre</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-cloak-不常用"><span class="toc-number">1.1.5.</span> <span class="toc-text">v-cloak(不常用)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态绑定属性-v-bind"><span class="toc-number">1.2.</span> <span class="toc-text">动态绑定属性  v-bind</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind基础"><span class="toc-number">1.2.1.</span> <span class="toc-text">v-bind基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-语法糖"><span class="toc-number">1.2.2.</span> <span class="toc-text">v-bind 语法糖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-绑定class-对象语法"><span class="toc-number">1.2.3.</span> <span class="toc-text">v-bind 绑定class 对象语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-绑定class-数组语法"><span class="toc-number">1.2.4.</span> <span class="toc-text">v-bind 绑定class 数组语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind绑定style"><span class="toc-number">1.2.5.</span> <span class="toc-text">v-bind绑定style</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性-computed"><span class="toc-number">1.3.</span> <span class="toc-text">计算属性(computed)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的基本使用"><span class="toc-number">1.3.1.</span> <span class="toc-text">计算属性的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的setter和getter-理解"><span class="toc-number">1.3.2.</span> <span class="toc-text">计算属性的setter和getter(理解)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的缓存"><span class="toc-number">1.3.3.</span> <span class="toc-text">计算属性的缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件监听"><span class="toc-number">1.4.</span> <span class="toc-text">事件监听</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on参数"><span class="toc-number">1.4.1.</span> <span class="toc-text">v-on参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on修饰符"><span class="toc-number">1.4.2.</span> <span class="toc-text">v-on修饰符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条件判断"><span class="toc-number">1.5.</span> <span class="toc-text">条件判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-if、v-else-if、v-else"><span class="toc-number">1.5.1.</span> <span class="toc-text">v-if、v-else-if、v-else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件渲染案例"><span class="toc-number">1.5.2.</span> <span class="toc-text">条件渲染案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-show"><span class="toc-number">1.5.3.</span> <span class="toc-text">v-show</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤器"><span class="toc-number">1.6.</span> <span class="toc-text">过滤器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环遍历"><span class="toc-number">1.7.</span> <span class="toc-text">循环遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for的基本使用"><span class="toc-number">1.7.1.</span> <span class="toc-text">v-for的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检测数组更新"><span class="toc-number">1.7.2.</span> <span class="toc-text">检测数组更新</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
