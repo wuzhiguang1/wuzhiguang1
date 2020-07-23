@@ -33,8 +33,21 @@
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721200523.png">
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721133604.png">
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721172414.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723100057.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723100225.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723103043.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723120321.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723150718.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723150743.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723152913.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723152934.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723165110.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723175147.png">
+<meta property="og:image" content="c:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200723175209575.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723171702.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723171819.png">
 <meta property="article:published_time" content="2020-07-20T15:24:43.000Z">
-<meta property="article:modified_time" content="2020-07-21T12:16:50.836Z">
+<meta property="article:modified_time" content="2020-07-23T10:32:39.814Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="Vue语法">
@@ -187,7 +200,7 @@
                     </nav>
                     <nav>
                         <a>总文章数 72</a>
-                        <a>总字数 <span class="post-count">132k</span></a>
+                        <a>总字数 <span class="post-count">133.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -340,7 +353,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.2k字</span>
+        <span class="post-count">6.1k字</span>
       </span>
     </span>
 
@@ -349,7 +362,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">18分</span>
+        <span class="post-count">26分</span>
       </span>
     </span>
 </div>
@@ -395,7 +408,12 @@
 
 
 
-<h1 id="vue-模板语法"><a href="#vue-模板语法" class="headerlink" title="vue 模板语法"></a>vue 模板语法</h1><h2 id="插值操作"><a href="#插值操作" class="headerlink" title="插值操作"></a>插值操作</h2><h3 id="Mustache语法（常用-，牢记）"><a href="#Mustache语法（常用-，牢记）" class="headerlink" title="Mustache语法（常用 ，牢记）"></a>Mustache语法（常用 ，牢记）</h3><p>Mustache语法又叫胡子语法，或者双大括号</p>
+<h1 id="vue-模板语法"><a href="#vue-模板语法" class="headerlink" title="vue 模板语法"></a>vue 模板语法</h1><br>
+
+<p><a href="https://cn.vuejs.org/v2/guide/syntax.html" target="_blank" rel="noopener">官方文档</a></p>
+<br>
+
+<h2 id="插值操作"><a href="#插值操作" class="headerlink" title="插值操作"></a>插值操作</h2><h3 id="Mustache语法（常用-，牢记）"><a href="#Mustache语法（常用-，牢记）" class="headerlink" title="Mustache语法（常用 ，牢记）"></a>Mustache语法（常用 ，牢记）</h3><p>Mustache语法又叫胡子语法，或者双大括号</p>
 <p>数据都是响应式的。</p>
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>{{message}}<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>{{message+message}}<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>{{m*2}}<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>{{firstName+" "+lastName}}<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>{{firstName}}{{lastName}}<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">        el: <span class="string">'#app'</span>,</span></span><br><span class="line">        data: {</span><br><span class="line"><span class="actionscript">            message: <span class="string">"aqing"</span>,</span></span><br><span class="line"><span class="actionscript">            firstName: <span class="string">"柯"</span>,</span></span><br><span class="line"><span class="actionscript">            lastName: <span class="string">"南"</span>,</span></span><br><span class="line">            m: 100</span><br><span class="line">        }</span><br><span class="line">    })</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
@@ -412,10 +430,9 @@
 </ul>
 <p>代码如下：</p>
 <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200720160259.png" alt=""></p>
-<h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a><strong>v-html</strong></h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- 某些情况下，我们从服务器请求到的数据本身就是一个HTML代码</span><br><span class="line">  - 如果我们直接通过{{}}来输出，会将HTML代码也一起输出。</span><br><span class="line">  - 但是我们可能希望的是按照HTML格式进行解析，并且显示对应的内容。</span><br><span class="line"></span><br><span class="line">- 如果我们希望解析出HTML展示</span><br><span class="line">  - 可以使用v-html指令</span><br><span class="line">  - 该指令后面往往会跟上一个string类型</span><br><span class="line">  - 会将string的html解析出来并且进行渲染</span><br></pre></td></tr></tbody></table></figure>
-
-
-
+<h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a><strong>v-html</strong></h3><blockquote>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- 某些情况下，我们从服务器请求到的数据本身就是一个HTML代码</span><br><span class="line">  - 如果我们直接通过{{}}来输出，会将HTML代码也一起输出。</span><br><span class="line">  - 但是我们可能希望的是按照HTML格式进行解析，并且显示对应的内容。</span><br><span class="line"></span><br><span class="line">- 如果我们希望解析出HTML展示</span><br><span class="line">  - 可以使用v-html指令</span><br><span class="line">  - 该指令后面往往会跟上一个string类型</span><br><span class="line">  - 会将string的html解析出来并且进行渲染</span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
 <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200720160506.png" alt=""></p>
 <p><strong>v-text</strong></p>
 <ul>
@@ -554,7 +571,8 @@
 </li>
 </ul>
 <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200720170254.png" alt=""></p>
-<h3 id="计算属性的缓存"><a href="#计算属性的缓存" class="headerlink" title="计算属性的缓存"></a><strong>计算属性的缓存</strong></h3><p>我们先来看一个例子:</p>
+<h3 id="计算属性的缓存"><a href="#计算属性的缓存" class="headerlink" title="计算属性的缓存"></a><strong>计算属性的缓存</strong></h3><p><span style="color:red"><strong>我们可以使用 methods 来替代 computed，效果上两个都是一样的，但是 computed 是基于它的依赖缓存，只有相关依赖发生改变时才会重新取值。而使用 methods ，在重新渲染的时候，函数总会重新调用执行</strong></span></p>
+<p>我们先来看一个例子:</p>
 <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200720174828.png" alt=""></p>
 <p><strong>上面的例子可以看出来 我们用自己创建的方法还是计算属性，看着都差不多，都可以实现我们的功能但是真的是这样吗？</strong></p>
 <br>
@@ -612,6 +630,42 @@
 </li>
 </ul>
 <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200720231935.png" alt=""></p>
+<p>使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。因此，用 <code>v-on:click.prevent.self</code> 会阻止<strong>所有的点击</strong>，而 <code>v-on:click.self.prevent</code> 只会阻止对元素自身的点击。</p>
+<p>Vue 还对应 <a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener#Parameters" target="_blank" rel="noopener"><code>addEventListener</code> 中的 <code>passive</code> 选项</a>提供了 <code>.passive</code> 修饰符。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 滚动事件的默认行为 (即滚动行为) 将会立即触发 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 而不会等待 `onScroll` 完成  --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这其中包含 `event.preventDefault()` 的情况 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-on:scroll.passive</span>=<span class="string">"onScroll"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>这个 <code>.passive</code> 修饰符尤其能够提升移动端的性能。</p>
+<p>不要把 <code>.passive</code> 和 <code>.prevent</code> 一起使用，因为 <code>.prevent</code> 将会被忽略，同时浏览器可能会向你展示一个警告。请记住，<code>.passive</code> 会告诉浏览器你<strong>不</strong>想阻止事件的默认行为。</p>
+<br>
+
+<h3 id="v-on-按键修饰符"><a href="#v-on-按键修饰符" class="headerlink" title="v-on 按键修饰符"></a>v-on <a href="https://cn.vuejs.org/v2/guide/events.html#按键修饰符" target="_blank" rel="noopener">按键修饰符</a></h3><p>在监听键盘事件时，我们经常需要检查详细的按键。Vue 允许为 <code>v-on</code> 在监听键盘事件时添加按键修饰符：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 只有在 `key` 是 `Enter` 时调用 `vm.submit()` --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>Vue 允许为 v-on 在监听键盘事件时添加按键修饰符：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 只有在 keyCode 是 13 时调用 vm.submit() --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup.13</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>记住所有的 keyCode 比较困难，所以 Vue 为最常用的按键提供了别名：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 同上 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">v-on:keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 缩写语法 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.enter</span>=<span class="string">"submit"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>全部的按键别名：</p>
+<ul>
+<li><code>.enter</code></li>
+<li><code>.tab</code></li>
+<li><code>.delete</code> (捕获 “删除” 和 “退格” 键)</li>
+<li><code>.esc</code></li>
+<li><code>.space</code></li>
+<li><code>.up</code></li>
+<li><code>.down</code></li>
+<li><code>.left</code></li>
+<li><code>.right</code></li>
+<li><code>.ctrl</code></li>
+<li><code>.alt</code></li>
+<li><code>.shift</code></li>
+<li><code>.meta</code></li>
+</ul>
+<p>实例</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="comment">&lt;!-- Alt + C --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> @<span class="attr">keyup.alt.67</span>=<span class="string">"clear"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Ctrl + Click --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> @<span class="attr">click.ctrl</span>=<span class="string">"doSomething"</span>&gt;</span>Do something<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
 <h2 id="条件判断"><a href="#条件判断" class="headerlink" title="条件判断"></a>条件判断</h2><h3 id="v-if、v-else-if、v-else"><a href="#v-if、v-else-if、v-else" class="headerlink" title="v-if、v-else-if、v-else"></a>v-if、v-else-if、v-else</h3><p><code>v-if、v-else-if、v-else</code></p>
 <p>  这三个指令与JavaScript的条件语句if、else、else if类似。</p>
 <p>  Vue的条件指令可以根据表达式的值在DOM中渲染或销毁元素或组件</p>
@@ -667,7 +721,7 @@
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value) in obj"</span>&gt;</span>{{value}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
 <p>​      遍历对象时，也可以获取key值，格式：(value,key) </p>
-<pre><code><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value,key) in obj"</span>&gt;</span>{{value}}-{{key}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure></code></pre><p>​      遍历对象时，也可以获取下标值，格式：(value,key，index)</p>
+<pre><code><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value,key) in obj"</span>&gt;</span>{{value}}-{{key}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure></code></pre><p>​      遍历对象时，也可以获取下标值，格式：(value,key，index)</p>
 <figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"(value,key,index) in obj"</span>&gt;</span>{{value}}-{{key}}-{{index}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
 
 
@@ -679,6 +733,116 @@
 <p>Vue中包含了一组观察数组编译的方法，使用它们改变数组也会触发视图的更新。</p>
 <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200721172414.png" alt=""></p>
 <p>有一点要注意的是，<strong><span style="background-color:yellow">通过数组的索引值来修改数组中的数据的时候，并不能使视图发生对应的更新。</span></strong></p>
+<h2 id="表单绑定-v-model"><a href="#表单绑定-v-model" class="headerlink" title="表单绑定 v-model"></a>表单绑定 v-model</h2><h3 id="v-model-的简单使用"><a href="#v-model-的简单使用" class="headerlink" title="v-model 的简单使用"></a>v-model 的简单使用</h3><p>表单控件在实际开发中是非常常见的。特别是对于用户信息的提交，需要大量的表单。<strong>Vue中使用v-model指令来实现表单元素和数据的双向绑定。</strong></p>
+<p>举个栗子：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"message"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>{{message}}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">const</span> app = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">    el: <span class="string">'#app'</span>,</span></span><br><span class="line">    data: {</span><br><span class="line"><span class="actionscript">      message: <span class="string">"aqing"</span></span></span><br><span class="line"></span><br><span class="line">    }</span><br><span class="line">  })</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723100057.png" alt=""></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723100225.png" alt=""></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723103043.png" alt=""></p>
+<br>
+
+<p><strong>当我们在输入框输内容的时候，</strong></p>
+<p><strong>因为input中的v-model绑定了message，所以会实时将输入的内容传递给message，则message发生变换，</strong></p>
+<p><strong>当message放上变化的时候，因为上面我们使用Mustache语法，将message的值插入到DOM中，所以DOM会发生响应的改变。</strong></p>
+<p><strong>因此，通过v-model实现了表单的双向绑定。</strong></p>
+<h3 id="v-model-原理"><a href="#v-model-原理" class="headerlink" title="v-model 原理"></a>v-model 原理</h3><p>v-model其实是一个语法糖，它的背后本质上是包含两个操作：</p>
+<ul>
+<li><p>1.v-bind绑定一个value属性</p>
+</li>
+<li><p>2.v-on指令给当前元素绑定input事件</p>
+</li>
+</ul>
+<p>也就是说下面的代码：等同于下面的代码：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">"message"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>等同于</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-bind:value</span>=<span class="string">"message"</span> <span class="attr">v-on:input</span>=<span class="string">"message = $event.target.value"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- &lt;input type="text" v-model="message"&gt; --&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- &lt;input type="text" :value="message" @input="isinput"&gt; --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-bind:value</span>=<span class="string">"message"</span> <span class="attr">v-on:input</span>=<span class="string">"message = $event.target.value"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">h1</span>&gt;</span>{{message}}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">   <span class="keyword">const</span> app = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">     el: <span class="string">'#app'</span>,</span></span><br><span class="line">     data: {</span><br><span class="line"><span class="actionscript">       message: <span class="string">"aqing"</span></span></span><br><span class="line"></span><br><span class="line">     },</span><br><span class="line">     methods: {</span><br><span class="line">       isinput(event) {</span><br><span class="line"><span class="actionscript">         <span class="keyword">this</span>.message = event.target.value;</span></span><br><span class="line">       }</span><br><span class="line">     }</span><br><span class="line"></span><br><span class="line">   })</span><br><span class="line"> <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="v-model-结合radio的使用"><a href="#v-model-结合radio的使用" class="headerlink" title="v-model 结合radio的使用"></a>v-model 结合radio的使用</h3><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"man"</span> <span class="attr">value</span>=<span class="string">"男"</span> <span class="attr">v-model</span>=<span class="string">"sex"</span>&gt;</span>男</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"woman"</span> <span class="attr">value</span>=<span class="string">"女"</span> <span class="attr">v-model</span>=<span class="string">"sex"</span>&gt;</span>女</span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你选中的是：{{sex}}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      data: {</span><br><span class="line"><span class="actionscript">        sex: <span class="string">'男'</span></span></span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723120321.png" alt=""></p>
+<h3 id="v-model结合checkbox-的使用"><a href="#v-model结合checkbox-的使用" class="headerlink" title="v-model结合checkbox 的使用"></a>v-model结合checkbox 的使用</h3><p>复选框分为两种情况：单个勾选框和多个勾选框。</p>
+<p>单个勾选框：</p>
+<ul>
+<li><p>v-model即为布尔值。</p>
+</li>
+<li><p>此时input的value并不影响v-model的值。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">&lt;!-- checkbox 单选框 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"agree"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"agree"</span>  <span class="attr">v-model</span>=<span class="string">"isagree"</span>&gt;</span>同意协议</span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你的选择是：{{isagree}}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">v-bind:disabled</span>=<span class="string">"!isagree"</span>&gt;</span>下一步<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">const</span> app = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">    el: <span class="string">'#app'</span>,</span></span><br><span class="line">    data: {</span><br><span class="line"><span class="actionscript">      isagree: <span class="literal">false</span></span></span><br><span class="line">    }</span><br><span class="line">  })</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面的一个例子是我们大多数会见到过的一个情景，点击用意协议，不然下一步不会进行。如：</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723150718.png" alt=""></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723150743.png" alt=""></p>
+<br>
+
+<p><strong>多个复选框</strong>：</p>
+<p>当是多个复选框时，因为可以选中多个，<strong>所以对应的data中属性是一个数组</strong>。</p>
+<p>当选中某一个时，就会将input的value添加到数组中。</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- checkbox 多选框  --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"西瓜"</span> <span class="attr">v-model</span>=<span class="string">"melon"</span>&gt;</span>西瓜</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"南瓜"</span> <span class="attr">v-model</span>=<span class="string">"melon"</span>&gt;</span>南瓜</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"冬瓜"</span> <span class="attr">v-model</span>=<span class="string">"melon"</span>&gt;</span>冬瓜</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"甜瓜"</span> <span class="attr">v-model</span>=<span class="string">"melon"</span>&gt;</span>甜瓜</span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>选择你喜欢的瓜：{{melon}}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      data: {</span><br><span class="line">        melon: []</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723152913.png" alt=""></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723152934.png" alt=""></p>
+<h3 id="v-model结合-select-的使用"><a href="#v-model结合-select-的使用" class="headerlink" title="v-model结合 select  的使用"></a>v-model结合 select  的使用</h3><p>和checkbox一样，select也分单选和多选两种情况。</p>
+<p><strong>单选</strong>：只能选中一个值。</p>
+<ul>
+<li><p>v-model绑定的是一个值。</p>
+</li>
+<li><p>当我们选中option中的一个时，会将它对应的value赋值到mySelect中。</p>
+</li>
+</ul>
+<p><strong>多选</strong>：可以选中多个值。</p>
+<ul>
+<li><p>model绑定的是一个数组。</p>
+</li>
+<li><p>当选中多个值时，就会将选中的option对应的value添加到数组mySelects中。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- select 单选 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"a"</span> <span class="attr">v-model</span>=<span class="string">"fruit"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"西瓜"</span>&gt;</span>西瓜<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"香蕉"</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"苹果"</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你选择的是{{fruit}}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- select 多选 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">"a"</span> <span class="attr">v-model</span>=<span class="string">"fruits"</span> <span class="attr">multiple</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"西瓜"</span>&gt;</span>西瓜<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"香蕉"</span>&gt;</span>香蕉<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"苹果"</span>&gt;</span>苹果<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>你选择的是{{fruits}}<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      data: {</span><br><span class="line"><span class="actionscript">        fruit: <span class="string">"香蕉"</span>,</span></span><br><span class="line"><span class="actionscript">        fruits: <span class="string">"香蕉"</span></span></span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723165110.png" alt=""></p>
+<h3 id="v-model-的修饰符"><a href="#v-model-的修饰符" class="headerlink" title="v-model 的修饰符"></a>v-model 的修饰符</h3><p>lazy修饰符：</p>
+<ul>
+<li><p>默认情况下，v-model默认是在input事件中同步输入框的数据的。</p>
+</li>
+<li><p>也就是说，一旦有数据发生改变对应的data中的数据就会自动发生改变。</p>
+</li>
+<li><p>lazy修饰符可以让数据在<strong>失去焦点</strong>或者<strong>回车时</strong>才会更新：</p>
+</li>
+</ul>
+<p>number修饰符：</p>
+<ul>
+<li><p>默认情况下，在输入框中无论我们输入的是字母还是数字，都会被当做字符串类型进行处理。</p>
+</li>
+<li><p>但是如果我们希望处理的是数字类型，那么最好直接将内容当做数字处理。</p>
+</li>
+<li><p>number修饰符可以让在输入框中输入的内容自动转成数字类型：</p>
+</li>
+</ul>
+<p>trim修饰符：</p>
+<ul>
+<li><p>如果输入的内容首尾有很多空格，通常我们希望将其去除</p>
+</li>
+<li><p>trim修饰符可以过滤内容左右两边的空格</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723175147.png" alt=""></p>
+<p><img src="C:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200723175209575.png" alt=""></p>
+<h2 id="值绑定"><a href="#值绑定" class="headerlink" title="值绑定"></a>值绑定</h2><p>我们前面的value中的值，可以回头去看一下，都是在定义input的时候直接给定的。但是真实开发中，这些input的值可能是从网络获取或定义在data中的。所以我们可以通过v-bind:value动态的给value绑定值。</p>
+<p><strong>其实这就是v-bind</strong>。</p>
+<p>我们来看一个例子：</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723171702.png" alt=""></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200723171819.png" alt=""></p>
+<p>数据我们都是从data中的数组fruits中来获取里的，在开发中也是这样。<strong>值绑定说白了就是对v-bind的使用。</strong></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -716,7 +880,7 @@
     2020-07-20
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-07-21
+    2020-07-23
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://aqingya.cn/2020/07/20/62/" title="vue 模板语法" target="_blank">vue 模板语法</a>
@@ -863,7 +1027,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-模板语法"><span class="toc-number">1.</span> <span class="toc-text">vue 模板语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#插值操作"><span class="toc-number">1.1.</span> <span class="toc-text">插值操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mustache语法（常用-，牢记）"><span class="toc-number">1.1.1.</span> <span class="toc-text">Mustache语法（常用 ，牢记）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-once"><span class="toc-number">1.1.2.</span> <span class="toc-text">v-once</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-html"><span class="toc-number">1.1.3.</span> <span class="toc-text">v-html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-pre"><span class="toc-number">1.1.4.</span> <span class="toc-text">v-pre</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-cloak-不常用"><span class="toc-number">1.1.5.</span> <span class="toc-text">v-cloak(不常用)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态绑定属性-v-bind"><span class="toc-number">1.2.</span> <span class="toc-text">动态绑定属性  v-bind</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind基础"><span class="toc-number">1.2.1.</span> <span class="toc-text">v-bind基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-语法糖"><span class="toc-number">1.2.2.</span> <span class="toc-text">v-bind 语法糖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-绑定class-对象语法"><span class="toc-number">1.2.3.</span> <span class="toc-text">v-bind 绑定class 对象语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-绑定class-数组语法"><span class="toc-number">1.2.4.</span> <span class="toc-text">v-bind 绑定class 数组语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind绑定style"><span class="toc-number">1.2.5.</span> <span class="toc-text">v-bind绑定style</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性-computed"><span class="toc-number">1.3.</span> <span class="toc-text">计算属性(computed)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的基本使用"><span class="toc-number">1.3.1.</span> <span class="toc-text">计算属性的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的setter和getter-理解"><span class="toc-number">1.3.2.</span> <span class="toc-text">计算属性的setter和getter(理解)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的缓存"><span class="toc-number">1.3.3.</span> <span class="toc-text">计算属性的缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件监听"><span class="toc-number">1.4.</span> <span class="toc-text">事件监听</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on参数"><span class="toc-number">1.4.1.</span> <span class="toc-text">v-on参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on修饰符"><span class="toc-number">1.4.2.</span> <span class="toc-text">v-on修饰符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条件判断"><span class="toc-number">1.5.</span> <span class="toc-text">条件判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-if、v-else-if、v-else"><span class="toc-number">1.5.1.</span> <span class="toc-text">v-if、v-else-if、v-else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件渲染案例"><span class="toc-number">1.5.2.</span> <span class="toc-text">条件渲染案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-show"><span class="toc-number">1.5.3.</span> <span class="toc-text">v-show</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤器"><span class="toc-number">1.6.</span> <span class="toc-text">过滤器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环遍历"><span class="toc-number">1.7.</span> <span class="toc-text">循环遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for的基本使用"><span class="toc-number">1.7.1.</span> <span class="toc-text">v-for的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检测数组更新"><span class="toc-number">1.7.2.</span> <span class="toc-text">检测数组更新</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vue-模板语法"><span class="toc-number">1.</span> <span class="toc-text">vue 模板语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#插值操作"><span class="toc-number">1.1.</span> <span class="toc-text">插值操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Mustache语法（常用-，牢记）"><span class="toc-number">1.1.1.</span> <span class="toc-text">Mustache语法（常用 ，牢记）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-once"><span class="toc-number">1.1.2.</span> <span class="toc-text">v-once</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-html"><span class="toc-number">1.1.3.</span> <span class="toc-text">v-html</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-pre"><span class="toc-number">1.1.4.</span> <span class="toc-text">v-pre</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-cloak-不常用"><span class="toc-number">1.1.5.</span> <span class="toc-text">v-cloak(不常用)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态绑定属性-v-bind"><span class="toc-number">1.2.</span> <span class="toc-text">动态绑定属性  v-bind</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind基础"><span class="toc-number">1.2.1.</span> <span class="toc-text">v-bind基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-语法糖"><span class="toc-number">1.2.2.</span> <span class="toc-text">v-bind 语法糖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-绑定class-对象语法"><span class="toc-number">1.2.3.</span> <span class="toc-text">v-bind 绑定class 对象语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind-绑定class-数组语法"><span class="toc-number">1.2.4.</span> <span class="toc-text">v-bind 绑定class 数组语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-bind绑定style"><span class="toc-number">1.2.5.</span> <span class="toc-text">v-bind绑定style</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性-computed"><span class="toc-number">1.3.</span> <span class="toc-text">计算属性(computed)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的基本使用"><span class="toc-number">1.3.1.</span> <span class="toc-text">计算属性的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的setter和getter-理解"><span class="toc-number">1.3.2.</span> <span class="toc-text">计算属性的setter和getter(理解)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算属性的缓存"><span class="toc-number">1.3.3.</span> <span class="toc-text">计算属性的缓存</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#事件监听"><span class="toc-number">1.4.</span> <span class="toc-text">事件监听</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on参数"><span class="toc-number">1.4.1.</span> <span class="toc-text">v-on参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on修饰符"><span class="toc-number">1.4.2.</span> <span class="toc-text">v-on修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-on-按键修饰符"><span class="toc-number">1.4.3.</span> <span class="toc-text">v-on 按键修饰符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条件判断"><span class="toc-number">1.5.</span> <span class="toc-text">条件判断</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-if、v-else-if、v-else"><span class="toc-number">1.5.1.</span> <span class="toc-text">v-if、v-else-if、v-else</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件渲染案例"><span class="toc-number">1.5.2.</span> <span class="toc-text">条件渲染案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-show"><span class="toc-number">1.5.3.</span> <span class="toc-text">v-show</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤器"><span class="toc-number">1.6.</span> <span class="toc-text">过滤器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#循环遍历"><span class="toc-number">1.7.</span> <span class="toc-text">循环遍历</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-for的基本使用"><span class="toc-number">1.7.1.</span> <span class="toc-text">v-for的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检测数组更新"><span class="toc-number">1.7.2.</span> <span class="toc-text">检测数组更新</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#表单绑定-v-model"><span class="toc-number">1.8.</span> <span class="toc-text">表单绑定 v-model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-model-的简单使用"><span class="toc-number">1.8.1.</span> <span class="toc-text">v-model 的简单使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-model-原理"><span class="toc-number">1.8.2.</span> <span class="toc-text">v-model 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-model-结合radio的使用"><span class="toc-number">1.8.3.</span> <span class="toc-text">v-model 结合radio的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-model结合checkbox-的使用"><span class="toc-number">1.8.4.</span> <span class="toc-text">v-model结合checkbox 的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-model结合-select-的使用"><span class="toc-number">1.8.5.</span> <span class="toc-text">v-model结合 select  的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v-model-的修饰符"><span class="toc-number">1.8.6.</span> <span class="toc-text">v-model 的修饰符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#值绑定"><span class="toc-number">1.9.</span> <span class="toc-text">值绑定</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
