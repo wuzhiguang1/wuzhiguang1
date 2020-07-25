@@ -43,8 +43,13 @@
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725110424.png">
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725112240.png">
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725115122.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725162922.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725165210.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725174213.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725182236.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/ssss.png">
 <meta property="article:published_time" content="2020-07-25T03:54:00.000Z">
-<meta property="article:modified_time" content="2020-07-25T04:09:34.388Z">
+<meta property="article:modified_time" content="2020-07-25T13:55:04.700Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="Vue组件化开发">
@@ -197,7 +202,7 @@
                     </nav>
                     <nav>
                         <a>总文章数 73</a>
-                        <a>总字数 <span class="post-count">136.8k</span></a>
+                        <a>总字数 <span class="post-count">138.4k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -350,7 +355,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.9k字</span>
+        <span class="post-count">4.5k字</span>
       </span>
     </span>
 
@@ -359,7 +364,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">11分</span>
+        <span class="post-count">17分</span>
       </span>
     </span>
 </div>
@@ -597,6 +602,87 @@
 <p>如果我们将子组件放在另外一个组件之内，很可能该父组件没有对应的属性，往往会引起问题。</p>
 <p>另外，更不好做的是通过$parent直接修改父组件的状态，那么父组件中的状态将变得飘忽不定，很不利于我的调试和维护。</p>
 <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725115122.png" alt=""></p>
+<h1 id="插槽-slot"><a href="#插槽-slot" class="headerlink" title="插槽 slot"></a>插槽 slot</h1><h2 id="为什么使用插槽slot"><a href="#为什么使用插槽slot" class="headerlink" title="为什么使用插槽slot"></a>为什么使用插槽slot</h2><p>组件的插槽：</p>
+<p><strong>组件的插槽也是为了让我们封装的组件更加具有扩展性。</strong></p>
+<p><strong>让使用者可以决定组件内部的一些内容到底展示什么。</strong></p>
+<p>比如：移动网站中的导航栏。</p>
+<p>移动开发中，几乎每个页面都有导航栏。</p>
+<p>导航栏我们必然会封装成一个插件，比如nav-bar组件。</p>
+<p>一旦有了这个组件，我们就可以在多个页面中复用了。</p>
+<p>但是，每个页面的导航是一样的吗？No，我以京东M站为例</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725162922.png" alt=""></p>
+<h2 id="如何封装这类组件呢？slot"><a href="#如何封装这类组件呢？slot" class="headerlink" title="如何封装这类组件呢？slot"></a>如何封装这类组件呢？slot</h2><p>如何封装这类的组件？</p>
+<p>  它们有很多区别，也有很多的共性。</p>
+<p>  如果，我们每单独封装一个组件，显然不合适，比如每个页面都有返回，这部分我们就要去重复去封装。</p>
+<p>  但是，如果我们封装成一个好像也不合理，有些左侧是菜单，有些是返回，有些中间是搜索，有些是文字，等等。</p>
+<p>如何封装合适呢？<span style="color:red"><strong>抽取共性，保留不同。</strong></span></p>
+<p>  最好的封装方式就是将共性抽取到组件中，将不同暴露为插槽。</p>
+<p>  一旦我们预留了插槽，就可以让使用者根据自己的需求，决定插槽中插入什么内容。</p>
+<p>  是搜索框，还是文字，还是菜单。由调用者自己来决定。</p>
+<p>这就是为什么我们要学习组件中的插槽slot的原因</p>
+<h2 id="slot-的简单使用"><a href="#slot-的简单使用" class="headerlink" title="slot  的简单使用"></a>slot  的简单使用</h2><p>在子组件中，使用特殊的元素<code>&lt;slot&gt;</code>就可以为子组件开启一个插槽。</p>
+<p>该插槽插入什么内容取决于父组件如何使用。</p>
+<br>
+
+
+
+<p>有了这个插槽后，父组件如何使用呢？</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725165210.png" alt=""></p>
+<p><span style="color:red"><code>&lt;slot&gt;</code>中的内容表示，如果没有在该组件中插入任何其他内容，就默认显示该内容</span></p>
+<p><span style="color:red"><strong>插槽slot 可以有默认值，也可以没有默认值。</strong></span></p>
+<p><span style="color:red"><strong>在自定义标签中写插入的内容。</strong></span></p>
+<p><span style="color:red"><strong>插入的内容可以是多个值，同时放入到组件中进行替换，则一起替换默认值。</strong></span></p>
+<h2 id="具名插槽"><a href="#具名插槽" class="headerlink" title="具名插槽"></a>具名插槽</h2><p>当子组件的功能复杂时，子组件的插槽可能并非是一个。</p>
+<p>比如我们封装一个导航栏的子组件，可能就需要三个插槽，分别代表左边、中间、右边。</p>
+<p>那么，外面在给插槽插入内容时，如何区分插入的是哪一个呢？</p>
+<p>这个时候，我们就需要给插槽起一个名字</p>
+<p>如何使用具名插槽呢？</p>
+<p>非常简单，只要给slot元素一个name属性即可<code>&lt;slot name='myslot'&gt;&lt;/slot&gt;</code></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725174213.png" alt=""></p>
+<h2 id="编译作用域"><a href="#编译作用域" class="headerlink" title="编译作用域"></a><strong>编译作用域</strong></h2><p>什么是编译作用域？</p>
+<p>我们自己来通过一个例子来理解这个概念：</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200725182236.png" alt=""></p>
+<p>这是为什么呐？</p>
+<p>官方给出了一条准则：<span style="color:red"><strong>父组件模板的所有东西都会在父级作用域内编译；子组件模板的所有东西都会在子级作用域内编译</strong></span></p>
+<p>而我们在父组件中使用<code>&lt;cpn v-show="isShow"&gt;&lt;/cpn&gt;</code>的时候，整个组件的使用过程是相当于在父组件中出现的。</p>
+<p>那么他的作用域就是父组件，使用的属性也是属于父组件的属性。</p>
+<p><strong>因此，父组件中的 isShow使用的是Vue实例中的属性，而不是子组件的属性。子组件中的isShow使用的是子组件中定义的属性。</strong></p>
+<p>总结一句话：<span style="color:red"><strong>在哪儿使用，在哪儿找变量</strong></span></p>
+<h2 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h2><p>什么是作用域插槽呐？</p>
+<p>我们先记住一句话：<span style="color:red"><strong>父组件替换插槽的标签，但是内容由子组件来提供。</strong></span></p>
+<br>
+
+<p>我们先看一个案例：</p>
+<p>1.子组件中包括一组数据，比如：fruits: [‘苹果’, ‘香蕉’, ‘菠萝’, ‘西瓜’, ‘榴莲’]</p>
+<p>2.需要在多个界面进行展示：</p>
+<p>  某些界面是以水平方向一一展示的，</p>
+<p>  某些界面是以列表形式展示的，</p>
+<p>  某些界面使用符号将它们连接起来，比如：”苹果 - 香蕉 - 菠萝 - 西瓜 - 榴莲”</p>
+<p>我就要思考 数据在子组件中，但是展示方式是由我们父组件来决定的。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/ssss.png" alt=""></p>
+<p>第一步：<strong>我们需要通过<code>&lt;slot :data ="fruits"&gt;&lt;/slot&gt;</code>来将子组件中定义的数据绑定到slot上</strong>。</p>
+<p>第二步：<strong>在父组件中使用子组件的时候，定义一个模板 <code>&lt;template&gt;</code>（也可以是<code>&lt;div&gt;</code>），并定义<code>slot-scope="slot"</code>属性通过slot来引入我们第一步定义的插槽对象。</strong></p>
+<p>第三步：<strong>我们此时得到数据<code>slot.data</code>就是子组件中的fruits数据，得到数据<code>slot.data</code>之后，父组件就可以使用自己的展示方式来渲染这些数据。</strong></p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>{{slot.data.join(" — ")}}<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>注意：</p>
+<p>1.（<code>slot-scope="slot"</code>是自己命名的，比如可以<code>slot-scope="slotProps"</code>）这第三步的<code>slot.data</code>就改为<code>slotProps.data</code>。</p>
+<p>2.得到数据<code>slot.data</code>(data是自己定义的名字)之后。</p>
+<p>3.在父组件中使用子组件的时候，定义的模板 <code>&lt;template&gt;</code>也可以是<code>&lt;div&gt;</code></p>
+<br>
+
+<p>到现在我们再来理解一下：<span style="color:red"><strong>父组件替换插槽的标签，但是内容由子组件来提供。</strong></span>是不是就清楚了作用域插槽的作用。</p>
+<br>
+
+
+
+<p>案例源码：</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">"slotProps"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>{{slotProps.data.join(" - ")}}<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">"slotProps"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>{{slotProps.data.join(" * ")}}<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">template</span>&gt;</span><span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cpn</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">template</span> <span class="attr">slot-scope</span>=<span class="string">"slotProps"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">"item in slotProps.data"</span>&gt;</span>{{item}}<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">cpn</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"cpnC"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">slot</span> <span class="attr">:data</span> =<span class="string">"fruits"</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../js/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue({</span></span><br><span class="line"><span class="actionscript">      el: <span class="string">'#app'</span>,</span></span><br><span class="line">      data: {},</span><br><span class="line">      components: {</span><br><span class="line">        cpn: {</span><br><span class="line"><span class="actionscript">          template: <span class="string">"#cpnC"</span>,</span></span><br><span class="line">          data() {</span><br><span class="line"><span class="actionscript">            <span class="keyword">return</span> {</span></span><br><span class="line"><span class="actionscript">              fruits: [<span class="string">'苹果'</span>, <span class="string">'香蕉'</span>, <span class="string">'菠萝'</span>, <span class="string">'西瓜'</span>, <span class="string">'榴莲'</span>]</span></span><br><span class="line">            }</span><br><span class="line">          }</span><br><span class="line">        }</span><br><span class="line">      }</span><br><span class="line">    })</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -781,7 +867,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#认识组件化"><span class="toc-number">1.</span> <span class="toc-text">认识组件化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是组件化？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是组件化？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-组件化思想"><span class="toc-number">1.2.</span> <span class="toc-text">Vue 组件化思想</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注册组件"><span class="toc-number">2.</span> <span class="toc-text">注册组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#注册组件的基本步骤"><span class="toc-number">2.1.</span> <span class="toc-text">注册组件的基本步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册组件步骤解析"><span class="toc-number">2.2.</span> <span class="toc-text">注册组件步骤解析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#全局组件与局部组件"><span class="toc-number">3.</span> <span class="toc-text">全局组件与局部组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#父组件与子组件"><span class="toc-number">4.</span> <span class="toc-text">父组件与子组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注册组件的语法糖"><span class="toc-number">5.</span> <span class="toc-text">注册组件的语法糖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模板的分离写法"><span class="toc-number">5.1.</span> <span class="toc-text">模板的分离写法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件数据存放"><span class="toc-number">6.</span> <span class="toc-text">组件数据存放</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#父子组件通信"><span class="toc-number">7.</span> <span class="toc-text">父子组件通信</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#父级向子级传递数据"><span class="toc-number">7.1.</span> <span class="toc-text">父级向子级传递数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子级向父级传递数据"><span class="toc-number">7.2.</span> <span class="toc-text">子级向父级传递数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#父子组件的访问"><span class="toc-number">8.</span> <span class="toc-text">父子组件的访问</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#children（开发中较少使用）"><span class="toc-number">8.1.</span> <span class="toc-text">$children（开发中较少使用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#refs（开发中较多使用）"><span class="toc-number">8.2.</span> <span class="toc-text">$refs（开发中较多使用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#parent-（开发中使用较少）"><span class="toc-number">8.3.</span> <span class="toc-text">$parent （开发中使用较少）</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#认识组件化"><span class="toc-number">1.</span> <span class="toc-text">认识组件化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是组件化？"><span class="toc-number">1.1.</span> <span class="toc-text">什么是组件化？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-组件化思想"><span class="toc-number">1.2.</span> <span class="toc-text">Vue 组件化思想</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注册组件"><span class="toc-number">2.</span> <span class="toc-text">注册组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#注册组件的基本步骤"><span class="toc-number">2.1.</span> <span class="toc-text">注册组件的基本步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注册组件步骤解析"><span class="toc-number">2.2.</span> <span class="toc-text">注册组件步骤解析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#全局组件与局部组件"><span class="toc-number">3.</span> <span class="toc-text">全局组件与局部组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#父组件与子组件"><span class="toc-number">4.</span> <span class="toc-text">父组件与子组件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注册组件的语法糖"><span class="toc-number">5.</span> <span class="toc-text">注册组件的语法糖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模板的分离写法"><span class="toc-number">5.1.</span> <span class="toc-text">模板的分离写法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#组件数据存放"><span class="toc-number">6.</span> <span class="toc-text">组件数据存放</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#父子组件通信"><span class="toc-number">7.</span> <span class="toc-text">父子组件通信</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#父级向子级传递数据"><span class="toc-number">7.1.</span> <span class="toc-text">父级向子级传递数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子级向父级传递数据"><span class="toc-number">7.2.</span> <span class="toc-text">子级向父级传递数据</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#父子组件的访问"><span class="toc-number">8.</span> <span class="toc-text">父子组件的访问</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#children（开发中较少使用）"><span class="toc-number">8.1.</span> <span class="toc-text">$children（开发中较少使用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#refs（开发中较多使用）"><span class="toc-number">8.2.</span> <span class="toc-text">$refs（开发中较多使用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#parent-（开发中使用较少）"><span class="toc-number">8.3.</span> <span class="toc-text">$parent （开发中使用较少）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插槽-slot"><span class="toc-number">9.</span> <span class="toc-text">插槽 slot</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么使用插槽slot"><span class="toc-number">9.1.</span> <span class="toc-text">为什么使用插槽slot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何封装这类组件呢？slot"><span class="toc-number">9.2.</span> <span class="toc-text">如何封装这类组件呢？slot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#slot-的简单使用"><span class="toc-number">9.3.</span> <span class="toc-text">slot  的简单使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具名插槽"><span class="toc-number">9.4.</span> <span class="toc-text">具名插槽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译作用域"><span class="toc-number">9.5.</span> <span class="toc-text">编译作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域插槽"><span class="toc-number">9.6.</span> <span class="toc-text">作用域插槽</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
