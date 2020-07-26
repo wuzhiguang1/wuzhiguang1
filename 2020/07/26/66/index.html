@@ -6,20 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://aqingya.cn">
-  <title>JavaScript  ---  继承总结 | 阿清的小站</title>
+  <title>Vue再现WebPack | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript  ---  继承总结">
-<meta property="og:url" content="https://aqingya.cn/2020/05/18/twenty-seven/index.html">
+<meta property="og:title" content="Vue再现WebPack">
+<meta property="og:url" content="https://aqingya.cn/2020/07/26/66/index.html">
 <meta property="og:site_name" content="阿清的小站">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/2fb0db544bd443fc92a359d3a9941076.jpg">
-<meta property="article:published_time" content="2020-05-18T07:05:59.000Z">
-<meta property="article:modified_time" content="2020-07-15T10:40:20.744Z">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/248622703220883849.jpg">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726153124.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726153134.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726153141.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726153500.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726153702.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726154124.png">
+<meta property="og:image" content="c:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200726154148234.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726161415.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726161743.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726161711.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726175539.png">
+<meta property="article:published_time" content="2020-07-26T11:26:00.000Z">
+<meta property="article:modified_time" content="2020-07-26T11:45:37.769Z">
 <meta property="article:author" content="阿清そ">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="webpack">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/2fb0db544bd443fc92a359d3a9941076.jpg">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/248622703220883849.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -292,20 +303,20 @@
                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                             </div>
                             <div id="js-content" class="content-ll">
-                                <article id="post-twenty-seven" class="article article-type-post " itemscope itemprop="blogPost">
+                                <article id="post-66" class="article article-type-post " itemscope itemprop="blogPost">
 <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript  ---  继承总结
+      Vue再现WebPack
     </h1>
   
 
         
-        <a href="/2020/05/18/twenty-seven/" class="archive-article-date">
-  	<time datetime="2020-05-18T07:05:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+        <a href="/2020/07/26/66/" class="archive-article-date">
+  	<time datetime="2020-07-26T11:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-26</time>
 </a>
 
  <!-- 不蒜子统计 -->
@@ -320,7 +331,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.3k字</span>
+        <span class="post-count">1k字</span>
       </span>
     </span>
 
@@ -329,7 +340,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
+        <span class="post-count">3分</span>
       </span>
     </span>
 </div>
@@ -370,47 +381,123 @@
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/2fb0db544bd443fc92a359d3a9941076.jpg" alt=""></p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/248622703220883849.jpg" alt=""></p>
 <a id="more"></a>
 
-<h2 id="ES5中的继承"><a href="#ES5中的继承" class="headerlink" title="ES5中的继承"></a>ES5中的继承</h2><p><strong>一、 原型链继承</strong></p>
-<p>原型链继承的原理：直接让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性和方法的继承。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span> (<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="string">'aqing'</span></span><br><span class="line">}</span><br><span class="line"><span class="comment">// 父类上的原型方法</span></span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">child</span> (<span class="params"></span>) </span>{}</span><br><span class="line"><span class="comment">// 子类的原型对象方法指向父类 子类中找不到的属性方法就会向父类找</span></span><br><span class="line">child.prototype = <span class="keyword">new</span> fat()</span><br><span class="line"><span class="comment">// 不影响继承 顺便绑一下constructor</span></span><br><span class="line">child.prototype.constructor = child</span><br><span class="line"><span class="comment">// child实例就可以访问父类及其原型上的属性和方法了</span></span><br><span class="line"><span class="keyword">const</span> Child = <span class="keyword">new</span> child()</span><br><span class="line">Child.name <span class="comment">// 'aqing'</span></span><br><span class="line">Child.getName() <span class="comment">// 'aqing'</span></span><br></pre></td></tr></tbody></table></figure>
-<p><strong>原型链继承的缺点</strong></p>
-<ol>
-<li><p>所有的child实例原型都指向同一个fat实例，因此对child实例修改某个父类引用类型会影响所有的child实例；</p>
+
+
+<h2 id="webpack安装"><a href="#webpack安装" class="headerlink" title="webpack安装"></a>webpack安装</h2><p>安装webpack首先需要安装Node.js，Node.js自带了软件包管理工具npm</p>
+<p>查看自己的node版本：</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726153124.png" alt=""></p>
+<p>全局安装webpack(这里我先指定版本号3.6.0，因为vue cli2依赖该版本)</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726153134.png" alt=""></p>
+<p>局部安装webpack（后续才需要）</p>
+<p>–save-dev`是开发时依赖，项目打包后不需要继续使用的。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726153141.png" alt=""></p>
+<p>为什么全局安装后，还需要局部安装呢？</p>
+<p>在终端直接执行webpack命令，使用的全局安装的webpack</p>
+<p>当在package.json中定义了scripts时，其中包含了webpack命令，那么使用的是局部webpack</p>
+<br>
+
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><strong>准备工作</strong></h2><p>我们创建如下文件和文件夹：</p>
+<p><strong>文件和文件夹解析：</strong></p>
+<p>bulid文件夹：用于存放之后打包的文件</p>
+<p>src文件夹：用于存放我们写的源文件</p>
+<p>index.js：项目的入口文件。具体内容查看下面详情。</p>
+<p>math.js：定义了一些数学工具函数，可以在其他地方引用，并且使用。具体内容查看下面的详情。</p>
+<p>index.html：浏览器打开展示的首页html</p>
+<p>package.json：通过npm init生成的，npm包管理的文件（暂时没有用上，后面才会用上）</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726153500.png" alt=""></p>
+<br>
+
+<h2 id="配置一下入口和出口"><a href="#配置一下入口和出口" class="headerlink" title="配置一下入口和出口"></a>配置一下入口和出口</h2><p>也就是在webpack.config.js 文件中配置</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726153702.png" alt=""></p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> { resolve } = <span class="built_in">require</span>(<span class="string">'path'</span>); <span class="comment">// node 内置核心模块，用来处理路径问题。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">  entry: <span class="string">'./src/index.js'</span>, <span class="comment">// 入口文件</span></span><br><span class="line">  output: { <span class="comment">// 输出配置</span></span><br><span class="line">    filename: <span class="string">'./built.js'</span>, <span class="comment">// 输出文件名</span></span><br><span class="line">    path: resolve(__dirname, <span class="string">'build/js'</span>) <span class="comment">// 输出文件路径配置</span></span><br><span class="line">  },</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<br>
+
+<h2 id="局部安装webpack"><a href="#局部安装webpack" class="headerlink" title="局部安装webpack"></a>局部安装webpack</h2><p>目前，我们使用的webpack是全局的webpack，如果我们想使用局部来打包呢？</p>
+<ul>
+<li><p>因为一个项目往往依赖特定的webpack版本，全局的版本可能很这个项目的webpack版本不一致，导出打包出现问题。</p>
 </li>
-<li><p>创建子类时无法向父类传参，没有实现super()的功能.</p>
+<li><p>所以通常一个项目，都有自己局部的webpack。</p>
 </li>
-</ol>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span> (<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">this</span>.name = <span class="string">'aqing'</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">child</span> (<span class="params"></span>) </span>{}</span><br><span class="line">child.prototype = <span class="keyword">new</span> fat()</span><br><span class="line">child.prototype.constructor = child</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">const</span> Child1 = <span class="keyword">new</span> child();</span><br><span class="line"><span class="keyword">const</span> Child2 = <span class="keyword">new</span> child();</span><br><span class="line">Child1.name = <span class="string">'wzg'</span></span><br><span class="line"><span class="built_in">console</span>.log(Child1.name) <span class="comment">// wzg</span></span><br><span class="line"><span class="comment">// 本来父类name属性是zaq 然后现在==</span></span><br><span class="line"><span class="built_in">console</span>.log(Child2.name) <span class="comment">// wzg</span></span><br></pre></td></tr></tbody></table></figure>
+</ul>
+<p>第一步，项目中需要安装自己局部的webpack</p>
+<ul>
+<li><p>这里我们让局部安装webpack3.6.0</p>
+</li>
+<li><p>Vue CLI3中已经升级到webpack4，但是它将配置文件隐藏了起来，所以查看起来不是很方便。</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726154124.png" alt=""></p>
+<p>第二步，通过node_modules/.bin/webpack启动webpack打包.</p>
+<p><img src="C:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200726154148234.png" alt=""></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726161415.png" alt=""></p>
+<br>
 
-<p><strong>二、 构造函数继承</strong></p>
-<p>构造函数继承：在子类的构造函数中执行父类的构造函数，并为其绑定子类的this。让父类的构造函数把成员的属性和方法都挂在子类的this上，这样既避免了共用一个原型实例，又能像父类构造函数传参。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">}</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name)</span><br><span class="line">}</span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>)</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>)</span><br><span class="line">child1.name = <span class="string">'wzg'</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.name) <span class="comment">// wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name) <span class="comment">// aqing</span></span><br></pre></td></tr></tbody></table></figure>
-<p><strong>构造函数继承的缺点</strong><br>继承不到父类上的属性和方法</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">child1.getName() <span class="comment">// Uncaught TypeError: child1.getName is not a function</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="package-json中定义启动"><a href="#package-json中定义启动" class="headerlink" title="package.json中定义启动"></a><strong>package.json中定义启动</strong></h2><p>每次执行都敲这么一长串有没有觉得不方便呢？</p>
+<p>OK，我们可以在<code>package.json</code>的<code>scripts</code>中定义自己的执行脚本。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726161743.png" alt=""></p>
+<p><span style="color:red"><strong>package.json中的scripts的脚本在执行时，会按照一定的顺序寻找命令对应的位置。</strong></span></p>
+<p>首先，<span style="color:red"><strong>会寻找本地的node_modules/.bin路径中对应的命令。</strong></span></p>
+<p><span style="color:red"><strong>如果没有找到，会去全局的环境变量中寻找。</strong></span></p>
+<p>如何执行我们的build指令呢？</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726161711.png" alt=""></p>
+<br>
 
+<h2 id="css-loader-和-style-loader的使用"><a href="#css-loader-和-style-loader的使用" class="headerlink" title="css-loader 和 style-loader的使用"></a>css-loader 和 <strong>style-loader</strong>的使用</h2><p>loader是webpack中一个非常核心的概念。</p>
+<p>webpack用来做什么呢？</p>
+<p>  在我们之前的实例中，我们主要是用webpack来处理我们写的js代码，并且webpack会自动处理js之间相关的依赖。</p>
+<p>  但是，在开发中我们不仅仅有基本的js代码处理，我们也需要加载css、图片，也包括一些高级的将ES6转成ES5代码，将TypeScript转成ES5代码，将scss、less转成css，将.jsx、.vue文件转成js文件等等。</p>
+<p>  对于webpack本身的能力来说，对于这些转化是不支持的。</p>
+<p>那怎么办呢？给webpack扩展对应的loader就可以啦。</p>
+<p><strong>loader使用过程：</strong></p>
+<p><strong>  步骤一：通过npm安装需要使用的loader</strong></p>
+<p><strong>  步骤二：在webpack.config.js中的modules关键字下进行配置</strong></p>
+<br>
 
-<p><strong>三 、组合式继承</strong><br>既然原型链继承和构造函数继承都有各自的缺点但是又能互补，那何不将两者结合起来使用；</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">}</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name)</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 原型链继承</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> fat();</span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aq"</span>);</span><br><span class="line">child1.name = <span class="string">'wzg'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(child1.name); <span class="comment">//  wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name); <span class="comment">// aq</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">//wzg</span></span><br></pre></td></tr></tbody></table></figure>
-<p><strong>组合式继承的缺点</strong><br>每次创建子类实例都执行了两次构造函数（fat.call()和new fat()），虽然不影响继承，但是在子类创建时 原型中会存在两份相同的属性和方法。</p>
-<p><strong>四 、寄生式组合继承</strong></p>
-<p>为了解决构造函数被执行两次的问题，我们将指向父类实例 变成转向父类原型，减少一次构造函数的执行。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">}</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 原型链继承</span></span><br><span class="line">Child.prototype = fat.prototype <span class="comment">// 将指向父类实例转成转向父类原型</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line">child1.name = <span class="string">'wzg'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(child1.name); <span class="comment">// wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name); <span class="comment">// aqing</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">// wzg</span></span><br></pre></td></tr></tbody></table></figure>
-<p>但是这种方法也存在一个问题，就是子类和父类的原型都指向同一个对象，如果我们对子类原型操作就会对父类原型产生影响。比如给子类Child.prototype新增一个getName方法,那么父类fat.prototype也增加或是被覆盖一个getName方法。为了解决这个问题 我们给fat.prototype做一个浅拷贝；</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fat</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">}</span><br><span class="line">fat.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>{</span><br><span class="line">    fat.call(<span class="keyword">this</span>, name);</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 原型链继承</span></span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(fat.prototype) <span class="comment">// 将指向父类实例转成转向父类原型</span></span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line"><span class="keyword">const</span> child2 = <span class="keyword">new</span> Child(<span class="string">"aqing"</span>);</span><br><span class="line">child1.name = <span class="string">'wzg'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(child1.name); <span class="comment">// wzg</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.name); <span class="comment">// aqing</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.getName()); <span class="comment">// wzg</span></span><br><span class="line">Child.prototype.sayname = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"sayname"</span>);</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> fat();</span><br><span class="line">child1.sayname(); <span class="comment">//saynem</span></span><br><span class="line">f.sayname();   <span class="comment">//Uncaught TypeError: f.sayname is not a function</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span style="color:red"><strong>css-loader只负责加载css文件但是并不负责将css具体样式嵌入到文档中。</strong></span></p>
+<p><span style="color:red"><strong>style-loader负责将css具体样式嵌入到文档中</strong></span></p>
+<br>
 
-<hr>
-<h2 id="ES6中的继承"><a href="#ES6中的继承" class="headerlink" title="ES6中的继承"></a>ES6中的继承</h2><p>class介绍<a href="https://github.com/ruanyf/es6tutorial/blob/57701fcc2e4c972b5fa6be236362f0b57b97bab4/docs/class.md" target="_blank" rel="noopener">来自阮一峰</a><br>es6中的继承：<br>1、class可以理解为functon,由于class本质还是一个function，因此它也有一个prototype属性。当new一个class时，会把class的protortype属性赋值给这个新对象的_proto_属性上；<br>2、constructor是默认添加的方法，在new一个对象的时候，会自动调用该方法, constructor里定义自己的属性；<br>3、继承extends和super， class子类名 extends父类名 实现继承。当然，还得在constructor里写上super (父类的参数)，意思就是在子类中获取父类的this指针，相当于fat.call(this)</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">fat</span> </span>{</span><br><span class="line">	<span class="keyword">constructor</span>(props) {</span><br><span class="line">		<span class="keyword">this</span>.name = props || <span class="string">''</span>;</span><br><span class="line">	}</span><br><span class="line">	getName () {</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 继承</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">fat</span> </span>{</span><br><span class="line">	<span class="keyword">constructor</span>(props, attrs) { <span class="comment">// props继承父类的属性，attrs自己私有的属性</span></span><br><span class="line">		<span class="keyword">super</span>(props); <span class="comment">// 相当于获取父类的this指向</span></span><br><span class="line">		<span class="keyword">this</span>.rename = props.rename || <span class="string">''</span></span><br><span class="line">		<span class="keyword">this</span>.attrs = attrs</span><br><span class="line">	}</span><br><span class="line">	<span class="comment">// 子类自己的方法</span></span><br><span class="line">	getFatname () {</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">	}</span><br><span class="line">	getAttrs () {</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.attrs</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"><span class="comment">// 通过new实例化一个构造函数</span></span><br><span class="line"><span class="keyword">const</span> child1 = <span class="keyword">new</span> Child({</span><br><span class="line">	name: <span class="string">'wzg'</span>,</span><br><span class="line">	rename: <span class="string">'aqing'</span></span><br><span class="line">}, <span class="string">'wuzhiguang'</span>)</span><br><span class="line">child1.getName() <span class="comment">// wzg</span></span><br><span class="line">child1.getRename() <span class="comment">// aqing</span></span><br><span class="line">child1.getAttrs() <span class="comment">// wuzhiguang</span></span><br></pre></td></tr></tbody></table></figure>
-
+<p><strong>安装css-loader 和 style-loader</strong></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install css-loader style-loader -D</span><br></pre></td></tr></tbody></table></figure>
 
 <br>
-<br>
-愿你的坚持终有收获。
-<br>
-<br>
+
+<p>如果报以下的错误：</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200726175539.png" alt=""></p>
+<p>这说明css-loader版本过高的，我们安装较低的css-loader版本即可。</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm uninstall css-loader（卸载当前版本）</span><br><span class="line">cnpm install css-loader@&lt;版本号&gt; -D</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
         document.querySelectorAll('.github-emoji')
@@ -446,16 +533,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-05-18
+    2020-07-26
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-07-15
+    2020-07-26
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://aqingya.cn/2020/05/18/twenty-seven/" title="JavaScript  ---  继承总结" target="_blank">JavaScript  ---  继承总结</a>
+    <a href="https://aqingya.cn/2020/07/26/66/" title="Vue再现WebPack" target="_blank">Vue再现WebPack</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://aqingya.cn/2020/05/18/twenty-seven/" title="JavaScript  ---  继承总结" target="_blank">https://aqingya.cn/2020/05/18/twenty-seven/</a>
+    <a href="https://aqingya.cn/2020/07/26/66/" title="Vue再现WebPack" target="_blank">https://aqingya.cn/2020/07/26/66/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -482,7 +569,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
         		</li>
       		
 		</ul>
@@ -494,7 +581,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        			<a href="/categories/WebPack//" class="article-tag-list-link color3">WebPack</a>
         		</li>
       		
 		</ul>
@@ -549,7 +636,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/05/18/twenty-seven/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/07/26/66/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -563,18 +650,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/05/19/twenty-eight/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript --- 作用域与作用域链
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/15/twenty-six/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript中的原型和原型链（图解）</div>
+    <a href="/2020/07/26/65/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6之Module语法的简单使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -601,7 +679,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ES5中的继承"><span class="toc-number">1.</span> <span class="toc-text">ES5中的继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES6中的继承"><span class="toc-number">2.</span> <span class="toc-text">ES6中的继承</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack安装"><span class="toc-number">1.</span> <span class="toc-text">webpack安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#准备工作"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置一下入口和出口"><span class="toc-number">3.</span> <span class="toc-text">配置一下入口和出口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#局部安装webpack"><span class="toc-number">4.</span> <span class="toc-text">局部安装webpack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#package-json中定义启动"><span class="toc-number">5.</span> <span class="toc-text">package.json中定义启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-loader-和-style-loader的使用"><span class="toc-number">6.</span> <span class="toc-text">css-loader 和 style-loader的使用</span></a></li></ol>
                     </div>
                 </span>
             </div>
