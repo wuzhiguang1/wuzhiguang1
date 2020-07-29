@@ -15,8 +15,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/473899140993908742.jpg">
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200729160542.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200729165801.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/132562.png">
 <meta property="article:published_time" content="2020-07-29T08:35:12.000Z">
-<meta property="article:modified_time" content="2020-07-29T08:42:58.938Z">
+<meta property="article:modified_time" content="2020-07-29T09:09:23.052Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="webpack">
@@ -168,8 +170,8 @@
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 79</a>
-                        <a>总字数 <span class="post-count">144k</span></a>
+                        <a>总文章数 80</a>
+                        <a>总字数 <span class="post-count">144.5k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -322,7 +324,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">469字</span>
+        <span class="post-count">603字</span>
       </span>
     </span>
 
@@ -331,7 +333,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">2分</span>
       </span>
     </span>
 </div>
@@ -390,6 +392,25 @@
 
 <p><strong>总结</strong>：</p>
 <p><span style="color:red"><strong>如果在之后的开发中，你依然使用 template ，就需要选择 Runtime-Compiler 。</strong></span><br><span style="color:red"><strong>如果在之后的开发中，使用的是 .vue 文件夹开发，那么可以选择 Runtime-only 。</strong></span></p>
+<br>
+
+<p>Runtime-Compiler 和 Runtime-only</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200729165801.png" alt=""></p>
+<p>为什么存在这样的差异呢？</p>
+<p>我们需要先理解Vue应用程序是如何运行起来的。</p>
+<p>Vue中的模板如何最终渲染成真实DOM。</p>
+<p>我们来看下面的一幅图。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/132562.png" alt=""></p>
+<p>Vue程序运行过程中</p>
+<p>Runtime-Compiler 执行步骤</p>
+<blockquote>
+<p>template –&gt; ast –&gt; render –&gt; vdom –&gt; UI</p>
+</blockquote>
+<p>Runtime-only 执行步骤（性能更高，代码量更少）</p>
+<blockquote>
+<p>render –&gt; vdom –&gt; UI</p>
+</blockquote>
+<p>Runtime-only 在执行代码的时候，直接就到render 了，减少<code>template --&gt; ast --&gt; render</code> 的代码量，性能更高。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -544,6 +565,15 @@
 
     
 <nav id="article-nav">
+  
+    <a href="/2020/07/29/70/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Vue-cli3和Vue-cli4打包 npm run build 路径错误解决办法(亲测管用)
+        
+      </div>
+    </a>
   
   
     <a href="/2020/07/29/68/" id="article-nav-older" class="article-nav-link-wrap">
