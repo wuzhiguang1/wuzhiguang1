@@ -6,21 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://aqingya.cn">
-  <title>对原生AJAX 的简单封装 | 阿清的小站</title>
+  <title>ES6中的箭头函数 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="对原生AJAX 的简单封装">
-<meta property="og:url" content="https://aqingya.cn/2020/06/24/43/index.html">
+<meta property="og:title" content="ES6中的箭头函数">
+<meta property="og:url" content="https://aqingya.cn/2020/07/29/72/index.html">
 <meta property="og:site_name" content="阿清的小站">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/234.png">
-<meta property="article:published_time" content="2020-06-24T04:45:32.000Z">
-<meta property="article:modified_time" content="2020-07-17T06:44:32.712Z">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/428872344557191920.jpg">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200729234756.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200729235019.png">
+<meta property="article:published_time" content="2020-07-29T15:41:10.000Z">
+<meta property="article:modified_time" content="2020-07-29T15:58:47.880Z">
 <meta property="article:author" content="阿清そ">
-<meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="AJAX">
+<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="this">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/234.png">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/428872344557191920.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -293,20 +295,20 @@
                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                             </div>
                             <div id="js-content" class="content-ll">
-                                <article id="post-43" class="article article-type-post " itemscope itemprop="blogPost">
+                                <article id="post-72" class="article article-type-post " itemscope itemprop="blogPost">
 <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      对原生AJAX 的简单封装
+      ES6中的箭头函数
     </h1>
   
 
         
-        <a href="/2020/06/24/43/" class="archive-article-date">
-  	<time datetime="2020-06-24T04:45:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-24</time>
+        <a href="/2020/07/29/72/" class="archive-article-date">
+  	<time datetime="2020-07-29T15:41:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-29</time>
 </a>
 
  <!-- 不蒜子统计 -->
@@ -321,7 +323,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">787字</span>
+        <span class="post-count">2k字</span>
       </span>
     </span>
 
@@ -330,7 +332,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
+        <span class="post-count">8分</span>
       </span>
     </span>
 </div>
@@ -347,6 +349,22 @@
 
 <!-- 目录内容 -->
 
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
 
@@ -355,40 +373,105 @@
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/234.png" alt=""></p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/428872344557191920.jpg" alt=""></p>
 <a id="more"></a>
 
-<h1 id="对原生AJAX-的简单封装-wink"><a href="#对原生AJAX-的简单封装-wink" class="headerlink" title="对原生AJAX 的简单封装:wink:"></a>对原生AJAX 的简单封装<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f609.png?v8">😉</span></h1><p>我们先看一下JQuery的AJAX的使用。<br>jQuery.ajax(url,[settings])</p>
-<p>参数：</p>
-<ol>
-<li><strong>url</strong>:一个用来包含发送请求的URL字符串。</li>
-<li><strong>data</strong> [Object,String]类型：发送到服务器的数据。将自动转换为请求字符串格式。GET 请求中将附加在 URL 后。查看 processData 选项说明以禁止此自动转换。必须为 Key/Value 格式。如果为数组，jQuery 将自动为不同值对应同一个名称。如 {foo:[“bar1”, “bar2”]} 转换为 “&amp;foo=bar1&amp;foo=bar2”。</li>
-<li><strong>type</strong>  [String]类型：(默认: “GET”) 请求方式 (“POST” 或 “GET”)， 默认为 “GET”。注意：其它 HTTP 请求方法，如 PUT 和 DELETE 也可以使用，但仅部分浏览器支持。</li>
-<li><strong>success</strong> 当请求之后调用。传入返回后的数据，以及包含成功代码的字符串。</li>
-<li><strong>error</strong> 在请求出错时调用。传入XMLHttpRequest对象，描述错误类型的字符串以及一个异常对象（如果有的话）</li>
-</ol>
-<p>JQuery AJAX 的简单使用</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$.ajax({</span><br><span class="line">    type: <span class="string">"get"</span>,</span><br><span class="line">    url: <span class="string">"ajax_get.php"</span>,</span><br><span class="line">    data: <span class="string">"username=John&amp;userpwd=Boston"</span>,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span>(<span class="params">xrh</span>) </span>{</span><br><span class="line">        alert(xrh.responseText);</span><br><span class="line">    },</span><br><span class="line">    error: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        alert(<span class="string">"请求错误"</span>)</span><br><span class="line">    }</span><br><span class="line">});</span><br></pre></td></tr></tbody></table></figure>
 
-<hr>
+
+<h2 id="箭头函数的基本使用"><a href="#箭头函数的基本使用" class="headerlink" title="箭头函数的基本使用"></a>箭头函数的基本使用</h2><p>ES6 允许使用“箭头”（<code>=&gt;</code>）定义函数。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">v</span> =&gt;</span> v;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> v;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果箭头函数不需要参数或需要多个参数，就使用一个圆括号代表参数部分。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="params">()</span> =&gt;</span> <span class="number">5</span>;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{ <span class="keyword">return</span> <span class="number">5</span> };</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> num1 + num2;</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> num1 + num2;</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>如果箭头函数的代码块部分多于一条语句，就要使用大括号将它们括起来，并且使用<code>return</code>语句返回。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="function">(<span class="params">num1, num2</span>) =&gt;</span> { <span class="keyword">return</span> num1 + num2; }</span><br></pre></td></tr></tbody></table></figure>
+
+<p>由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">let</span> getTempItem = <span class="function"><span class="params">id</span> =&gt;</span> { <span class="attr">id</span>: id, <span class="attr">name</span>: <span class="string">"Temp"</span> };</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不报错</span></span><br><span class="line"><span class="keyword">let</span> getTempItem = <span class="function"><span class="params">id</span> =&gt;</span> ({ <span class="attr">id</span>: id, <span class="attr">name</span>: <span class="string">"Temp"</span> });</span><br></pre></td></tr></tbody></table></figure>
+
+<p>下面是一种特殊情况，虽然可以运行，但会得到错误的结果。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="function"><span class="params">()</span> =&gt;</span> { <span class="attr">a</span>: <span class="number">1</span> };</span><br><span class="line">foo() <span class="comment">// undefined</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码中，原始意图是返回一个对象<code>{ a: 1 }</code>，但是由于引擎认为大括号是代码块，所以执行了一行语句<code>a: 1</code>。这时，<code>a</code>可以被解释为语句的标签，因此实际执行的语句是<code>1;</code>，然后函数就结束了，没有返回值。</p>
+<p>如果箭头函数只有一行语句，且不需要返回值，可以采用下面的写法，就不用写大括号了。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">void</span> doesNotReturn();</span><br></pre></td></tr></tbody></table></figure>
+
+<p>箭头函数可以与变量解构结合使用。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> full = <span class="function">(<span class="params">{ first, last }</span>) =&gt;</span> first + <span class="string">' '</span> + last;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">full</span>(<span class="params">person</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> person.first + <span class="string">' '</span> + person.last;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>箭头函数使得表达更加简洁。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isEven = <span class="function"><span class="params">n</span> =&gt;</span> n % <span class="number">2</span> === <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> square = <span class="function"><span class="params">n</span> =&gt;</span> n * n;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码只用了两行，就定义了两个简单的工具函数。如果不用箭头函数，可能就要占用多行，而且还不如现在这样写醒目。</p>
+<p>箭头函数的一个用处是简化回调函数。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正常函数写法</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数写法</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map(<span class="function"><span class="params">x</span> =&gt;</span> x * x);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>另一个例子是</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正常函数写法</span></span><br><span class="line"><span class="keyword">var</span> result = values.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">});</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭头函数写法</span></span><br><span class="line"><span class="keyword">var</span> result = values.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>下面是 rest 参数与箭头函数结合的例子。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = <span class="function">(<span class="params">...nums</span>) =&gt;</span> nums;</span><br><span class="line"></span><br><span class="line">numbers(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"><span class="comment">// [1,2,3,4,5]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> headAndTail = <span class="function">(<span class="params">head, ...tail</span>) =&gt;</span> [head, tail];</span><br><span class="line"></span><br><span class="line">headAndTail(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"><span class="comment">// [1,[2,3,4,5]]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="使用注意点"><a href="#使用注意点" class="headerlink" title="使用注意点"></a>使用注意点</h2><p>箭头函数有几个使用注意点。</p>
+<p>（1）函数体内的<code>this</code>对象，就是定义时所在的对象，而不是使用时所在的对象。</p>
+<p>（2）不可以当作构造函数，也就是说，不可以使用<code>new</code>命令，否则会抛出一个错误。</p>
+<p>（3）不可以使用<code>arguments</code>对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。</p>
+<p>（4）不可以使用<code>yield</code>命令，因此箭头函数不能用作 Generator 函数。</p>
+<p>上面四点中，第一点尤其值得注意。<code>this</code>对象的指向是可变的，但是在箭头函数中，它是固定的。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'id:'</span>, <span class="keyword">this</span>.id);</span><br><span class="line">  }, <span class="number">100</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</span><br><span class="line"></span><br><span class="line">foo.call({ <span class="attr">id</span>: <span class="number">42</span> });</span><br><span class="line"><span class="comment">// id: 42</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码中，<code>setTimeout</code>的参数是一个箭头函数，这个箭头函数的定义生效是在<code>foo</code>函数生成时，而它的真正执行要等到 100 毫秒后。如果是普通函数，执行时<code>this</code>应该指向全局对象<code>window</code>，这时应该输出<code>21</code>。但是，箭头函数导致<code>this</code>总是指向函数定义生效时所在的对象（本例是<code>{id: 42}</code>），所以输出的是<code>42</code>。</p>
+<p>箭头函数可以让<code>setTimeout</code>里面的<code>this</code>，绑定定义时所在的作用域，而不是指向运行时所在的作用域。下面是另一个例子。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Timer</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">this</span>.s1 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">this</span>.s2 = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">// 箭头函数</span></span><br><span class="line">  setInterval(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.s1++, <span class="number">1000</span>);</span><br><span class="line">  <span class="comment">// 普通函数</span></span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="keyword">this</span>.s2++;</span><br><span class="line">  }, <span class="number">1000</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> timer = <span class="keyword">new</span> Timer();</span><br><span class="line"></span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'s1: '</span>, timer.s1), <span class="number">3100</span>);</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'s2: '</span>, timer.s2), <span class="number">3100</span>);</span><br><span class="line"><span class="comment">// s1: 3</span></span><br><span class="line"><span class="comment">// s2: 0</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码中，<code>Timer</code>函数内部设置了两个定时器，分别使用了箭头函数和普通函数。前者的<code>this</code>绑定定义时所在的作用域（即<code>Timer</code>函数），后者的<code>this</code>指向运行时所在的作用域（即全局对象）。所以，3100 毫秒之后，<code>timer.s1</code>被更新了 3 次，而<code>timer.s2</code>一次都没更新。</p>
+<p>箭头函数可以让<code>this</code>指向固定化，这种特性很有利于封装回调函数。下面是一个例子，DOM 事件的回调函数封装在一个对象里面。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = {</span><br><span class="line">  id: <span class="string">'123456'</span>,</span><br><span class="line"></span><br><span class="line">  init: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>,</span><br><span class="line">      event =&gt; <span class="keyword">this</span>.doSomething(event.type), <span class="literal">false</span>);</span><br><span class="line">  },</span><br><span class="line"></span><br><span class="line">  doSomething: <span class="function"><span class="keyword">function</span>(<span class="params">type</span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Handling '</span> + type  + <span class="string">' for '</span> + <span class="keyword">this</span>.id);</span><br><span class="line">  }</span><br><span class="line">};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码的<code>init</code>方法中，使用了箭头函数，这导致这个箭头函数里面的<code>this</code>，总是指向<code>handler</code>对象。否则，回调函数运行时，<code>this.doSomething</code>这一行会报错，因为此时<code>this</code>指向<code>document</code>对象。</p>
+<p><code>this</code>指向的固定化，并不是因为箭头函数内部有绑定<code>this</code>的机制，实际原因是箭头函数根本没有自己的<code>this</code>，导致内部的<code>this</code>就是外层代码块的<code>this</code>。正是因为它没有<code>this</code>，所以也就不能用作构造函数。</p>
+<p>所以，箭头函数转成 ES5 的代码如下。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'id:'</span>, <span class="keyword">this</span>.id);</span><br><span class="line">  }, <span class="number">100</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">var</span> _this = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>{</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'id:'</span>, _this.id);</span><br><span class="line">  }, <span class="number">100</span>);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码中，转换后的 ES5 版本清楚地说明了，箭头函数里面根本没有自己的<code>this</code>，而是引用外层的<code>this</code>。</p>
+<p>请问下面的代码之中有几个<code>this</code>？</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">      <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'id:'</span>, <span class="keyword">this</span>.id);</span><br><span class="line">      };</span><br><span class="line">    };</span><br><span class="line">  };</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> f = foo.call({<span class="attr">id</span>: <span class="number">1</span>});</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> t1 = f.call({<span class="attr">id</span>: <span class="number">2</span>})()(); <span class="comment">// id: 1</span></span><br><span class="line"><span class="keyword">var</span> t2 = f().call({<span class="attr">id</span>: <span class="number">3</span>})(); <span class="comment">// id: 1</span></span><br><span class="line"><span class="keyword">var</span> t3 = f()().call({<span class="attr">id</span>: <span class="number">4</span>}); <span class="comment">// id: 1</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码之中，只有一个<code>this</code>，就是函数<code>foo</code>的<code>this</code>，所以<code>t1</code>、<code>t2</code>、<code>t3</code>都输出同样的结果。因为所有的内层函数都是箭头函数，都没有自己的<code>this</code>，它们的<code>this</code>其实都是最外层<code>foo</code>函数的<code>this</code>。</p>
+<p>除了<code>this</code>，以下三个变量在箭头函数之中也是不存在的，指向外层函数的对应变量：<code>arguments</code>、<code>super</code>、<code>new.target</code>。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>{</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'args:'</span>, <span class="built_in">arguments</span>);</span><br><span class="line">  }, <span class="number">100</span>);</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">foo(<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>)</span><br><span class="line"><span class="comment">// args: [2, 4, 6, 8]</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码中，箭头函数内部的变量<code>arguments</code>，其实是函数<code>foo</code>的<code>arguments</code>变量。</p>
+<p>另外，由于箭头函数没有自己的<code>this</code>，所以当然也就不能用<code>call()</code>、<code>apply()</code>、<code>bind()</code>这些方法去改变<code>this</code>的指向。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">  <span class="keyword">return</span> [</span><br><span class="line">    (<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.x).bind({ <span class="attr">x</span>: <span class="string">'inner'</span> })()</span><br><span class="line">  ];</span><br><span class="line">}).call({ <span class="attr">x</span>: <span class="string">'outer'</span> });</span><br><span class="line"><span class="comment">// ['outer']</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>上面代码中，箭头函数没有自己的<code>this</code>，所以<code>bind</code>方法无效，内部的<code>this</code>指向外部的<code>this</code>。</p>
+<p>长期以来，JavaScript 语言的<code>this</code>对象一直是一个令人头痛的问题，在对象方法中使用<code>this</code>，必须非常小心。箭头函数”绑定”<code>this</code>，很大程度上解决了这个困扰。</p>
+<h2 id="在谈箭头函数的-this-的指向问题"><a href="#在谈箭头函数的-this-的指向问题" class="headerlink" title="在谈箭头函数的 this 的指向问题"></a>在谈箭头函数的 this 的指向问题</h2><p><span style="color:red"></span></p>
+<p><span style="color:red">问题：<strong>箭头函数的this是如何查找的。</strong></span></p>
+<p><span style="color:red">答案：<strong>向外层定义域中，一层一层的查找 this ，直到有 this 的定义。</strong> </span></p>
+<p>我们来看一个例子：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = {</span><br><span class="line">  aaa() {</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    })</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line">obj.aaa()</span><br></pre></td></tr></tbody></table></figure>
+
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200729234756.png" alt=""></p>
+<p>没有使用箭头函数的打印window对象，使用箭头函数的打印了Object对象（也就是 obj ）。</p>
 <br>
 
-<p>对原生AJAX的封装：<br>  对元素我们需要注意的有以下几点</p>
-<ol>
-<li>对IE5 IE6的兼容</li>
-<li>AJAX在ie中的缓存问题</li>
-<li>url中的中文进行转码 地址栏中不能出现中文</li>
-<li>将传入的对象转化为字符串函数</li>
-<li>判断外界是否传入超时</li>
-</ol>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//封装对象转化为字符串函数</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * "username":"wzg"</span></span><br><span class="line"><span class="comment"> * "userpwd":"123"</span></span><br><span class="line"><span class="comment"> * "t":"235262345112354"</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">datastr</span>(<span class="params">data</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> res = [];</span><br><span class="line">    data.t = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> data) {</span><br><span class="line">        <span class="comment">//encodeURLComponent() 将url中的中文进行转码 地址栏中不能出现中文</span></span><br><span class="line">        <span class="comment">// url中只能出现字母数字下划线</span></span><br><span class="line">        res.push(<span class="built_in">encodeURIComponent</span>(key) + <span class="string">"="</span> + <span class="built_in">encodeURIComponent</span>(data[key])); <span class="comment">//[username = wzg,userpwd=123]</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> res.join(<span class="string">"&amp;"</span>); <span class="comment">//username = wzg&amp;userpwd=123</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ajax</span>(<span class="params">option</span>) </span>{</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将对象转化为字符串</span></span><br><span class="line">    <span class="keyword">var</span> str = datastr(option.data);</span><br><span class="line">    <span class="comment">//1.创建一个异步对象</span></span><br><span class="line">    <span class="keyword">var</span> xhr, timer;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.XMLHttpRequest) { <span class="comment">// code for IE7+, Firefox, Chrome, Opera, Safari</span></span><br><span class="line">        xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    } <span class="keyword">else</span> { <span class="comment">// code for IE6, IE5</span></span><br><span class="line">        xhr = <span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="comment">// 2.设置请求方式</span></span><br><span class="line">    <span class="keyword">if</span> (option.type.toLowerCase() === <span class="string">"get"</span>) {</span><br><span class="line">        xhr.open(option.type, option.url + <span class="string">"?"</span> + str, <span class="literal">true</span>);</span><br><span class="line">        <span class="comment">// 3.发送请求</span></span><br><span class="line">        xhr.send();</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        xhr.open(option.type, option.url, <span class="literal">true</span>);</span><br><span class="line">        xhr.setRequestHeader(<span class="string">"Content-type"</span>, <span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">        xhr.send(str);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4.监听状态的变化</span></span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>) {</span><br><span class="line">            clearInterval(timer); <span class="comment">//接收到响应 就关闭定时器</span></span><br><span class="line">            <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt;= <span class="number">300</span> ||</span><br><span class="line">                xhr.status == <span class="number">304</span>) {</span><br><span class="line">                <span class="comment">// 5.处理返回的结果</span></span><br><span class="line">                option.success(xhr);</span><br><span class="line">                <span class="comment">//无论请求成功还是失败 都会调用option.complete();函数</span></span><br><span class="line">                option.option.complete();;</span><br><span class="line">            } <span class="keyword">else</span> {</span><br><span class="line">                option.error(xhr);</span><br><span class="line">                <span class="comment">//无论请求成功还是失败 都会调用option.complete();函数</span></span><br><span class="line">                option.complete();</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断外界是否传入超时</span></span><br><span class="line">    <span class="keyword">if</span> (option.timeout) {</span><br><span class="line">        timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">            xhr.abort();</span><br><span class="line">            clearInterval(timer);</span><br><span class="line">        }, option.timeout)</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>再来看一个例子</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = {</span><br><span class="line">  aaa() {</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);   <span class="comment">//window</span></span><br><span class="line">      })</span><br><span class="line">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);   <span class="comment">//window</span></span><br><span class="line">      })</span><br><span class="line">    })</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">      setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);   <span class="comment">//window</span></span><br><span class="line">      })</span><br><span class="line">      setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);   <span class="comment">//obj</span></span><br><span class="line">      })</span><br><span class="line">    })</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line">obj.aaa()</span><br></pre></td></tr></tbody></table></figure>
 
-<hr>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200729235019.png" alt=""></p>
+<p>所以我们再来理解一下 <span style="color:red"><strong>向外层定义域中，一层一层的查找 this ，直到有 this 的定义。</strong> </span> 是不是就懂了。</p>
 <br>
-对封装的AJAX的简单使用：
+
+<br>
 
 
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">              ajax({</span><br><span class="line">                  type: <span class="string">"get"</span>,</span><br><span class="line">                  url: <span class="string">"1.txt"</span>,</span><br><span class="line">                  timeout: <span class="number">3000</span>,</span><br><span class="line">                  data: {</span><br><span class="line">                      <span class="string">"username"</span>: <span class="string">"wzg"</span>,</span><br><span class="line">                      <span class="string">"userpwd"</span>: <span class="string">"123"</span></span><br><span class="line">                  },</span><br><span class="line">                  success: <span class="function"><span class="keyword">function</span>(<span class="params">xhr</span>) </span>{</span><br><span class="line">                      <span class="comment">// console.log(xhr.responseXML);</span></span><br><span class="line">                      <span class="comment">// let x = xhr.responseXML</span></span><br><span class="line">                      <span class="comment">// console.log(x.querySelector("to").innerHTML);</span></span><br><span class="line">                      <span class="comment">// console.log(x.querySelector("from"));</span></span><br><span class="line">                      <span class="keyword">let</span> x = xhr.responseText;</span><br><span class="line">                      y = <span class="built_in">JSON</span>.parse(x);</span><br><span class="line">                      <span class="built_in">console</span>.log(y.name);</span><br><span class="line">                      <span class="built_in">console</span>.log(y.age);</span><br><span class="line">                  },</span><br><span class="line">                  error: <span class="function"><span class="keyword">function</span>(<span class="params">xhr</span>) </span>{</span><br><span class="line">                      alert(<span class="string">"请求失败！！！"</span>);</span><br><span class="line">                  }</span><br><span class="line">              });</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
 
 <script>
         document.querySelectorAll('.github-emoji')
@@ -424,16 +507,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-06-24
+    2020-07-29
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-07-17
+    2020-07-29
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://aqingya.cn/2020/06/24/43/" title="对原生AJAX 的简单封装" target="_blank">对原生AJAX 的简单封装</a>
+    <a href="https://aqingya.cn/2020/07/29/72/" title="ES6中的箭头函数" target="_blank">ES6中的箭头函数</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://aqingya.cn/2020/06/24/43/" title="对原生AJAX 的简单封装" target="_blank">https://aqingya.cn/2020/06/24/43/</a>
+    <a href="https://aqingya.cn/2020/07/29/72/" title="ES6中的箭头函数" target="_blank">https://aqingya.cn/2020/07/29/72/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -460,11 +543,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">AJAX</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">this</a>
         		</li>
       		
 		</ul>
@@ -476,7 +559,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/AJAX//" class="article-tag-list-link color5">AJAX</a>
+        			<a href="/categories/ES6//" class="article-tag-list-link color4">ES6</a>
         		</li>
       		
 		</ul>
@@ -531,7 +614,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/06/24/43/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/07/29/72/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -545,18 +628,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/06/24/42/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          es6之扩展运算符 (...)   简称三个点
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/06/06/41/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">原生JS+JSON 天气预报小项目 （含源码）</div>
+    <a href="/2020/07/29/71/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue CLI（脚手架）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -575,6 +649,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#箭头函数的基本使用"><span class="toc-number">1.</span> <span class="toc-text">箭头函数的基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用注意点"><span class="toc-number">2.</span> <span class="toc-text">使用注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在谈箭头函数的-this-的指向问题"><span class="toc-number">3.</span> <span class="toc-text">在谈箭头函数的 this 的指向问题</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
