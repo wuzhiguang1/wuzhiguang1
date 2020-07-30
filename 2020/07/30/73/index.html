@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://aqingya.cn">
-  <title>JavaScript ---事件的委派 | 阿清的小站</title>
+  <title>关于setInterval和setTImeout中的this指向问题 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript ---事件的委派">
-<meta property="og:url" content="https://aqingya.cn/2020/04/24/fifteen/index.html">
+<meta property="og:title" content="关于setInterval和setTImeout中的this指向问题">
+<meta property="og:url" content="https://aqingya.cn/2020/07/30/73/index.html">
 <meta property="og:site_name" content="阿清的小站">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg">
-<meta property="article:published_time" content="2020-04-24T04:42:09.000Z">
-<meta property="article:modified_time" content="2020-07-15T10:32:25.267Z">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/79053597563864302.jpg">
+<meta property="article:published_time" content="2020-07-30T00:53:35.000Z">
+<meta property="article:modified_time" content="2020-07-30T00:59:57.529Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="ES6">
+<meta property="article:tag" content="this">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/79053597563864302.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -292,20 +294,20 @@
                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                             </div>
                             <div id="js-content" class="content-ll">
-                                <article id="post-fifteen" class="article article-type-post " itemscope itemprop="blogPost">
+                                <article id="post-73" class="article article-type-post " itemscope itemprop="blogPost">
 <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript ---事件的委派
+      关于setInterval和setTImeout中的this指向问题
     </h1>
   
 
         
-        <a href="/2020/04/24/fifteen/" class="archive-article-date">
-  	<time datetime="2020-04-24T04:42:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-24</time>
+        <a href="/2020/07/30/73/" class="archive-article-date">
+  	<time datetime="2020-07-30T00:53:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-30</time>
 </a>
 
  <!-- 不蒜子统计 -->
@@ -320,7 +322,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">486字</span>
+        <span class="post-count">757字</span>
       </span>
     </span>
 
@@ -329,7 +331,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">2分</span>
+        <span class="post-count">3分</span>
       </span>
     </span>
 </div>
@@ -346,6 +348,22 @@
 
 <!-- 目录内容 -->
 
+   
+   <script type="text/javascript">
+	function showToc(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:block");
+		show_toc_btn.setAttribute("style","display:none");
+		};
+	function showBtn(){
+		var toc_article = document.getElementById("toc-article");
+		var show_toc_btn = document.getElementById("show-toc-btn");
+		toc_article.setAttribute("style","display:none");
+		show_toc_btn.setAttribute("style","display:block");
+		};
+   </script>
+      
 <!-- 目录内容结束 -->
 
 
@@ -354,25 +372,42 @@
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg" alt=""></p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/79053597563864302.jpg" alt=""></p>
 <a id="more"></a>
 
-<br>
+
+
+<h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p><strong>setInterval和setTimeout中传入函数时，函数中的this会指向window对象</strong></p>
 <br>
 
-<ul>
-<li>指将事件统一绑定给元素的共同的祖先元素，这样当后代元素上的时间触发时，会一直冒泡到祖先元素。从而通过祖先元素的响应事件来处理事件。</li>
-<li>事件委派是利用了冒泡，通过委派可以减少事件的绑定次数，提高程序的性能。</li>
-</ul>
-<p>target：<br>target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。</p>
-<figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        window.onload = function() {</span><br><span class="line">            <span class="keyword">var</span> lis = document.getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">            <span class="keyword">var</span> u1 = document.getElementById(<span class="string">"u1"</span>);</span><br><span class="line">            <span class="keyword">var</span> btn = document.getElementById(<span class="string">"btn"</span>);</span><br><span class="line">            <span class="comment">// for (var i = 0; i &lt; lis.length; i++) {</span></span><br><span class="line">            <span class="comment">//     lis[i].onclick = function() {</span></span><br><span class="line">            <span class="comment">//         alert("我是超链接");</span></span><br><span class="line">            <span class="comment">//     }</span></span><br><span class="line">            <span class="comment">// }</span></span><br><span class="line"></span><br><span class="line">            u1.onclick = function(event) {</span><br><span class="line">                <span class="comment">//解决event浏览器兼容性问题</span></span><br><span class="line">                event = event || window.event;</span><br><span class="line">                <span class="comment">//如果触发的事件是我们期望的元素，否则不执行。</span></span><br><span class="line">                <span class="comment">//创建一个正则表达式，判断一下含有link的class才能被触发。</span></span><br><span class="line">                <span class="keyword">var</span> patt1 = /[link]/ig;</span><br><span class="line">                <span class="keyword">if</span> (patt1.test(event.target.className)) {</span><br><span class="line">                    alert(<span class="string">"我是超链接"</span>);</span><br><span class="line">                }</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            btn.onclick = function() {</span><br><span class="line">                <span class="keyword">var</span> li = document.createElement(<span class="string">"li"</span>);</span><br><span class="line">                li.innerHTML = <span class="string">"&lt;a href='javascript: ;'class='link'&gt;新的超链接&lt;/a&gt;"</span>;</span><br><span class="line">                u1.appendChild(li);</span><br><span class="line"></span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id="btn"&gt;点击&lt;/button&gt;</span><br><span class="line">    &lt;ul id=<span class="string">"u1"</span>&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="s link s"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">        &lt;li&gt;&lt;a href="javascript:;" class="link"&gt;超链接&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure>
+<p>我们先来看一个例子：</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Obj</span> (<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.num = <span class="number">1</span>,</span><br><span class="line">    <span class="keyword">this</span>.getNum = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.num);</span><br><span class="line">    },</span><br><span class="line">    <span class="keyword">this</span>.getNumLater = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.num);</span><br><span class="line">        }, <span class="number">1000</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Obj; </span><br><span class="line">obj.getNum();<span class="comment">//1　　这里打印的是obj.num，值为1</span></span><br><span class="line">obj.getNumLater()<span class="comment">//0　　这里打印的是window.num，值为0</span></span><br></pre></td></tr></tbody></table></figure>
 
-<br>
-<br>
-愿你的坚持终有收获。
-<br>
+<p>从上述例子中可以看到<strong>setTimeout中函数内的this是指向了window对象</strong>，<span style="color:red"><strong>这是由于setTimeout()调用的代码运行在与所在函数完全分离的执行环境上。这会导致这些代码中包含的 this 关键字会指向 window (或全局)对象。</strong></span>具体可参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/setTimeout" target="_blank" rel="noopener">MDN setTimeout</a></p>
 <br>
 
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>若想要让setTimeout中的this指向正确的值，可以使用以下三种比较常用的方法来使this指向正确的值：</p>
+<br>
+
+<h3 id="（1）-将当前对象的this存为一个变量，定时器内的函数利用闭包来访问这个变量，如下："><a href="#（1）-将当前对象的this存为一个变量，定时器内的函数利用闭包来访问这个变量，如下：" class="headerlink" title="（1） 将当前对象的this存为一个变量，定时器内的函数利用闭包来访问这个变量，如下："></a><strong>（1） 将当前对象的this存为一个变量，定时器内的函数利用闭包来访问这个变量</strong>，如下：</h3><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Obj</span> (<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;    <span class="comment">//将this存为一个变量，赋值给that，此时的this指向obj</span></span><br><span class="line">    <span class="keyword">this</span>.num = <span class="number">1</span>,</span><br><span class="line">    <span class="keyword">this</span>.getNum = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.num);</span><br><span class="line">    },</span><br><span class="line">    <span class="keyword">this</span>.getNumLater = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(that.num);    <span class="comment">//利用闭包访问that，that是一个指向obj的指针</span></span><br><span class="line">        }, <span class="number">1000</span>)</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Obj; </span><br><span class="line">obj.getNum();<span class="comment">//1　　打印的是obj.num，值为1</span></span><br><span class="line">obj.getNumLater()<span class="comment">//1　　打印的是obj.num，值为1</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>这种方法是将当前对象的引用放在一个变量里，定时器内部的函数来访问到这个变量，自然就可以得到当前的对象。</strong></p>
+<br>
+
+<h3 id="（2）利用bind-方法"><a href="#（2）利用bind-方法" class="headerlink" title="（2）利用bind()方法"></a><strong>（2）利用bind()方法</strong></h3><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Obj</span> (<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.num = <span class="number">1</span>,</span><br><span class="line">    <span class="keyword">this</span>.getNum = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.num);</span><br><span class="line">    },</span><br><span class="line">    <span class="keyword">this</span>.getNumLater = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.num);</span><br><span class="line">        }.bind(<span class="keyword">this</span>), <span class="number">1000</span>)    <span class="comment">//利用bind()将this绑定到这个函数上</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Obj; </span><br><span class="line">obj.getNum();<span class="comment">//1　　打印的为obj.num，值为1</span></span><br><span class="line">obj.getNumLater()<span class="comment">//1　　打印的为obj.num，值为1</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p><strong>bind()方法是在Function.prototype上的一个方法，当被绑定函数执行时，bind方法会创建一个新函数，并将第一个参数作为新函数运行时的this。在这个例子中，在调用setTimeout中的函数时，bind方法创建了一个新的函数，并将this传进新的函数，执行的结果也就是正确的了。关于bind方法可参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="noopener">MDN bind</a></strong></p>
+<br>
+
+<h3 id="（3）-箭头函数"><a href="#（3）-箭头函数" class="headerlink" title="（3） 箭头函数"></a>（3） 箭头函数</h3><p>使用es6的箭头函数，最为常用。</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Obj</span> (<span class="params"></span>)</span>{</span><br><span class="line">    <span class="keyword">this</span>.num = <span class="number">1</span>,</span><br><span class="line">    <span class="keyword">this</span>.getNum = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.num);</span><br><span class="line">    },</span><br><span class="line">    <span class="keyword">this</span>.getNumLater = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.num);</span><br><span class="line">        }, <span class="number">1000</span>)    <span class="comment">//箭头函数中的this总是指向外层调用者，也就是Obj,</span></span><br><span class="line">        			<span class="comment">//</span></span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Obj; </span><br><span class="line">obj.getNum();<span class="comment">//1　　打印的是obj.num，值为1</span></span><br><span class="line">obj.getNumLater()<span class="comment">//1　　打印的是obj.num，值为1</span></span><br></pre></td></tr></tbody></table></figure>
+
+
+
+<p>ES6中的箭头函数完全修复了this的指向，<span style="color:red"><strong>向外层定义域中，一层一层的查找 this ，直到有 this 的定义。</strong></span>因此利用箭头函数就可以轻松解决这个问题。</p>
+<p><br><br><br></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -407,16 +442,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-04-24
+    2020-07-30
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-07-15
+    2020-07-30
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://aqingya.cn/2020/04/24/fifteen/" title="JavaScript ---事件的委派" target="_blank">JavaScript ---事件的委派</a>
+    <a href="https://aqingya.cn/2020/07/30/73/" title="关于setInterval和setTImeout中的this指向问题" target="_blank">关于setInterval和setTImeout中的this指向问题</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://aqingya.cn/2020/04/24/fifteen/" title="JavaScript ---事件的委派" target="_blank">https://aqingya.cn/2020/04/24/fifteen/</a>
+    <a href="https://aqingya.cn/2020/07/30/73/" title="关于setInterval和setTImeout中的this指向问题" target="_blank">https://aqingya.cn/2020/07/30/73/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -445,6 +480,14 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">this</a>
+        		</li>
       		
 		</ul>
 	</div>
@@ -455,7 +498,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
+        			<a href="/categories/this//" class="article-tag-list-link color5">this</a>
         		</li>
       		
 		</ul>
@@ -510,7 +553,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/04/24/fifteen/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/07/30/73/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -524,18 +567,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/04/25/sixteen/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript ---鼠标拖拽元素问题总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/24/fourteen/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。</div>
+    <a href="/2020/07/29/72/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ES6中的箭头函数</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -554,6 +588,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题："><span class="toc-number">1.</span> <span class="toc-text">问题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#（1）-将当前对象的this存为一个变量，定时器内的函数利用闭包来访问这个变量，如下："><span class="toc-number">2.1.</span> <span class="toc-text">（1） 将当前对象的this存为一个变量，定时器内的函数利用闭包来访问这个变量，如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（2）利用bind-方法"><span class="toc-number">2.2.</span> <span class="toc-text">（2）利用bind()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（3）-箭头函数"><span class="toc-number">2.3.</span> <span class="toc-text">（3） 箭头函数</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
