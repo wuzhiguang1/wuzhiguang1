@@ -6,24 +6,47 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://aqingya.cn">
-  <title>JavaScript  ---  DOM简介 和  DOM Node节点的增删改查 | 阿清的小站</title>
+  <title>Vue-router 详解 | 阿清的小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript  ---  DOM简介 和  DOM Node节点的增删改查">
-<meta property="og:url" content="https://aqingya.cn/2020/05/22/21/index.html">
+<meta property="og:title" content="Vue-router 详解">
+<meta property="og:url" content="https://aqingya.cn/2020/07/31/75/index.html">
 <meta property="og:site_name" content="阿清的小站">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/3714a171b95a4f2b9148de6aa84ffef4.jpg">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522094310145.gif">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522141013494.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200522143355678.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70">
-<meta property="article:published_time" content="2020-05-22T06:39:42.000Z">
-<meta property="article:modified_time" content="2020-07-15T10:43:04.581Z">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/261956592400072760.jpg">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%871.jpg">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%875.jpg">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%876.jpg">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%877.jpg">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731101841.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731102158.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731111328.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731111807.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%878.jpg">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731113007.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731141549.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731114102.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731115207.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731115242.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731132719.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731133009.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731133530.png">
+<meta property="og:image" content="c:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200731133946893.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731134030.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731134603.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731135035.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731184755.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731184926.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185554.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185102.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185151.png">
+<meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731203051.png">
+<meta property="article:published_time" content="2020-07-31T14:01:45.000Z">
+<meta property="article:modified_time" content="2020-07-31T14:10:03.568Z">
 <meta property="article:author" content="阿清そ">
-<meta property="article:tag" content="JavaScript">
-<meta property="article:tag" content="DOM">
+<meta property="article:tag" content="Vue-router">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/3714a171b95a4f2b9148de6aa84ffef4.jpg">
+<meta name="twitter:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/261956592400072760.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿清的小站" type="application/atom+xml">
   
@@ -296,20 +319,20 @@
                                 <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
                             </div>
                             <div id="js-content" class="content-ll">
-                                <article id="post-21" class="article article-type-post " itemscope itemprop="blogPost">
+                                <article id="post-75" class="article article-type-post " itemscope itemprop="blogPost">
 <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript  ---  DOM简介 和  DOM Node节点的增删改查
+      Vue-router 详解
     </h1>
   
 
         
-        <a href="/2020/05/22/21/" class="archive-article-date">
-  	<time datetime="2020-05-22T06:39:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-22</time>
+        <a href="/2020/07/31/75/" class="archive-article-date">
+  	<time datetime="2020-07-31T14:01:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-31</time>
 </a>
 
  <!-- 不蒜子统计 -->
@@ -324,7 +347,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">2.1k字</span>
+        <span class="post-count">2k字</span>
       </span>
     </span>
 
@@ -374,98 +397,274 @@
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/3714a171b95a4f2b9148de6aa84ffef4.jpg" alt=""></p>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/261956592400072760.jpg" alt=""></p>
 <a id="more"></a>
 
-<h2 id="DOM简介："><a href="#DOM简介：" class="headerlink" title="DOM简介："></a>DOM简介：</h2><p><strong>通过 HTML DOM，JavaScript 能够访问和改变 HTML 文档的所有元素。</strong></p>
-<hr>
-<p><strong>HTML DOM（文档对象模型）</strong><br>当网页被加载时，浏览器会创建页面的文档对象模型（Document Object Model）。</p>
-<p><strong>HTML DOM</strong> 模型被结构化为<strong>对象树</strong>：</p>
-<p><strong>对象的 HTML DOM 树</strong><br><img src="https://img-blog.csdnimg.cn/20200522094310145.gif" alt="在这里插入图片描述"></p>
-<p>通过这个对象模型，JavaScript 获得创建动态 HTML 的所有力量：</p>
-<ul>
-<li>JavaScript 能改变页面中的所有 HTML 元素</li>
-<li>JavaScript 能改变页面中的所有 HTML 属性</li>
-<li>JavaScript 能改变页面中的所有 CSS 样式</li>
-<li>JavaScript 能删除已有的 HTML 元素和属性</li>
-<li>JavaScript 能添加新的 HTML 元素和属性</li>
-<li>JavaScript 能对页面中所有已有的 HTML 事件作出反应</li>
-<li>JavaScript 能在页面中创建新的 HTML 事件</li>
-</ul>
-<hr>
-<p><strong>什么是 DOM？</strong><br>DOM 是一项 W3C (World Wide Web Consortium) 标准。</p>
-<p>DOM 定义了访问文档的标准：</p>
-<p>“W3C 文档对象模型（DOM）是中立于平台和语言的接口，它允许程序和脚本动态地访问、更新文档的内容、结构和样式。”<br>W3C DOM 标准被分为 3 个不同的部分：</p>
-<ul>
-<li>Core DOM - 所有文档类型的标准模型</li>
-<li>XML DOM - XML 文档的标准模型</li>
-<li>HTML DOM - HTML 文档的标准模型</li>
-</ul>
-<hr>
-<p><strong>什么是 HTML DOM？</strong><br>HTML DOM 是 HTML 的标准对象模型和编程接口。它定义了：</p>
-<p>作为对象的 HTML 元素</p>
-<ul>
-<li>所有 HTML 元素的属性</li>
-<li>访问所有 HTML 元素的方法</li>
-<li>所有 HTML 元素的事件</li>
-</ul>
-<p><span style="color: red;">换言之：HTML DOM 是关于如何获取、更改、添加或删除 HTML 元素的标准。</span></p>
-<hr>
-<p>HTML DOM 是关于如何获取、更改、添加或删除 HTML 元素的标准。<br>Document对象是我们可以从脚本中对HTML页面中的所有元素进行访问</p>
-<p>节点：Node——构成HTML文档最基本的单元。<br>常用节点分为4类：</p>
-<ul>
-<li>文档节点：整个HTML文档</li>
-<li>元素节点：HTML文档中的HTML标签</li>
-<li>属性节点：元素的属性</li>
-<li>文本节点：HTML标签中的文本内容</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20200522141013494.png" alt="在这里插入图片描述"><br>文档的加载：<br>    浏览器在加载一个页面的时候，是按照自上向下的顺序加载的<br>    读取到一行就运行一行，如果将script标签写到页面的上边，<br>    在代码执行时，页面还没有加载，页面没有加载DOM对象也没有加载<br>    会导致无法获取到DOM对象</p>
-<p>Onload事件在整个 页面加载完成之后才触发<br>    为window绑定一个onload事件<br>    该事件对应的响应函数，将会在页面加载完成之后执行，<br>    这样可以确保我们的代码执行时所有的DOM对象已经加载完成。</p>
-<hr>
-<p> <strong>获取元素节点</strong></p>
-<p>通过document对象调用</p>
-<p>1.getElementById()<br>  通过id属性来获取一个元素节点的对象</p>
-<p>2.getElementsByTagName()<br>  可以根据标签名来获取一组元素节点对象<br>  这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象<br>  即使查询到的元素只有一个，也会封装到数组中返回。</p>
-<p>3.getElementsByName()<br>  通过name属性来获取一组元素节点对象。<br>  这个方法会给我们返回一个类数组对象，所有查询到的元素都会在封装到对象。<br>  即使查询到的元素只有一个，也会封装到数组中返回。</p>
-<p><strong>InnerHTML 通过这个属性可以获取到元素内部的html代码<br>  Bj.innerHTML<br>  对于自结束标签没有意义，会返回为空。<br>  如果需要读取元素节点属性，<br>  直接使用 元素.属性名<br>  例子： 元素.id   元素.name  元素.value<br>  <span style="color: red;">注意：class属性不能采用这种方式，（主要用于表单中）<br>  读取class属性需要使用 元素. className</span><br>innerText<br>  该属性可以获取元素内部中的文本内容。<br>  他和innerHTML类似，不同的是他会自动将html标签去除。</strong></p>
-<hr>
-<p><strong>获取元素节点的子节点</strong><br>通过具体的元素节点调用<br>1.getElementByTagName()<br>  是一个方法，方法返回当前的指定标签名后代节点</p>
-<p>2.childNodes<br>  是一个属性 表示当前节点的所有子节点<br>  childNodes属性会获取包括文本节点在内的所有节点<br>  <strong>根据DOM标签与标签间的空白也会当成文本节点</strong><br><span style="color: red;">注意：IE8及以下的浏览器中不会将空白文本当成子节点，<br>children属性可以获取当前元素的所有子元素。标签与标签间的空白不会当成文本节点。</span></p>
-<p>3.firstChild<br>   属性，表示当前节点的第一个子节点。<br>  可以获取当前元素的第一个子节点（<strong>包含空白文本节点和注释</strong>）。</p>
-<p>  <strong><span style="color: red;">firstElementChild:指向第一个元素；（不包括文本节点和注释）</span></strong></p>
-<p>4.lastChile<br>   属性，表示当前节点的最后一个子节点<br>  可以获取当前元素的最后一个子节点（<strong>包含空白文本节点和注释</strong>）。</p>
-<p>  <strong><span style="color: red;">lastElementChild:指向最后一个子元素；（不包括文本节点和注释）</span></strong></p>
+<h1 id="Vue-router-详解"><a href="#Vue-router-详解" class="headerlink" title="Vue-router 详解"></a>Vue-router 详解</h1><h2 id="前端路由规则"><a href="#前端路由规则" class="headerlink" title="前端路由规则"></a>前端路由规则</h2><p><strong>URL的hash</strong>：</p>
+<p>URL的hash也就是锚点(#), 本质上是改变window.location的href属性.</p>
+<p>我们可以通过直接赋值location.hash来改变href, 但是页面不发生刷新</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%871.jpg" alt=""></p>
 <br>
 
-<p>遍历元素<br>  <strong><span style="color: red;">childElementCount:返回子元素的个数（不包括文本节点和注释）</span></strong></p>
-<hr>
-<p><strong>获取父节点和兄弟节点</strong></p>
-<p>通过具体的节点调用<br>1.parentNode<br>   属性，表示当前节点的父节点</p>
-<p>2.previousSibling<br>   属性，表示当前节点的前一个兄弟节点</p>
-<p>  <span style="color: red;">previousSibling 属性返回元素节点之前的兄弟节点（包括文本节点、注释节点）；</span><br>  <span style="color: red;">previousElementSibling 属性只返回元素节点之前的兄弟元素节点（不包括文本节点、注释节点）；</span></p>
-<p>3.nextSibling<br>   属性，表示当前节点的后一个兄弟节点</p>
-<p>  <span style="color: red;">nextSibling 属性返回元素节点之后的兄弟节点（包括文本节点、注释节点）；</span><br>  <span style="color: red;">nextElementSibling 属性只返回元素节点之后的兄弟元素节点（不包括文本节点、注释节点）。</span></p>
-<hr>
-<p>1、在document中有一个属性body，它保存的是body的引用<br>  Var body = document.body;</p>
-<p>2、Doucument.doucumentElement保存的是html根标签<br>  Var html = document.documentElenmet;</p>
-<p>3、Document.all 代表页面中的所有元素<br>  var all = document.all;<br>  （var all = document.getElementsByTagName(“*”)）效果一样。<br>  它返回一个数组</p>
-<p>4、根据元素的class属性查询一组元素节点对象<br>  GetElementsByClassNmae() 可以根据class属性值获取一组元素节点对象（类数组）<br>  但是该方法 不支持IE8及以下浏览器。</p>
-<p>5、documen.querySelector()<br>   需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象<br>   虽然IE8中没有getElementByTagName() 但是可以使用querySelector，他可以支持IE8.<br>   使用该方法总会返回<strong>一个唯一的一个元素</strong>，如果满足条件的元素有多个，那么它会返回第一个。</p>
-<p>6、documen.querySelectorAll()<br>  该方法和querySelector()用法类似，不同的是他会将符合条件的元素<strong>封装到一个数组中</strong>。<br>  即使符合条件的元素只有一个，他也会返回数组。</p>
-<hr>
-<p><strong>DOM增删改查：</strong></p>
-<p>1.Document.createElement()<br>  可以用于创建一个元素节点对象，<br>  它需要一个标签名作为参数，将会根据标签名创建元素节点对象<br>  并将创建好的对象作为返回值返回。<br>  它可以个innerHTML结合使用。<br><img src="https://img-blog.csdnimg.cn/20200522143355678.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>2.document.createTextNode()<br>  可以用来创建一个文本节点对象<br>  需要一个文本内容作为参数，将会根据该内容创建文本节点，并将新的节点返回。</p>
-<p>3.appendChild()<br>  向一个父节点中添加一个新的子节点<br>  用法：父节点.appendChild(子节点)；</p>
-<p>4.insertBefore()<br>  可以在指定的子节点前插入新的子节点<br>  语法：<br>  父节点.insertBefore(新节点，旧节点);</p>
-<p>5.replaceChild()<br>  可以使用指定的子节点替换已有的子节点<br>  语法：<br>  父节点.replaceChile(新节点，旧节点)</p>
-<p>6.removeChild()<br>  可以删除一个子节点<br>  语法：父节点.removeChild(子节点)；<br>  但是：<br>  <span style="color: red;">常用：子节点.parentNode.removeChild(子节点)</span></p>
-<hr>
+<p><strong>HTML5的history模式：pushState</strong>：</p>
+<p>history接口是HTML5新增的, 它有五种模式改变URL而不刷新页面。</p>
+<p>采用入栈出栈的模式，可以后退和前进。</p>
+<p>history.pushState()</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%875.jpg" alt=""></p>
 <br>
+
+<p><strong>HTML5的history模式：replaceState</strong>：</p>
+<p>他和 pushState 基本类似，<strong>但是replaceState 不能后退与前进</strong></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%876.jpg" alt=""></p>
 <br>
-愿你的坚持终有收获。
+
+<p><strong>HTML5的history模式：go</strong>：</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%877.jpg" alt=""></p>
 <br>
+
+<p><strong>补充说明：</strong></p>
+<p>上面只演示了三个方法</p>
+<p>因为 history.back() 等价于 history.go(-1)</p>
+<p>history.forward() 则等价于 history.go(1)</p>
+<p>这三个接口等同于浏览器界面的前进后退。</p>
 <br>
+
+<h2 id="Vue-router-基础"><a href="#Vue-router-基础" class="headerlink" title="Vue-router 基础"></a>Vue-router 基础</h2><h3 id="认识-Vue-router"><a href="#认识-Vue-router" class="headerlink" title="认识 Vue-router"></a>认识 Vue-router</h3><p>目前前端流行的三大框架, 都有自己的路由实现:</p>
+<p>Angular的ngRouter</p>
+<p>React的ReactRouter</p>
+<p>Vue的vue-router</p>
+<p>vue-router是Vue.js官方的路由插件，它和vue.js是深度集成的，适合用于构建单页面应用。</p>
+<p>我们可以访问其官方网站对其进行学习: <a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">https://router.vuejs.org/zh/</a></p>
+<p><span style="color:red"><strong>vue-router是基于路由和组件的</strong></span></p>
+<p><span style="color:red"><strong>路由用于设定访问路径, 将路径和组件映射起来.</strong></span></p>
+<p><span style="color:red"><strong>在vue-router的单页面应用中, 页面的路径的改变就是组件的切换.</strong></span></p>
+<br>
+
+<h3 id="安装和使用路由"><a href="#安装和使用路由" class="headerlink" title="安装和使用路由"></a>安装和使用路由</h3><p>因为我们已经学习了webpack, 后续开发中我们主要是通过工程化的方式进行开发的.</p>
+<p>所以在后续, 我们直接使用npm来安装路由即可.</p>
+<p><strong>步骤一</strong>: 安装vue-router （安装运行时依赖）</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router --save</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong>步骤二</strong>: 在模块化工程中使用它(因为是一个插件, 所以可以通过Vue.use()来安装路由功能)</p>
+<p>第一步：导入路由对象，并且调用 Vue.use(VueRouter)</p>
+<p>第二步：创建路由实例，并且传入路由映射配置</p>
+<p>第三步：在Vue实例中挂载创建的路由实例</p>
+<br>
+
+<p>创建Router实例。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731101841.png" alt=""></p>
+<br>
+
+<p>挂载到Vue实例中</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731102158.png" alt=""></p>
+<br>
+
+
+
+<p><strong>使用vue-router的步骤:</strong></p>
+<p>第一步: 创建路由组件</p>
+<p>第二步: 配置路由映射: 组件和路径映射关系</p>
+<p>第三步: 使用路由: 通过<code>&lt;router-link&gt;</code>和<code>&lt;router-view&gt;</code> 也可以使用下面的 <strong>路由代码跳转</strong>。</p>
+<br>
+
+<p>第一步: 创建路由组件</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731111328.png" alt=""></p>
+<br>
+
+<p>第二步: 配置路由映射: 组件和路径映射关系</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731111807.png" alt=""></p>
+<br>
+
+<p>第三步：使用路由</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%878.jpg" alt=""></p>
+<p><strong><code>&lt;router-link&gt;</code>: 该标签是一个vue-router中已经内置的组件, 它会被渲染成一个<code>&lt;a&gt;</code>标签.</strong></p>
+<p><strong><code>&lt;router-view&gt;</code>: 该标签会根据当前的路径, 动态渲染出不同的组件，之后渲染的组件放的位置就在这里。</strong></p>
+<p><strong>网页的其他内容, 比如顶部的标题/导航, 或者底部的一些版权信息等会和<code>&lt;router-view&gt;</code>处于同一个等级.</strong></p>
+<p><strong>在路由切换时, 切换的是<code>&lt;router-view&gt;</code>挂载的组件, 其他内容不会发生改变.</strong></p>
+<br>
+
+<p>最终效果：</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731113007.png" alt=""></p>
+<br>
+
+<h3 id="路由代码跳转"><a href="#路由代码跳转" class="headerlink" title="路由代码跳转"></a><strong>路由代码跳转</strong></h3><p>有时候, 页面的跳转可能需要执行对应的JavaScript代码, 这个时候不用<code>&lt;router-link&gt;</code>这种方式, 就可以使用第二种跳转方式了。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731141549.png" alt=""></p>
+<br>
+
+
+
+<h3 id="路由的默认路径"><a href="#路由的默认路径" class="headerlink" title="路由的默认路径"></a><strong>路由的默认路径</strong></h3><p>默认情况下, 进入网站的首页, 我们希望<code>&lt;router-view&gt;</code>渲染首页的内容.</p>
+<p>但是我们的实现中, 默认没有显示首页组件, 必须让用户点击才可以.</p>
+<p>如何可以让<strong>路径</strong>默认跳到到<strong>首页</strong>, 并且<code>&lt;router-view&gt;</code>渲染首页组件呢?</p>
+<p>非常简单, 我们只需要配置多配置一个映射就可以了.</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731114102.png" alt=""></p>
+<p>配置解析:</p>
+<p>我们在routes中又配置了一个映射. </p>
+<p>path配置的是根路径: /</p>
+<p><strong>redirect是重定向, 也就是我们将根路径重定向到/home的路径下, 这样就可以得到我们想要的结果了.</strong></p>
+<br>
+
+<h3 id="使用HTML5的History模式"><a href="#使用HTML5的History模式" class="headerlink" title="使用HTML5的History模式"></a>使用HTML5的History模式</h3><p>我们前面说过改变路径的方式有两种:</p>
+<p>URL的hash</p>
+<p>HTML5的history</p>
+<p><strong>默认情况下, 路径的改变使用的URL的hash.</strong></p>
+<p>如果希望使用<strong>HTML5的history模式</strong>，进行如下配置即可:</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731115207.png" alt=""></p>
+<br>
+
+<p>效果图：</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731115242.png" alt=""></p>
+<br>
+
+<h3 id="router-link补充"><a href="#router-link补充" class="headerlink" title="router-link补充"></a>router-link补充</h3><p>在前面的<code>&lt;router-link&gt;</code>中, 我们只是使用了一个属性: to, 用于指定跳转的路径.</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731132719.png" alt=""></p>
+<br>
+
+<p><code>&lt;router-link&gt;</code>还有一些<strong>其他属性</strong>:</p>
+<p><strong>tag:</strong>  tag可以指定<code>&lt;router-link&gt;</code>之后渲染成什么组件, 比如上面的代码会被渲染成一个<code>&lt;button&gt;</code>元素, 而不是<code>&lt;a&gt;</code></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731133009.png" alt=""></p>
+<br>
+
+<p><strong>preplace:</strong> replace不会留下 history 记录, 所以指定 replace 的情况下, 后退键返回不能返回到上一个页面中。</p>
+<br>
+
+<p><strong>active-class:</strong> 当<code>&lt;router-link&gt;</code>对应的路由匹配成功时, 会自动给当前元素设置一个router-link-active的class属性。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731133530.png" alt=""></p>
+<p>在进行高亮显示的导航菜单或者底部tabbar时, 会使用到该类.</p>
+<p>但是通常不会修改类的属性, 会直接使用默认的router-link-active即可. </p>
+<br>
+
+<p>比如有这样的一个需求：<strong>当点击导航栏的时候，对应的字体变红色。</strong> 我们就可以这样做。</p>
+<p><img src="C:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200731133946893.png" alt=""></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731134030.png" alt=""></p>
+<br>
+
+<p>当然，我们也可以修改router-link-active 的名字，有两种方法。</p>
+<p>① 直接在<code>&lt;router-link&gt;</code>的属性中修改，<code>active-class="active"</code></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731134603.png" alt=""></p>
+<br>
+
+<p>② 该class具体的名称也可以通过router实例的属性进行修改 。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731135035.png" alt=""></p>
+<br>
+
+<h3 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h3><p>在某些情况下，一个页面的path路径可能是不确定的，比如我们进入用户界面时，希望是如下的路径：</p>
+<p>/user/aaaa或/user/bbbb</p>
+<p>除了有前面的/user之外，后面还跟上了用户的ID</p>
+<p>这种path和Component的匹配关系，我们称之为动态路由(也是路由传递数据的一种方式)。</p>
+<br>
+
+<p>在配置组件的映射的时候，<code>path: '/user/:userId',</code></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731184755.png" alt=""></p>
+<p>使用路由的时候，to:属性，我们使用 v-bind 来动态绑定我们要添加的路径，比如这里的用户id</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731184926.png" alt=""></p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185554.png" alt=""></p>
+<br>
+
+<p>当我们想在用户的组件中使用该数据（userId），我们就需要使用<code>$route.params.添加映射配置时候的名字</code> 就可以获取它的数据。</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185102.png" alt=""></p>
+<p>成果展示：</p>
+<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185151.png" alt=""></p>
+<br>
+
+
+
+<h2 id="路由的懒加载-重要"><a href="#路由的懒加载-重要" class="headerlink" title="路由的懒加载   (重要)"></a><strong>路由的懒加载   (重要)</strong></h2><h3 id="认识路由的懒加载"><a href="#认识路由的懒加载" class="headerlink" title="认识路由的懒加载"></a>认识路由的懒加载</h3><p><strong>官方给出了解释:</strong></p>
+<p>  当打包构建应用时，Javascript 包会变得非常大，影响页面加载。</p>
+<p>  如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了</p>
+<br>
+
+<p><strong>官方在说什么呢?</strong></p>
+<p>  首先, 我们知道路由中通常会定义很多不同的页面.</p>
+<p>  这个页面最后被打包在哪里呢? 一般情况下, 是放在一个js文件中.</p>
+<p>  但是, 页面这么多放在一个js文件中, 必然会造成这个页面非常的大.</p>
+<p>  如果我们一次性从服务器请求下来这个页面, 可能需要花费一定的时间, 甚至用户的电脑上还出现了短暂空白的情况.</p>
+<p>  如何避免这种情况呢? 使用路由懒加载就可以了.</p>
+<br>
+
+<p><strong>路由懒加载做了什么?</strong></p>
+<p>  <span style="color:red"><strong>路由懒加载的主要作用就是将路由对应的组件打包成一个个的js代码块。</strong></span></p>
+<p>  <span style="color:red"><strong>只有在这个路由被访问到的时候, 才加载对应的组件</strong></span></p>
+<br>
+
+<h3 id="路由懒加载的效果"><a href="#路由懒加载的效果" class="headerlink" title="路由懒加载的效果"></a>路由懒加载的效果</h3><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731203051.png" alt=""></p>
+<br>
+
+
+
+<h3 id="懒加载的方式"><a href="#懒加载的方式" class="headerlink" title="懒加载的方式"></a>懒加载的方式</h3><p>方式一: 结合Vue的异步组件和Webpack的代码分析.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">resolve</span> =&gt;</span> { <span class="built_in">require</span>.ensure([<span class="string">'../components/Home.vue'</span>], () =&gt; {resolve(<span class="built_in">require</span>(<span class="string">'../components/Home.vue'</span>)) })};</span><br></pre></td></tr></tbody></table></figure>
+
+<p>方式二: AMD写法</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> About = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../components/About.vue'</span>], resolve);</span><br></pre></td></tr></tbody></table></figure>
+
+<p>方式三: 在ES6中, 我们可以有更加简单的写法来组织Vue异步组件和Webpack的代码分割.</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'../components/Home.vue'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -500,16 +699,16 @@
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-05-22
+    2020-07-31
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-07-15
+    2020-07-31
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://aqingya.cn/2020/05/22/21/" title="JavaScript  ---  DOM简介 和  DOM Node节点的增删改查" target="_blank">JavaScript  ---  DOM简介 和  DOM Node节点的增删改查</a>
+    <a href="https://aqingya.cn/2020/07/31/75/" title="Vue-router 详解" target="_blank">Vue-router 详解</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://aqingya.cn/2020/05/22/21/" title="JavaScript  ---  DOM简介 和  DOM Node节点的增删改查" target="_blank">https://aqingya.cn/2020/05/22/21/</a>
+    <a href="https://aqingya.cn/2020/07/31/75/" title="Vue-router 详解" target="_blank">https://aqingya.cn/2020/07/31/75/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -536,11 +735,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Vue-router</a>
         		</li>
       		
 		</ul>
@@ -552,11 +747,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript//" class="article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript/DOM//" class="article-tag-list-link color4">DOM</a>
+        			<a href="/categories/Vue//" class="article-tag-list-link color4">Vue</a>
         		</li>
       		
 		</ul>
@@ -611,7 +802,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/05/22/21/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://aqingya.cn/2020/07/31/75/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -625,18 +816,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/05/22/22/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript --- DOM  document类型
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/05/21/20/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript ---  BOM</div>
+    <a href="/2020/07/30/74/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">什么是前端渲染和后端渲染，前端路由和后端路由</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -663,7 +845,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DOM简介："><span class="toc-number">1.</span> <span class="toc-text">DOM简介：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-router-详解"><span class="toc-number">1.</span> <span class="toc-text">Vue-router 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前端路由规则"><span class="toc-number">1.1.</span> <span class="toc-text">前端路由规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-router-基础"><span class="toc-number">1.2.</span> <span class="toc-text">Vue-router 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识-Vue-router"><span class="toc-number">1.2.1.</span> <span class="toc-text">认识 Vue-router</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装和使用路由"><span class="toc-number">1.2.2.</span> <span class="toc-text">安装和使用路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由代码跳转"><span class="toc-number">1.2.3.</span> <span class="toc-text">路由代码跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由的默认路径"><span class="toc-number">1.2.4.</span> <span class="toc-text">路由的默认路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用HTML5的History模式"><span class="toc-number">1.2.5.</span> <span class="toc-text">使用HTML5的History模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#router-link补充"><span class="toc-number">1.2.6.</span> <span class="toc-text">router-link补充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态路由"><span class="toc-number">1.2.7.</span> <span class="toc-text">动态路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由的懒加载-重要"><span class="toc-number">1.3.</span> <span class="toc-text">路由的懒加载   (重要)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识路由的懒加载"><span class="toc-number">1.3.1.</span> <span class="toc-text">认识路由的懒加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由懒加载的效果"><span class="toc-number">1.3.2.</span> <span class="toc-text">路由懒加载的效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#懒加载的方式"><span class="toc-number">1.3.3.</span> <span class="toc-text">懒加载的方式</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
