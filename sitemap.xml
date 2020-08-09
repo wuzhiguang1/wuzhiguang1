@@ -830,14 +830,14 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/Vue%E8%AF%AD%E6%B3%95/</loc>
+    <loc>https://www.aqingya.cn/tags/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2020-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</loc>
+    <loc>https://www.aqingya.cn/tags/Vue%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2020-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -907,6 +907,13 @@
   </url>
   
   <url>
+    <loc>https://www.aqingya.cn/tags/VueX/</loc>
+    <lastmod>2020-08-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.aqingya.cn/tags/CSS3/</loc>
     <lastmod>2020-08-09</lastmod>
     <changefreq>daily</changefreq>
@@ -929,13 +936,6 @@
   
   <url>
     <loc>https://www.aqingya.cn/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/</loc>
-    <lastmod>2020-08-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aqingya.cn/tags/VueX/</loc>
     <lastmod>2020-08-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
