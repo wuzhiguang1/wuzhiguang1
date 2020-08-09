@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200809120820.png">
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200809123055.png">
 <meta property="article:published_time" content="2020-08-09T04:33:56.000Z">
-<meta property="article:modified_time" content="2020-08-09T04:38:42.934Z">
+<meta property="article:modified_time" content="2020-08-09T12:23:43.704Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="项目">
 <meta property="article:tag" content="Vue">
@@ -385,7 +385,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">321字</span>
+        <span class="post-count">323字</span>
       </span>
     </span>
 
@@ -466,7 +466,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <h2 id="3、给项目路径起别名"><a href="#3、给项目路径起别名" class="headerlink" title="3、给项目路径起别名"></a>3、给项目路径起别名</h2><p>VueCLI 2 起别名  。  🏳️‍🌈 <a href="https://aqingya.cn/articl/cd2405e1.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%EF%BC%9A%E8%B5%B7%E5%88%AB%E5%90%8D" target="_blank" rel="noopener">传送门</a> 🏳️‍🌈</p>
 <p>VueCLI 3 起别名 。</p>
 <p>在项目中src根目录创建 vue.config.js文件。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">  configureWebpack: {</span><br><span class="line">    reslove: {</span><br><span class="line">      alias: {</span><br><span class="line">        <span class="string">"assets"</span>: <span class="string">"@/assets"</span>,</span><br><span class="line">        <span class="string">"common"</span>: <span class="string">"@/common"</span>,</span><br><span class="line">        <span class="string">"components"</span>: <span class="string">"@/components"</span>,</span><br><span class="line">        <span class="string">"network"</span>: <span class="string">"@/network"</span>,</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = {</span><br><span class="line">  configureWebpack: {</span><br><span class="line">    resolve: {</span><br><span class="line">      alias: {</span><br><span class="line">        <span class="string">'views'</span>: <span class="string">'@/views'</span>,</span><br><span class="line">        <span class="string">'components'</span>: <span class="string">'@/components'</span>,</span><br><span class="line">        <span class="string">'network'</span>: <span class="string">'@/network'</span>,</span><br><span class="line">        <span class="string">'common'</span>: <span class="string">'@/common'</span>,</span><br><span class="line">        <span class="string">'assets'</span>: <span class="string">'@/assets'</span>,</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p><code>@</code> 是vue内部给我们设置好的别名，<code>"@": "src"</code>，所以这里我们直接使用<code>@</code> 。</p>
 <br>
