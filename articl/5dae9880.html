@@ -47,7 +47,7 @@
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200807204024.png">
 <meta property="og:image" content="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200807204128.png">
 <meta property="article:published_time" content="2020-08-07T12:44:49.000Z">
-<meta property="article:modified_time" content="2020-08-07T12:48:44.426Z">
+<meta property="article:modified_time" content="2020-08-10T01:56:42.353Z">
 <meta property="article:author" content="阿清そ">
 <meta property="article:tag" content="Vue">
 <meta property="article:tag" content="axios">
@@ -233,8 +233,8 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                         </ul>
                     </nav>
                     <nav>
-                        <a>总文章数 92</a>
-                        <a>总字数 <span class="post-count">164k</span></a>
+                        <a>总文章数 94</a>
+                        <a>总字数 <span class="post-count">166.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -398,7 +398,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.7k字</span>
+        <span class="post-count">1.8k字</span>
       </span>
     </span>
 
@@ -638,7 +638,38 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 
 <p>  🔹  响应的失败拦截中，可以根据status判断报错的错误码，跳转到不同的错误提示页面。</p>
 <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200807204128.png" alt=""></p>
-<p><br><br><br></p>
+<p><br><br></p>
+<p>request.js</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">request</span>(<span class="params">config</span>) </span>{</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1.创建实例</span></span><br><span class="line">  <span class="keyword">const</span> instance = axios.create({</span><br><span class="line">      baseURL: <span class="string">'http://11.11.11.11:8000'</span>,</span><br><span class="line">      timeout: <span class="number">5000</span></span><br><span class="line">    })</span><br><span class="line">    <span class="comment">// 2.请求拦截</span></span><br><span class="line">  instance.interceptors.request.use(<span class="function"><span class="params">config</span> =&gt;</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">  }, err =&gt; {</span><br><span class="line">    <span class="built_in">console</span>.log(err);</span><br><span class="line">    <span class="keyword">return</span> err</span><br><span class="line">  })</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 响应拦截</span></span><br><span class="line">  instance.interceptors.response.use(<span class="function"><span class="params">response</span> =&gt;</span> {</span><br><span class="line">      <span class="keyword">return</span> response.data</span><br><span class="line">    }, err =&gt; {</span><br><span class="line">      <span class="keyword">return</span> err</span><br><span class="line">    })</span><br><span class="line">    <span class="comment">// 3、发送网络请求请求</span></span><br><span class="line">    <span class="comment">// axios 实例返回是一个Promise对象</span></span><br><span class="line">  <span class="keyword">return</span> instance(config)</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+<br>
+
+<br>
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -676,7 +707,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
     2020-08-07
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-08-07
+    2020-08-10
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://www.aqingya.cn/articl/5dae9880.html" title="Vue之axios详解" target="_blank">Vue之axios详解</a>
@@ -1069,10 +1100,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">表单</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Canvas绘图</a>
               </li>
              
@@ -1093,11 +1120,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+                <a href="javascript:void(0)" class="js-tag color3">表单</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1113,11 +1140,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodeJs</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript基础面试题</a>
+                <a href="javascript:void(0)" class="js-tag color2">nodeJs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1133,6 +1160,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript基础面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WebPack5</a>
               </li>
              
@@ -1142,6 +1173,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue组件化开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1157,14 +1192,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Vue脚手架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">this</a>
               </li>
              
@@ -1177,7 +1204,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Vue-router</a>
+                <a href="javascript:void(0)" class="js-tag color2">Vue脚手架</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1186,14 +1213,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">VueX</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1214,6 +1233,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">拦截器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BetterScroll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Vue-router</a>
               </li>
              
               <li class="article-tag-list-item">

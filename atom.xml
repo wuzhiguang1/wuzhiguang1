@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.aqingya.cn/"/>
-  <updated>2020-08-09T12:23:43.704Z</updated>
+  <updated>2020-08-11T16:06:32.572Z</updated>
   <id>https://www.aqingya.cn/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue 之 better-scroll 详解</title>
+    <link href="https://www.aqingya.cn/articl/e996cf12.html"/>
+    <id>https://www.aqingya.cn/articl/e996cf12.html</id>
+    <published>2020-08-11T15:56:47.000Z</published>
+    <updated>2020-08-11T16:06:32.572Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/20200812000321.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://www.aqingya.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://www.aqingya.cn/tags/Vue/"/>
+    
+      <category term="BetterScroll" scheme="https://www.aqingya.cn/tags/BetterScroll/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS 长度单位</title>
+    <link href="https://www.aqingya.cn/articl/6478c671.html"/>
+    <id>https://www.aqingya.cn/articl/6478c671.html</id>
+    <published>2020-08-11T15:56:39.000Z</published>
+    <updated>2020-08-11T16:00:03.412Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/51479d14d0014d2ebbc2c58d5f0c478d.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="CSS" scheme="https://www.aqingya.cn/categories/CSS/"/>
+    
+    
+      <category term="CSS" scheme="https://www.aqingya.cn/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>项目开发前的一些准备</title>
@@ -44,7 +88,7 @@
     <link href="https://www.aqingya.cn/articl/5dae9880.html"/>
     <id>https://www.aqingya.cn/articl/5dae9880.html</id>
     <published>2020-08-07T12:44:49.000Z</published>
-    <updated>2020-08-07T12:48:44.426Z</updated>
+    <updated>2020-08-10T01:56:42.353Z</updated>
     
     <summary type="html">
     
@@ -131,9 +175,9 @@
       <category term="CSS" scheme="https://www.aqingya.cn/categories/CSS/"/>
     
     
-      <category term="CSS3" scheme="https://www.aqingya.cn/tags/CSS3/"/>
-    
       <category term="CSS" scheme="https://www.aqingya.cn/tags/CSS/"/>
+    
+      <category term="CSS3" scheme="https://www.aqingya.cn/tags/CSS3/"/>
     
   </entry>
   
@@ -1752,48 +1796,6 @@
     
     
       <category term="JavaScript" scheme="https://www.aqingya.cn/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript中 --- 绑定多事件问题  浏览器兼容性解决方法。</title>
-    <link href="https://www.aqingya.cn/articl/93dacab2.html"/>
-    <id>https://www.aqingya.cn/articl/93dacab2.html</id>
-    <published>2020-04-24T03:41:35.000Z</published>
-    <updated>2020-08-02T05:42:50.073Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/638e2a86cc874421a2228f49e3d543d1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript ---div跟随鼠标移动</title>
-    <link href="https://www.aqingya.cn/articl/640b2ed0.html"/>
-    <id>https://www.aqingya.cn/articl/640b2ed0.html</id>
-    <published>2020-04-23T13:29:05.000Z</published>
-    <updated>2020-08-02T05:42:50.059Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/7e789bd443864d498691b293299f68fc.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="庖丁解牛" scheme="https://www.aqingya.cn/categories/%E5%BA%96%E4%B8%81%E8%A7%A3%E7%89%9B/"/>
     
     
       <category term="JavaScript" scheme="https://www.aqingya.cn/tags/JavaScript/"/>
