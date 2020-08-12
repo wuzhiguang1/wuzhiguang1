@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.aqingya.cn/articl/99a4a732.html</loc>
+    
+    <lastmod>2020-08-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.aqingya.cn/articl/4d16d636.html</loc>
     
     <lastmod>2020-08-12</lastmod>
@@ -1027,6 +1034,13 @@
   
   <url>
     <loc>https://www.aqingya.cn/tags/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
+    <lastmod>2020-08-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aqingya.cn/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2020-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
