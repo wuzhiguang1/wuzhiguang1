@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.aqingya.cn/"/>
-  <updated>2020-08-11T16:06:32.572Z</updated>
+  <updated>2020-08-12T02:53:59.178Z</updated>
   <id>https://www.aqingya.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>详解vue生命周期</title>
+    <link href="https://www.aqingya.cn/articl/4d16d636.html"/>
+    <id>https://www.aqingya.cn/articl/4d16d636.html</id>
+    <published>2020-08-12T01:58:03.000Z</published>
+    <updated>2020-08-12T02:53:59.178Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/6a82b44338264afa9149b23210cb9495.jpeg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://www.aqingya.cn/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="https://www.aqingya.cn/tags/Vue/"/>
+    
+      <category term="vue生命周期" scheme="https://www.aqingya.cn/tags/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue 之 better-scroll 详解</title>
@@ -1770,27 +1793,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/6982b2ca728b489ead7ed596fe50552c.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript ---事件的委派</title>
-    <link href="https://www.aqingya.cn/articl/e9bff574.html"/>
-    <id>https://www.aqingya.cn/articl/e9bff574.html</id>
-    <published>2020-04-24T04:42:09.000Z</published>
-    <updated>2020-08-02T05:42:50.035Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/f2aedd087b1941baa9f31ee14591f6c7.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
