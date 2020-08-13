@@ -488,6 +488,13 @@ canvas {
   line-height: 45px;
   font-size: 15px;
 }
-/*  */
 
+/* h1-h4  */
 
+.article-inner h1, .article-inner h2, .article-inner h3, .article-inner h4{
+  transition: all 0.8s;
+}
+.article-inner h1:hover,h2:hover,h3:hover,h4:hover{
+  transform:scale(1.03,1.03);
+}
+	
