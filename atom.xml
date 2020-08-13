@@ -240,9 +240,9 @@
       <category term="CSS" scheme="https://www.aqingya.cn/categories/CSS/"/>
     
     
-      <category term="CSS" scheme="https://www.aqingya.cn/tags/CSS/"/>
-    
       <category term="CSS3" scheme="https://www.aqingya.cn/tags/CSS3/"/>
+    
+      <category term="CSS" scheme="https://www.aqingya.cn/tags/CSS/"/>
     
   </entry>
   
@@ -991,6 +991,27 @@
   </entry>
   
   <entry>
+    <title>es6之扩展运算符 (...)   简称三个点</title>
+    <link href="https://www.aqingya.cn/articl/9581931.html"/>
+    <id>https://www.aqingya.cn/articl/9581931.html</id>
+    <published>2020-06-24T04:45:32.000Z</published>
+    <updated>2020-08-02T05:42:49.966Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/1729b3f6e0a9eed1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="ES6" scheme="https://www.aqingya.cn/categories/ES6/"/>
+    
+    
+      <category term="ES6" scheme="https://www.aqingya.cn/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>对原生AJAX 的简单封装</title>
     <link href="https://www.aqingya.cn/articl/d3ff9b87.html"/>
     <id>https://www.aqingya.cn/articl/d3ff9b87.html</id>
@@ -1010,27 +1031,6 @@
       <category term="JavaScript" scheme="https://www.aqingya.cn/tags/JavaScript/"/>
     
       <category term="AJAX" scheme="https://www.aqingya.cn/tags/AJAX/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>es6之扩展运算符 (...)   简称三个点</title>
-    <link href="https://www.aqingya.cn/articl/9581931.html"/>
-    <id>https://www.aqingya.cn/articl/9581931.html</id>
-    <published>2020-06-24T04:45:32.000Z</published>
-    <updated>2020-08-02T05:42:49.966Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/1729b3f6e0a9eed1.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="ES6" scheme="https://www.aqingya.cn/categories/ES6/"/>
-    
-    
-      <category term="ES6" scheme="https://www.aqingya.cn/tags/ES6/"/>
     
   </entry>
   
