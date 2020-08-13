@@ -718,13 +718,6 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/BOM/</loc>
-    <lastmod>2020-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.aqingya.cn/tags/DOM/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
@@ -732,7 +725,7 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/Canvas%E7%BB%98%E5%9B%BE/</loc>
+    <loc>https://www.aqingya.cn/tags/BOM/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -740,6 +733,13 @@
   
   <url>
     <loc>https://www.aqingya.cn/tags/%E8%A1%A8%E5%8D%95/</loc>
+    <lastmod>2020-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aqingya.cn/tags/Canvas%E7%BB%98%E5%9B%BE/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -872,14 +872,14 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</loc>
+    <loc>https://www.aqingya.cn/tags/Module%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/Module%E8%AF%AD%E6%B3%95/</loc>
+    <loc>https://www.aqingya.cn/tags/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -921,13 +921,6 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/Promise/</loc>
-    <lastmod>2020-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.aqingya.cn/tags/Vue-router/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
@@ -935,21 +928,14 @@
   </url>
   
   <url>
+    <loc>https://www.aqingya.cn/tags/Promise/</loc>
+    <lastmod>2020-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.aqingya.cn/tags/VueX/</loc>
-    <lastmod>2020-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aqingya.cn/tags/CSS3/</loc>
-    <lastmod>2020-08-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.aqingya.cn/tags/CSS/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -964,6 +950,20 @@
   
   <url>
     <loc>https://www.aqingya.cn/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/</loc>
+    <lastmod>2020-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aqingya.cn/tags/CSS3/</loc>
+    <lastmod>2020-08-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aqingya.cn/tags/CSS/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -998,14 +998,14 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
+    <loc>https://www.aqingya.cn/tags/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
+    <loc>https://www.aqingya.cn/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1019,14 +1019,14 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://www.aqingya.cn/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <loc>https://www.aqingya.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1175,14 +1175,14 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://www.aqingya.cn/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/categories/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <loc>https://www.aqingya.cn/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2020-08-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
