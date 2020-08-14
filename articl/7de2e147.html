@@ -124,45 +124,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <!-- 滚动字幕》-->
 <div id="binft"></div>
   <script>
-    var binft = function (r) {
-      function t() {
-        return b[Math.floor(Math.random() * b.length)]
-      }  
-      function e() {
-        return String.fromCharCode(94 * Math.random() + 33)
-      }
-      function n(r) {
-        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-          var l = document.createElement("span");
-          l.textContent = e(), l.style.color = t(), n.appendChild(l)
-        }
-        return n
-      }
-      function i() {
-        var t = o[c.skillI];
-        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
-      }
-      var l = "",
-      o = ["青青陵上柏，磊磊涧中石。", "人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。", "驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function (r) {
-      return r + ""
-      }),
-      a = 2,
-      g = 1,
-      s = 5,
-      d = 75,
-      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
-      c = {
-        text: "",
-        prefixP: -s,
-        skillI: 0,
-        skillP: 0,
-        direction: "forward",
-        delay: a,
-        step: g
-      };
-      i()
-      };
-      binft(document.getElementById('binft'));
+   var binft=function(t){var e="",r=["青青陵上柏，磊磊涧中石。","人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。","驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function(t){return t+""}),n=2,i=1,l=5,a=75,g=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],o={text:"",prefixP:-l,skillI:0,skillP:0,direction:"forward",delay:n,step:i};!function b(){var d=r[o.skillI];o.step?o.step--:(o.step=i,o.prefixP<e.length?(o.prefixP>=0&&(o.text+=e[o.prefixP]),o.prefixP++):"forward"===o.direction?o.skillP<d.length?(o.text+=d[o.skillP],o.skillP++):o.delay?o.delay--:(o.direction="backward",o.delay=n):o.skillP>0?(o.text=o.text.slice(0,-1),o.skillP--):(o.skillI=(o.skillI+1)%r.length,o.direction="forward")),t.textContent=o.text,t.appendChild(function(t){for(var e=document.createDocumentFragment(),r=0;t>r;r++){var n=document.createElement("span");n.textContent=String.fromCharCode(94*Math.random()+33),n.style.color=g[Math.floor(Math.random()*g.length)],e.appendChild(n)}return e}(o.prefixP<e.length?Math.min(l,l+o.prefixP):Math.min(l,d.length-o.skillP))),setTimeout(b,a)}()};binft(document.getElementById("binft"));
   </script>
 <!-- 滚动字幕》-->
 
@@ -217,7 +179,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     </nav>
                     <nav>
                         <a>总文章数 97</a>
-                        <a>总字数 <span class="post-count">169.6k</span></a>
+                        <a>总字数 <span class="post-count">168.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -462,21 +424,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/ca3347eed35bad49c5efd048587f7211.png" alt=""></p>
-<a id="more"></a>
-
-<p>话不多说 ，直接上代码</p>
-<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>vue生命周期学习<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.btn</span> {</span></span><br><span class="line">      position: absolute;</span><br><span class="line">      top: 50%;</span><br><span class="line">      left: 50%;</span><br><span class="line">      transform: translate(-50%, -50%);</span><br><span class="line">      width: 230px;</span><br><span class="line">      height: 90px;</span><br><span class="line">      line-height: 90px;</span><br><span class="line">      text-align: center;</span><br><span class="line"><span class="css">      <span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line">      font-size: 24px;</span><br><span class="line">      text-transform: uppercase;</span><br><span class="line">      text-decoration: none;</span><br><span class="line">      font-family: sans-serif;</span><br><span class="line">      box-sizing: border-box;</span><br><span class="line"><span class="css">      <span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(90<span class="selector-tag">deg</span>, <span class="selector-id">#03a9f4</span>, <span class="selector-id">#f441a5</span>, <span class="selector-id">#ffeb3b</span>, <span class="selector-id">#03a9f4</span>);</span></span><br><span class="line">      background-size: 400%;</span><br><span class="line">      border-radius: 60px;</span><br><span class="line">      z-index: 1;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="selector-class">.btn</span><span class="selector-pseudo">:hover</span> {</span></span><br><span class="line">      animation: animate 8s linear infinite;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="keyword">@keyframes</span> animate {</span></span><br><span class="line">      0% {</span><br><span class="line">        background-position: 0%;</span><br><span class="line">      }</span><br><span class="line">      100% {</span><br><span class="line">        background-position: 400%;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="selector-class">.btn</span><span class="selector-pseudo">::before</span> {</span></span><br><span class="line">      content: '';</span><br><span class="line">      position: absolute;</span><br><span class="line">      top: -5px;</span><br><span class="line">      left: -5px;</span><br><span class="line">      right: -5px;</span><br><span class="line">      bottom: -5px;</span><br><span class="line">      z-index: -1;</span><br><span class="line"><span class="css">      <span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(90<span class="selector-tag">deg</span>, <span class="selector-id">#03a9f4</span>, <span class="selector-id">#f441a5</span>, <span class="selector-id">#ffeb3b</span>, <span class="selector-id">#03a9f4</span>);</span></span><br><span class="line">      background-size: 400%;</span><br><span class="line">      border-radius: 40px;</span><br><span class="line">      opacity: 0;</span><br><span class="line"><span class="css">      <span class="selector-tag">transition</span>: 0<span class="selector-class">.5s</span>;</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="selector-class">.btn</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::before</span> {</span></span><br><span class="line">      filter: blur(20px);</span><br><span class="line">      opacity: 1;</span><br><span class="line">      animation: animate 8s linear infinite;</span><br><span class="line">    }</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"btn"</span>&gt;</span>button<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-
-<p>效果：</p>
-<br>
-
-<p><img src="https://pic.downk.cc/item/5f35083e14195aa5944ac884.gif" alt=""></p>
-<br>
-
-<br><script>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/ca3347eed35bad49c5efd048587f7211.png" alt=""></p><a id="more"></a><p>话不多说 ，直接上代码</p><figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>vue生命周期学习<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.btn</span> {</span></span><br><span class="line">      position: absolute;</span><br><span class="line">      top: 50%;</span><br><span class="line">      left: 50%;</span><br><span class="line">      transform: translate(-50%, -50%);</span><br><span class="line">      width: 230px;</span><br><span class="line">      height: 90px;</span><br><span class="line">      line-height: 90px;</span><br><span class="line">      text-align: center;</span><br><span class="line"><span class="css">      <span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line">      font-size: 24px;</span><br><span class="line">      text-transform: uppercase;</span><br><span class="line">      text-decoration: none;</span><br><span class="line">      font-family: sans-serif;</span><br><span class="line">      box-sizing: border-box;</span><br><span class="line"><span class="css">      <span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(90<span class="selector-tag">deg</span>, <span class="selector-id">#03a9f4</span>, <span class="selector-id">#f441a5</span>, <span class="selector-id">#ffeb3b</span>, <span class="selector-id">#03a9f4</span>);</span></span><br><span class="line">      background-size: 400%;</span><br><span class="line">      border-radius: 60px;</span><br><span class="line">      z-index: 1;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="selector-class">.btn</span><span class="selector-pseudo">:hover</span> {</span></span><br><span class="line">      animation: animate 8s linear infinite;</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="keyword">@keyframes</span> animate {</span></span><br><span class="line">      0% {</span><br><span class="line">        background-position: 0%;</span><br><span class="line">      }</span><br><span class="line">      100% {</span><br><span class="line">        background-position: 400%;</span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="selector-class">.btn</span><span class="selector-pseudo">::before</span> {</span></span><br><span class="line">      content: '';</span><br><span class="line">      position: absolute;</span><br><span class="line">      top: -5px;</span><br><span class="line">      left: -5px;</span><br><span class="line">      right: -5px;</span><br><span class="line">      bottom: -5px;</span><br><span class="line">      z-index: -1;</span><br><span class="line"><span class="css">      <span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(90<span class="selector-tag">deg</span>, <span class="selector-id">#03a9f4</span>, <span class="selector-id">#f441a5</span>, <span class="selector-id">#ffeb3b</span>, <span class="selector-id">#03a9f4</span>);</span></span><br><span class="line">      background-size: 400%;</span><br><span class="line">      border-radius: 40px;</span><br><span class="line">      opacity: 0;</span><br><span class="line"><span class="css">      <span class="selector-tag">transition</span>: 0<span class="selector-class">.5s</span>;</span></span><br><span class="line">    }</span><br><span class="line">    </span><br><span class="line"><span class="css">    <span class="selector-class">.btn</span><span class="selector-pseudo">:hover</span><span class="selector-pseudo">::before</span> {</span></span><br><span class="line">      filter: blur(20px);</span><br><span class="line">      opacity: 1;</span><br><span class="line">      animation: animate 8s linear infinite;</span><br><span class="line">    }</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"btn"</span>&gt;</span>button<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure><p>效果：</p><br><p><img src="https://pic.downk.cc/item/5f35083e14195aa5944ac884.gif" alt=""></p><br><br><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -945,10 +893,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WebPack5</a>
               </li>
              
@@ -966,6 +910,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue组件化开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1001,10 +949,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
               </li>
              
@@ -1018,6 +962,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频剪辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1049,11 +997,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
               </li>
              
               <li class="article-tag-list-item">

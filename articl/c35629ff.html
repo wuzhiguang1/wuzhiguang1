@@ -127,45 +127,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <!-- 滚动字幕》-->
 <div id="binft"></div>
   <script>
-    var binft = function (r) {
-      function t() {
-        return b[Math.floor(Math.random() * b.length)]
-      }  
-      function e() {
-        return String.fromCharCode(94 * Math.random() + 33)
-      }
-      function n(r) {
-        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-          var l = document.createElement("span");
-          l.textContent = e(), l.style.color = t(), n.appendChild(l)
-        }
-        return n
-      }
-      function i() {
-        var t = o[c.skillI];
-        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
-      }
-      var l = "",
-      o = ["青青陵上柏，磊磊涧中石。", "人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。", "驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function (r) {
-      return r + ""
-      }),
-      a = 2,
-      g = 1,
-      s = 5,
-      d = 75,
-      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
-      c = {
-        text: "",
-        prefixP: -s,
-        skillI: 0,
-        skillP: 0,
-        direction: "forward",
-        delay: a,
-        step: g
-      };
-      i()
-      };
-      binft(document.getElementById('binft'));
+   var binft=function(t){var e="",r=["青青陵上柏，磊磊涧中石。","人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。","驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function(t){return t+""}),n=2,i=1,l=5,a=75,g=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],o={text:"",prefixP:-l,skillI:0,skillP:0,direction:"forward",delay:n,step:i};!function b(){var d=r[o.skillI];o.step?o.step--:(o.step=i,o.prefixP<e.length?(o.prefixP>=0&&(o.text+=e[o.prefixP]),o.prefixP++):"forward"===o.direction?o.skillP<d.length?(o.text+=d[o.skillP],o.skillP++):o.delay?o.delay--:(o.direction="backward",o.delay=n):o.skillP>0?(o.text=o.text.slice(0,-1),o.skillP--):(o.skillI=(o.skillI+1)%r.length,o.direction="forward")),t.textContent=o.text,t.appendChild(function(t){for(var e=document.createDocumentFragment(),r=0;t>r;r++){var n=document.createElement("span");n.textContent=String.fromCharCode(94*Math.random()+33),n.style.color=g[Math.floor(Math.random()*g.length)],e.appendChild(n)}return e}(o.prefixP<e.length?Math.min(l,l+o.prefixP):Math.min(l,d.length-o.skillP))),setTimeout(b,a)}()};binft(document.getElementById("binft"));
   </script>
 <!-- 滚动字幕》-->
 
@@ -220,7 +182,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     </nav>
                     <nav>
                         <a>总文章数 97</a>
-                        <a>总字数 <span class="post-count">169.6k</span></a>
+                        <a>总字数 <span class="post-count">168.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -465,87 +427,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/79053752182643863.jpg" alt=""></p>
-<a id="more"></a>
-
-
-
-<h1 id="什么是前端渲染和后端渲染，前端路由和后端路由。"><a href="#什么是前端渲染和后端渲染，前端路由和后端路由。" class="headerlink" title="什么是前端渲染和后端渲染，前端路由和后端路由。"></a>什么是前端渲染和后端渲染，前端路由和后端路由。</h1><p><a href="https://www.bilibili.com/video/BV15741177Eh?p=100" target="_blank" rel="noopener">视频讲解</a></p>
-<h2 id="后端渲染："><a href="#后端渲染：" class="headerlink" title="后端渲染："></a>后端渲染：</h2><p><span style="color:red"><strong>服务器直接生产渲染好对应的HTML页面, 返回给客户端进行展示</strong></span>。比如：jsp页面</p>
-<br>
-
-<p><strong>好处</strong>：前端耗时少，即减少了首屏时间，模板统一在后端。前端（相对）省事，不占用客户端运算资源（解析模板）</p>
-<p><strong>坏处</strong>：占用服务器资源。</p>
-<br>
-
-<h2 id="前端渲染"><a href="#前端渲染" class="headerlink" title="前端渲染"></a>前端渲染</h2><p><span style="color:red"><strong>浏览器中显示的网页中的大部分内容，都是由前端写的 js 代码在浏览器中执行，最终渲染出来的网页。</strong></span></p>
-<p>也可以怎么说：<span style="color:red"><strong>后端返回JSON数据，前端利用预先写的html模板，循环读取JSON数据，拼接字符串，并插入页面。</strong></span></p>
-<br>
-
-<p><strong>好处</strong>：网络传输数据量小。不占用服务端运算资源（解析模板），模板在前端（很有可能仅部分在前端），改结构变交互都前端自己来了，改完自己调就行。</p>
-<p><strong>坏处</strong>：前端耗时较多，对前端工作人员水平要求相对较高。前端代码较多，因为部分以前在后台处理的交互逻辑交给了前端处理。占用少部分客户端运算资源用于解析模板。</p>
-<br>
-
-<h2 id="前端渲染与后端渲染对比："><a href="#前端渲染与后端渲染对比：" class="headerlink" title="前端渲染与后端渲染对比："></a>前端渲染与后端渲染对比：</h2><p><strong>后端渲染：</strong></p>
-<p>页面呈现速度：快，受限于用户的带宽</p>
-<p>流量消耗：少一点点（可以省去前端框架部分的代码）</p>
-<p>可维护性：差（前后端东西放一起，掐架多年，早就在闹分手啦）</p>
-<p>seo友好度：好</p>
-<p>编码效率：低（这个跟不同的团队不同，可能不对）</p>
-<br>
-
-<p><strong>前端渲染：</strong></p>
-<p>页面呈现速度：主要受限于带宽和客户端机器的好坏，优化的好，可以逐步动态展开内容，感觉上会更快一点。</p>
-<p>流量消耗：多一点点（一个前端框架大概50KB）当然，有的用后端渲染的项目前端部分也有在用框架。</p>
-<p>可维护性：好，前后端分离，各施其职，代码一目明了。</p>
-<p>SEO友好度：差，大量使用ajax，多数浏览器不能抓取ajax数据。</p>
-<p>编码效率：高，前后端各自只做自己擅长的东西，后端最后只输出接口，不用管页面呈现，只要前后端人员能力不错，效率不会低。</p>
-<br>
-
-
-
-<h2 id="什么是路由"><a href="#什么是路由" class="headerlink" title="什么是路由"></a>什么是路由</h2><p>路由是根据不同的 url 地址展示不同的内容或页面。</p>
-<br>
-
-<h2 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h2><p>前端路由的核心是：<span style="color:red"><strong>改变URL，但是页面不进行整体的刷新。</strong></span></p>
-<p><span style="color:red">很重要的一点是页面不刷新，前端路由就是把不同路由对应不同的内容或页面的任务交给前端来做，每跳转到不同的URL都是使用前端的锚点路由. 随着（SPA）单页应用的不断普及，前后端开发分离，目前项目基本都使用前端路由，在项目使用期间页面不会重新加载。</span></p>
-<br>
-
-<p>优点：</p>
-<p>1.用户体验好，和后台网速没有关系，不需要每次都从服务器全部获取，快速展现给用户</p>
-<p>2.可以再浏览器中输入指定想要访问的url路径地址。</p>
-<p>3.实现了前后端的分离，方便开发。有很多框架都带有路由功能模块。</p>
-<br>
-
-
-
-<h2 id="后端路由"><a href="#后端路由" class="headerlink" title="后端路由"></a>后端路由</h2><p><span style="color:red"><strong>浏览器在地址栏中切换不同的 url 时，每次都向后台服务器发出请求，服务器响应请求，服务器渲染好整个页面, 并且将页面返回给客户端。</strong></span></p>
-<p><span style="color:red">这种情况下渲染好的页面, 不需要单独加载任何的js和css, 可以直接交给浏览器展示, 这样也有利于SEO的优化.</span></p>
-<br>
-
-<p>优点：分担了前端的压力，html和数据的拼接都是由服务器完成。</p>
-<p>缺点：当项目十分庞大时，加大了服务器端的压力，同时在浏览器端不能输入制定的url路径进行指定模块的访问。另外一个就是如果当前网速过慢，那将会延迟页面的加载，对用户体验不是很友好。HTML代码和数据以及对应的逻辑会混在一起, 不利于编写和维护。</p>
-<br>
-
-<hr>
-<br>
-
-
-
-<h2 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h2><p>前端路由阶段：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/01-%E5%90%8E%E7%AB%AF%E8%B7%AF%E7%94%B1%E9%98%B6%E6%AE%B5.png" alt=""></p>
-<br>
-
-<p>前后端分离阶段</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/02-%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%98%B6%E6%AE%B5.png" alt=""></p>
-<br>
-
-
-
-<p>SPA（单页面富应用）页面的阶段。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/03-SPA%E9%A1%B5%E9%9D%A2%E9%A1%B5%E9%9D%A2%E7%9A%84%E9%98%B6%E6%AE%B5.png" alt=""></p>
-<p><br><br><br></p>
-<script>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/79053752182643863.jpg" alt=""></p><a id="more"></a><h1 id="什么是前端渲染和后端渲染，前端路由和后端路由。"><a href="#什么是前端渲染和后端渲染，前端路由和后端路由。" class="headerlink" title="什么是前端渲染和后端渲染，前端路由和后端路由。"></a>什么是前端渲染和后端渲染，前端路由和后端路由。</h1><p><a href="https://www.bilibili.com/video/BV15741177Eh?p=100" target="_blank" rel="noopener">视频讲解</a></p><h2 id="后端渲染："><a href="#后端渲染：" class="headerlink" title="后端渲染："></a>后端渲染：</h2><p><span style="color:red"><strong>服务器直接生产渲染好对应的HTML页面, 返回给客户端进行展示</strong></span>。比如：jsp页面</p><br><p><strong>好处</strong>：前端耗时少，即减少了首屏时间，模板统一在后端。前端（相对）省事，不占用客户端运算资源（解析模板）</p><p><strong>坏处</strong>：占用服务器资源。</p><br><h2 id="前端渲染"><a href="#前端渲染" class="headerlink" title="前端渲染"></a>前端渲染</h2><p><span style="color:red"><strong>浏览器中显示的网页中的大部分内容，都是由前端写的 js 代码在浏览器中执行，最终渲染出来的网页。</strong></span></p><p>也可以怎么说：<span style="color:red"><strong>后端返回JSON数据，前端利用预先写的html模板，循环读取JSON数据，拼接字符串，并插入页面。</strong></span></p><br><p><strong>好处</strong>：网络传输数据量小。不占用服务端运算资源（解析模板），模板在前端（很有可能仅部分在前端），改结构变交互都前端自己来了，改完自己调就行。</p><p><strong>坏处</strong>：前端耗时较多，对前端工作人员水平要求相对较高。前端代码较多，因为部分以前在后台处理的交互逻辑交给了前端处理。占用少部分客户端运算资源用于解析模板。</p><br><h2 id="前端渲染与后端渲染对比："><a href="#前端渲染与后端渲染对比：" class="headerlink" title="前端渲染与后端渲染对比："></a>前端渲染与后端渲染对比：</h2><p><strong>后端渲染：</strong></p><p>页面呈现速度：快，受限于用户的带宽</p><p>流量消耗：少一点点（可以省去前端框架部分的代码）</p><p>可维护性：差（前后端东西放一起，掐架多年，早就在闹分手啦）</p><p>seo友好度：好</p><p>编码效率：低（这个跟不同的团队不同，可能不对）</p><br><p><strong>前端渲染：</strong></p><p>页面呈现速度：主要受限于带宽和客户端机器的好坏，优化的好，可以逐步动态展开内容，感觉上会更快一点。</p><p>流量消耗：多一点点（一个前端框架大概50KB）当然，有的用后端渲染的项目前端部分也有在用框架。</p><p>可维护性：好，前后端分离，各施其职，代码一目明了。</p><p>SEO友好度：差，大量使用ajax，多数浏览器不能抓取ajax数据。</p><p>编码效率：高，前后端各自只做自己擅长的东西，后端最后只输出接口，不用管页面呈现，只要前后端人员能力不错，效率不会低。</p><br><h2 id="什么是路由"><a href="#什么是路由" class="headerlink" title="什么是路由"></a>什么是路由</h2><p>路由是根据不同的 url 地址展示不同的内容或页面。</p><br><h2 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h2><p>前端路由的核心是：<span style="color:red"><strong>改变URL，但是页面不进行整体的刷新。</strong></span></p><p><span style="color:red">很重要的一点是页面不刷新，前端路由就是把不同路由对应不同的内容或页面的任务交给前端来做，每跳转到不同的URL都是使用前端的锚点路由. 随着（SPA）单页应用的不断普及，前后端开发分离，目前项目基本都使用前端路由，在项目使用期间页面不会重新加载。</span></p><br><p>优点：</p><p>1.用户体验好，和后台网速没有关系，不需要每次都从服务器全部获取，快速展现给用户</p><p>2.可以再浏览器中输入指定想要访问的url路径地址。</p><p>3.实现了前后端的分离，方便开发。有很多框架都带有路由功能模块。</p><br><h2 id="后端路由"><a href="#后端路由" class="headerlink" title="后端路由"></a>后端路由</h2><p><span style="color:red"><strong>浏览器在地址栏中切换不同的 url 时，每次都向后台服务器发出请求，服务器响应请求，服务器渲染好整个页面, 并且将页面返回给客户端。</strong></span></p><p><span style="color:red">这种情况下渲染好的页面, 不需要单独加载任何的js和css, 可以直接交给浏览器展示, 这样也有利于SEO的优化.</span></p><br><p>优点：分担了前端的压力，html和数据的拼接都是由服务器完成。</p><p>缺点：当项目十分庞大时，加大了服务器端的压力，同时在浏览器端不能输入制定的url路径进行指定模块的访问。另外一个就是如果当前网速过慢，那将会延迟页面的加载，对用户体验不是很友好。HTML代码和数据以及对应的逻辑会混在一起, 不利于编写和维护。</p><br><hr><br><h2 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h2><p>前端路由阶段：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/01-%E5%90%8E%E7%AB%AF%E8%B7%AF%E7%94%B1%E9%98%B6%E6%AE%B5.png" alt=""></p><br><p>前后端分离阶段</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/02-%E5%89%8D%E7%AB%AF%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%98%B6%E6%AE%B5.png" alt=""></p><br><p>SPA（单页面富应用）页面的阶段。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/03-SPA%E9%A1%B5%E9%9D%A2%E9%A1%B5%E9%9D%A2%E7%9A%84%E9%98%B6%E6%AE%B5.png" alt=""></p><p><br><br><br></p><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1027,10 +909,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WebPack5</a>
               </li>
              
@@ -1048,6 +926,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue组件化开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1083,10 +965,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
               </li>
              
@@ -1100,6 +978,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频剪辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1131,11 +1013,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
               </li>
              
               <li class="article-tag-list-item">

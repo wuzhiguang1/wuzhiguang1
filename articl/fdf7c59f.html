@@ -127,45 +127,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <!-- 滚动字幕》-->
 <div id="binft"></div>
   <script>
-    var binft = function (r) {
-      function t() {
-        return b[Math.floor(Math.random() * b.length)]
-      }  
-      function e() {
-        return String.fromCharCode(94 * Math.random() + 33)
-      }
-      function n(r) {
-        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-          var l = document.createElement("span");
-          l.textContent = e(), l.style.color = t(), n.appendChild(l)
-        }
-        return n
-      }
-      function i() {
-        var t = o[c.skillI];
-        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
-      }
-      var l = "",
-      o = ["青青陵上柏，磊磊涧中石。", "人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。", "驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function (r) {
-      return r + ""
-      }),
-      a = 2,
-      g = 1,
-      s = 5,
-      d = 75,
-      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
-      c = {
-        text: "",
-        prefixP: -s,
-        skillI: 0,
-        skillP: 0,
-        direction: "forward",
-        delay: a,
-        step: g
-      };
-      i()
-      };
-      binft(document.getElementById('binft'));
+   var binft=function(t){var e="",r=["青青陵上柏，磊磊涧中石。","人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。","驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function(t){return t+""}),n=2,i=1,l=5,a=75,g=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],o={text:"",prefixP:-l,skillI:0,skillP:0,direction:"forward",delay:n,step:i};!function b(){var d=r[o.skillI];o.step?o.step--:(o.step=i,o.prefixP<e.length?(o.prefixP>=0&&(o.text+=e[o.prefixP]),o.prefixP++):"forward"===o.direction?o.skillP<d.length?(o.text+=d[o.skillP],o.skillP++):o.delay?o.delay--:(o.direction="backward",o.delay=n):o.skillP>0?(o.text=o.text.slice(0,-1),o.skillP--):(o.skillI=(o.skillI+1)%r.length,o.direction="forward")),t.textContent=o.text,t.appendChild(function(t){for(var e=document.createDocumentFragment(),r=0;t>r;r++){var n=document.createElement("span");n.textContent=String.fromCharCode(94*Math.random()+33),n.style.color=g[Math.floor(Math.random()*g.length)],e.appendChild(n)}return e}(o.prefixP<e.length?Math.min(l,l+o.prefixP):Math.min(l,d.length-o.skillP))),setTimeout(b,a)}()};binft(document.getElementById("binft"));
   </script>
 <!-- 滚动字幕》-->
 
@@ -220,7 +182,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     </nav>
                     <nav>
                         <a>总文章数 97</a>
-                        <a>总字数 <span class="post-count">169.6k</span></a>
+                        <a>总字数 <span class="post-count">168.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -465,114 +427,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/858fb5d64a3c40e0a94c9eb544211161.jpg" alt=""></p>
-<a id="more"></a>
-
-<h2 id="访问元素的样式"><a href="#访问元素的样式" class="headerlink" title="访问元素的样式"></a>访问元素的样式</h2><p><strong>通过JS修改元素的样式：</strong><br>  语法：元素.style.样式名=样式值  (样式值必须是字符串样式)<br>  注意：如果css的样式汇总含有 - ，<br>  这种名称在JS中是不合法的,比如background-color<br>  需要将这种样式的命名修改为驼峰命名法去掉 - ，<br>  然后将 - 后的字母大写。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box.style.backgroundColor = <span class="string">"yellow"</span></span><br><span class="line">box.style.width = <span class="string">"100px"</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-<p>我们通过style属性设置的样式都是内联样式，<br>而内联样式有较高的优先级，所以通过JS修改的样式往往会立即显示。</p>
-<p>但是如果在样式中写了！Important，则此时样式会有最高的优先级，<br>即使通过js也不能覆盖该样式，此时将会导致js修改样式失效<br>     所以尽量不要为样式添加！Important</p>
-<p>通过JS读取内联的样式：<br>  语法：元素.style.样式名<br>  通过style属性设置和读取的都是内联样式，如果没有内联样式则会返回空置。</p>
-<p><strong>通过style来设置元素的样式，记得要加上 单位 px</strong></p>
-<hr>
-<p><strong>style对象的属性和方法</strong></p>
-<p>style对象定义了一些对象和方法，这些属性和方法在提供元素的style特性值的同时，也可以修改样式。</p>
-<ul>
-<li>cssText：能够访问到style特性中的CSS代码。</li>
-<li>length：应用给元素的CSS属性的数量。</li>
-<li>getPropertyValue(propertyName)：返回给定属性的字符串值</li>
-<li>item(index)：返回给定位置的CSS属性的名称。</li>
-<li>removeProperty(propertyName)：从样式表中删除给定的属性。</li>
-<li>setProperty(propertyName,value,priority)：将给定的属性设置为相应的值，并加上优先权标志（“important”或者一个空的字符串）。</li>
-</ul>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重写cssText</span></span><br><span class="line">         text.style.cssText = <span class="string">"width:200px;height:100px"</span>;</span><br><span class="line">         <span class="built_in">console</span>.log(text.style.cssText)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取元素样式的属性名和属性值</span></span><br><span class="line"><span class="keyword">var</span> pop, value, i, len;</span><br><span class="line">         <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; text.style.length; i++) {</span><br><span class="line">             pop = text.style[i];  <span class="comment">//或者pop = text.style.item(i);</span></span><br><span class="line">             value = text.style.getPropertyValue(pop);</span><br><span class="line">             <span class="built_in">console</span>.log(pop + <span class="string">":"</span> + value);</span><br><span class="line">         }</span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<p><strong>获取计算的样式</strong></p>
-<p><a href="https://aqingya.cn/2020/04/23/ten/" target="_blank" rel="noopener">js中如何获取元素的当前显示样式</a></p>
-<p><span style="“color:red;”"><strong>无论在哪个浏览器中，所有计算的样式都是只读的</strong>。</span></p>
-<hr>
-<h2 id="元素的大小"><a href="#元素的大小" class="headerlink" title="元素的大小"></a>元素的大小</h2><p><strong>1、偏移量</strong></p>
-<p>offsetWidth<br>offsetHeight</p>
-<ul>
-<li>获取元素的整个的宽度和高度，包括内容区和内边距和边框。</li>
-</ul>
-<p>offsetParent</p>
-<ul>
-<li>可以用来获取当前元素的定位父元素<ul>
-<li>获取到里当前元素最近的开启了定位的祖先元素。</li>
-<li>如果所有的祖先元素都没有开启定位则会返回boby</li>
-</ul>
-</li>
-</ul>
-<p>offsetLeft</p>
-<ul>
-<li>当前元素相对于其定位父元素的水平偏移量。（外边框的距离也算）</li>
-</ul>
-<p>offsetTop</p>
-<ul>
-<li>当前元素相对于其定位父元素的垂直偏移量。（外边框的距离也算）</li>
-</ul>
-<p><span style="“color:red;”">这些属性都是不带px的，返回的都是一个数字，可以直接进行计算</span></p>
-<p><img src="https://img-blog.csdnimg.cn/20200525141807596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>要想知道某个元素在页面上的偏移量，将这个元素的offsetLeft和offsetTop与其offsetParent的相同属性相加，如此循环直至根元素，就可以得到一个基本准确的值。以下两个函数就可以用于分别取得元素的左和上偏移量。</p>
-<p><strong>获取元素的左偏移量</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的左偏移量</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>) </span>{</span><br><span class="line">             <span class="keyword">var</span> actualLeft = element.offsetLeft;</span><br><span class="line">             <span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">while</span> (current !== <span class="literal">null</span>) {</span><br><span class="line">                 actualLeft += current.offsetLeft;</span><br><span class="line">                 current = current.offsetParent;</span><br><span class="line">             }</span><br><span class="line"></span><br><span class="line">             <span class="keyword">return</span> actualLeft;</span><br><span class="line">         }</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(getElementLeft(text));</span><br></pre></td></tr></tbody></table></figure>
-<p>获取元素的上偏移量</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的上偏移量</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span>(<span class="params">element</span>) </span>{</span><br><span class="line">             <span class="keyword">var</span> actualTop = element.offsetTop;</span><br><span class="line">             <span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">while</span> (current !== <span class="literal">null</span>) {</span><br><span class="line">                 actualTop += current.offsetTop;</span><br><span class="line">                 current = current.offsetParent;</span><br><span class="line">             }</span><br><span class="line"></span><br><span class="line">             <span class="keyword">return</span> actualTop;</span><br><span class="line">         }</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(getElementTop(text));</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>所有的偏移量都是只读的。而且每次访问都需要重新计算一次。因此应该尽量避免重复访问这些属性；如果需要重复使用其中某些属性的值，可以将他们设置为局部变量，以提高性能。</strong></p>
-<hr>
-<h2 id="2、客户区大小"><a href="#2、客户区大小" class="headerlink" title="2、客户区大小"></a>2、客户区大小</h2><p>元素的客户区大小(clientdimension),指的是元素内容及其内边距所占据的空间大小。有关客户区大小的属性有两个: clientWidth和clientHeight。其中，clientWidth属性是元素内容区宽度加上左右内边距宽度; clientHeight属性是元素内容区高度加上，上下内边距高度。图12-2 形象地说明了这些属性表示的大小。</p>
-<p>clientWidth<br>clientHeight</p>
-<ul>
-<li>这两个属性可以获取元素的可见高度</li>
-<li>这些属性都是不带px的，返回的都是一个数字，可以直接进行计算</li>
-<li>获取元素的高度和宽度，包括内容区和内边距区</li>
-<li>这些属性都是只读的，不能修改</li>
-<li><strong>与偏移量相似，客户区大小也是只读的，也是每次访问都要重新计算。</strong><br><img src="https://img-blog.csdnimg.cn/20200525143306829.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<hr>
-<h2 id="3、滚动大小"><a href="#3、滚动大小" class="headerlink" title="3、滚动大小"></a>3、滚动大小</h2><p>最后要介绍的是滚动大小( scroll dimension ),指的是包含滚动内容的元素的大小。有些元素(例如元素)，即使没有执行任何代码也能自动地添加滚动条;但另外-些元素，则需要通过CSS的overflow属性进行设置才能滚动。以下是4个与滚动大小相关的属性。</p>
-<ul>
-<li>scrollHeight:在没有滚动条的情况下，元素内容的总高度。</li>
-<li>scrollwidth:在没有滚动条的情况下，元素内容的总宽度。</li>
-<li>scrollLeft:被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置。</li>
-<li>scrollTop:被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置。</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20200525144831243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)在确定文档的总高度时(包括基于视口的最小高度时),必须取得scrollwidth/clientwidth和scrollHeight/clientHeight中的最大值，才能保证在跨浏览器的环境下得到精确的结果。下面就是这样一个例子。</p>
-<p><strong>注意，对于运行在混杂模式下的IE,则需要用document . body代替document . documentElement。</strong></p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> docHeight = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollHeight, <span class="built_in">document</span>.documentElement.clientHeight);</span><br><span class="line"><span class="keyword">var</span> docWidth = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollWidth, <span class="built_in">document</span>.documentElement.clientWidth);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(docHeight);</span><br><span class="line"><span class="built_in">console</span>.log(docWidth);</span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-通过scrollLeft和scrollTop属性既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。在元素尚未被滚动时，这两个属性的值都等于0。如果元素被垂直滚动了，那么scrollTop的值会大于0，且表示元素上方不可见内容的像素高度。如果元素被水平滚动了，那么scrollLeft的值会大于0，且表示元素左侧不可见内容的像素宽度。这两个属性都是可以设置的，因此将元素的scrollLeft和scrollTop设置为0,就可以重置元素的滚动位置。下面这个函数会检测元素是否位于顶部，如果不是就将其回滚到顶部。
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">scrollToTop</span>(<span class="params">element</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (element.scrollTop != <span class="number">0</span>) {</span><br><span class="line">        element.scrollTop = <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<br>
-
-<p><span style="“color:red;”"><strong>关于滚动了一个练习</strong></span>。<a href="https://aqingya.cn/2020/04/23/eleven/" target="_blank" rel="noopener">连接地址</a></p>
-<hr>
-<h2 id="4、确定元素的大小"><a href="#4、确定元素的大小" class="headerlink" title="4、确定元素的大小"></a>4、确定元素的大小</h2><p>getBoundingClientRect() ，这个方法会返回一个矩形对象,包含4个属性：left、top、right、bottom。<br><strong>这些属性给出了元素在页面中相对于视口的位置</strong>。但是每个浏览器实现都不一样。</p>
-<p>写一个跨浏览器的函数：</p>
-<p>注意：</p>
-<ol>
-<li>由于使用了arguments.callee  所以这个方法不能再严格模式下使用。</li>
-<li>但在某些情况下，这个函数返回的值可能会有所不同，例如使用表格布局或使用滚动元素情况下。</li>
-</ol>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBoundingClientRect</span>(<span class="params">element</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">    <span class="keyword">var</span> scrollLeft = <span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line">    <span class="keyword">if</span> (element.getBoundingClientRect) {</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.offset != <span class="string">"number"</span>) {</span><br><span class="line">            <span class="keyword">var</span> temp = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">            temp.style.cssText = <span class="string">"position:absolute;left:0;top:0;"</span>;</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(temp);</span><br><span class="line">            <span class="built_in">arguments</span>.callee.offset = -temp.getBoundingClientRect().top - scrollTop;</span><br><span class="line">            <span class="built_in">document</span>.body.removeChild(temp);</span><br><span class="line">            temp = <span class="literal">null</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">var</span> rect = element.getBoundingClientRect();</span><br><span class="line">        <span class="keyword">var</span> offset = <span class="built_in">arguments</span>.callee.offset;</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            left: rect.left + offset,</span><br><span class="line">            right: rect.right + offset,</span><br><span class="line">            top: rect.top + offset,</span><br><span class="line">            bottom: rect.bottom + offset</span><br><span class="line">        };</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">var</span> actualLeft = getElementLeft(element);</span><br><span class="line">        <span class="keyword">var</span> actualTop = getElementTop(element);</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            left: actualLeft - scrollLeft,</span><br><span class="line">            right: actualLeft + element.offsetWidth - scrollLeft,</span><br><span class="line">            top: actualTop - scrollTop,</span><br><span class="line">            bottom: actualTop + element.offsetHeight - scrollTop</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-
-
-<hr>
-<br>
-愿你的坚持终有收获。
-
-<br>
-<br><script>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/858fb5d64a3c40e0a94c9eb544211161.jpg" alt=""></p><a id="more"></a><h2 id="访问元素的样式"><a href="#访问元素的样式" class="headerlink" title="访问元素的样式"></a>访问元素的样式</h2><p><strong>通过JS修改元素的样式：</strong><br>  语法：元素.style.样式名=样式值 (样式值必须是字符串样式)<br>  注意：如果css的样式汇总含有 - ，<br>  这种名称在JS中是不合法的,比如background-color<br>  需要将这种样式的命名修改为驼峰命名法去掉 - ，<br>  然后将 - 后的字母大写。</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box.style.backgroundColor = <span class="string">"yellow"</span></span><br><span class="line">box.style.width = <span class="string">"100px"</span></span><br></pre></td></tr></tbody></table></figure><p>我们通过style属性设置的样式都是内联样式，<br>而内联样式有较高的优先级，所以通过JS修改的样式往往会立即显示。</p><p>但是如果在样式中写了！Important，则此时样式会有最高的优先级，<br>即使通过js也不能覆盖该样式，此时将会导致js修改样式失效<br>所以尽量不要为样式添加！Important</p><p>通过JS读取内联的样式：<br>  语法：元素.style.样式名<br>  通过style属性设置和读取的都是内联样式，如果没有内联样式则会返回空置。</p><p><strong>通过style来设置元素的样式，记得要加上 单位 px</strong></p><hr><p><strong>style对象的属性和方法</strong></p><p>style对象定义了一些对象和方法，这些属性和方法在提供元素的style特性值的同时，也可以修改样式。</p><ul><li>cssText：能够访问到style特性中的CSS代码。</li><li>length：应用给元素的CSS属性的数量。</li><li>getPropertyValue(propertyName)：返回给定属性的字符串值</li><li>item(index)：返回给定位置的CSS属性的名称。</li><li>removeProperty(propertyName)：从样式表中删除给定的属性。</li><li>setProperty(propertyName,value,priority)：将给定的属性设置为相应的值，并加上优先权标志（“important”或者一个空的字符串）。</li></ul><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重写cssText</span></span><br><span class="line">         text.style.cssText = <span class="string">"width:200px;height:100px"</span>;</span><br><span class="line">         <span class="built_in">console</span>.log(text.style.cssText)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取元素样式的属性名和属性值</span></span><br><span class="line"><span class="keyword">var</span> pop, value, i, len;</span><br><span class="line">         <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; text.style.length; i++) {</span><br><span class="line">             pop = text.style[i];  <span class="comment">//或者pop = text.style.item(i);</span></span><br><span class="line">             value = text.style.getPropertyValue(pop);</span><br><span class="line">             <span class="built_in">console</span>.log(pop + <span class="string">":"</span> + value);</span><br><span class="line">         }</span><br></pre></td></tr></tbody></table></figure><hr><p><strong>获取计算的样式</strong></p><p><a href="https://aqingya.cn/2020/04/23/ten/" target="_blank" rel="noopener">js中如何获取元素的当前显示样式</a></p><p><span><strong>无论在哪个浏览器中，所有计算的样式都是只读的</strong>。</span></p><hr><h2 id="元素的大小"><a href="#元素的大小" class="headerlink" title="元素的大小"></a>元素的大小</h2><p><strong>1、偏移量</strong></p><p>offsetWidth<br>offsetHeight</p><ul><li>获取元素的整个的宽度和高度，包括内容区和内边距和边框。</li></ul><p>offsetParent</p><ul><li>可以用来获取当前元素的定位父元素<ul><li>获取到里当前元素最近的开启了定位的祖先元素。</li><li>如果所有的祖先元素都没有开启定位则会返回boby</li></ul></li></ul><p>offsetLeft</p><ul><li>当前元素相对于其定位父元素的水平偏移量。（外边框的距离也算）</li></ul><p>offsetTop</p><ul><li>当前元素相对于其定位父元素的垂直偏移量。（外边框的距离也算）</li></ul><p><span>这些属性都是不带px的，返回的都是一个数字，可以直接进行计算</span></p><p><img src="https://img-blog.csdnimg.cn/20200525141807596.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>要想知道某个元素在页面上的偏移量，将这个元素的offsetLeft和offsetTop与其offsetParent的相同属性相加，如此循环直至根元素，就可以得到一个基本准确的值。以下两个函数就可以用于分别取得元素的左和上偏移量。</p><p><strong>获取元素的左偏移量</strong></p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的左偏移量</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">getElementLeft</span>(<span class="params">element</span>) </span>{</span><br><span class="line">             <span class="keyword">var</span> actualLeft = element.offsetLeft;</span><br><span class="line">             <span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">while</span> (current !== <span class="literal">null</span>) {</span><br><span class="line">                 actualLeft += current.offsetLeft;</span><br><span class="line">                 current = current.offsetParent;</span><br><span class="line">             }</span><br><span class="line"></span><br><span class="line">             <span class="keyword">return</span> actualLeft;</span><br><span class="line">         }</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(getElementLeft(text));</span><br></pre></td></tr></tbody></table></figure><p>获取元素的上偏移量</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的上偏移量</span></span><br><span class="line">         <span class="function"><span class="keyword">function</span> <span class="title">getElementTop</span>(<span class="params">element</span>) </span>{</span><br><span class="line">             <span class="keyword">var</span> actualTop = element.offsetTop;</span><br><span class="line">             <span class="keyword">var</span> current = element.offsetParent;</span><br><span class="line"></span><br><span class="line">             <span class="keyword">while</span> (current !== <span class="literal">null</span>) {</span><br><span class="line">                 actualTop += current.offsetTop;</span><br><span class="line">                 current = current.offsetParent;</span><br><span class="line">             }</span><br><span class="line"></span><br><span class="line">             <span class="keyword">return</span> actualTop;</span><br><span class="line">         }</span><br><span class="line"></span><br><span class="line">         <span class="built_in">console</span>.log(getElementTop(text));</span><br></pre></td></tr></tbody></table></figure><p><strong>所有的偏移量都是只读的。而且每次访问都需要重新计算一次。因此应该尽量避免重复访问这些属性；如果需要重复使用其中某些属性的值，可以将他们设置为局部变量，以提高性能。</strong></p><hr><h2 id="2、客户区大小"><a href="#2、客户区大小" class="headerlink" title="2、客户区大小"></a>2、客户区大小</h2><p>元素的客户区大小(clientdimension),指的是元素内容及其内边距所占据的空间大小。有关客户区大小的属性有两个: clientWidth和clientHeight。其中，clientWidth属性是元素内容区宽度加上左右内边距宽度; clientHeight属性是元素内容区高度加上，上下内边距高度。图12-2 形象地说明了这些属性表示的大小。</p><p>clientWidth<br>clientHeight</p><ul><li>这两个属性可以获取元素的可见高度</li><li>这些属性都是不带px的，返回的都是一个数字，可以直接进行计算</li><li>获取元素的高度和宽度，包括内容区和内边距区</li><li>这些属性都是只读的，不能修改</li><li><strong>与偏移量相似，客户区大小也是只读的，也是每次访问都要重新计算。</strong><br><img src="https://img-blog.csdnimg.cn/20200525143306829.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li></ul><hr><h2 id="3、滚动大小"><a href="#3、滚动大小" class="headerlink" title="3、滚动大小"></a>3、滚动大小</h2><p>最后要介绍的是滚动大小( scroll dimension ),指的是包含滚动内容的元素的大小。有些元素(例如</p>元素)，即使没有执行任何代码也能自动地添加滚动条;但另外-些元素，则需要通过CSS的overflow属性进行设置才能滚动。以下是4个与滚动大小相关的属性。<p></p><ul><li>scrollHeight:在没有滚动条的情况下，元素内容的总高度。</li><li>scrollwidth:在没有滚动条的情况下，元素内容的总宽度。</li><li>scrollLeft:被隐藏在内容区域左侧的像素数。通过设置这个属性可以改变元素的滚动位置。</li><li>scrollTop:被隐藏在内容区域上方的像素数。通过设置这个属性可以改变元素的滚动位置。</li></ul><p><img src="https://img-blog.csdnimg.cn/20200525144831243.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">)在确定文档的总高度时(包括基于视口的最小高度时),必须取得scrollwidth/clientwidth和scrollHeight/clientHeight中的最大值，才能保证在跨浏览器的环境下得到精确的结果。下面就是这样一个例子。</p><p><strong>注意，对于运行在混杂模式下的IE,则需要用document . body代替document . documentElement。</strong></p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> docHeight = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollHeight, <span class="built_in">document</span>.documentElement.clientHeight);</span><br><span class="line"><span class="keyword">var</span> docWidth = <span class="built_in">Math</span>.max(<span class="built_in">document</span>.documentElement.scrollWidth, <span class="built_in">document</span>.documentElement.clientWidth);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(docHeight);</span><br><span class="line"><span class="built_in">console</span>.log(docWidth);</span><br></pre></td></tr></tbody></table></figure><br>通过scrollLeft和scrollTop属性既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。在元素尚未被滚动时，这两个属性的值都等于0。如果元素被垂直滚动了，那么scrollTop的值会大于0，且表示元素上方不可见内容的像素高度。如果元素被水平滚动了，那么scrollLeft的值会大于0，且表示元素左侧不可见内容的像素宽度。这两个属性都是可以设置的，因此将元素的scrollLeft和scrollTop设置为0,就可以重置元素的滚动位置。下面这个函数会检测元素是否位于顶部，如果不是就将其回滚到顶部。<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">scrollToTop</span>(<span class="params">element</span>) </span>{</span><br><span class="line">    <span class="keyword">if</span> (element.scrollTop != <span class="number">0</span>) {</span><br><span class="line">        element.scrollTop = <span class="number">0</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><br><p><span><strong>关于滚动了一个练习</strong></span>。<a href="https://aqingya.cn/2020/04/23/eleven/" target="_blank" rel="noopener">连接地址</a></p><hr><h2 id="4、确定元素的大小"><a href="#4、确定元素的大小" class="headerlink" title="4、确定元素的大小"></a>4、确定元素的大小</h2><p>getBoundingClientRect() ，这个方法会返回一个矩形对象,包含4个属性：left、top、right、bottom。<br><strong>这些属性给出了元素在页面中相对于视口的位置</strong>。但是每个浏览器实现都不一样。</p><p>写一个跨浏览器的函数：</p><p>注意：</p><ol><li>由于使用了arguments.callee 所以这个方法不能再严格模式下使用。</li><li>但在某些情况下，这个函数返回的值可能会有所不同，例如使用表格布局或使用滚动元素情况下。</li></ol><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBoundingClientRect</span>(<span class="params">element</span>) </span>{</span><br><span class="line">    <span class="keyword">var</span> scrollTop = <span class="built_in">document</span>.documentElement.scrollTop;</span><br><span class="line">    <span class="keyword">var</span> scrollLeft = <span class="built_in">document</span>.documentElement.scrollLeft;</span><br><span class="line">    <span class="keyword">if</span> (element.getBoundingClientRect) {</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">arguments</span>.callee.offset != <span class="string">"number"</span>) {</span><br><span class="line">            <span class="keyword">var</span> temp = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">            temp.style.cssText = <span class="string">"position:absolute;left:0;top:0;"</span>;</span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(temp);</span><br><span class="line">            <span class="built_in">arguments</span>.callee.offset = -temp.getBoundingClientRect().top - scrollTop;</span><br><span class="line">            <span class="built_in">document</span>.body.removeChild(temp);</span><br><span class="line">            temp = <span class="literal">null</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">var</span> rect = element.getBoundingClientRect();</span><br><span class="line">        <span class="keyword">var</span> offset = <span class="built_in">arguments</span>.callee.offset;</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            left: rect.left + offset,</span><br><span class="line">            right: rect.right + offset,</span><br><span class="line">            top: rect.top + offset,</span><br><span class="line">            bottom: rect.bottom + offset</span><br><span class="line">        };</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">        <span class="keyword">var</span> actualLeft = getElementLeft(element);</span><br><span class="line">        <span class="keyword">var</span> actualTop = getElementTop(element);</span><br><span class="line">        <span class="keyword">return</span> {</span><br><span class="line">            left: actualLeft - scrollLeft,</span><br><span class="line">            right: actualLeft + element.offsetWidth - scrollLeft,</span><br><span class="line">            top: actualTop - scrollTop,</span><br><span class="line">            bottom: actualTop + element.offsetHeight - scrollTop</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><hr><br>愿你的坚持终有收获。<br><br><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1058,10 +913,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WebPack5</a>
               </li>
              
@@ -1079,6 +930,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue组件化开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1114,10 +969,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
               </li>
              
@@ -1131,6 +982,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频剪辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1162,11 +1017,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
               </li>
              
               <li class="article-tag-list-item">

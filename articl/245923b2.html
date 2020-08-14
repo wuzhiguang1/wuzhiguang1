@@ -170,45 +170,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <!-- 滚动字幕》-->
 <div id="binft"></div>
   <script>
-    var binft = function (r) {
-      function t() {
-        return b[Math.floor(Math.random() * b.length)]
-      }  
-      function e() {
-        return String.fromCharCode(94 * Math.random() + 33)
-      }
-      function n(r) {
-        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-          var l = document.createElement("span");
-          l.textContent = e(), l.style.color = t(), n.appendChild(l)
-        }
-        return n
-      }
-      function i() {
-        var t = o[c.skillI];
-        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
-      }
-      var l = "",
-      o = ["青青陵上柏，磊磊涧中石。", "人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。", "驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function (r) {
-      return r + ""
-      }),
-      a = 2,
-      g = 1,
-      s = 5,
-      d = 75,
-      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
-      c = {
-        text: "",
-        prefixP: -s,
-        skillI: 0,
-        skillP: 0,
-        direction: "forward",
-        delay: a,
-        step: g
-      };
-      i()
-      };
-      binft(document.getElementById('binft'));
+   var binft=function(t){var e="",r=["青青陵上柏，磊磊涧中石。","人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。","驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function(t){return t+""}),n=2,i=1,l=5,a=75,g=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],o={text:"",prefixP:-l,skillI:0,skillP:0,direction:"forward",delay:n,step:i};!function b(){var d=r[o.skillI];o.step?o.step--:(o.step=i,o.prefixP<e.length?(o.prefixP>=0&&(o.text+=e[o.prefixP]),o.prefixP++):"forward"===o.direction?o.skillP<d.length?(o.text+=d[o.skillP],o.skillP++):o.delay?o.delay--:(o.direction="backward",o.delay=n):o.skillP>0?(o.text=o.text.slice(0,-1),o.skillP--):(o.skillI=(o.skillI+1)%r.length,o.direction="forward")),t.textContent=o.text,t.appendChild(function(t){for(var e=document.createDocumentFragment(),r=0;t>r;r++){var n=document.createElement("span");n.textContent=String.fromCharCode(94*Math.random()+33),n.style.color=g[Math.floor(Math.random()*g.length)],e.appendChild(n)}return e}(o.prefixP<e.length?Math.min(l,l+o.prefixP):Math.min(l,d.length-o.skillP))),setTimeout(b,a)}()};binft(document.getElementById("binft"));
   </script>
 <!-- 滚动字幕》-->
 
@@ -263,7 +225,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     </nav>
                     <nav>
                         <a>总文章数 97</a>
-                        <a>总字数 <span class="post-count">169.6k</span></a>
+                        <a>总字数 <span class="post-count">168.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -508,519 +470,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/261956592400072760.jpg" alt=""></p>
-<a id="more"></a>
-
-<h1 id="Vue-router-详解"><a href="#Vue-router-详解" class="headerlink" title="Vue-router 详解"></a>Vue-router 详解</h1><h2 id="前端路由规则"><a href="#前端路由规则" class="headerlink" title="前端路由规则"></a>前端路由规则</h2><p><strong>URL的hash</strong>：</p>
-<p>URL的hash也就是锚点(#), 本质上是改变window.location的href属性.</p>
-<p>我们可以通过直接赋值location.hash来改变href, 但是页面不发生刷新</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%871.jpg" alt=""></p>
-<br>
-
-<p><strong>HTML5的history模式：pushState</strong>：</p>
-<p>history接口是HTML5新增的, 它有五种模式改变URL而不刷新页面。</p>
-<p>采用入栈出栈的模式，可以后退和前进。</p>
-<p>history.pushState()</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%875.jpg" alt=""></p>
-<br>
-
-<p><strong>HTML5的history模式：replaceState</strong>：</p>
-<p>他和 pushState 基本类似，<strong>但是replaceState 不能后退与前进</strong></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%876.jpg" alt=""></p>
-<br>
-
-<p><strong>HTML5的history模式：go</strong>：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%877.jpg" alt=""></p>
-<br>
-
-<p><strong>补充说明：</strong></p>
-<p>上面只演示了三个方法</p>
-<p>因为 history.back() 等价于 history.go(-1)</p>
-<p>history.forward() 则等价于 history.go(1)</p>
-<p>这三个接口等同于浏览器界面的前进后退。</p>
-<br>
-
-<h2 id="Vue-router-基础"><a href="#Vue-router-基础" class="headerlink" title="Vue-router 基础"></a>Vue-router 基础</h2><h3 id="认识-Vue-router"><a href="#认识-Vue-router" class="headerlink" title="认识 Vue-router"></a>认识 Vue-router</h3><p>目前前端流行的三大框架, 都有自己的路由实现:</p>
-<p>Angular的ngRouter</p>
-<p>React的ReactRouter</p>
-<p>Vue的vue-router</p>
-<p>vue-router是Vue.js官方的路由插件，它和vue.js是深度集成的，适合用于构建单页面应用。</p>
-<p>我们可以访问其官方网站对其进行学习: <a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">https://router.vuejs.org/zh/</a></p>
-<p><span style="color:red"><strong>vue-router是基于路由和组件的</strong></span></p>
-<p><span style="color:red"><strong>路由用于设定访问路径, 将路径和组件映射起来.</strong></span></p>
-<p><span style="color:red"><strong>在vue-router的单页面应用中, 页面的路径的改变就是组件的切换.</strong></span></p>
-<br>
-
-<h3 id="安装和使用路由"><a href="#安装和使用路由" class="headerlink" title="安装和使用路由"></a>安装和使用路由</h3><p>因为我们已经学习了webpack, 后续开发中我们主要是通过工程化的方式进行开发的.</p>
-<p>所以在后续, 我们直接使用npm来安装路由即可.</p>
-<p><strong>步骤一</strong>: 安装vue-router （安装运行时依赖）</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router --save</span><br></pre></td></tr></tbody></table></figure>
-
-<p><strong>步骤二</strong>: 在模块化工程中使用它(因为是一个插件, 所以可以通过Vue.use()来安装路由功能)</p>
-<p>第一步：导入路由对象，并且调用 Vue.use(VueRouter)</p>
-<p>第二步：创建路由实例，并且传入路由映射配置</p>
-<p>第三步：在Vue实例中挂载创建的路由实例</p>
-<br>
-
-<p>创建Router实例。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731101841.png" alt=""></p>
-<br>
-
-<p>挂载到Vue实例中</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731102158.png" alt=""></p>
-<br>
-
-
-
-<p><strong>使用vue-router的步骤:</strong></p>
-<p>第一步: 创建路由组件</p>
-<p>第二步: 配置路由映射: 组件和路径映射关系</p>
-<p>第三步: 使用路由: 通过<code>&lt;router-link&gt;</code>和<code>&lt;router-view&gt;</code> 也可以使用下面的 <strong>路由代码跳转</strong>。</p>
-<br>
-
-<p>第一步: 创建路由组件</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731111328.png" alt=""></p>
-<br>
-
-<p>第二步: 配置路由映射: 组件和路径映射关系</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731111807.png" alt=""></p>
-<br>
-
-<p>第三步：使用路由</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%878.jpg" alt=""></p>
-<p><strong><code>&lt;router-link&gt;</code>: 该标签是一个vue-router中已经内置的组件, 它会被渲染成一个<code>&lt;a&gt;</code>标签.</strong></p>
-<p><strong><code>&lt;router-view&gt;</code>: 该标签会根据当前的路径, 动态渲染出不同的组件，之后渲染的组件放的位置就在这里。</strong></p>
-<p><strong>网页的其他内容, 比如顶部的标题/导航, 或者底部的一些版权信息等会和<code>&lt;router-view&gt;</code>处于同一个等级.</strong></p>
-<p><strong>在路由切换时, 切换的是<code>&lt;router-view&gt;</code>挂载的组件, 其他内容不会发生改变.</strong></p>
-<br>
-
-<p>最终效果：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731113007.png" alt=""></p>
-<br>
-
-<h3 id="路由代码跳转"><a href="#路由代码跳转" class="headerlink" title="路由代码跳转"></a><strong>路由代码跳转</strong></h3><p>有时候, 页面的跳转可能需要执行对应的JavaScript代码, 这个时候不用<code>&lt;router-link&gt;</code>这种方式, 就可以使用第二种跳转方式了。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731141549.png" alt=""></p>
-<br>
-
-
-
-<h3 id="路由的默认路径"><a href="#路由的默认路径" class="headerlink" title="路由的默认路径"></a><p id="a">路由的默认路径</p><p></p></h3><p>默认情况下, 进入网站的首页, 我们希望<code>&lt;router-view&gt;</code>渲染首页的内容.</p>
-<p>但是我们的实现中, 默认没有显示首页组件, 必须让用户点击才可以.</p>
-<p>如何可以让<strong>路径</strong>默认跳到到<strong>首页</strong>, 并且<code>&lt;router-view&gt;</code>渲染首页组件呢?</p>
-<p>非常简单, 我们只需要配置多配置一个映射就可以了.</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731114102.png" alt=""></p>
-<p>配置解析:</p>
-<p>我们在routes中又配置了一个映射. </p>
-<p>path配置的是根路径: /</p>
-<p><strong>redirect是重定向, 也就是我们将根路径重定向到/home的路径下, 这样就可以得到我们想要的结果了.</strong></p>
-<br>
-
-<h3 id="使用HTML5的History模式"><a href="#使用HTML5的History模式" class="headerlink" title="使用HTML5的History模式"></a>使用HTML5的History模式</h3><p>我们前面说过改变路径的方式有两种:</p>
-<p>URL的hash</p>
-<p>HTML5的history</p>
-<p><strong>默认情况下, 路径的改变使用的URL的hash.</strong></p>
-<p>如果希望使用<strong>HTML5的history模式</strong>，进行如下配置即可:</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731115207.png" alt=""></p>
-<br>
-
-<p>效果图：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731115242.png" alt=""></p>
-<br>
-
-<h3 id="router-link补充"><a href="#router-link补充" class="headerlink" title="router-link补充"></a>router-link补充</h3><p>在前面的<code>&lt;router-link&gt;</code>中, 我们只是使用了一个属性: to, 用于指定跳转的路径.</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731132719.png" alt=""></p>
-<br>
-
-<p><code>&lt;router-link&gt;</code>还有一些<strong>其他属性</strong>:</p>
-<p><strong>tag:</strong>  tag可以指定<code>&lt;router-link&gt;</code>之后渲染成什么组件, 比如上面的代码会被渲染成一个<code>&lt;button&gt;</code>元素, 而不是<code>&lt;a&gt;</code></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731133009.png" alt=""></p>
-<br>
-
-<p><strong>preplace:</strong> replace不会留下 history 记录, 所以指定 replace 的情况下, 后退键返回不能返回到上一个页面中。</p>
-<br>
-
-<p><strong>active-class:</strong> 当<code>&lt;router-link&gt;</code>对应的路由匹配成功时, 会自动给当前元素设置一个router-link-active的class属性。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731133530.png" alt=""></p>
-<p>在进行高亮显示的导航菜单或者底部tabbar时, 会使用到该类.</p>
-<p>但是通常不会修改类的属性, 会直接使用默认的router-link-active即可. </p>
-<br>
-
-<p>比如有这样的一个需求：<strong>当点击导航栏的时候，对应的字体变红色。</strong> 我们就可以这样做。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/image-20200731133946893.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731134030.png" alt=""></p>
-<br>
-
-<p>当然，我们也可以修改router-link-active 的名字，有两种方法。</p>
-<p>① 直接在<code>&lt;router-link&gt;</code>的属性中修改，<code>active-class="active"</code></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731134603.png" alt=""></p>
-<br>
-
-<p>② 该class具体的名称也可以通过router实例的属性进行修改 。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731135035.png" alt=""></p>
-<br>
-
-<h3 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h3><p>在某些情况下，一个页面的path路径可能是不确定的，比如我们进入用户界面时，希望是如下的路径：</p>
-<p>/user/aaaa或/user/bbbb</p>
-<p>除了有前面的/user之外，后面还跟上了用户的ID</p>
-<p>这种path和Component的匹配关系，我们称之为动态路由(也是路由传递数据的一种方式)。</p>
-<br>
-
-<p>在配置组件的映射的时候，<code>path: '/user/:userId',</code></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731184755.png" alt=""></p>
-<p>使用路由的时候，to:属性，我们使用 v-bind 来动态绑定我们要添加的路径，比如这里的用户id</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731184926.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185554.png" alt=""></p>
-<br>
-
-
-
-<p><span id="params"></span>当我们想在用户的组件中使用该数据（userId），我们就需要使用<code>$route.params</code>.添加映射配置时候的名字` 就可以获取它的数据。</p>
-<p><span style="background-color:yellow">（这个$route 是当前哪个路由处于活跃状态，就是指的哪个路由。而上面路由跳转的时候使用的<code>this.$router.replace('/home')</code> 中的$router 是new出来的路由实例。）</span></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185102.png" alt=""></p>
-<p>成果展示：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185151.png" alt=""></p>
-<br>
-
-
-
-<h2 id="路由的懒加载-重要"><a href="#路由的懒加载-重要" class="headerlink" title="路由的懒加载   (重要)"></a><strong>路由的懒加载   (重要)</strong></h2><h3 id="认识路由的懒加载"><a href="#认识路由的懒加载" class="headerlink" title="认识路由的懒加载"></a>认识路由的懒加载</h3><p><strong>官方给出了解释:</strong></p>
-<p>  当打包构建应用时，Javascript 包会变得非常大，影响页面加载。</p>
-<p>  如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了</p>
-<br>
-
-<p><strong>官方在说什么呢?</strong></p>
-<p>  首先, 我们知道路由中通常会定义很多不同的页面.</p>
-<p>  这个页面最后被打包在哪里呢? 一般情况下, 是放在一个js文件中.</p>
-<p>  但是, 页面这么多放在一个js文件中, 必然会造成这个页面非常的大.</p>
-<p>  如果我们一次性从服务器请求下来这个页面, 可能需要花费一定的时间, 甚至用户的电脑上还出现了短暂空白的情况.</p>
-<p>  如何避免这种情况呢? 使用路由懒加载就可以了.</p>
-<br>
-
-<p><strong>路由懒加载做了什么?</strong></p>
-<p>  <span style="color:red"><strong>路由懒加载的主要作用就是将路由对应的组件打包成一个个的js代码块。</strong></span></p>
-<p>  <span style="color:red"><strong>只有在这个路由被访问到的时候, 才加载对应的组件</strong></span></p>
-<br>
-
-<h3 id="路由懒加载的效果"><a href="#路由懒加载的效果" class="headerlink" title="路由懒加载的效果"></a>路由懒加载的效果</h3><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731203051.png" alt=""></p>
-<br>
-
-
-
-<h3 id="懒加载的方式"><a href="#懒加载的方式" class="headerlink" title="懒加载的方式"></a>懒加载的方式</h3><p>方式一: 结合Vue的异步组件和Webpack的代码分析.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">resolve</span> =&gt;</span> { <span class="built_in">require</span>.ensure([<span class="string">'../components/Home.vue'</span>], () =&gt; {resolve(<span class="built_in">require</span>(<span class="string">'../components/Home.vue'</span>)) })};</span><br></pre></td></tr></tbody></table></figure>
-
-<p>方式二: AMD写法</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> About = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../components/About.vue'</span>], resolve);</span><br></pre></td></tr></tbody></table></figure>
-
-<p>方式三: 在ES6中, 我们可以有更加简单的写法来组织Vue异步组件和Webpack的代码分割.</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'../components/Home.vue'</span>)</span><br></pre></td></tr></tbody></table></figure>
-
-
-
-
-
-<br>
-
-<h2 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h2><br>
-
-<h3 id="认识路由嵌套"><a href="#认识路由嵌套" class="headerlink" title="认识路由嵌套"></a>认识路由嵌套</h3><ul>
-<li><p>嵌套路由是一个很常见的功能</p>
-<ul>
-<li>比如在home页面中, 我们希望通过/home/news和/home/message访问一些内容.</li>
-<li>一个路径映射一个组件, 访问这两个路径也会分别渲染两个组件.</li>
-</ul>
-</li>
-<li><p>路径和组件的关系如下:</p>
-</li>
-</ul>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801105943.png" alt=""></p>
-<br>
-
-<h3 id="路由嵌套的实现"><a href="#路由嵌套的实现" class="headerlink" title="路由嵌套的实现"></a>路由嵌套的实现</h3><p><strong>实现嵌套路由有两个步骤:</strong></p>
-<p>1、创建对应的子组件, 并且在路由映射中配置对应的子路由.</p>
-<p>2、在组件内部使用<code>&lt;router-view&gt;</code>标签.</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801110241.png" alt=""></p>
-<p><span style="background-color:yellow">格外注意子路由中的path路径不能添加 ‘ / ’。</span></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801113.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801110857.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/image-20200801111824116.png" alt=""></p>
-<br>
-
-<br>
-
-<h3 id="嵌套路由的默认路径"><a href="#嵌套路由的默认路径" class="headerlink" title="嵌套路由的默认路径"></a>嵌套路由的默认路径</h3><p>和 <a href="#a"> 路由的默认路径</a> 相同，在对应的组件下的 children中 使用重定向。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801112222.png" alt=""></p>
-<br>
-
-
-
-<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><h3 id="参数的传递方式"><a href="#参数的传递方式" class="headerlink" title="参数的传递方式"></a>参数的传递方式</h3><p>传递参数主要有两种类型: params和query</p>
-<br>
-
-<ul>
-<li>params的类型:    <a href="#params">动态路由中也用到params</a><ul>
-<li>配置路由格式: /router/:id</li>
-<li>传递的方式: 在path后面跟上对应的值</li>
-<li>传递后形成的路径: /router/123, /router/abc</li>
-</ul>
-</li>
-</ul>
-<br>
-
-<ul>
-<li>query的类型:<ul>
-<li>配置路由格式: /router, 也就是普通配置传递的方式: </li>
-<li>对象中使用query的key作为传递方式</li>
-<li>传递后形成的路径: /router?id=123, /router?id=abc</li>
-</ul>
-</li>
-</ul>
-<br>
-
-<p><span style="color:red">当我们需要传大量 的数据的时候，用query的方式。需要传一个，或者少量的数据的时候，用params</span></p>
-<br>
-
-<h3 id="使用参数参数传递"><a href="#使用参数参数传递" class="headerlink" title="使用参数参数传递"></a>使用参数参数传递</h3><br>
-
-<p> <strong>准备工作</strong></p>
-<p>为了演示传递参数, 我们这里再创建一个组件, 并且将其配置好</p>
-<p>第一步: 创建新的组件Profile.vue </p>
-<p>第二步: 配置路由映射 </p>
-<p>第三步: 添加跳转的<code>&lt;router-link&gt;</code></p>
-<br>
-
-<p>参数传递有两种方式：<code>&lt;router-link&gt;</code>的方式和 JavaScript 代码方式 （ 前面的路由代码跳转就是avaScript 代码方式 ）</p>
-<br>
-
-<p>第一种：<code>&lt;router-link&gt;</code>的方式</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801123013.png" alt=""></p>
-<br>
-
-<p>第二种：  JavaScript 代码方式 —-通过使用<code>$router</code></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/Snipaste_2020-08-01_12-38-00.png" alt=""></p>
-<br>
-
-<h3 id="获取参数"><a href="#获取参数" class="headerlink" title="获取参数"></a>获取参数</h3><p>获取参数通过$route对象获取的.</p>
-<p>在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.$route ，并且当路由切换时，路由对象会被更新。</p>
-<br>
-
-<p>通过$route获取传递的信息如下:</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801134427.png" alt=""></p>
-<br>
-
-
-
-<h2 id="route和-router是有区别的"><a href="#route和-router是有区别的" class="headerlink" title="$route和$router是有区别的"></a><span id="route">$route和$router是有区别的</span></h2><p><code>$router</code>为VueRouter实例，想要导航到不同URL，则使用<code>$router.push</code>方法</p>
-<p><code>$route</code>为当前router跳转对象里面可以获取name、path、query、params等 </p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/7813658.jpg" alt=""></p>
-<br>
-
-
-
-<h2 id="导航守卫"><a href="#导航守卫" class="headerlink" title="导航守卫"></a>导航守卫</h2><h3 id="什么是导航守卫"><a href="#什么是导航守卫" class="headerlink" title="什么是导航守卫"></a>什么是<strong>导航守卫</strong></h3><br>
-
-<p><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%85%A8%E5%B1%80%E5%89%8D%E7%BD%AE%E5%AE%88%E5%8D%AB" target="_blank" rel="noopener">官网介绍</a>    </p>
-<p>我们来考虑一个需求: 在一个SPA应用中, 如何改变网页的标题呢?</p>
-<p>  网页标题是通过<code>&lt;title&gt;</code>来显示的, 但是SPA只有一个固定的HTML, 切换不同的页面时, 标题并不会改变.</p>
-<p>  但是我们可以通过JavaScript来修改<code>&lt;title&gt;</code>的内容.window.document.title = ‘新的标题’.</p>
-<p>  那么在Vue项目中, 在哪里修改? 什么时候修改比较合适呢?</p>
-<br>
-
-<p>普通的修改方式:</p>
-<p>  我们比较容易想到的修改标题的位置是每一个路由对应的组件.vue文件中.</p>
-<p>  通过mounted声明周期函数, 执行对应的代码进行修改即可.</p>
-<p>  但是当页面比较多时, 这种方式不容易维护(因为需要在多个页面执行类似的代码).</p>
-<p>  有没有更好的办法呢? 使用导航守卫即可.</p>
-<br>
-
-<p>什么是导航守卫?</p>
-<p>  <span style="background-color:yellow">vue-router提供的导航守卫主要用来监听监听路由的进入和离开的.</span></p>
-<p>  <span style="background-color:yellow">vue-router提供了beforeEach和afterEach的钩子函数, 它们会在路由即将改变前和改变后触发.</span></p>
-<p>正如其名，<code>vue-router</code> 提供的导航守卫主要用来通过跳转或取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的, 或者组件级的。</p>
-<p>记住<strong>参数或查询的改变并不会触发进入/离开的导航守卫</strong>。你可以通过<a href="https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html#响应路由参数的变化" target="_blank" rel="noopener">观察 <code>$route</code> 对象</a>来应对这些变化，或使用 <code>beforeRouteUpdate</code> 的组件内守卫。</p>
-<br>
-
-<h3 id="导航守卫的使用"><a href="#导航守卫的使用" class="headerlink" title="导航守卫的使用"></a><strong>导航守卫的使用</strong></h3><br>
-
-<p>首先, 我们可以在钩子当中定义一些标题, 可以利用meta来定义。</p>
-<p>其次, 利用导航守卫,修改我们的标题。</p>
-<br>
-
-<p>导航钩子的三个参数解析:</p>
-<p>to: 即将要进入的目标的路由对象.</p>
-<p>from: 当前导航即将要离开的路由对象.</p>
-<p>next: 调用该方法后, 才能进入下一个钩子.</p>
-<br>
-
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801162801.png" alt=""></p>
-<br>
-
-<p>如果你的某些组件有嵌套，就使用<code>window.document.title = to.matched[0].meta.title</code></p>
-<p>如果你的组件没有嵌套，就不用matched 了，<code>window.document.title = to.meta.title</code></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801163038.png" alt=""></p>
-<br>
-
-<h3 id="全局前置守卫"><a href="#全局前置守卫" class="headerlink" title="全局前置守卫"></a>全局前置守卫</h3><p>你可以使用 <code>router.beforeEach</code> 注册一个全局前置守卫：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter({ ... })</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p>当一个导航触发时，全局前置守卫按照创建顺序调用。守卫是异步解析执行，此时导航在所有守卫 resolve 完之前一直处于 <strong>等待中</strong>。</p>
-<p>每个守卫方法接收三个参数：</p>
-<ul>
-<li><strong><code>to: Route</code></strong>: 即将要进入的目标 <a href="https://router.vuejs.org/zh/api/#路由对象" target="_blank" rel="noopener">路由对象</a></li>
-<li><strong><code>from: Route</code></strong>: 当前导航正要离开的路由</li>
-<li><strong><code>next: Function</code></strong>: 一定要调用该方法来 <strong>resolve</strong> 这个钩子。执行效果依赖 <code>next</code> 方法的调用参数。<ul>
-<li><strong><code>next()</code></strong>: 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 <strong>confirmed</strong> (确认的)。</li>
-<li><strong><code>next(false)</code></strong>: 中断当前的导航。如果浏览器的 URL 改变了 (可能是用户手动或者浏览器后退按钮)，那么 URL 地址会重置到 <code>from</code> 路由对应的地址。</li>
-<li><strong><code>next('/')</code> 或者 <code>next({ path: '/' })</code></strong>: 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向 <code>next</code> 传递任意位置对象，且允许设置诸如 <code>replace: true</code>、<code>name: 'home'</code> 之类的选项以及任何用在 <a href="https://router.vuejs.org/zh/api/#to" target="_blank" rel="noopener"><code>router-link</code> 的 <code>to</code> prop</a> 或 <a href="https://router.vuejs.org/zh/api/#router-push" target="_blank" rel="noopener"><code>router.push</code></a> 中的选项。</li>
-<li><strong><code>next(error)</code></strong>: (2.4.0+) 如果传入 <code>next</code> 的参数是一个 <code>Error</code> 实例，则导航会被终止且该错误会被传递给 <a href="https://router.vuejs.org/zh/api/#router-onerror" target="_blank" rel="noopener"><code>router.onError()</code></a> 注册过的回调。</li>
-</ul>
-</li>
-</ul>
-<p><strong>确保 <code>next</code> 函数在任何给定的导航守卫中都被严格调用一次。它可以出现多于一次，但是只能在所有的逻辑路径都不重叠的情况下，否则钩子永远都不会被解析或报错。</strong>这里有一个在用户未能验证身份时重定向到 <code>/login</code> 的示例：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BAD</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="keyword">if</span> (to.name !== <span class="string">'Login'</span> &amp;&amp; !isAuthenticated) next({ <span class="attr">name</span>: <span class="string">'Login'</span> })</span><br><span class="line">  <span class="comment">// 如果用户未能验证身份，则 `next` 会被调用两次</span></span><br><span class="line">  next()</span><br><span class="line">})</span><br><span class="line"><span class="comment">// GOOD</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="keyword">if</span> (to.name !== <span class="string">'Login'</span> &amp;&amp; !isAuthenticated) next({ <span class="attr">name</span>: <span class="string">'Login'</span> })</span><br><span class="line">  <span class="keyword">else</span> next()</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="全局解析守卫"><a href="#全局解析守卫" class="headerlink" title="#全局解析守卫"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#全局解析守卫" target="_blank" rel="noopener">#</a>全局解析守卫</h3><blockquote>
-<p>2.5.0 新增</p>
-</blockquote>
-<p>在 2.5.0+ 你可以用 <code>router.beforeResolve</code> 注册一个全局守卫。这和 <code>router.beforeEach</code> 类似，区别是在导航被确认之前，<strong>同时在所有组件内守卫和异步路由组件被解析之后</strong>，解析守卫就被调用。</p>
-<h3 id="全局后置钩子"><a href="#全局后置钩子" class="headerlink" title="#全局后置钩子"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#全局后置钩子" target="_blank" rel="noopener">#</a>全局后置钩子</h3><p>你也可以注册全局后置钩子，然而和守卫不同的是，这些钩子不会接受 <code>next</code> 函数也不会改变导航本身：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.afterEach(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="路由独享的守卫"><a href="#路由独享的守卫" class="headerlink" title="#路由独享的守卫"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#路由独享的守卫" target="_blank" rel="noopener">#</a>路由独享的守卫</h3><p>你可以在路由配置上直接定义 <code>beforeEnter</code> 守卫：</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter({</span><br><span class="line">  routes: [</span><br><span class="line">    {</span><br><span class="line">      path: <span class="string">'/foo'</span>,</span><br><span class="line">      component: Foo,</span><br><span class="line">      beforeEnter: <span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  ]</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure>
-
-<p>这些守卫与全局前置守卫的方法参数是一样的。</p>
-<h3 id="组件内的守卫"><a href="#组件内的守卫" class="headerlink" title="#组件内的守卫"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#组件内的守卫" target="_blank" rel="noopener">#</a>组件内的守卫</h3><p>最后，你可以在路由组件内直接定义以下路由导航守卫：</p>
-<ul>
-<li><code>beforeRouteEnter</code></li>
-<li><code>beforeRouteUpdate</code> (2.2 新增)</li>
-<li><code>beforeRouteLeave</code></li>
-</ul>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = {</span><br><span class="line">  template: <span class="string">`...`</span>,</span><br><span class="line">  beforeRouteEnter (to, <span class="keyword">from</span>, next) {</span><br><span class="line">    <span class="comment">// 在渲染该组件的对应路由被 confirm 前调用</span></span><br><span class="line">    <span class="comment">// 不！能！获取组件实例 `this`</span></span><br><span class="line">    <span class="comment">// 因为当守卫执行前，组件实例还没被创建</span></span><br><span class="line">  },</span><br><span class="line">  beforeRouteUpdate (to, <span class="keyword">from</span>, next) {</span><br><span class="line">    <span class="comment">// 在当前路由改变，但是该组件被复用时调用</span></span><br><span class="line">    <span class="comment">// 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，</span></span><br><span class="line">    <span class="comment">// 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  },</span><br><span class="line">  beforeRouteLeave (to, <span class="keyword">from</span>, next) {</span><br><span class="line">    <span class="comment">// 导航离开该组件的对应路由时调用</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p><code>beforeRouteEnter</code> 守卫 <strong>不能</strong> 访问 <code>this</code>，因为守卫在导航确认前被调用，因此即将登场的新组件还没被创建。</p>
-<p>不过，你可以通过传一个回调给 <code>next</code>来访问组件实例。在导航被确认的时候执行回调，并且把组件实例作为回调方法的参数。</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteEnter (to, <span class="keyword">from</span>, next) {</span><br><span class="line">  next(<span class="function"><span class="params">vm</span> =&gt;</span> {</span><br><span class="line">    <span class="comment">// 通过 `vm` 访问组件实例</span></span><br><span class="line">  })</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>注意 <code>beforeRouteEnter</code> 是支持给 <code>next</code> 传递回调的唯一守卫。对于 <code>beforeRouteUpdate</code> 和 <code>beforeRouteLeave</code> 来说，<code>this</code> 已经可用了，所以<strong>不支持</strong>传递回调，因为没有必要了。</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteUpdate (to, <span class="keyword">from</span>, next) {</span><br><span class="line">  <span class="comment">// just use `this`</span></span><br><span class="line">  <span class="keyword">this</span>.name = to.params.name</span><br><span class="line">  next()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>这个离开守卫通常用来禁止用户在还未保存修改前突然离开。该导航可以通过 <code>next(false)</code> 来取消。</p>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteLeave (to, <span class="keyword">from</span>, next) {</span><br><span class="line">  <span class="keyword">const</span> answer = <span class="built_in">window</span>.confirm(<span class="string">'Do you really want to leave? you have unsaved changes!'</span>)</span><br><span class="line">  <span class="keyword">if</span> (answer) {</span><br><span class="line">    next()</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    next(<span class="literal">false</span>)</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="完整的导航解析流程"><a href="#完整的导航解析流程" class="headerlink" title="#完整的导航解析流程"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#完整的导航解析流程" target="_blank" rel="noopener">#</a>完整的导航解析流程</h3><ol>
-<li>导航被触发。</li>
-<li>在失活的组件里调用 <code>beforeRouteLeave</code> 守卫。</li>
-<li>调用全局的 <code>beforeEach</code> 守卫。</li>
-<li>在重用的组件里调用 <code>beforeRouteUpdate</code> 守卫 (2.2+)。</li>
-<li>在路由配置里调用 <code>beforeEnter</code>。</li>
-<li>解析异步路由组件。</li>
-<li>在被激活的组件里调用 <code>beforeRouteEnter</code>。</li>
-<li>调用全局的 <code>beforeResolve</code> 守卫 (2.5+)。</li>
-<li>导航被确认。</li>
-<li>调用全局的 <code>afterEach</code> 钩子。</li>
-<li>触发 DOM 更新。</li>
-<li>用创建好的实例调用 <code>beforeRouteEnter</code> 守卫中传给 <code>next</code> 的回调函数。</li>
-</ol>
-<br>
-
-
-
-<h2 id="keeo-alive"><a href="#keeo-alive" class="headerlink" title="keeo-alive"></a>keeo-alive</h2><p>keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。</p>
-<p>这就牵扯到了Vue实例的生命周期，created()函数 和 destroyed()函数，</p>
-<p>当一个组件创建的时候，会调用created()函数，当一个组件消亡的时候，会调用 destroyed()函数。</p>
-<br>
-
-<p>如果不使用 <code>&lt;keep-alive&gt;</code> 的时候，</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801181911.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801175631.png" alt=""></p>
-<br>
-
-<p>当我们使用 <code>&lt;keep-alive&gt;</code> 的时候，</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">  &lt;router-view&gt;&lt;<span class="regexp">/router-view&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>keep-alive&gt;</span><br></pre></td></tr></tbody></table></figure>
-
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801182234.png" alt=""></p>
-<br>
-
-<br>
-
-<p>当一个组件处于 <code>&lt;keep-alive&gt;</code> 的状态的时候，它就可以使用 <code>activated()</code> 和 <code>deactivated()</code> 这两个函数，</p>
-<br>
-
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801182636.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801183248.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801183226.png" alt=""></p>
-<br>
-
-<p><code>keep-alive</code> 有两个<span style="color:red">非常重要</span>的属性。</p>
-<p><span style="color:red">include : </span>字符串或正则表达，只有匹配的组件<span style="color:red">会</span>被缓存。</p>
-<p><span style="color:red">exclude : </span>字符串或正则表达式，任何匹配的组件<span style="color:red">都不会</span>被缓存。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200802193552.png" alt=""></p>
-<br>
-
-<p>router-view 也是一个组件，如果直接被包在 keep-alive 里面，所有路径匹配到的视图组件都会被缓存：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801183656.png" alt=""></p>
-<br>
-
-<br>
-
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/261956592400072760.jpg" alt=""></p><a id="more"></a><h1 id="Vue-router-详解"><a href="#Vue-router-详解" class="headerlink" title="Vue-router 详解"></a>Vue-router 详解</h1><h2 id="前端路由规则"><a href="#前端路由规则" class="headerlink" title="前端路由规则"></a>前端路由规则</h2><p><strong>URL的hash</strong>：</p><p>URL的hash也就是锚点(#), 本质上是改变window.location的href属性.</p><p>我们可以通过直接赋值location.hash来改变href, 但是页面不发生刷新</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%871.jpg" alt=""></p><br><p><strong>HTML5的history模式：pushState</strong>：</p><p>history接口是HTML5新增的, 它有五种模式改变URL而不刷新页面。</p><p>采用入栈出栈的模式，可以后退和前进。</p><p>history.pushState()</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%875.jpg" alt=""></p><br><p><strong>HTML5的history模式：replaceState</strong>：</p><p>他和 pushState 基本类似，<strong>但是replaceState 不能后退与前进</strong></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%876.jpg" alt=""></p><br><p><strong>HTML5的history模式：go</strong>：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%877.jpg" alt=""></p><br><p><strong>补充说明：</strong></p><p>上面只演示了三个方法</p><p>因为 history.back() 等价于 history.go(-1)</p><p>history.forward() 则等价于 history.go(1)</p><p>这三个接口等同于浏览器界面的前进后退。</p><br><h2 id="Vue-router-基础"><a href="#Vue-router-基础" class="headerlink" title="Vue-router 基础"></a>Vue-router 基础</h2><h3 id="认识-Vue-router"><a href="#认识-Vue-router" class="headerlink" title="认识 Vue-router"></a>认识 Vue-router</h3><p>目前前端流行的三大框架, 都有自己的路由实现:</p><p>Angular的ngRouter</p><p>React的ReactRouter</p><p>Vue的vue-router</p><p>vue-router是Vue.js官方的路由插件，它和vue.js是深度集成的，适合用于构建单页面应用。</p><p>我们可以访问其官方网站对其进行学习: <a href="https://router.vuejs.org/zh/" target="_blank" rel="noopener">https://router.vuejs.org/zh/</a></p><p><span style="color:red"><strong>vue-router是基于路由和组件的</strong></span></p><p><span style="color:red"><strong>路由用于设定访问路径, 将路径和组件映射起来.</strong></span></p><p><span style="color:red"><strong>在vue-router的单页面应用中, 页面的路径的改变就是组件的切换.</strong></span></p><br><h3 id="安装和使用路由"><a href="#安装和使用路由" class="headerlink" title="安装和使用路由"></a>安装和使用路由</h3><p>因为我们已经学习了webpack, 后续开发中我们主要是通过工程化的方式进行开发的.</p><p>所以在后续, 我们直接使用npm来安装路由即可.</p><p><strong>步骤一</strong>: 安装vue-router （安装运行时依赖）</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-router --save</span><br></pre></td></tr></tbody></table></figure><p><strong>步骤二</strong>: 在模块化工程中使用它(因为是一个插件, 所以可以通过Vue.use()来安装路由功能)</p><p>第一步：导入路由对象，并且调用 Vue.use(VueRouter)</p><p>第二步：创建路由实例，并且传入路由映射配置</p><p>第三步：在Vue实例中挂载创建的路由实例</p><br><p>创建Router实例。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731101841.png" alt=""></p><br><p>挂载到Vue实例中</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731102158.png" alt=""></p><br><p><strong>使用vue-router的步骤:</strong></p><p>第一步: 创建路由组件</p><p>第二步: 配置路由映射: 组件和路径映射关系</p><p>第三步: 使用路由: 通过<code>&lt;router-link&gt;</code>和<code>&lt;router-view&gt;</code> 也可以使用下面的 <strong>路由代码跳转</strong>。</p><br><p>第一步: 创建路由组件</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731111328.png" alt=""></p><br><p>第二步: 配置路由映射: 组件和路径映射关系</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731111807.png" alt=""></p><br><p>第三步：使用路由</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/%E5%9B%BE%E7%89%878.jpg" alt=""></p><p><strong><code>&lt;router-link&gt;</code>: 该标签是一个vue-router中已经内置的组件, 它会被渲染成一个<code>&lt;a&gt;</code>标签.</strong></p><p><strong><code>&lt;router-view&gt;</code>: 该标签会根据当前的路径, 动态渲染出不同的组件，之后渲染的组件放的位置就在这里。</strong></p><p><strong>网页的其他内容, 比如顶部的标题/导航, 或者底部的一些版权信息等会和<code>&lt;router-view&gt;</code>处于同一个等级.</strong></p><p><strong>在路由切换时, 切换的是<code>&lt;router-view&gt;</code>挂载的组件, 其他内容不会发生改变.</strong></p><br><p>最终效果：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731113007.png" alt=""></p><br><h3 id="路由代码跳转"><a href="#路由代码跳转" class="headerlink" title="路由代码跳转"></a><strong>路由代码跳转</strong></h3><p>有时候, 页面的跳转可能需要执行对应的JavaScript代码, 这个时候不用<code>&lt;router-link&gt;</code>这种方式, 就可以使用第二种跳转方式了。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731141549.png" alt=""></p><br><h3 id="路由的默认路径"><a href="#路由的默认路径" class="headerlink" title="路由的默认路径"></a><p id="a">路由的默认路径</p><p></p></h3><p>默认情况下, 进入网站的首页, 我们希望<code>&lt;router-view&gt;</code>渲染首页的内容.</p><p>但是我们的实现中, 默认没有显示首页组件, 必须让用户点击才可以.</p><p>如何可以让<strong>路径</strong>默认跳到到<strong>首页</strong>, 并且<code>&lt;router-view&gt;</code>渲染首页组件呢?</p><p>非常简单, 我们只需要配置多配置一个映射就可以了.</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731114102.png" alt=""></p><p>配置解析:</p><p>我们在routes中又配置了一个映射.</p><p>path配置的是根路径: /</p><p><strong>redirect是重定向, 也就是我们将根路径重定向到/home的路径下, 这样就可以得到我们想要的结果了.</strong></p><br><h3 id="使用HTML5的History模式"><a href="#使用HTML5的History模式" class="headerlink" title="使用HTML5的History模式"></a>使用HTML5的History模式</h3><p>我们前面说过改变路径的方式有两种:</p><p>URL的hash</p><p>HTML5的history</p><p><strong>默认情况下, 路径的改变使用的URL的hash.</strong></p><p>如果希望使用<strong>HTML5的history模式</strong>，进行如下配置即可:</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731115207.png" alt=""></p><br><p>效果图：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731115242.png" alt=""></p><br><h3 id="router-link补充"><a href="#router-link补充" class="headerlink" title="router-link补充"></a>router-link补充</h3><p>在前面的<code>&lt;router-link&gt;</code>中, 我们只是使用了一个属性: to, 用于指定跳转的路径.</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731132719.png" alt=""></p><br><p><code>&lt;router-link&gt;</code>还有一些<strong>其他属性</strong>:</p><p><strong>tag:</strong> tag可以指定<code>&lt;router-link&gt;</code>之后渲染成什么组件, 比如上面的代码会被渲染成一个<code>&lt;button&gt;</code>元素, 而不是<code>&lt;a&gt;</code></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731133009.png" alt=""></p><br><p><strong>preplace:</strong> replace不会留下 history 记录, 所以指定 replace 的情况下, 后退键返回不能返回到上一个页面中。</p><br><p><strong>active-class:</strong> 当<code>&lt;router-link&gt;</code>对应的路由匹配成功时, 会自动给当前元素设置一个router-link-active的class属性。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731133530.png" alt=""></p><p>在进行高亮显示的导航菜单或者底部tabbar时, 会使用到该类.</p><p>但是通常不会修改类的属性, 会直接使用默认的router-link-active即可.</p><br><p>比如有这样的一个需求：<strong>当点击导航栏的时候，对应的字体变红色。</strong> 我们就可以这样做。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/image-20200731133946893.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731134030.png" alt=""></p><br><p>当然，我们也可以修改router-link-active 的名字，有两种方法。</p><p>① 直接在<code>&lt;router-link&gt;</code>的属性中修改，<code>active-class="active"</code></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731134603.png" alt=""></p><br><p>② 该class具体的名称也可以通过router实例的属性进行修改 。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731135035.png" alt=""></p><br><h3 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h3><p>在某些情况下，一个页面的path路径可能是不确定的，比如我们进入用户界面时，希望是如下的路径：</p><p>/user/aaaa或/user/bbbb</p><p>除了有前面的/user之外，后面还跟上了用户的ID</p><p>这种path和Component的匹配关系，我们称之为动态路由(也是路由传递数据的一种方式)。</p><br><p>在配置组件的映射的时候，<code>path: '/user/:userId',</code></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731184755.png" alt=""></p><p>使用路由的时候，to:属性，我们使用 v-bind 来动态绑定我们要添加的路径，比如这里的用户id</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731184926.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185554.png" alt=""></p><br><p><span id="params"></span>当我们想在用户的组件中使用该数据（userId），我们就需要使用<code>$route.params</code>.添加映射配置时候的名字` 就可以获取它的数据。</p><p><span style="background-color:#ff0">（这个$route 是当前哪个路由处于活跃状态，就是指的哪个路由。而上面路由跳转的时候使用的<code>this.$router.replace('/home')</code> 中的$router 是new出来的路由实例。）</span></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185102.png" alt=""></p><p>成果展示：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731185151.png" alt=""></p><br><h2 id="路由的懒加载-重要"><a href="#路由的懒加载-重要" class="headerlink" title="路由的懒加载   (重要)"></a><strong>路由的懒加载 (重要)</strong></h2><h3 id="认识路由的懒加载"><a href="#认识路由的懒加载" class="headerlink" title="认识路由的懒加载"></a>认识路由的懒加载</h3><p><strong>官方给出了解释:</strong></p><p>  当打包构建应用时，Javascript 包会变得非常大，影响页面加载。</p><p>  如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了</p><br><p><strong>官方在说什么呢?</strong></p><p>  首先, 我们知道路由中通常会定义很多不同的页面.</p><p>  这个页面最后被打包在哪里呢? 一般情况下, 是放在一个js文件中.</p><p>  但是, 页面这么多放在一个js文件中, 必然会造成这个页面非常的大.</p><p>  如果我们一次性从服务器请求下来这个页面, 可能需要花费一定的时间, 甚至用户的电脑上还出现了短暂空白的情况.</p><p>  如何避免这种情况呢? 使用路由懒加载就可以了.</p><br><p><strong>路由懒加载做了什么?</strong></p><p>  <span style="color:red"><strong>路由懒加载的主要作用就是将路由对应的组件打包成一个个的js代码块。</strong></span></p><p>  <span style="color:red"><strong>只有在这个路由被访问到的时候, 才加载对应的组件</strong></span></p><br><h3 id="路由懒加载的效果"><a href="#路由懒加载的效果" class="headerlink" title="路由懒加载的效果"></a>路由懒加载的效果</h3><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200731203051.png" alt=""></p><br><h3 id="懒加载的方式"><a href="#懒加载的方式" class="headerlink" title="懒加载的方式"></a>懒加载的方式</h3><p>方式一: 结合Vue的异步组件和Webpack的代码分析.</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">resolve</span> =&gt;</span> { <span class="built_in">require</span>.ensure([<span class="string">'../components/Home.vue'</span>], () =&gt; {resolve(<span class="built_in">require</span>(<span class="string">'../components/Home.vue'</span>)) })};</span><br></pre></td></tr></tbody></table></figure><p>方式二: AMD写法</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> About = <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">'../components/About.vue'</span>], resolve);</span><br></pre></td></tr></tbody></table></figure><p>方式三: 在ES6中, 我们可以有更加简单的写法来组织Vue异步组件和Webpack的代码分割.</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Home = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'../components/Home.vue'</span>)</span><br></pre></td></tr></tbody></table></figure><br><h2 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h2><br><h3 id="认识路由嵌套"><a href="#认识路由嵌套" class="headerlink" title="认识路由嵌套"></a>认识路由嵌套</h3><ul><li><p>嵌套路由是一个很常见的功能</p><ul><li>比如在home页面中, 我们希望通过/home/news和/home/message访问一些内容.</li><li>一个路径映射一个组件, 访问这两个路径也会分别渲染两个组件.</li></ul></li><li><p>路径和组件的关系如下:</p></li></ul><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801105943.png" alt=""></p><br><h3 id="路由嵌套的实现"><a href="#路由嵌套的实现" class="headerlink" title="路由嵌套的实现"></a>路由嵌套的实现</h3><p><strong>实现嵌套路由有两个步骤:</strong></p><p>1、创建对应的子组件, 并且在路由映射中配置对应的子路由.</p><p>2、在组件内部使用<code>&lt;router-view&gt;</code>标签.</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801110241.png" alt=""></p><p><span style="background-color:#ff0">格外注意子路由中的path路径不能添加 ‘ / ’。</span></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801113.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801110857.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/image-20200801111824116.png" alt=""></p><br><br><h3 id="嵌套路由的默认路径"><a href="#嵌套路由的默认路径" class="headerlink" title="嵌套路由的默认路径"></a>嵌套路由的默认路径</h3><p>和 <a href="#a">路由的默认路径</a> 相同，在对应的组件下的 children中 使用重定向。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801112222.png" alt=""></p><br><h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><h3 id="参数的传递方式"><a href="#参数的传递方式" class="headerlink" title="参数的传递方式"></a>参数的传递方式</h3><p>传递参数主要有两种类型: params和query</p><br><ul><li>params的类型: <a href="#params">动态路由中也用到params</a><ul><li>配置路由格式: /router/:id</li><li>传递的方式: 在path后面跟上对应的值</li><li>传递后形成的路径: /router/123, /router/abc</li></ul></li></ul><br><ul><li>query的类型:<ul><li>配置路由格式: /router, 也就是普通配置传递的方式:</li><li>对象中使用query的key作为传递方式</li><li>传递后形成的路径: /router?id=123, /router?id=abc</li></ul></li></ul><br><p><span style="color:red">当我们需要传大量 的数据的时候，用query的方式。需要传一个，或者少量的数据的时候，用params</span></p><br><h3 id="使用参数参数传递"><a href="#使用参数参数传递" class="headerlink" title="使用参数参数传递"></a>使用参数参数传递</h3><br><p><strong>准备工作</strong></p><p>为了演示传递参数, 我们这里再创建一个组件, 并且将其配置好</p><p>第一步: 创建新的组件Profile.vue</p><p>第二步: 配置路由映射</p><p>第三步: 添加跳转的<code>&lt;router-link&gt;</code></p><br><p>参数传递有两种方式：<code>&lt;router-link&gt;</code>的方式和 JavaScript 代码方式 （ 前面的路由代码跳转就是avaScript 代码方式 ）</p><br><p>第一种：<code>&lt;router-link&gt;</code>的方式</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801123013.png" alt=""></p><br><p>第二种： JavaScript 代码方式 —-通过使用<code>$router</code></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/Snipaste_2020-08-01_12-38-00.png" alt=""></p><br><h3 id="获取参数"><a href="#获取参数" class="headerlink" title="获取参数"></a>获取参数</h3><p>获取参数通过$route对象获取的.</p><p>在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.$route ，并且当路由切换时，路由对象会被更新。</p><br><p>通过$route获取传递的信息如下:</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801134427.png" alt=""></p><br><h2 id="route和-router是有区别的"><a href="#route和-router是有区别的" class="headerlink" title="$route和$router是有区别的"></a><span id="route">$route和$router是有区别的</span></h2><p><code>$router</code>为VueRouter实例，想要导航到不同URL，则使用<code>$router.push</code>方法</p><p><code>$route</code>为当前router跳转对象里面可以获取name、path、query、params等</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/7813658.jpg" alt=""></p><br><h2 id="导航守卫"><a href="#导航守卫" class="headerlink" title="导航守卫"></a>导航守卫</h2><h3 id="什么是导航守卫"><a href="#什么是导航守卫" class="headerlink" title="什么是导航守卫"></a>什么是<strong>导航守卫</strong></h3><br><p><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#%E5%85%A8%E5%B1%80%E5%89%8D%E7%BD%AE%E5%AE%88%E5%8D%AB" target="_blank" rel="noopener">官网介绍</a></p><p>我们来考虑一个需求: 在一个SPA应用中, 如何改变网页的标题呢?</p><p>  网页标题是通过<code>&lt;title&gt;</code>来显示的, 但是SPA只有一个固定的HTML, 切换不同的页面时, 标题并不会改变.</p><p>  但是我们可以通过JavaScript来修改<code>&lt;title&gt;</code>的内容.window.document.title = ‘新的标题’.</p><p>  那么在Vue项目中, 在哪里修改? 什么时候修改比较合适呢?</p><br><p>普通的修改方式:</p><p>  我们比较容易想到的修改标题的位置是每一个路由对应的组件.vue文件中.</p><p>  通过mounted声明周期函数, 执行对应的代码进行修改即可.</p><p>  但是当页面比较多时, 这种方式不容易维护(因为需要在多个页面执行类似的代码).</p><p>  有没有更好的办法呢? 使用导航守卫即可.</p><br><p>什么是导航守卫?</p><p>  <span style="background-color:#ff0">vue-router提供的导航守卫主要用来监听监听路由的进入和离开的.</span></p><p>  <span style="background-color:#ff0">vue-router提供了beforeEach和afterEach的钩子函数, 它们会在路由即将改变前和改变后触发.</span></p><p>正如其名，<code>vue-router</code> 提供的导航守卫主要用来通过跳转或取消的方式守卫导航。有多种机会植入路由导航过程中：全局的, 单个路由独享的, 或者组件级的。</p><p>记住<strong>参数或查询的改变并不会触发进入/离开的导航守卫</strong>。你可以通过<a href="https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html#响应路由参数的变化" target="_blank" rel="noopener">观察 <code>$route</code> 对象</a>来应对这些变化，或使用 <code>beforeRouteUpdate</code> 的组件内守卫。</p><br><h3 id="导航守卫的使用"><a href="#导航守卫的使用" class="headerlink" title="导航守卫的使用"></a><strong>导航守卫的使用</strong></h3><br><p>首先, 我们可以在钩子当中定义一些标题, 可以利用meta来定义。</p><p>其次, 利用导航守卫,修改我们的标题。</p><br><p>导航钩子的三个参数解析:</p><p>to: 即将要进入的目标的路由对象.</p><p>from: 当前导航即将要离开的路由对象.</p><p>next: 调用该方法后, 才能进入下一个钩子.</p><br><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801162801.png" alt=""></p><br><p>如果你的某些组件有嵌套，就使用<code>window.document.title = to.matched[0].meta.title</code></p><p>如果你的组件没有嵌套，就不用matched 了，<code>window.document.title = to.meta.title</code></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801163038.png" alt=""></p><br><h3 id="全局前置守卫"><a href="#全局前置守卫" class="headerlink" title="全局前置守卫"></a>全局前置守卫</h3><p>你可以使用 <code>router.beforeEach</code> 注册一个全局前置守卫：</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter({ ... })</span><br><span class="line"></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure><p>当一个导航触发时，全局前置守卫按照创建顺序调用。守卫是异步解析执行，此时导航在所有守卫 resolve 完之前一直处于 <strong>等待中</strong>。</p><p>每个守卫方法接收三个参数：</p><ul><li><strong><code>to: Route</code></strong>: 即将要进入的目标 <a href="https://router.vuejs.org/zh/api/#路由对象" target="_blank" rel="noopener">路由对象</a></li><li><strong><code>from: Route</code></strong>: 当前导航正要离开的路由</li><li><strong><code>next: Function</code></strong>: 一定要调用该方法来 <strong>resolve</strong> 这个钩子。执行效果依赖 <code>next</code> 方法的调用参数。<ul><li><strong><code>next()</code></strong>: 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 <strong>confirmed</strong> (确认的)。</li><li><strong><code>next(false)</code></strong>: 中断当前的导航。如果浏览器的 URL 改变了 (可能是用户手动或者浏览器后退按钮)，那么 URL 地址会重置到 <code>from</code> 路由对应的地址。</li><li><strong><code>next('/')</code> 或者 <code>next({ path: '/' })</code></strong>: 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。你可以向 <code>next</code> 传递任意位置对象，且允许设置诸如 <code>replace: true</code>、<code>name: 'home'</code> 之类的选项以及任何用在 <a href="https://router.vuejs.org/zh/api/#to" target="_blank" rel="noopener"><code>router-link</code> 的 <code>to</code> prop</a> 或 <a href="https://router.vuejs.org/zh/api/#router-push" target="_blank" rel="noopener"><code>router.push</code></a> 中的选项。</li><li><strong><code>next(error)</code></strong>: (2.4.0+) 如果传入 <code>next</code> 的参数是一个 <code>Error</code> 实例，则导航会被终止且该错误会被传递给 <a href="https://router.vuejs.org/zh/api/#router-onerror" target="_blank" rel="noopener"><code>router.onError()</code></a> 注册过的回调。</li></ul></li></ul><p><strong>确保 <code>next</code> 函数在任何给定的导航守卫中都被严格调用一次。它可以出现多于一次，但是只能在所有的逻辑路径都不重叠的情况下，否则钩子永远都不会被解析或报错。</strong>这里有一个在用户未能验证身份时重定向到 <code>/login</code> 的示例：</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// BAD</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="keyword">if</span> (to.name !== <span class="string">'Login'</span> &amp;&amp; !isAuthenticated) next({ <span class="attr">name</span>: <span class="string">'Login'</span> })</span><br><span class="line">  <span class="comment">// 如果用户未能验证身份，则 `next` 会被调用两次</span></span><br><span class="line">  next()</span><br><span class="line">})</span><br><span class="line"><span class="comment">// GOOD</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">  <span class="keyword">if</span> (to.name !== <span class="string">'Login'</span> &amp;&amp; !isAuthenticated) next({ <span class="attr">name</span>: <span class="string">'Login'</span> })</span><br><span class="line">  <span class="keyword">else</span> next()</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure><h3 id="全局解析守卫"><a href="#全局解析守卫" class="headerlink" title="#全局解析守卫"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#全局解析守卫" target="_blank" rel="noopener">#</a>全局解析守卫</h3><blockquote><p>2.5.0 新增</p></blockquote><p>在 2.5.0+ 你可以用 <code>router.beforeResolve</code> 注册一个全局守卫。这和 <code>router.beforeEach</code> 类似，区别是在导航被确认之前，<strong>同时在所有组件内守卫和异步路由组件被解析之后</strong>，解析守卫就被调用。</p><h3 id="全局后置钩子"><a href="#全局后置钩子" class="headerlink" title="#全局后置钩子"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#全局后置钩子" target="_blank" rel="noopener">#</a>全局后置钩子</h3><p>你也可以注册全局后置钩子，然而和守卫不同的是，这些钩子不会接受 <code>next</code> 函数也不会改变导航本身：</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.afterEach(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>) =&gt;</span> {</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure><h3 id="路由独享的守卫"><a href="#路由独享的守卫" class="headerlink" title="#路由独享的守卫"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#路由独享的守卫" target="_blank" rel="noopener">#</a>路由独享的守卫</h3><p>你可以在路由配置上直接定义 <code>beforeEnter</code> 守卫：</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter({</span><br><span class="line">  routes: [</span><br><span class="line">    {</span><br><span class="line">      path: <span class="string">'/foo'</span>,</span><br><span class="line">      component: Foo,</span><br><span class="line">      beforeEnter: <span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> {</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">      }</span><br><span class="line">    }</span><br><span class="line">  ]</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure><p>这些守卫与全局前置守卫的方法参数是一样的。</p><h3 id="组件内的守卫"><a href="#组件内的守卫" class="headerlink" title="#组件内的守卫"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#组件内的守卫" target="_blank" rel="noopener">#</a>组件内的守卫</h3><p>最后，你可以在路由组件内直接定义以下路由导航守卫：</p><ul><li><code>beforeRouteEnter</code></li><li><code>beforeRouteUpdate</code> (2.2 新增)</li><li><code>beforeRouteLeave</code></li></ul><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = {</span><br><span class="line">  template: <span class="string">`...`</span>,</span><br><span class="line">  beforeRouteEnter (to, <span class="keyword">from</span>, next) {</span><br><span class="line">    <span class="comment">// 在渲染该组件的对应路由被 confirm 前调用</span></span><br><span class="line">    <span class="comment">// 不！能！获取组件实例 `this`</span></span><br><span class="line">    <span class="comment">// 因为当守卫执行前，组件实例还没被创建</span></span><br><span class="line">  },</span><br><span class="line">  beforeRouteUpdate (to, <span class="keyword">from</span>, next) {</span><br><span class="line">    <span class="comment">// 在当前路由改变，但是该组件被复用时调用</span></span><br><span class="line">    <span class="comment">// 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，</span></span><br><span class="line">    <span class="comment">// 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  },</span><br><span class="line">  beforeRouteLeave (to, <span class="keyword">from</span>, next) {</span><br><span class="line">    <span class="comment">// 导航离开该组件的对应路由时调用</span></span><br><span class="line">    <span class="comment">// 可以访问组件实例 `this`</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p><code>beforeRouteEnter</code> 守卫 <strong>不能</strong> 访问 <code>this</code>，因为守卫在导航确认前被调用，因此即将登场的新组件还没被创建。</p><p>不过，你可以通过传一个回调给 <code>next</code>来访问组件实例。在导航被确认的时候执行回调，并且把组件实例作为回调方法的参数。</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteEnter (to, <span class="keyword">from</span>, next) {</span><br><span class="line">  next(<span class="function"><span class="params">vm</span> =&gt;</span> {</span><br><span class="line">    <span class="comment">// 通过 `vm` 访问组件实例</span></span><br><span class="line">  })</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>注意 <code>beforeRouteEnter</code> 是支持给 <code>next</code> 传递回调的唯一守卫。对于 <code>beforeRouteUpdate</code> 和 <code>beforeRouteLeave</code> 来说，<code>this</code> 已经可用了，所以<strong>不支持</strong>传递回调，因为没有必要了。</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteUpdate (to, <span class="keyword">from</span>, next) {</span><br><span class="line">  <span class="comment">// just use `this`</span></span><br><span class="line">  <span class="keyword">this</span>.name = to.params.name</span><br><span class="line">  next()</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>这个离开守卫通常用来禁止用户在还未保存修改前突然离开。该导航可以通过 <code>next(false)</code> 来取消。</p><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteLeave (to, <span class="keyword">from</span>, next) {</span><br><span class="line">  <span class="keyword">const</span> answer = <span class="built_in">window</span>.confirm(<span class="string">'Do you really want to leave? you have unsaved changes!'</span>)</span><br><span class="line">  <span class="keyword">if</span> (answer) {</span><br><span class="line">    next()</span><br><span class="line">  } <span class="keyword">else</span> {</span><br><span class="line">    next(<span class="literal">false</span>)</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><h3 id="完整的导航解析流程"><a href="#完整的导航解析流程" class="headerlink" title="#完整的导航解析流程"></a><a href="https://router.vuejs.org/zh/guide/advanced/navigation-guards.html#完整的导航解析流程" target="_blank" rel="noopener">#</a>完整的导航解析流程</h3><ol><li>导航被触发。</li><li>在失活的组件里调用 <code>beforeRouteLeave</code> 守卫。</li><li>调用全局的 <code>beforeEach</code> 守卫。</li><li>在重用的组件里调用 <code>beforeRouteUpdate</code> 守卫 (2.2+)。</li><li>在路由配置里调用 <code>beforeEnter</code>。</li><li>解析异步路由组件。</li><li>在被激活的组件里调用 <code>beforeRouteEnter</code>。</li><li>调用全局的 <code>beforeResolve</code> 守卫 (2.5+)。</li><li>导航被确认。</li><li>调用全局的 <code>afterEach</code> 钩子。</li><li>触发 DOM 更新。</li><li>用创建好的实例调用 <code>beforeRouteEnter</code> 守卫中传给 <code>next</code> 的回调函数。</li></ol><br><h2 id="keeo-alive"><a href="#keeo-alive" class="headerlink" title="keeo-alive"></a>keeo-alive</h2><p>keep-alive 是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。</p><p>这就牵扯到了Vue实例的生命周期，created()函数 和 destroyed()函数，</p><p>当一个组件创建的时候，会调用created()函数，当一个组件消亡的时候，会调用 destroyed()函数。</p><br><p>如果不使用 <code>&lt;keep-alive&gt;</code> 的时候，</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801181911.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801175631.png" alt=""></p><br><p>当我们使用 <code>&lt;keep-alive&gt;</code> 的时候，</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">  &lt;router-view&gt;&lt;<span class="regexp">/router-view&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>keep-alive&gt;</span><br></pre></td></tr></tbody></table></figure><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801182234.png" alt=""></p><br><br><p>当一个组件处于 <code>&lt;keep-alive&gt;</code> 的状态的时候，它就可以使用 <code>activated()</code> 和 <code>deactivated()</code> 这两个函数，</p><br><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801182636.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801183248.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801183226.png" alt=""></p><br><p><code>keep-alive</code> 有两个<span style="color:red">非常重要</span>的属性。</p><p><span style="color:red">include : </span>字符串或正则表达，只有匹配的组件<span style="color:red">会</span>被缓存。</p><p><span style="color:red">exclude : </span>字符串或正则表达式，任何匹配的组件<span style="color:red">都不会</span>被缓存。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200802193552.png" alt=""></p><br><p>router-view 也是一个组件，如果直接被包在 keep-alive 里面，所有路径匹配到的视图组件都会被缓存：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200801183656.png" alt=""></p><br><br><br><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1209,7 +659,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-router-详解"><span class="toc-number">1.</span> <span class="toc-text">Vue-router 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前端路由规则"><span class="toc-number">1.1.</span> <span class="toc-text">前端路由规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-router-基础"><span class="toc-number">1.2.</span> <span class="toc-text">Vue-router 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识-Vue-router"><span class="toc-number">1.2.1.</span> <span class="toc-text">认识 Vue-router</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装和使用路由"><span class="toc-number">1.2.2.</span> <span class="toc-text">安装和使用路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由代码跳转"><span class="toc-number">1.2.3.</span> <span class="toc-text">路由代码跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由的默认路径"><span class="toc-number">1.2.4.</span> <span class="toc-text">路由的默认路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用HTML5的History模式"><span class="toc-number">1.2.5.</span> <span class="toc-text">使用HTML5的History模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#router-link补充"><span class="toc-number">1.2.6.</span> <span class="toc-text">router-link补充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态路由"><span class="toc-number">1.2.7.</span> <span class="toc-text">动态路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由的懒加载-重要"><span class="toc-number">1.3.</span> <span class="toc-text">路由的懒加载   (重要)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识路由的懒加载"><span class="toc-number">1.3.1.</span> <span class="toc-text">认识路由的懒加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由懒加载的效果"><span class="toc-number">1.3.2.</span> <span class="toc-text">路由懒加载的效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#懒加载的方式"><span class="toc-number">1.3.3.</span> <span class="toc-text">懒加载的方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由嵌套"><span class="toc-number">1.4.</span> <span class="toc-text">路由嵌套</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识路由嵌套"><span class="toc-number">1.4.1.</span> <span class="toc-text">认识路由嵌套</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由嵌套的实现"><span class="toc-number">1.4.2.</span> <span class="toc-text">路由嵌套的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套路由的默认路径"><span class="toc-number">1.4.3.</span> <span class="toc-text">嵌套路由的默认路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数传递"><span class="toc-number">1.5.</span> <span class="toc-text">参数传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参数的传递方式"><span class="toc-number">1.5.1.</span> <span class="toc-text">参数的传递方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用参数参数传递"><span class="toc-number">1.5.2.</span> <span class="toc-text">使用参数参数传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取参数"><span class="toc-number">1.5.3.</span> <span class="toc-text">获取参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#route和-router是有区别的"><span class="toc-number">1.6.</span> <span class="toc-text">$route和$router是有区别的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导航守卫"><span class="toc-number">1.7.</span> <span class="toc-text">导航守卫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是导航守卫"><span class="toc-number">1.7.1.</span> <span class="toc-text">什么是导航守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导航守卫的使用"><span class="toc-number">1.7.2.</span> <span class="toc-text">导航守卫的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局前置守卫"><span class="toc-number">1.7.3.</span> <span class="toc-text">全局前置守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局解析守卫"><span class="toc-number">1.7.4.</span> <span class="toc-text">全局解析守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局后置钩子"><span class="toc-number">1.7.5.</span> <span class="toc-text">全局后置钩子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由独享的守卫"><span class="toc-number">1.7.6.</span> <span class="toc-text">路由独享的守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件内的守卫"><span class="toc-number">1.7.7.</span> <span class="toc-text">组件内的守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完整的导航解析流程"><span class="toc-number">1.7.8.</span> <span class="toc-text">完整的导航解析流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keeo-alive"><span class="toc-number">1.8.</span> <span class="toc-text">keeo-alive</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-router-详解"><span class="toc-number">1.</span> <span class="toc-text">Vue-router 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#前端路由规则"><span class="toc-number">1.1.</span> <span class="toc-text">前端路由规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-router-基础"><span class="toc-number">1.2.</span> <span class="toc-text">Vue-router 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识-Vue-router"><span class="toc-number">1.2.1.</span> <span class="toc-text">认识 Vue-router</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装和使用路由"><span class="toc-number">1.2.2.</span> <span class="toc-text">安装和使用路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由代码跳转"><span class="toc-number">1.2.3.</span> <span class="toc-text">路由代码跳转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由的默认路径"><span class="toc-number">1.2.4.</span> <span class="toc-text">路由的默认路径</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用HTML5的History模式"><span class="toc-number">1.2.5.</span> <span class="toc-text">使用HTML5的History模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#router-link补充"><span class="toc-number">1.2.6.</span> <span class="toc-text">router-link补充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态路由"><span class="toc-number">1.2.7.</span> <span class="toc-text">动态路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由的懒加载-重要"><span class="toc-number">1.3.</span> <span class="toc-text">路由的懒加载 (重要)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识路由的懒加载"><span class="toc-number">1.3.1.</span> <span class="toc-text">认识路由的懒加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由懒加载的效果"><span class="toc-number">1.3.2.</span> <span class="toc-text">路由懒加载的效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#懒加载的方式"><span class="toc-number">1.3.3.</span> <span class="toc-text">懒加载的方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由嵌套"><span class="toc-number">1.4.</span> <span class="toc-text">路由嵌套</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#认识路由嵌套"><span class="toc-number">1.4.1.</span> <span class="toc-text">认识路由嵌套</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由嵌套的实现"><span class="toc-number">1.4.2.</span> <span class="toc-text">路由嵌套的实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套路由的默认路径"><span class="toc-number">1.4.3.</span> <span class="toc-text">嵌套路由的默认路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数传递"><span class="toc-number">1.5.</span> <span class="toc-text">参数传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参数的传递方式"><span class="toc-number">1.5.1.</span> <span class="toc-text">参数的传递方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用参数参数传递"><span class="toc-number">1.5.2.</span> <span class="toc-text">使用参数参数传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取参数"><span class="toc-number">1.5.3.</span> <span class="toc-text">获取参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#route和-router是有区别的"><span class="toc-number">1.6.</span> <span class="toc-text">$route和$router是有区别的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导航守卫"><span class="toc-number">1.7.</span> <span class="toc-text">导航守卫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是导航守卫"><span class="toc-number">1.7.1.</span> <span class="toc-text">什么是导航守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#导航守卫的使用"><span class="toc-number">1.7.2.</span> <span class="toc-text">导航守卫的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局前置守卫"><span class="toc-number">1.7.3.</span> <span class="toc-text">全局前置守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局解析守卫"><span class="toc-number">1.7.4.</span> <span class="toc-text">全局解析守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全局后置钩子"><span class="toc-number">1.7.5.</span> <span class="toc-text">全局后置钩子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由独享的守卫"><span class="toc-number">1.7.6.</span> <span class="toc-text">路由独享的守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件内的守卫"><span class="toc-number">1.7.7.</span> <span class="toc-text">组件内的守卫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完整的导航解析流程"><span class="toc-number">1.7.8.</span> <span class="toc-text">完整的导航解析流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#keeo-alive"><span class="toc-number">1.8.</span> <span class="toc-text">keeo-alive</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -1498,10 +948,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WebPack5</a>
               </li>
              
@@ -1519,6 +965,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue组件化开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1554,10 +1004,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
               </li>
              
@@ -1571,6 +1017,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频剪辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1602,11 +1052,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -844,13 +844,6 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/npm/</loc>
-    <lastmod>2020-08-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.aqingya.cn/tags/WebPack5/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>daily</changefreq>
@@ -880,6 +873,13 @@
   
   <url>
     <loc>https://www.aqingya.cn/tags/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2020-08-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aqingya.cn/tags/npm/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -942,13 +942,6 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/Promise/</loc>
-    <lastmod>2020-08-14</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.aqingya.cn/tags/CSS3/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>daily</changefreq>
@@ -971,6 +964,13 @@
   
   <url>
     <loc>https://www.aqingya.cn/tags/%E8%A7%86%E9%A2%91%E5%89%AA%E8%BE%91/</loc>
+    <lastmod>2020-08-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.aqingya.cn/tags/Promise/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1026,14 +1026,14 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/Hexo%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://www.aqingya.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://www.aqingya.cn/tags/Hexo%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1147,14 +1147,14 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/categories/npm/</loc>
+    <loc>https://www.aqingya.cn/categories/Vue/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/categories/Vue/</loc>
+    <loc>https://www.aqingya.cn/categories/npm/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1182,14 +1182,14 @@
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/categories/Hexo%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://www.aqingya.cn/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.aqingya.cn/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>https://www.aqingya.cn/categories/Hexo%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2020-08-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

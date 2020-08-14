@@ -181,45 +181,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <!-- 滚动字幕》-->
 <div id="binft"></div>
   <script>
-    var binft = function (r) {
-      function t() {
-        return b[Math.floor(Math.random() * b.length)]
-      }  
-      function e() {
-        return String.fromCharCode(94 * Math.random() + 33)
-      }
-      function n(r) {
-        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-          var l = document.createElement("span");
-          l.textContent = e(), l.style.color = t(), n.appendChild(l)
-        }
-        return n
-      }
-      function i() {
-        var t = o[c.skillI];
-        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
-      }
-      var l = "",
-      o = ["青青陵上柏，磊磊涧中石。", "人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。", "驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function (r) {
-      return r + ""
-      }),
-      a = 2,
-      g = 1,
-      s = 5,
-      d = 75,
-      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
-      c = {
-        text: "",
-        prefixP: -s,
-        skillI: 0,
-        skillP: 0,
-        direction: "forward",
-        delay: a,
-        step: g
-      };
-      i()
-      };
-      binft(document.getElementById('binft'));
+   var binft=function(t){var e="",r=["青青陵上柏，磊磊涧中石。","人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。","驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function(t){return t+""}),n=2,i=1,l=5,a=75,g=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],o={text:"",prefixP:-l,skillI:0,skillP:0,direction:"forward",delay:n,step:i};!function b(){var d=r[o.skillI];o.step?o.step--:(o.step=i,o.prefixP<e.length?(o.prefixP>=0&&(o.text+=e[o.prefixP]),o.prefixP++):"forward"===o.direction?o.skillP<d.length?(o.text+=d[o.skillP],o.skillP++):o.delay?o.delay--:(o.direction="backward",o.delay=n):o.skillP>0?(o.text=o.text.slice(0,-1),o.skillP--):(o.skillI=(o.skillI+1)%r.length,o.direction="forward")),t.textContent=o.text,t.appendChild(function(t){for(var e=document.createDocumentFragment(),r=0;t>r;r++){var n=document.createElement("span");n.textContent=String.fromCharCode(94*Math.random()+33),n.style.color=g[Math.floor(Math.random()*g.length)],e.appendChild(n)}return e}(o.prefixP<e.length?Math.min(l,l+o.prefixP):Math.min(l,d.length-o.skillP))),setTimeout(b,a)}()};binft(document.getElementById("binft"));
   </script>
 <!-- 滚动字幕》-->
 
@@ -274,7 +236,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     </nav>
                     <nav>
                         <a>总文章数 97</a>
-                        <a>总字数 <span class="post-count">169.6k</span></a>
+                        <a>总字数 <span class="post-count">168.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -519,368 +481,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/0ad7df3c78a34d90b3a7a49a82ea9120.jpg" alt=""></p>
-<a id="more"></a>
-
-
-
-<h2 id="认识VueX"><a href="#认识VueX" class="headerlink" title="认识VueX"></a>认识VueX</h2><h3 id="Vuex是做什么的"><a href="#Vuex是做什么的" class="headerlink" title="Vuex是做什么的?"></a>Vuex是做什么的?</h3><p>🔷 官方解释：Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。</p>
-<p>  🔹 它采用 集中式存储管理 应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p>
-<p>  🔹 Vuex 也集成到 Vue 的官方调试工具 <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">devtools</a><a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener"> extension</a>，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p>
-<br>
-
-<p><strong>🔷 状态管理</strong>到底是什么？</p>
-<p>  <strong>🔹 状态管理模式、集中式存储管理</strong>这些名词听起来就非常高大上，让人捉摸不透。</p>
-<p>  🔹 其实，你可以简单的将其看成把需要多个组件共享的变量全部存储在一个对象里面。</p>
-<p>  🔹 然后，将这个对象放在顶层的Vue实例中，让其他组件可以使用。</p>
-<p>  🔹 那么，多个组件就可以共享这个对象中的所有变量属性.</p>
-<br>
-
-<p><span style="color:red">Vuex就是为了提供这样一个在多个组件间共享状态的插件，而且是响应式的。</span></p>
-<br>
-
-
-
-<p>🔷 管理什么状态呢 ?</p>
-<p>  🔹 如果你做过大型开放，你一定遇到过多个状态，在多个界面间的共享问题。</p>
-<p>  🔹 比如用户的登录状态、用户名称、头像、地理位置信息等等。</p>
-<p>  🔹 比如商品的收藏、购物车中的物品等等。</p>
-<p>  🔹 这些状态信息，我们都可以放在统一的地方，对它进行保存和管理，而且它们还是响应式的</p>
-<br>
-
-<p>✔ 单页面的状态管理———————————————————————————————</p>
-<br>
-
-<p>我们知道，要在单个组件中进行状态管理是一件非常简单的事情</p>
-<p>什么意思呢？我们来看下面的图片。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803204415.png" alt=""></p>
-<p>🔷 这图片中的三种东西，怎么理解呢？</p>
-<p>  🔹 State：不用多说，就是我们的状态。（你姑且可以当做就是data中的属性）</p>
-<p>  🔹 View：视图层，可以针对State的变化，显示不同的信息。（这个好理解吧？）</p>
-<p>  🔹 Actions：这里的Actions主要是用户的各种操作：点击、输入等等，会导致状态的改变。</p>
-<br>
-
-<p>举个简单的例子:</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803204525.png" alt=""></p>
-<p>我们来实现这样的一个简单的小案例。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/3262362.png" alt=""></p>
-<p>🔷 在这个案例中，我们有木有状态需要管理呢？没错，就是个数counter。</p>
-<p>🔷 counter需要某种方式被记录下来，也就是我们的State。</p>
-<p>🔷 counter目前的值需要被显示在界面中，也就是我们的View部分。</p>
-<p>🔷 界面发生某些操作时（我们这里是用户的点击，也可以是用户的input），需要去更新状态，也就是我们的Actions</p>
-<p>这不就是上面的流程图了吗？</p>
-<br>
-
-<p>✔ 多状态管理———————————————————————————————</p>
-<br>
-
-
-
-<p>🔷 Vue已经帮我们做好了单个界面的状态管理，但是如果是多个界面呢？</p>
-<p>  🔹 多个试图都依赖同一个状态（一个状态改了，多个界面需要进行更新）</p>
-<p>  🔹 不同界面的Actions都想修改同一个状态（Home.vue需要修改，Profile.vue也需要修改这个状态）</p>
-<p>🔷 也就是说对于某些状态(状态1/状态2/状态3)来说只属于我们某一个试图，但是也有一些状态(状态a/状态b/状态c)属于多个试图共同想要维护的。</p>
-<p>  🔹 状态1/状态2/状态3你放在自己的房间中，你自己管理自己用，没问题。</p>
-<p>  🔹 但是状态a/状态b/状态c我们希望交给一个大管家来统一帮助我们管理！！！</p>
-<p>  🔹 没错，Vuex就是为我们提供这个大管家的工具。</p>
-<p>🔷 全局单例模式（大管家）</p>
-<p>  🔹 我们现在要做的就是将共享的状态抽取出来，交给我们的大管家，统一进行管理。</p>
-<p>  🔹 之后，你们每个试图，按照我<strong>规定好的</strong>规定，进行访问和修改等操作。</p>
-<p>这就是Vuex背后的基本思想。</p>
-<br>
-
-<p>✔ Vuex状态管理图例—————————-</p>
-<br>
-
-<p>当我们去修改Vuex 中的 State的时候，我们不应该直接去修改 State ，而是通过 Actions、Mutations 进而来修改State。</p>
-<p>Devtools：它是Vue开发的一个浏览器插件，通过Mutations，它可以记录我们每一次修改State。</p>
-<p>Actions：如果我们请求是异步操作的话，我们会通过Actions，将异步转化为同步，因为Devtools通过Mutations来监听我们对 State 的修改只能是同步操作。如果请求是同步的话，我们可以绕过Actions。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803210504.png" alt=""></p>
-<br>
-
-<h2 id="Vuex插件的安装"><a href="#Vuex插件的安装" class="headerlink" title="Vuex插件的安装"></a>Vuex插件的安装</h2><p>安装生产时依赖：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install vuex --save</span><br></pre></td></tr></tbody></table></figure>
-
-<be>
-
-
-
-<h2 id="Vuex-基本使用"><a href="#Vuex-基本使用" class="headerlink" title="Vuex 基本使用"></a>Vuex 基本使用</h2><p>我们还是实现一下之前简单的案例</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803221526.png" alt=""></p>
-<p>🔷 首先，我们需要在某个地方存放我们的Vuex代码：</p>
-<p>     🔹 这里，我们先创建一个文件夹store，并且在其中创建一个index.js文件</p>
-<p>     🔹 在index.js文件中写入如下代码：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803222114.png" alt=""></p>
-<br>
-
-<p><strong>✔ 挂载到</strong>Vue实例中</p>
-<p>🔷其次，我们让所有的Vue组件都可以使用这个store对象</p>
-<p>    🔹 来到main.js文件，导入store对象，并且放在new Vue中</p>
-<p>    🔹 这样，在其他Vue组件中，我们就可以通过this.$store的方式，获取到这个store对象了</p>
-<p>挂载到Vue实例中 相当于执行 <code>Vue.prototype.$store = store</code> ，将store对象放置在new Vue对象中，这样可以保证在所有的组件中都可以使用到。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803222301.png" alt=""></p>
-<br>
-
-<p>✔ 使用Vuex</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/image-20200803222537327.png" alt=""></p>
-<br>
-
-<p>🔷我们来对使用步骤，做一个简单的小节：</p>
-<p>  🔹  1.提取出一个公共的store对象，用于保存在多个组件中共享的状态。</p>
-<p>  🔹  2.将store对象放置在new Vue对象中，这样可以保证在所有的组件中都可以使用到</p>
-<p>  🔹  3.在其他组件中使用store对象中保存的状态即可</p>
-<p>     通过<code>this.$store.state</code>.属性的方式来访问状态</p>
-<p>     通过<code>this.$store.commit('mutation中方法')</code>来修改状态</p>
-<br>
-
-<p>🔷注意事项：</p>
-<p>  🔹 我们是通过提交mutation的方式，而非直接改变store.state.count。</p>
-<p>  🔹 这是因为Vuex可以更明确的追踪状态的变化，所以不要直接改变store.state.count的值。</p>
-<br>
-
-<p>所以 可以通过浏览器插件Devtools来跟踪 state 的状态。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803223121.png" alt=""></p>
-<br>
-
-<h2 id="Vuex核心概念"><a href="#Vuex核心概念" class="headerlink" title="Vuex核心概念"></a>Vuex核心概念</h2><br>
-
-<h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>🔷Vuex提出使用单一状态树, 什么是单一状态树呢？</p>
-<p>  🔹 英文名称是Single Source of Truth，也可以翻译成单一数据源。</p>
-<p>🔷但是，它是什么呢？我们来看一个生活中的例子。</p>
-<p>  🔹 OK，我用一个生活中的例子做一个简单的类比。</p>
-<p>  🔹 我们知道，在国内我们有很多的信息需要被记录，比如上学时的个人档案，工作后的社保记录，公积金记录，结婚后的婚姻信息，以及其他相关的户口、医疗、文凭、房产记录等等（还有很多信息）。</p>
-<p>  🔹 这些信息被分散在很多地方进行管理，有一天你需要办某个业务时(比如入户某个城市)，你会发现你需要到各个对应的工作地点去打印、盖章各种资料信息，最后到一个地方提交证明你的信息无误。</p>
-<p>  🔹 这种保存信息的方案，不仅仅低效，而且不方便管理，以及日后的维护也是一个庞大的工作(需要大量的各个部门的人力来维护，当然国家目前已经在完善我们的这个系统了)。</p>
-<br>
-
-<p>🔷这个和我们在应用开发中比较类似：</p>
-<p>  🔹 如果你的状态信息是保存到多个Store对象中的，那么之后的管理和维护等等都会变得特别困难。</p>
-<p>  🔹 <span style="color:red">所以Vuex也使用了单一状态树来管理应用层级的全部状态。</span></p>
-<p>  🔹 <span style="color:red">单一状态树能够让我们最直接的方式找到某个状态的片段，而且在之后的维护和调试过程中，也可以非常方便的管理和维护。</span></p>
-<br>
-
-
-
-<h3 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h3><p>有时候，我们需要从Stare中获取的一些经过改变的数据，我们就可以使用Getters。这比较类似于<a href="https://aqingya.cn/articl/3a0cc30e.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-computed" target="_blank" rel="noopener">计算属性</a>。</p>
-<p>举个简单的例子：在State中有一个数组，包含一些学生的基本信息。我们需要拿到age 大于18 的学生的信息，我们就可以使用Getters。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805105113.png" alt=""></p>
-<br>
-
-<p>使用getters  <code>&lt;h2&gt;&lt;/h2&gt;</code></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805105441.png" alt=""></p>
-<p>就获取到了age 大于18 的学生信息。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805105503.png" alt=""></p>
-<hr>
-<p><br>要是放在以前，我们可能会使用computed属性。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805110256.png" alt=""></p>
-<p>但是也有一个缺点，比如我们想要在多个组件中都同样的数据变换，那么我们都在在各种的组件中设置同样的computed，这样很不好。我们就可以使用vuex里的gitters属性。</p>
-<br>
-
-<hr>
-<br>
-
-<p>我们在提一个需求：要得到年纪大于18 的学生的人数。我们就可以这样来做。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805111557.png" alt=""></p>
-<p>使用该函数：<code>$store.getters.more18ageLength</code></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805111642.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805111715.png" alt=""></p>
-<br>
-
-<p>我们再来看一个需求，我们不要把age写死，而是当做参数传递进来。</p>
-<p>首先我们想到 的是直接在moreage中传递参数，但是这样是不行的，我们可以return 一个函数，在这个函数中传入参数，这样我们在使用的时候就可以，<code>$store.getters.moreage(20)</code> 。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805112206.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805112235.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805112425.png" alt=""></p>
-<br>
-
-<p>总结：</p>
-<p><span style="color:red">🔹 如果我们没有传递参数的时候，我们就可以在getters中直接定义一个函数。</span></p>
-<p><span style="color:red">🔹 如果我们需要使用我们在getters中定义过的属性，我们就可以在定义函数的时候，将getters做为第二个参数传递进去。</span></p>
-<p><span style="color:red">🔹 如果我们需要在函数中传递参数，只能让getters本身返回另一个函数。参数定义在这个函数中，在使用是时候就可以传递参数了。</span></p>
-<br>
-
-
-
-<h3 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a>Mutation</h3><be>
-
-<h4 id="Mutation状态更新"><a href="#Mutation状态更新" class="headerlink" title="Mutation状态更新"></a>Mutation状态更新</h4><p>Vuex的store状态的更新唯一方式：提交Mutation</p>
-<p>🔷Mutation主要包括两部分：</p>
-<p>  🔹 字符串的事件类型（type）</p>
-<p>  🔹 一个回调函数（handler）,该回调函数的第一个参数就是<code>state</code>。</p>
-<p>mutation的定义方式：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805123705.png" alt=""></p>
-<p>通过mutation更新:</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805123712.png" alt=""></p>
-<br>
-
-<h4 id="Mutation传递参数"><a href="#Mutation传递参数" class="headerlink" title="Mutation传递参数"></a>Mutation传递参数</h4><p>在通过mutation更新数据的时候, 有可能我们希望携带一些<strong>额外的参数</strong></p>
-<p>参数被称为是mutation的载荷(Payload)</p>
-<p>比如我们提这样的一个需求：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805125539.png" alt=""></p>
-<p>点击按钮 可以+5 和+10.</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805125706.png" alt=""></p>
-<p>设置鼠标点击事件，并将参数，放到commit 的第二个参数的位置。第一个参数是事件类型（type）</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805130005.png" alt=""></p>
-<p>muation 中的代码：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805130521.png" alt=""></p>
-<hr>
-<p>但是如果参数不止一个 ，这个时候我们就要使用对象的形式来传递    ，也就是payload是一个对象。用的时候在取出需要的信息。</p>
-<p>比如我们添加一个学生的信息。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805132013.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805132245.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805132401.png" alt=""></p>
-<br>
-
-<h4 id="Mutation-的提交风格"><a href="#Mutation-的提交风格" class="headerlink" title="Mutation 的提交风格"></a>Mutation 的提交风格</h4><p>上面的通过<strong>commit</strong>进行提交是一种普通的方式。</p>
-<p>Vue还提供了另外一种风格, 它是一个包含type属性的对象。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805133804.png" alt=""></p>
-<p>Mutation中的处理方式是将整个commit的对象作为payload使用。</p>
-<p>我们将它打印一下，他就是整个commit的对象</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805133945.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805133923.png" alt=""></p>
-<p>所以我们使用的时候 我们将count取出来 就行了，代码没有改变, 依然如下: </p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805134049.png" alt=""></p>
-<br>
-
-<h4 id="Mutation响应式规则"><a href="#Mutation响应式规则" class="headerlink" title="Mutation响应式规则"></a>Mutation响应式规则</h4><p>Vuex的store中的state是响应式的, 当state中的数据发生改变时, Vue组件会自动更新。</p>
-<p>这就要求我们必须遵守一些Vuex对应的规则:</p>
-<p>  <span style="color:red">1、提前在store中初始化好所需的属性.</span></p>
-<p>  2、当给state中的对象添加新属性时, 使用下面的方式:</p>
-<p>    方式一: 使用Vue.set(obj, ‘newProp’, 123)</p>
-<p>    方式二: 用新对象给旧对象重新赋值</p>
-<p>我们来看一个例子：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805143849.png" alt=""></p>
-<p>那我们来对info添加一些属性。比如heigth。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805145123.png" alt=""></p>
-<p>当我们点击按钮的时候，虽然可以添加到state的info中，但是页面没有发生变化，这样添加无法做到响应式。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805145238.png" alt=""></p>
-<p>我们可以使用<code>Vue.set(obj, 'newProp', 123)</code> 的方式。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805145756.png" alt=""></p>
-<p>这样我们当点击按钮的时候，不仅state中的info会发生改变，页面中也会发生响应式的变化。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805150117.png" alt=""></p>
-<br>
-
-<p>这是添加属性，当然删除属性也是一样的。</p>
-<p>我们要做到响应式 还是要使用<code>Vue.delete(state.info,"age")</code>。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805150834.png" alt=""></p>
-<br>
-
-<h4 id="Mutation常量类型"><a href="#Mutation常量类型" class="headerlink" title="Mutation常量类型"></a>Mutation常量类型</h4><p>🔷 我们来考虑下面的问题:</p>
-<p>  🔹 在mutation中, 我们定义了很多事件类型(也就是其中的方法名称).</p>
-<p>  🔹 当我们的项目增大时, Vuex管理的状态越来越多, 需要更新状态的情况越来越多, 那么意味着Mutation中的方法越来越多.</p>
-<p>  🔹 方法过多, 使用者需要花费大量的经历去记住这些方法, 甚至是多个文件间来回切换, 查看方法名称, 甚至如果不是复制的时候, 可能还会出现写错的情况.</p>
-<br>
-
-<p>🔷 如何避免上述的问题呢?</p>
-<p>  🔹 在各种Flux实现中, 一种很常见的方案就是使用<strong>常量</strong>替代Mutation事件的类型</p>
-<p>  🔹 我们可以将这些常量放在一个单独的文件中, 方便管理以及让整个app所有的事件类型一目了然.</p>
-<br>
-
-<p>🔷 具体怎么做呢?</p>
-<p>  🔹 我们可以创建一个文件: mutation-types.js, 并且在其中定义我们的常量.</p>
-<p>  🔹 定义常量时, 我们可以使用ES2015中的风格, 使用一个常量来作为函数的名称.</p>
-<br>
-
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805154317.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805154343.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805154401.png" alt=""></p>
-<br>
-
-<h3 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h3><h4 id="Mutation同步函数"><a href="#Mutation同步函数" class="headerlink" title="Mutation同步函数"></a>Mutation同步函数</h4><p>🔷通常情况下, Vuex要求我们Mutation中的方法必须是同步方法.</p>
-<p>  🔹 主要的原因是当我们使用devtools时, 可以devtools可以帮助我们捕捉mutation的快照.</p>
-<p>  🔹 但是如果是异步操作, 那么devtools将不能很好的追踪这个操作什么时候会被完成.</p>
-<p>举个简单的例子，我们这还是使用setTimeout() 来模拟异步请求。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805160041.png" alt=""></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805160026.png" alt=""></p>
-<p>当我们点击按钮的时候，3秒时候的确页面发生了修改，但是我们DevTools工具的中的name并没有修改。这是因为我们在Mutation中使用了异步函数。</p>
-<p>这样的话，当我们去用Devtools改bug的时候，就会很蒙，不知道到底哪一个是对的。</p>
-<p>这个时候我们就要使用我们的Action</p>
-<br>
-
-<h4 id="Action基本定义"><a href="#Action基本定义" class="headerlink" title="Action基本定义"></a>Action基本定义</h4><p>🔷我们强调, 不要再Mutation中进行异步操作.</p>
-<p>  🔹 但是某些情况, 我们确实希望在Vuex中进行一些异步操作, 比如网络请求, 必然是异步的. 这个时候怎么处理呢?</p>
-<p>  🔹 Action类似于Mutation, 但是是用来代替Mutation进行异步操作的.</p>
-<p>Action的基本使用代码如下:</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805165816.png" alt=""></p>
-<p><br>当我们提交的时候，这里就不用commit了，就要使用 dispatch。dipatch用于提交Actions，commit用于提交Mutation。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805171504.png" alt=""></p>
-<br>
-
-<h4 id="Action参数的传递"><a href="#Action参数的传递" class="headerlink" title="Action参数的传递"></a>Action参数的传递</h4><p>当然我们也可以携带一些参数，也可以添加一个回调函数，告诉外界我们的异步操作已经完成了。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805171043.png" alt=""></p>
-<br>
-
-<h4 id="Action返回的Promise"><a href="#Action返回的Promise" class="headerlink" title="Action返回的Promise"></a>Action返回的Promise</h4><p>上面回调操作是可以的，但是不够优雅。我们可以使用Promise。Promise经常用于异步操作.</p>
-<p>在Action中, 我们可以将异步操作放在一个Promise中, 并且在成功或者失败后, 调用对应的resolve或reject。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805174501.png" alt=""></p>
-<p>return 一个new Promise 对象的时候。相当于把我们new 的Promise对象，替换了 <code>this.$store.dispatch("amodify", "我是modity的参数")</code> ，在它后面调用then() 方法。就可以继续使用我们的promise了。</p>
-<br>
-
-
-
-<h3 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h3><br>
-
-<h4 id="认识Module"><a href="#认识Module" class="headerlink" title="认识Module"></a>认识Module</h4><p>🔷Module是模块的意思, 为什么在Vuex中我们要使用模块呢?</p>
-<p>  🔹 Vue使用单一状态树,那么也意味着很多状态都会交给Vuex来管理.</p>
-<p>  🔹 当应用变得非常复杂时,store对象就有可能变得相当臃肿.</p>
-<p>  🔹 为了解决这个问题, Vuex允许我们将store分割成模块(Module), 而每个模块拥有自己的state、mutations、actions、getters等</p>
-<br>
-
-<p>我们按照什么样的方式来组织模块呢? </p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805182102.png" alt=""></p>
-<br>
-
-<h4 id="Moudle局部状态"><a href="#Moudle局部状态" class="headerlink" title="Moudle局部状态"></a>Moudle局部状态</h4><p>上面的代码中, 我们已经有了整体的组织结构, 下面我们来看看具体的局部模块中的代码如何书写.</p>
-<br>
-
-<p>✔  模块中的 state————————————————————————————————–</p>
-<br>
-
-<p>模块中的state是这样定义的：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805191650.png" alt=""></p>
-<p>那我们怎样使用呐？<code>$store.state.a.name</code></p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805191738.png" alt=""></p>
-<br>
-
-<p>为什么要这么使用<code>$store.state.a.name</code> 呐，这是因为，最终模块a会放在 store中的state中去。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805192023.png" alt=""></p>
-<br>
-
-<p>✔  模块中的 Mutation————————————————————————————————–</p>
-<br>
-
-<p>定义和之前一样：</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805194232.png" alt=""></p>
-<p>在使用的时候，和之前使用的一样，直接commit 就可以了。<code>this.$store.commit('updateName', "灰太狼")</code></p>
-<br>
-
-<p> ✔ 模块中的 Getters————————————————————————————————–</p>
-<br>
-
-<p>基本使用 和之前的一样。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805195748.png" alt=""></p>
-<br>
-
-<p>如果我们想获取到 store （大模块）中的state的数据的话，我们可以这样使用。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805201122.png" alt=""></p>
-<p>在模块中，getters的函数可以有第三个参数，rootState 。它就代表了大模块中的state。</p>
-<br>
-
-<p> ✔  模块中的 Action————————————————————————————————–</p>
-<br>
-
-<p>actions的写法呢? 接收一个context参数对象</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805204221.png" alt=""></p>
-<p>actions 中的 context.commit 不和之前的一样，它仅仅提交的是自己模块中的 mutations。</p>
-<p>我们来看一下 模块a中的context到底是什么。我们来打印一下。</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805205448.png" alt=""></p>
-<p>所以，<span style="color:red">局部状态通过 context.state 暴露出来，根节点状态则为 context.rootState，如果getters中也需要使用全局的状态, 可以接受更多的参数。</span></p>
-<br>
-
-<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a><strong>项目结构</strong></h2><p>当我们的Vuex帮助我们管理过多的内容时, 好的项目结构可以让我们的代码更加清晰.</p>
-<p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805210644.png" alt=""></p>
-<p><br><br><br><br></p>
-</be></be><script>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/0ad7df3c78a34d90b3a7a49a82ea9120.jpg" alt=""></p><a id="more"></a><h2 id="认识VueX"><a href="#认识VueX" class="headerlink" title="认识VueX"></a>认识VueX</h2><h3 id="Vuex是做什么的"><a href="#Vuex是做什么的" class="headerlink" title="Vuex是做什么的?"></a>Vuex是做什么的?</h3><p>🔷 官方解释：Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。</p><p>  🔹 它采用 集中式存储管理 应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</p><p>  🔹 Vuex 也集成到 Vue 的官方调试工具 <a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener">devtools</a><a href="https://github.com/vuejs/vue-devtools" target="_blank" rel="noopener"> extension</a>，提供了诸如零配置的 time-travel 调试、状态快照导入导出等高级调试功能。</p><br><p><strong>🔷 状态管理</strong>到底是什么？</p><p>  <strong>🔹 状态管理模式、集中式存储管理</strong>这些名词听起来就非常高大上，让人捉摸不透。</p><p>  🔹 其实，你可以简单的将其看成把需要多个组件共享的变量全部存储在一个对象里面。</p><p>  🔹 然后，将这个对象放在顶层的Vue实例中，让其他组件可以使用。</p><p>  🔹 那么，多个组件就可以共享这个对象中的所有变量属性.</p><br><p><span style="color:red">Vuex就是为了提供这样一个在多个组件间共享状态的插件，而且是响应式的。</span></p><br><p>🔷 管理什么状态呢 ?</p><p>  🔹 如果你做过大型开放，你一定遇到过多个状态，在多个界面间的共享问题。</p><p>  🔹 比如用户的登录状态、用户名称、头像、地理位置信息等等。</p><p>  🔹 比如商品的收藏、购物车中的物品等等。</p><p>  🔹 这些状态信息，我们都可以放在统一的地方，对它进行保存和管理，而且它们还是响应式的</p><br><p>✔ 单页面的状态管理———————————————————————————————</p><br><p>我们知道，要在单个组件中进行状态管理是一件非常简单的事情</p><p>什么意思呢？我们来看下面的图片。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803204415.png" alt=""></p><p>🔷 这图片中的三种东西，怎么理解呢？</p><p>  🔹 State：不用多说，就是我们的状态。（你姑且可以当做就是data中的属性）</p><p>  🔹 View：视图层，可以针对State的变化，显示不同的信息。（这个好理解吧？）</p><p>  🔹 Actions：这里的Actions主要是用户的各种操作：点击、输入等等，会导致状态的改变。</p><br><p>举个简单的例子:</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803204525.png" alt=""></p><p>我们来实现这样的一个简单的小案例。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/3262362.png" alt=""></p><p>🔷 在这个案例中，我们有木有状态需要管理呢？没错，就是个数counter。</p><p>🔷 counter需要某种方式被记录下来，也就是我们的State。</p><p>🔷 counter目前的值需要被显示在界面中，也就是我们的View部分。</p><p>🔷 界面发生某些操作时（我们这里是用户的点击，也可以是用户的input），需要去更新状态，也就是我们的Actions</p><p>这不就是上面的流程图了吗？</p><br><p>✔ 多状态管理———————————————————————————————</p><br><p>🔷 Vue已经帮我们做好了单个界面的状态管理，但是如果是多个界面呢？</p><p>  🔹 多个试图都依赖同一个状态（一个状态改了，多个界面需要进行更新）</p><p>  🔹 不同界面的Actions都想修改同一个状态（Home.vue需要修改，Profile.vue也需要修改这个状态）</p><p>🔷 也就是说对于某些状态(状态1/状态2/状态3)来说只属于我们某一个试图，但是也有一些状态(状态a/状态b/状态c)属于多个试图共同想要维护的。</p><p>  🔹 状态1/状态2/状态3你放在自己的房间中，你自己管理自己用，没问题。</p><p>  🔹 但是状态a/状态b/状态c我们希望交给一个大管家来统一帮助我们管理！！！</p><p>  🔹 没错，Vuex就是为我们提供这个大管家的工具。</p><p>🔷 全局单例模式（大管家）</p><p>  🔹 我们现在要做的就是将共享的状态抽取出来，交给我们的大管家，统一进行管理。</p><p>  🔹 之后，你们每个试图，按照我<strong>规定好的</strong>规定，进行访问和修改等操作。</p><p>这就是Vuex背后的基本思想。</p><br><p>✔ Vuex状态管理图例—————————-</p><br><p>当我们去修改Vuex 中的 State的时候，我们不应该直接去修改 State ，而是通过 Actions、Mutations 进而来修改State。</p><p>Devtools：它是Vue开发的一个浏览器插件，通过Mutations，它可以记录我们每一次修改State。</p><p>Actions：如果我们请求是异步操作的话，我们会通过Actions，将异步转化为同步，因为Devtools通过Mutations来监听我们对 State 的修改只能是同步操作。如果请求是同步的话，我们可以绕过Actions。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803210504.png" alt=""></p><br><h2 id="Vuex插件的安装"><a href="#Vuex插件的安装" class="headerlink" title="Vuex插件的安装"></a>Vuex插件的安装</h2><p>安装生产时依赖：</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install vuex --save</span><br></pre></td></tr></tbody></table></figure><be><h2 id="Vuex-基本使用"><a href="#Vuex-基本使用" class="headerlink" title="Vuex 基本使用"></a>Vuex 基本使用</h2><p>我们还是实现一下之前简单的案例</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803221526.png" alt=""></p><p>🔷 首先，我们需要在某个地方存放我们的Vuex代码：</p><p>   🔹 这里，我们先创建一个文件夹store，并且在其中创建一个index.js文件</p><p>   🔹 在index.js文件中写入如下代码：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803222114.png" alt=""></p><br><p><strong>✔ 挂载到</strong>Vue实例中</p><p>🔷其次，我们让所有的Vue组件都可以使用这个store对象</p><p>   🔹 来到main.js文件，导入store对象，并且放在new Vue中</p><p>   🔹 这样，在其他Vue组件中，我们就可以通过this.$store的方式，获取到这个store对象了</p><p>挂载到Vue实例中 相当于执行 <code>Vue.prototype.$store = store</code> ，将store对象放置在new Vue对象中，这样可以保证在所有的组件中都可以使用到。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803222301.png" alt=""></p><br><p>✔ 使用Vuex</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/image-20200803222537327.png" alt=""></p><br><p>🔷我们来对使用步骤，做一个简单的小节：</p><p>  🔹 1.提取出一个公共的store对象，用于保存在多个组件中共享的状态。</p><p>  🔹 2.将store对象放置在new Vue对象中，这样可以保证在所有的组件中都可以使用到</p><p>  🔹 3.在其他组件中使用store对象中保存的状态即可</p><p>     通过<code>this.$store.state</code>.属性的方式来访问状态</p><p>     通过<code>this.$store.commit('mutation中方法')</code>来修改状态</p><br><p>🔷注意事项：</p><p>  🔹 我们是通过提交mutation的方式，而非直接改变store.state.count。</p><p>  🔹 这是因为Vuex可以更明确的追踪状态的变化，所以不要直接改变store.state.count的值。</p><br><p>所以 可以通过浏览器插件Devtools来跟踪 state 的状态。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200803223121.png" alt=""></p><br><h2 id="Vuex核心概念"><a href="#Vuex核心概念" class="headerlink" title="Vuex核心概念"></a>Vuex核心概念</h2><br><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>🔷Vuex提出使用单一状态树, 什么是单一状态树呢？</p><p>  🔹 英文名称是Single Source of Truth，也可以翻译成单一数据源。</p><p>🔷但是，它是什么呢？我们来看一个生活中的例子。</p><p>  🔹 OK，我用一个生活中的例子做一个简单的类比。</p><p>  🔹 我们知道，在国内我们有很多的信息需要被记录，比如上学时的个人档案，工作后的社保记录，公积金记录，结婚后的婚姻信息，以及其他相关的户口、医疗、文凭、房产记录等等（还有很多信息）。</p><p>  🔹 这些信息被分散在很多地方进行管理，有一天你需要办某个业务时(比如入户某个城市)，你会发现你需要到各个对应的工作地点去打印、盖章各种资料信息，最后到一个地方提交证明你的信息无误。</p><p>  🔹 这种保存信息的方案，不仅仅低效，而且不方便管理，以及日后的维护也是一个庞大的工作(需要大量的各个部门的人力来维护，当然国家目前已经在完善我们的这个系统了)。</p><br><p>🔷这个和我们在应用开发中比较类似：</p><p>  🔹 如果你的状态信息是保存到多个Store对象中的，那么之后的管理和维护等等都会变得特别困难。</p><p>  🔹 <span style="color:red">所以Vuex也使用了单一状态树来管理应用层级的全部状态。</span></p><p>  🔹 <span style="color:red">单一状态树能够让我们最直接的方式找到某个状态的片段，而且在之后的维护和调试过程中，也可以非常方便的管理和维护。</span></p><br><h3 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h3><p>有时候，我们需要从Stare中获取的一些经过改变的数据，我们就可以使用Getters。这比较类似于<a href="https://aqingya.cn/articl/3a0cc30e.html#%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7-computed" target="_blank" rel="noopener">计算属性</a>。</p><p>举个简单的例子：在State中有一个数组，包含一些学生的基本信息。我们需要拿到age 大于18 的学生的信息，我们就可以使用Getters。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805105113.png" alt=""></p><br><p>使用getters <code>&lt;h2&gt;&lt;/h2&gt;</code></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805105441.png" alt=""></p><p>就获取到了age 大于18 的学生信息。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805105503.png" alt=""></p><hr><p><br>要是放在以前，我们可能会使用computed属性。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805110256.png" alt=""></p><p>但是也有一个缺点，比如我们想要在多个组件中都同样的数据变换，那么我们都在在各种的组件中设置同样的computed，这样很不好。我们就可以使用vuex里的gitters属性。</p><br><hr><br><p>我们在提一个需求：要得到年纪大于18 的学生的人数。我们就可以这样来做。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805111557.png" alt=""></p><p>使用该函数：<code>$store.getters.more18ageLength</code></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805111642.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805111715.png" alt=""></p><br><p>我们再来看一个需求，我们不要把age写死，而是当做参数传递进来。</p><p>首先我们想到 的是直接在moreage中传递参数，但是这样是不行的，我们可以return 一个函数，在这个函数中传入参数，这样我们在使用的时候就可以，<code>$store.getters.moreage(20)</code> 。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805112206.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805112235.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805112425.png" alt=""></p><br><p>总结：</p><p><span style="color:red">🔹 如果我们没有传递参数的时候，我们就可以在getters中直接定义一个函数。</span></p><p><span style="color:red">🔹 如果我们需要使用我们在getters中定义过的属性，我们就可以在定义函数的时候，将getters做为第二个参数传递进去。</span></p><p><span style="color:red">🔹 如果我们需要在函数中传递参数，只能让getters本身返回另一个函数。参数定义在这个函数中，在使用是时候就可以传递参数了。</span></p><br><h3 id="Mutation"><a href="#Mutation" class="headerlink" title="Mutation"></a>Mutation</h3><be><h4 id="Mutation状态更新"><a href="#Mutation状态更新" class="headerlink" title="Mutation状态更新"></a>Mutation状态更新</h4><p>Vuex的store状态的更新唯一方式：提交Mutation</p><p>🔷Mutation主要包括两部分：</p><p>  🔹 字符串的事件类型（type）</p><p>  🔹 一个回调函数（handler）,该回调函数的第一个参数就是<code>state</code>。</p><p>mutation的定义方式：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805123705.png" alt=""></p><p>通过mutation更新:</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805123712.png" alt=""></p><br><h4 id="Mutation传递参数"><a href="#Mutation传递参数" class="headerlink" title="Mutation传递参数"></a>Mutation传递参数</h4><p>在通过mutation更新数据的时候, 有可能我们希望携带一些<strong>额外的参数</strong></p><p>参数被称为是mutation的载荷(Payload)</p><p>比如我们提这样的一个需求：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805125539.png" alt=""></p><p>点击按钮 可以+5 和+10.</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805125706.png" alt=""></p><p>设置鼠标点击事件，并将参数，放到commit 的第二个参数的位置。第一个参数是事件类型（type）</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805130005.png" alt=""></p><p>muation 中的代码：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805130521.png" alt=""></p><hr><p>但是如果参数不止一个 ，这个时候我们就要使用对象的形式来传递 ，也就是payload是一个对象。用的时候在取出需要的信息。</p><p>比如我们添加一个学生的信息。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805132013.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805132245.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805132401.png" alt=""></p><br><h4 id="Mutation-的提交风格"><a href="#Mutation-的提交风格" class="headerlink" title="Mutation 的提交风格"></a>Mutation 的提交风格</h4><p>上面的通过<strong>commit</strong>进行提交是一种普通的方式。</p><p>Vue还提供了另外一种风格, 它是一个包含type属性的对象。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805133804.png" alt=""></p><p>Mutation中的处理方式是将整个commit的对象作为payload使用。</p><p>我们将它打印一下，他就是整个commit的对象</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805133945.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805133923.png" alt=""></p><p>所以我们使用的时候 我们将count取出来 就行了，代码没有改变, 依然如下:</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805134049.png" alt=""></p><br><h4 id="Mutation响应式规则"><a href="#Mutation响应式规则" class="headerlink" title="Mutation响应式规则"></a>Mutation响应式规则</h4><p>Vuex的store中的state是响应式的, 当state中的数据发生改变时, Vue组件会自动更新。</p><p>这就要求我们必须遵守一些Vuex对应的规则:</p><p>  <span style="color:red">1、提前在store中初始化好所需的属性.</span></p><p>  2、当给state中的对象添加新属性时, 使用下面的方式:</p><p>    方式一: 使用Vue.set(obj, ‘newProp’, 123)</p><p>    方式二: 用新对象给旧对象重新赋值</p><p>我们来看一个例子：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805143849.png" alt=""></p><p>那我们来对info添加一些属性。比如heigth。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805145123.png" alt=""></p><p>当我们点击按钮的时候，虽然可以添加到state的info中，但是页面没有发生变化，这样添加无法做到响应式。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805145238.png" alt=""></p><p>我们可以使用<code>Vue.set(obj, 'newProp', 123)</code> 的方式。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805145756.png" alt=""></p><p>这样我们当点击按钮的时候，不仅state中的info会发生改变，页面中也会发生响应式的变化。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805150117.png" alt=""></p><br><p>这是添加属性，当然删除属性也是一样的。</p><p>我们要做到响应式 还是要使用<code>Vue.delete(state.info,"age")</code>。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805150834.png" alt=""></p><br><h4 id="Mutation常量类型"><a href="#Mutation常量类型" class="headerlink" title="Mutation常量类型"></a>Mutation常量类型</h4><p>🔷 我们来考虑下面的问题:</p><p>  🔹 在mutation中, 我们定义了很多事件类型(也就是其中的方法名称).</p><p>  🔹 当我们的项目增大时, Vuex管理的状态越来越多, 需要更新状态的情况越来越多, 那么意味着Mutation中的方法越来越多.</p><p>  🔹 方法过多, 使用者需要花费大量的经历去记住这些方法, 甚至是多个文件间来回切换, 查看方法名称, 甚至如果不是复制的时候, 可能还会出现写错的情况.</p><br><p>🔷 如何避免上述的问题呢?</p><p>  🔹 在各种Flux实现中, 一种很常见的方案就是使用<strong>常量</strong>替代Mutation事件的类型</p><p>  🔹 我们可以将这些常量放在一个单独的文件中, 方便管理以及让整个app所有的事件类型一目了然.</p><br><p>🔷 具体怎么做呢?</p><p>  🔹 我们可以创建一个文件: mutation-types.js, 并且在其中定义我们的常量.</p><p>  🔹 定义常量时, 我们可以使用ES2015中的风格, 使用一个常量来作为函数的名称.</p><br><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805154317.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805154343.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805154401.png" alt=""></p><br><h3 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h3><h4 id="Mutation同步函数"><a href="#Mutation同步函数" class="headerlink" title="Mutation同步函数"></a>Mutation同步函数</h4><p>🔷通常情况下, Vuex要求我们Mutation中的方法必须是同步方法.</p><p>  🔹 主要的原因是当我们使用devtools时, 可以devtools可以帮助我们捕捉mutation的快照.</p><p>  🔹 但是如果是异步操作, 那么devtools将不能很好的追踪这个操作什么时候会被完成.</p><p>举个简单的例子，我们这还是使用setTimeout() 来模拟异步请求。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805160041.png" alt=""></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805160026.png" alt=""></p><p>当我们点击按钮的时候，3秒时候的确页面发生了修改，但是我们DevTools工具的中的name并没有修改。这是因为我们在Mutation中使用了异步函数。</p><p>这样的话，当我们去用Devtools改bug的时候，就会很蒙，不知道到底哪一个是对的。</p><p>这个时候我们就要使用我们的Action</p><br><h4 id="Action基本定义"><a href="#Action基本定义" class="headerlink" title="Action基本定义"></a>Action基本定义</h4><p>🔷我们强调, 不要再Mutation中进行异步操作.</p><p>  🔹 但是某些情况, 我们确实希望在Vuex中进行一些异步操作, 比如网络请求, 必然是异步的. 这个时候怎么处理呢?</p><p>  🔹 Action类似于Mutation, 但是是用来代替Mutation进行异步操作的.</p><p>Action的基本使用代码如下:</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805165816.png" alt=""></p><p><br>当我们提交的时候，这里就不用commit了，就要使用 dispatch。dipatch用于提交Actions，commit用于提交Mutation。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805171504.png" alt=""></p><br><h4 id="Action参数的传递"><a href="#Action参数的传递" class="headerlink" title="Action参数的传递"></a>Action参数的传递</h4><p>当然我们也可以携带一些参数，也可以添加一个回调函数，告诉外界我们的异步操作已经完成了。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805171043.png" alt=""></p><br><h4 id="Action返回的Promise"><a href="#Action返回的Promise" class="headerlink" title="Action返回的Promise"></a>Action返回的Promise</h4><p>上面回调操作是可以的，但是不够优雅。我们可以使用Promise。Promise经常用于异步操作.</p><p>在Action中, 我们可以将异步操作放在一个Promise中, 并且在成功或者失败后, 调用对应的resolve或reject。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805174501.png" alt=""></p><p>return 一个new Promise 对象的时候。相当于把我们new 的Promise对象，替换了 <code>this.$store.dispatch("amodify", "我是modity的参数")</code> ，在它后面调用then() 方法。就可以继续使用我们的promise了。</p><br><h3 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h3><br><h4 id="认识Module"><a href="#认识Module" class="headerlink" title="认识Module"></a>认识Module</h4><p>🔷Module是模块的意思, 为什么在Vuex中我们要使用模块呢?</p><p>  🔹 Vue使用单一状态树,那么也意味着很多状态都会交给Vuex来管理.</p><p>  🔹 当应用变得非常复杂时,store对象就有可能变得相当臃肿.</p><p>  🔹 为了解决这个问题, Vuex允许我们将store分割成模块(Module), 而每个模块拥有自己的state、mutations、actions、getters等</p><br><p>我们按照什么样的方式来组织模块呢?</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805182102.png" alt=""></p><br><h4 id="Moudle局部状态"><a href="#Moudle局部状态" class="headerlink" title="Moudle局部状态"></a>Moudle局部状态</h4><p>上面的代码中, 我们已经有了整体的组织结构, 下面我们来看看具体的局部模块中的代码如何书写.</p><br><p>✔ 模块中的 state————————————————————————————————–</p><br><p>模块中的state是这样定义的：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805191650.png" alt=""></p><p>那我们怎样使用呐？<code>$store.state.a.name</code></p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805191738.png" alt=""></p><br><p>为什么要这么使用<code>$store.state.a.name</code> 呐，这是因为，最终模块a会放在 store中的state中去。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805192023.png" alt=""></p><br><p>✔ 模块中的 Mutation————————————————————————————————–</p><br><p>定义和之前一样：</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805194232.png" alt=""></p><p>在使用的时候，和之前使用的一样，直接commit 就可以了。<code>this.$store.commit('updateName', "灰太狼")</code></p><br><p>✔ 模块中的 Getters————————————————————————————————–</p><br><p>基本使用 和之前的一样。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805195748.png" alt=""></p><br><p>如果我们想获取到 store （大模块）中的state的数据的话，我们可以这样使用。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805201122.png" alt=""></p><p>在模块中，getters的函数可以有第三个参数，rootState 。它就代表了大模块中的state。</p><br><p>✔ 模块中的 Action————————————————————————————————–</p><br><p>actions的写法呢? 接收一个context参数对象</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805204221.png" alt=""></p><p>actions 中的 context.commit 不和之前的一样，它仅仅提交的是自己模块中的 mutations。</p><p>我们来看一下 模块a中的context到底是什么。我们来打印一下。</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805205448.png" alt=""></p><p>所以，<span style="color:red">局部状态通过 context.state 暴露出来，根节点状态则为 context.rootState，如果getters中也需要使用全局的状态, 可以接受更多的参数。</span></p><br><h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a><strong>项目结构</strong></h2><p>当我们的Vuex帮助我们管理过多的内容时, 好的项目结构可以让我们的代码更加清晰.</p><p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/20200805210644.png" alt=""></p><p><br><br><br><br></p></be></be><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1362,10 +963,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WebPack5</a>
               </li>
              
@@ -1383,6 +980,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue组件化开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1418,10 +1019,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
               </li>
              
@@ -1435,6 +1032,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频剪辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1466,11 +1067,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
               </li>
              
               <li class="article-tag-list-item">

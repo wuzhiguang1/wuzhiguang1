@@ -125,45 +125,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <!-- 滚动字幕》-->
 <div id="binft"></div>
   <script>
-    var binft = function (r) {
-      function t() {
-        return b[Math.floor(Math.random() * b.length)]
-      }  
-      function e() {
-        return String.fromCharCode(94 * Math.random() + 33)
-      }
-      function n(r) {
-        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-          var l = document.createElement("span");
-          l.textContent = e(), l.style.color = t(), n.appendChild(l)
-        }
-        return n
-      }
-      function i() {
-        var t = o[c.skillI];
-        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
-      }
-      var l = "",
-      o = ["青青陵上柏，磊磊涧中石。", "人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。", "驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function (r) {
-      return r + ""
-      }),
-      a = 2,
-      g = 1,
-      s = 5,
-      d = 75,
-      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
-      c = {
-        text: "",
-        prefixP: -s,
-        skillI: 0,
-        skillP: 0,
-        direction: "forward",
-        delay: a,
-        step: g
-      };
-      i()
-      };
-      binft(document.getElementById('binft'));
+   var binft=function(t){var e="",r=["青青陵上柏，磊磊涧中石。","人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。","驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function(t){return t+""}),n=2,i=1,l=5,a=75,g=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],o={text:"",prefixP:-l,skillI:0,skillP:0,direction:"forward",delay:n,step:i};!function b(){var d=r[o.skillI];o.step?o.step--:(o.step=i,o.prefixP<e.length?(o.prefixP>=0&&(o.text+=e[o.prefixP]),o.prefixP++):"forward"===o.direction?o.skillP<d.length?(o.text+=d[o.skillP],o.skillP++):o.delay?o.delay--:(o.direction="backward",o.delay=n):o.skillP>0?(o.text=o.text.slice(0,-1),o.skillP--):(o.skillI=(o.skillI+1)%r.length,o.direction="forward")),t.textContent=o.text,t.appendChild(function(t){for(var e=document.createDocumentFragment(),r=0;t>r;r++){var n=document.createElement("span");n.textContent=String.fromCharCode(94*Math.random()+33),n.style.color=g[Math.floor(Math.random()*g.length)],e.appendChild(n)}return e}(o.prefixP<e.length?Math.min(l,l+o.prefixP):Math.min(l,d.length-o.skillP))),setTimeout(b,a)}()};binft(document.getElementById("binft"));
   </script>
 <!-- 滚动字幕》-->
 
@@ -218,7 +180,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     </nav>
                     <nav>
                         <a>总文章数 97</a>
-                        <a>总字数 <span class="post-count">169.6k</span></a>
+                        <a>总字数 <span class="post-count">168.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -447,47 +409,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/f93fb2ef5038487393b59cd188d34638.jpg" alt=""></p>
-<a id="more"></a>
-
-<h2 id="详谈js中toString-和valueOf"><a href="#详谈js中toString-和valueOf" class="headerlink" title="详谈js中toString()和valueOf()"></a>详谈js中toString()和valueOf()</h2><p>他们主要用于数据转换，并且所有对象都继承了这两个方法：</p>
-<p><em>第一个是toString(),它的作用是返回一个反映这个对象的字符串<br>第二个是valueOf(),它的作用是返回它相应的原始值</em><br>什么是原始值：</p>
-<blockquote>
-<p>原始值：不可变更的值，包括undefined、null、布尔值、数字、和字符串。 看下面这张图，列出了一些基本的类型转换。</p>
-</blockquote>
-<p><img src="https://img-blog.csdnimg.cn/20200407222422403.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>==1、toString()==<br><img src="https://img-blog.csdnimg.cn/20200407221957379.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<blockquote>
-<p>很多类定义了更多特定版本的toString()方法。例如，数组类(Array class)的toString()方法将每个数组元素转换为-一个字符串，并在元素之间添加逗号后合并成结果字符串。函数类(Function class) 的toString()方法返回这个函数的实现定义的表示方式。实际上，这里的实现方式是通常是将用户定义的函数转换为JavaScript源代码字符串。日期类(Date class)定义的toString()方法返回了一个可读的日期和时间字符串。RegExp类 定义的toString()方法将RegExp对象转换为表示正则表达式直接量的字符串。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].toString());             <span class="comment">//  1,2,3</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{f(x);}).toString());  <span class="comment">//  function(x) {f(x);}                      </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/\d+/g</span>.toString());                <span class="comment">//  /\d+/g</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">1</span>).toString());  <span class="comment">//  Sat Feb 01 2020 00:00:00 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>==2、valueof()==</p>
-<blockquote>
-<p>另一个转换对象的函数是value0f()。这个方法的任务并未详细定义:如果存在任意原始值，它就默认将对象转换为表示它的原始值。对象是复合值，而且大多数对象无法真正表示为一个原始值，因此默认的value0f()方法简单地返回对象本身，而不是返回一个原始值。数组、函数和正则表达式简单地继承了这个默认方法，调用这些类型的实例的value0f()方法只是简单返回对象本身。日期类定义的valueOf()方法返回它的一个内部表示：2020年1月1日以来的毫秒数。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(t.valueOf());           <span class="comment">//1580486400000</span></span><br></pre></td></tr></tbody></table></figure>
-
-<hr>
-<p>总的来说javaScript中对象到字符串的转换经过如下的这些步骤：</p>
-<ol>
-<li>如果对象具有toString()方法，则调用这个方法。如果它返回一个原始值，JavaScript将这个值转换为字符串(如果本身不是字符串的话)，并返回这个字符串结果。需要注意的是，原始值到字符串的转换在表3-2中已经有了详尽的说明。</li>
-<li>如果对象没有toString()方法，或者这个方法并不返回一个原始值，那么JavaScript会调用value0f()方法。如果存在这个方法，则JavaScript调用它。 如果返回值是原始值，JavaScript将这 个值转换为字符串(如果本身不是字符串的话)，并返回这个字符串结果。</li>
-<li>否则，JavaScript无法 从toString()或value0f()获得一一个 原始值，因此这时它将抛<br>出一个类型错误异常。</li>
-</ol>
-<p>从对象到数字的转换过程中，JavaScript做的相同的事情，只是会先使用valueOf()方法：</p>
-<ol>
-<li>如果对象具有value0f()方法，后者返回-一个原始值，则JavaScript将这 个原始值转换为数字( 如果需要的话)并返回这个数字。</li>
-<li>否则，如果对象具有toString()方法，后者返回一个原始值，JavaScript将其转换并返回。</li>
-<li>否则，JavaScript拋 出一个类型错误异常。</li>
-</ol>
-<hr>
-<p> 这就很好解释了下面的一个问题：为什么空数组会被转换为数字0，为什么具有单个元素的数组同样会转换成一个数字。</p>
-<blockquote>
-<p>对象转换为数字的细节解释了为什么空数组会被转换为数字0以及为什么具有单个元素的数组同样会转换成一个数字。数组继承了默认的value0f()方法，这个方法返回一个对象而不是一一个原始值，因此，数组到数字的转换则调用toString()方法。空数组转换成为空字符串，空字符串转换成为数字0。含有一个元素的数组转换为字符串的结果和这个元素转换字符串的结果一样。如果数组只包含-一个数字元素，这个数字转换为字符串，再转换回数字。</p>
-</blockquote>
-<p><em>愿你的坚持都有收获！！！</em></p>
-<script>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/f93fb2ef5038487393b59cd188d34638.jpg" alt=""></p><a id="more"></a><h2 id="详谈js中toString-和valueOf"><a href="#详谈js中toString-和valueOf" class="headerlink" title="详谈js中toString()和valueOf()"></a>详谈js中toString()和valueOf()</h2><p>他们主要用于数据转换，并且所有对象都继承了这两个方法：</p><p><em>第一个是toString(),它的作用是返回一个反映这个对象的字符串<br>第二个是valueOf(),它的作用是返回它相应的原始值</em><br>什么是原始值：</p><blockquote><p>原始值：不可变更的值，包括undefined、null、布尔值、数字、和字符串。 看下面这张图，列出了一些基本的类型转换。</p></blockquote><p><img src="https://img-blog.csdnimg.cn/20200407222422403.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><p>==1、toString()==<br><img src="https://img-blog.csdnimg.cn/20200407221957379.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p><blockquote><p>很多类定义了更多特定版本的toString()方法。例如，数组类(Array class)的toString()方法将每个数组元素转换为-一个字符串，并在元素之间添加逗号后合并成结果字符串。函数类(Function class) 的toString()方法返回这个函数的实现定义的表示方式。实际上，这里的实现方式是通常是将用户定义的函数转换为JavaScript源代码字符串。日期类(Date class)定义的toString()方法返回了一个可读的日期和时间字符串。RegExp类 定义的toString()方法将RegExp对象转换为表示正则表达式直接量的字符串。</p></blockquote><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].toString());             <span class="comment">//  1,2,3</span></span><br><span class="line"><span class="built_in">console</span>.log((<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>{f(x);}).toString());  <span class="comment">//  function(x) {f(x);}                      </span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="regexp">/\d+/g</span>.toString());                <span class="comment">//  /\d+/g</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">1</span>).toString());  <span class="comment">//  Sat Feb 01 2020 00:00:00 GMT+0800 (中国标准时间)</span></span><br></pre></td></tr></tbody></table></figure><p>==2、valueof()==</p><blockquote><p>另一个转换对象的函数是value0f()。这个方法的任务并未详细定义:如果存在任意原始值，它就默认将对象转换为表示它的原始值。对象是复合值，而且大多数对象无法真正表示为一个原始值，因此默认的value0f()方法简单地返回对象本身，而不是返回一个原始值。数组、函数和正则表达式简单地继承了这个默认方法，调用这些类型的实例的value0f()方法只是简单返回对象本身。日期类定义的valueOf()方法返回它的一个内部表示：2020年1月1日以来的毫秒数。</p></blockquote><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(t.valueOf());           <span class="comment">//1580486400000</span></span><br></pre></td></tr></tbody></table></figure><hr><p>总的来说javaScript中对象到字符串的转换经过如下的这些步骤：</p><ol><li>如果对象具有toString()方法，则调用这个方法。如果它返回一个原始值，JavaScript将这个值转换为字符串(如果本身不是字符串的话)，并返回这个字符串结果。需要注意的是，原始值到字符串的转换在表3-2中已经有了详尽的说明。</li><li>如果对象没有toString()方法，或者这个方法并不返回一个原始值，那么JavaScript会调用value0f()方法。如果存在这个方法，则JavaScript调用它。 如果返回值是原始值，JavaScript将这 个值转换为字符串(如果本身不是字符串的话)，并返回这个字符串结果。</li><li>否则，JavaScript无法 从toString()或value0f()获得一一个 原始值，因此这时它将抛<br>出一个类型错误异常。</li></ol><p>从对象到数字的转换过程中，JavaScript做的相同的事情，只是会先使用valueOf()方法：</p><ol><li>如果对象具有value0f()方法，后者返回-一个原始值，则JavaScript将这 个原始值转换为数字( 如果需要的话)并返回这个数字。</li><li>否则，如果对象具有toString()方法，后者返回一个原始值，JavaScript将其转换并返回。</li><li>否则，JavaScript拋 出一个类型错误异常。</li></ol><hr><p>这就很好解释了下面的一个问题：为什么空数组会被转换为数字0，为什么具有单个元素的数组同样会转换成一个数字。</p><blockquote><p>对象转换为数字的细节解释了为什么空数组会被转换为数字0以及为什么具有单个元素的数组同样会转换成一个数字。数组继承了默认的value0f()方法，这个方法返回一个对象而不是一一个原始值，因此，数组到数字的转换则调用toString()方法。空数组转换成为空字符串，空字符串转换成为数字0。含有一个元素的数组转换为字符串的结果和这个元素转换字符串的结果一样。如果数组只包含-一个数字元素，这个数字转换为字符串，再转换回数字。</p></blockquote><p><em>愿你的坚持都有收获！！！</em></p><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -952,10 +874,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WebPack5</a>
               </li>
              
@@ -973,6 +891,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue组件化开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1008,10 +930,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
               </li>
              
@@ -1025,6 +943,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频剪辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1056,11 +978,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
               </li>
              
               <li class="article-tag-list-item">

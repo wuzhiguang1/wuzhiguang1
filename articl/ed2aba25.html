@@ -129,45 +129,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <!-- 滚动字幕》-->
 <div id="binft"></div>
   <script>
-    var binft = function (r) {
-      function t() {
-        return b[Math.floor(Math.random() * b.length)]
-      }  
-      function e() {
-        return String.fromCharCode(94 * Math.random() + 33)
-      }
-      function n(r) {
-        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-          var l = document.createElement("span");
-          l.textContent = e(), l.style.color = t(), n.appendChild(l)
-        }
-        return n
-      }
-      function i() {
-        var t = o[c.skillI];
-        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
-      }
-      var l = "",
-      o = ["青青陵上柏，磊磊涧中石。", "人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。", "驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function (r) {
-      return r + ""
-      }),
-      a = 2,
-      g = 1,
-      s = 5,
-      d = 75,
-      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
-      c = {
-        text: "",
-        prefixP: -s,
-        skillI: 0,
-        skillP: 0,
-        direction: "forward",
-        delay: a,
-        step: g
-      };
-      i()
-      };
-      binft(document.getElementById('binft'));
+   var binft=function(t){var e="",r=["青青陵上柏，磊磊涧中石。","人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。","驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function(t){return t+""}),n=2,i=1,l=5,a=75,g=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],o={text:"",prefixP:-l,skillI:0,skillP:0,direction:"forward",delay:n,step:i};!function b(){var d=r[o.skillI];o.step?o.step--:(o.step=i,o.prefixP<e.length?(o.prefixP>=0&&(o.text+=e[o.prefixP]),o.prefixP++):"forward"===o.direction?o.skillP<d.length?(o.text+=d[o.skillP],o.skillP++):o.delay?o.delay--:(o.direction="backward",o.delay=n):o.skillP>0?(o.text=o.text.slice(0,-1),o.skillP--):(o.skillI=(o.skillI+1)%r.length,o.direction="forward")),t.textContent=o.text,t.appendChild(function(t){for(var e=document.createDocumentFragment(),r=0;t>r;r++){var n=document.createElement("span");n.textContent=String.fromCharCode(94*Math.random()+33),n.style.color=g[Math.floor(Math.random()*g.length)],e.appendChild(n)}return e}(o.prefixP<e.length?Math.min(l,l+o.prefixP):Math.min(l,d.length-o.skillP))),setTimeout(b,a)}()};binft(document.getElementById("binft"));
   </script>
 <!-- 滚动字幕》-->
 
@@ -222,7 +184,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     </nav>
                     <nav>
                         <a>总文章数 97</a>
-                        <a>总字数 <span class="post-count">169.6k</span></a>
+                        <a>总字数 <span class="post-count">168.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -451,38 +413,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/75d8967b261c491bae60a5efba8c52e1.jpg" alt=""></p>
-<a id="more"></a>
-
-<p>&nbsp;&nbsp;&nbsp;&nbsp;基本类型：String、Number、Boolean、Null、Undefined<br>&nbsp;&nbsp;&nbsp;&nbsp;应用数据类型：Object<br>他们有什么区别呢？<br><br><br>&nbsp;&nbsp;我们先看一个例子：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a++;                         修改a的值</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"a="</span> + a);      <span class="comment">//a=11</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"b="</span> + b);      <span class="comment">//b=10</span></span><br></pre></td></tr></tbody></table></figure>
-<p>&nbsp;&nbsp;我们发现a的值发生了改变，但是b的值并没有发生改变。这是就说明a和b是完全独立的，一个值的改变不会影响其他值。<br><br><br>&nbsp;&nbsp;我们再看一个例子：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">var</span> obj1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">      obj1.name = <span class="string">"阿清"</span>;</span><br><span class="line">      <span class="keyword">var</span> obj2 = obj1;</span><br><span class="line">      <span class="built_in">console</span>.log(obj1.name);		<span class="comment">// 阿清</span></span><br><span class="line">      <span class="built_in">console</span>.log(obj2.name); 	<span class="comment">// 阿清</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//修改obj1对象中name中的值</span></span><br><span class="line">	obj1.name = <span class="string">"大大怪将军"</span></span><br><span class="line">      <span class="built_in">console</span>.log(obj1.name); 	<span class="comment">// 大大怪将军</span></span><br><span class="line">      <span class="built_in">console</span>.log(obj2.name); 	<span class="comment">// 大大怪将军</span></span><br></pre></td></tr></tbody></table></figure>
-<p>&nbsp;&nbsp;修改之前输出了相同的结果，但是修改之后还是输出相同的结果，我们只是修改了obj1中name的值，并没有修改obj2中name的值，此时输出还是相同的。这是为什么呢？<br>&nbsp;&nbsp;&nbsp;&nbsp;这就是基本数据类型和引用数据类型的区别。为了方便说明，我们画一个图。</p>
-<p>&nbsp;&nbsp;JS中的变量和值都是保存到内存中存储。我们可大致理解为 把内存分为栈内存和堆内存。</p>
-<ol>
-<li>基本数据类型的值直接在栈内存中存储</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20200411213852525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;图中可以看出我们声明了两个变量，将a的值复制给b，值都是123，但是a和b的123他们没有关系，互不干扰，是相互独立的。<br><img src="https://img-blog.csdnimg.cn/20200411214348602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;当我们进行a++的时候，a的值变为124，此时b的值并没有受到影响。只要不动b，a不管怎么变，都不会影响到b。<br>&nbsp;&nbsp;由此可见，基本数据类型的值直接在栈内存中存储，值与值之间都是独立存在的，修改变量不会影响到其他的变量。<br><br></p>
-<ol start="2">
-<li>对象是保存到堆内存中的。<br><img src="https://img-blog.csdnimg.cn/2020041121541617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;对象是保存到堆内存中的，每创建一个新的对象，就会在堆内存中开辟一个新的空间。而变量保存的是对象的内存地址（对象的引用），他们两个保存的是同一个地址，指向相同的内存。</li>
-</ol>
-<p><img src="https://img-blog.csdnimg.cn/20200411215718841.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>&nbsp;&nbsp;当改变obj中name的值时，因为他们是指向相同的地址，所以obj1中的name也会跟着改变。<br>&nbsp;&nbsp;这就说明了，如果两个变量保存的是同一个对象的引用，当一个变量通过一个变量修改属性时，另一个也会受到影响。<br><br></p>
-<p>我再在看一种情况：<img src="https://img-blog.csdnimg.cn/20200411220621872.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;我们将obj2的值修改为null，也就是我们将变量obj2和内存的联系给断开了，这样并不会影响受到obj1. </p>
-<br>
-&nbsp;&nbsp;接下来再看：
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> d = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c == d);    <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure>
-<p>&nbsp;&nbsp;当比较两个基本数据类型的值时，就是比较他们的值。毫无疑问，这两个是相等了，结果为true。</p>
-<br>
-
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj3 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> obj4 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj3.name = <span class="string">"shs"</span></span><br><span class="line">obj4.name = <span class="string">"shs"</span></span><br><span class="line"><span class="built_in">console</span>.log(obj3);				 <span class="comment">//{name:"shs"}</span></span><br><span class="line"><span class="built_in">console</span>.log(obj4);   			 <span class="comment">//{name:"shs"}</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj3 == obj4);       <span class="comment">//false</span></span><br></pre></td></tr></tbody></table></figure>
-<p>&nbsp;&nbsp;当我们声明两个变量的时候，name值一样。输出都为{name:”shs”}，但是当他们进行比较的时候，结果就是false。<br>&nbsp;&nbsp;例如：这就像一对双胞胎，长的一模一样，但是还是两个人，他们是不相同。<br>&nbsp;&nbsp;我们画图来解释一下。<br><img src="https://img-blog.csdnimg.cn/20200411222754350.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;当看见new时，就是在堆内存里开辟一个新的空间。<br>&nbsp;&nbsp;比较两个引用数据类型时，它就是比较对象的内存地址，，如果两个对象是一模一样的，但是地址不同，它会返回false。<br>&nbsp;&nbsp;例如:人的身份证，就算两个人再像，名字一样，一看身份证不一样，你们其他的就不用看了。</p>
-<br>
-&nbsp;&nbsp;总结一下，基本数据类型和引用数据类型根本区别：基本数据类型保存的是值，而引用数据类型保存的是地址（引用）。
-
-<p>&nbsp;&nbsp;我们一定要捋清楚他们的概念。好好消化一下吧。<br><br><br>&nbsp;&nbsp;愿你的坚持终有收获。</p>
-<script>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/75d8967b261c491bae60a5efba8c52e1.jpg" alt=""></p><a id="more"></a><p>&nbsp;&nbsp;&nbsp;&nbsp;基本类型：String、Number、Boolean、Null、Undefined<br>&nbsp;&nbsp;&nbsp;&nbsp;应用数据类型：Object<br>他们有什么区别呢？<br><br><br>&nbsp;&nbsp;我们先看一个例子：</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a++;                         修改a的值</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"a="</span> + a);      <span class="comment">//a=11</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"b="</span> + b);      <span class="comment">//b=10</span></span><br></pre></td></tr></tbody></table></figure><p>&nbsp;&nbsp;我们发现a的值发生了改变，但是b的值并没有发生改变。这是就说明a和b是完全独立的，一个值的改变不会影响其他值。<br><br><br>&nbsp;&nbsp;我们再看一个例子：</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">var</span> obj1 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">      obj1.name = <span class="string">"阿清"</span>;</span><br><span class="line">      <span class="keyword">var</span> obj2 = obj1;</span><br><span class="line">      <span class="built_in">console</span>.log(obj1.name);		<span class="comment">// 阿清</span></span><br><span class="line">      <span class="built_in">console</span>.log(obj2.name); 	<span class="comment">// 阿清</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//修改obj1对象中name中的值</span></span><br><span class="line">	obj1.name = <span class="string">"大大怪将军"</span></span><br><span class="line">      <span class="built_in">console</span>.log(obj1.name); 	<span class="comment">// 大大怪将军</span></span><br><span class="line">      <span class="built_in">console</span>.log(obj2.name); 	<span class="comment">// 大大怪将军</span></span><br></pre></td></tr></tbody></table></figure><p>&nbsp;&nbsp;修改之前输出了相同的结果，但是修改之后还是输出相同的结果，我们只是修改了obj1中name的值，并没有修改obj2中name的值，此时输出还是相同的。这是为什么呢？<br>&nbsp;&nbsp;&nbsp;&nbsp;这就是基本数据类型和引用数据类型的区别。为了方便说明，我们画一个图。</p><p>&nbsp;&nbsp;JS中的变量和值都是保存到内存中存储。我们可大致理解为 把内存分为栈内存和堆内存。</p><ol><li>基本数据类型的值直接在栈内存中存储</li></ol><p><img src="https://img-blog.csdnimg.cn/20200411213852525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;图中可以看出我们声明了两个变量，将a的值复制给b，值都是123，但是a和b的123他们没有关系，互不干扰，是相互独立的。<br><img src="https://img-blog.csdnimg.cn/20200411214348602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;当我们进行a++的时候，a的值变为124，此时b的值并没有受到影响。只要不动b，a不管怎么变，都不会影响到b。<br>&nbsp;&nbsp;由此可见，基本数据类型的值直接在栈内存中存储，值与值之间都是独立存在的，修改变量不会影响到其他的变量。<br><br></p><ol start="2"><li>对象是保存到堆内存中的。<br><img src="https://img-blog.csdnimg.cn/2020041121541617.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;对象是保存到堆内存中的，每创建一个新的对象，就会在堆内存中开辟一个新的空间。而变量保存的是对象的内存地址（对象的引用），他们两个保存的是同一个地址，指向相同的内存。</li></ol><p><img src="https://img-blog.csdnimg.cn/20200411215718841.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>&nbsp;&nbsp;当改变obj中name的值时，因为他们是指向相同的地址，所以obj1中的name也会跟着改变。<br>&nbsp;&nbsp;这就说明了，如果两个变量保存的是同一个对象的引用，当一个变量通过一个变量修改属性时，另一个也会受到影响。<br><br></p><p>我再在看一种情况：<img src="https://img-blog.csdnimg.cn/20200411220621872.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;我们将obj2的值修改为null，也就是我们将变量obj2和内存的联系给断开了，这样并不会影响受到obj1.</p><br>&nbsp;&nbsp;接下来再看：<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> d = <span class="number">10</span>;</span><br><span class="line"><span class="built_in">console</span>.log(c == d);    <span class="comment">// true</span></span><br></pre></td></tr></tbody></table></figure><p>&nbsp;&nbsp;当比较两个基本数据类型的值时，就是比较他们的值。毫无疑问，这两个是相等了，结果为true。</p><br><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj3 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="keyword">var</span> obj4 = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">obj3.name = <span class="string">"shs"</span></span><br><span class="line">obj4.name = <span class="string">"shs"</span></span><br><span class="line"><span class="built_in">console</span>.log(obj3);				 <span class="comment">//{name:"shs"}</span></span><br><span class="line"><span class="built_in">console</span>.log(obj4);   			 <span class="comment">//{name:"shs"}</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj3 == obj4);       <span class="comment">//false</span></span><br></pre></td></tr></tbody></table></figure><p>&nbsp;&nbsp;当我们声明两个变量的时候，name值一样。输出都为{name:”shs”}，但是当他们进行比较的时候，结果就是false。<br>&nbsp;&nbsp;例如：这就像一对双胞胎，长的一模一样，但是还是两个人，他们是不相同。<br>&nbsp;&nbsp;我们画图来解释一下。<br><img src="https://img-blog.csdnimg.cn/20200411222754350.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3d6ZzA4MTc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述">&nbsp;&nbsp;当看见new时，就是在堆内存里开辟一个新的空间。<br>&nbsp;&nbsp;比较两个引用数据类型时，它就是比较对象的内存地址，，如果两个对象是一模一样的，但是地址不同，它会返回false。<br>&nbsp;&nbsp;例如:人的身份证，就算两个人再像，名字一样，一看身份证不一样，你们其他的就不用看了。</p><br>&nbsp;&nbsp;总结一下，基本数据类型和引用数据类型根本区别：基本数据类型保存的是值，而引用数据类型保存的是地址（引用）。<p>&nbsp;&nbsp;我们一定要捋清楚他们的概念。好好消化一下吧。<br><br><br>&nbsp;&nbsp;愿你的坚持终有收获。</p><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -947,10 +878,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WebPack5</a>
               </li>
              
@@ -968,6 +895,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue组件化开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1003,10 +934,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
               </li>
              
@@ -1020,6 +947,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频剪辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1051,11 +982,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -123,45 +123,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
 <!-- 滚动字幕》-->
 <div id="binft"></div>
   <script>
-    var binft = function (r) {
-      function t() {
-        return b[Math.floor(Math.random() * b.length)]
-      }  
-      function e() {
-        return String.fromCharCode(94 * Math.random() + 33)
-      }
-      function n(r) {
-        for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-          var l = document.createElement("span");
-          l.textContent = e(), l.style.color = t(), n.appendChild(l)
-        }
-        return n
-      }
-      function i() {
-        var t = o[c.skillI];
-        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : "forward" === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = "backward", c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = "forward")), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
-      }
-      var l = "",
-      o = ["青青陵上柏，磊磊涧中石。", "人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。", "驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function (r) {
-      return r + ""
-      }),
-      a = 2,
-      g = 1,
-      s = 5,
-      d = 75,
-      b = ["rgb(110,64,170)", "rgb(150,61,179)", "rgb(191,60,175)", "rgb(228,65,157)", "rgb(254,75,131)", "rgb(255,94,99)", "rgb(255,120,71)", "rgb(251,150,51)", "rgb(226,183,47)", "rgb(198,214,60)", "rgb(175,240,91)", "rgb(127,246,88)", "rgb(82,246,103)", "rgb(48,239,130)", "rgb(29,223,163)", "rgb(26,199,194)", "rgb(35,171,216)", "rgb(54,140,225)", "rgb(76,110,219)", "rgb(96,84,200)"],
-      c = {
-        text: "",
-        prefixP: -s,
-        skillI: 0,
-        skillP: 0,
-        direction: "forward",
-        delay: a,
-        step: g
-      };
-      i()
-      };
-      binft(document.getElementById('binft'));
+   var binft=function(t){var e="",r=["青青陵上柏，磊磊涧中石。","人生天地间，忽如远行客。","斗酒相娱乐，聊厚不为薄。","驱车策驽马，游戏宛与洛。","洛中何郁郁，冠带自相索。","长衢罗夹巷，王侯多第宅。","两宫遥相望，双阙百余尺。","极宴娱心意，戚戚何所迫？"].map(function(t){return t+""}),n=2,i=1,l=5,a=75,g=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],o={text:"",prefixP:-l,skillI:0,skillP:0,direction:"forward",delay:n,step:i};!function b(){var d=r[o.skillI];o.step?o.step--:(o.step=i,o.prefixP<e.length?(o.prefixP>=0&&(o.text+=e[o.prefixP]),o.prefixP++):"forward"===o.direction?o.skillP<d.length?(o.text+=d[o.skillP],o.skillP++):o.delay?o.delay--:(o.direction="backward",o.delay=n):o.skillP>0?(o.text=o.text.slice(0,-1),o.skillP--):(o.skillI=(o.skillI+1)%r.length,o.direction="forward")),t.textContent=o.text,t.appendChild(function(t){for(var e=document.createDocumentFragment(),r=0;t>r;r++){var n=document.createElement("span");n.textContent=String.fromCharCode(94*Math.random()+33),n.style.color=g[Math.floor(Math.random()*g.length)],e.appendChild(n)}return e}(o.prefixP<e.length?Math.min(l,l+o.prefixP):Math.min(l,d.length-o.skillP))),setTimeout(b,a)}()};binft(document.getElementById("binft"));
   </script>
 <!-- 滚动字幕》-->
 
@@ -216,7 +178,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     </nav>
                     <nav>
                         <a>总文章数 97</a>
-                        <a>总字数 <span class="post-count">169.6k</span></a>
+                        <a>总字数 <span class="post-count">168.9k</span></a>
                     </nav>
                     <nav class="header-smart-menu">
                         
@@ -461,33 +423,7 @@ https://ziyuan.baidu.com/college/courseinfo?id=267&page=2#h2_article_title19-->
                     
 
                                 
-                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/1732ee021d2e3247.png" alt=""></p>
-<a id="more"></a>
-
-<h1 id="ES6箭头函数与普通函数的区别"><a href="#ES6箭头函数与普通函数的区别" class="headerlink" title="ES6箭头函数与普通函数的区别"></a>ES6箭头函数与普通函数的区别</h1><h2 id="ES6箭头函数与普通函数的区别-1"><a href="#ES6箭头函数与普通函数的区别-1" class="headerlink" title="ES6箭头函数与普通函数的区别"></a>ES6箭头函数与普通函数的区别</h2><p>普通函数中的<code>this</code>指向函数被调用的对象，因此对于不同的调用者，<code>this</code>的值是不同的。而箭头函数中并没有自己的<code>this</code>（同时，箭头函数中也没有其他的局部变量，如this，argument，super等），所以箭头函数中的<code>this</code>是固定的，它指向定义该函数时所在的对象。</p>
-<h2 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h2><p>下面我们举一个简单的例子。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a  = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">obj.foo(); <span class="comment">//1</span></span><br><span class="line"><span class="keyword">var</span> bar = obj;</span><br><span class="line">bar.a = <span class="number">2</span>;</span><br><span class="line">bar.foo(); <span class="comment">//2</span></span><br><span class="line"><span class="keyword">var</span> baz = obj.foo;</span><br><span class="line">baz(); <span class="comment">//3</span></span><br></pre></td></tr></tbody></table></figure>
-<p>上述代码中，出现了三种情况：</p>
-<p>1 、直接通过obj调用其中的方法<code>foo</code>，此时，<code>this</code>就会指向调用foo函数的对象，也就是obj;<br>2 、将obj对象赋给一个新的对象bar，此时通过bar调用foo函数，<code>this</code>的值就会指向调用者bar；<br>3 、将obj.foo赋给一个新对象baz，通过baz()调用foo函数，此时的this指向window；</p>
-<p>由此我们可以得出结论：</p>
-<p>1、普通函数的this总是指向它的直接调用者。<br>2、在严格模式下，没找到直接调用者，则函数中的<code>this</code>是<code>undefined</code>。<br>3、在默认模式下（非严格模式），没找到直接调用者，则函数中的<code>this</code>指向<code>window</code>。</p>
-<p>再考虑一下下面的情况：</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        setTimeout(</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="keyword">this</span>.a),<span class="number">3000</span>})</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">obj.foo(); <span class="comment">//undefined</span></span><br></pre></td></tr></tbody></table></figure>
-<p>你可能会认为此时的输出应该为1，但是结果却是<code>undefined</code>。因为此时this的指向是全局的<code>window</code>对象。<br>通过以上例子，可以得出以下总结：</p>
-<p>1、对于方法（即通过对象调用了该函数），普通函数中的<code>this</code>总是指向它的调用者。<br>2、对于一般函数，this指向全局变量（非严格模式下）或者<code>undefined</code>（严格模式下）。在上例中setTimeout中的function未被任何对象调用，因此它的<code>this</code>指向还是<code>window</code>对象。因此，这也可以总结成：javascript 的<code>this</code>可以简单的认为是后期绑定，没有地方绑定的时候，默认绑定<code>window</code>或<code>undefined</code>。</p>
-<p>如果我们希望可以在上例的setTimeout函数中使用<code>this</code>要怎么做呢？在箭头函数出现之前，我们往往会使用以下两种方法：</p>
-<p>1、在setTimeout函数的外部，也就是上层函数<code>foo</code>内部通过将<code>this</code>值赋给一个临时变量来实现。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> that  = <span class="keyword">this</span>;</span><br><span class="line">        setTimeout(</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(that.a),<span class="number">3000</span>})</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">obj.foo(); <span class="comment">//1</span></span><br></pre></td></tr></tbody></table></figure>
-<p>2、通过<code>bind()</code>来绑定<code>this</code>。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        setTimeout(</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="keyword">this</span>.a),<span class="number">3000</span>}.bind(<span class="keyword">this</span>))</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">obj.foo(); <span class="comment">//1</span></span><br></pre></td></tr></tbody></table></figure>
-<p>这种现象在ES6引入箭头函数后得到了改善。</p>
-<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>箭头函数是ES6中引入的新特性，使用方法为：</p>
-<p>其中()内是要带入的参数，{}内是要执行的语句。箭头函数是函数式编程的一种体现，函数式编程将更多的关注点放在输入和输出的关系，省去了过程的一些因素，因此箭头函数中没有自己的<code>this</code>，<code>arguments</code>，<code>new target（ES6）</code>和 <code>super(ES6)</code>。箭头函数相当于匿名函数，因此不能使用<code>new</code>来作为构造函数使用。</p>
-<p>箭头函数中的this始终指向其父级作用域中的<code>this</code>。换句话说，箭头函数会捕获其所在的上下文的<code>this</code>值，作为自己的<code>this</code>值。任何方法都改变不了其指向，如<code>call(), bind(), apply()</code>。在箭头函数中调用 <code>this</code>时，仅仅是简单的沿着作用域链向上寻找，找到最近的一个 this 拿来使用，它与调用时的上下文无关。我们用代码来解释一下。</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a: <span class="number">10</span>,</span><br><span class="line">    b: <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// undefined</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}</span></span><br><span class="line">    },</span><br><span class="line">    c: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// 10</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// {a: 10, b: ƒ, c: ƒ}</span></span><br><span class="line">    },</span><br><span class="line">    d:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span>=&gt;</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// 10</span></span><br><span class="line">        }</span><br><span class="line">    },</span><br><span class="line">    e:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">      setTime</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  }</span><br><span class="line">  obj.b(); </span><br><span class="line">  obj.c();</span><br><span class="line">  obj.d()();</span><br></pre></td></tr></tbody></table></figure>
-<p>简单分析一下代码，obj.b（）中的<code>this</code>会继承父级上下文中的<code>this</code>值，也就是与obj有相同的<code>this</code>指向，为全局变量<code>window</code>。obj.c()的<code>this</code>指向即为调用者obj，obj.d().()中的<code>this</code>也继承自父级上下文中的<code>this</code>，即d的<code>this</code>指向，也就是obj。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>箭头函数没有自己的<code>this</code>，箭头函数的<code>this</code>不是调用的时候决定的，而是在定义的时候处在的对象就是它的<code>this</code>。<br>箭头函数的<code>this</code>看外层是否有函数，如果有，外层函数的<code>this</code>就是内部箭头函数的<code>this</code>，如果没有，则<code>this</code>，是<code>window</code>。</strong></p>
-<script>
+                                            <p><img src="https://gitee.com/wu_zhiguang/blog/raw/master/img/1732ee021d2e3247.png" alt=""></p><a id="more"></a><h1 id="ES6箭头函数与普通函数的区别"><a href="#ES6箭头函数与普通函数的区别" class="headerlink" title="ES6箭头函数与普通函数的区别"></a>ES6箭头函数与普通函数的区别</h1><h2 id="ES6箭头函数与普通函数的区别-1"><a href="#ES6箭头函数与普通函数的区别-1" class="headerlink" title="ES6箭头函数与普通函数的区别"></a>ES6箭头函数与普通函数的区别</h2><p>普通函数中的<code>this</code>指向函数被调用的对象，因此对于不同的调用者，<code>this</code>的值是不同的。而箭头函数中并没有自己的<code>this</code>（同时，箭头函数中也没有其他的局部变量，如this，argument，super等），所以箭头函数中的<code>this</code>是固定的，它指向定义该函数时所在的对象。</p><h2 id="普通函数"><a href="#普通函数" class="headerlink" title="普通函数"></a>普通函数</h2><p>下面我们举一个简单的例子。</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a  = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">obj.foo(); <span class="comment">//1</span></span><br><span class="line"><span class="keyword">var</span> bar = obj;</span><br><span class="line">bar.a = <span class="number">2</span>;</span><br><span class="line">bar.foo(); <span class="comment">//2</span></span><br><span class="line"><span class="keyword">var</span> baz = obj.foo;</span><br><span class="line">baz(); <span class="comment">//3</span></span><br></pre></td></tr></tbody></table></figure><p>上述代码中，出现了三种情况：</p><p>1 、直接通过obj调用其中的方法<code>foo</code>，此时，<code>this</code>就会指向调用foo函数的对象，也就是obj;<br>2 、将obj对象赋给一个新的对象bar，此时通过bar调用foo函数，<code>this</code>的值就会指向调用者bar；<br>3 、将obj.foo赋给一个新对象baz，通过baz()调用foo函数，此时的this指向window；</p><p>由此我们可以得出结论：</p><p>1、普通函数的this总是指向它的直接调用者。<br>2、在严格模式下，没找到直接调用者，则函数中的<code>this</code>是<code>undefined</code>。<br>3、在默认模式下（非严格模式），没找到直接调用者，则函数中的<code>this</code>指向<code>window</code>。</p><p>再考虑一下下面的情况：</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        setTimeout(</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="keyword">this</span>.a),<span class="number">3000</span>})</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">obj.foo(); <span class="comment">//undefined</span></span><br></pre></td></tr></tbody></table></figure><p>你可能会认为此时的输出应该为1，但是结果却是<code>undefined</code>。因为此时this的指向是全局的<code>window</code>对象。<br>通过以上例子，可以得出以下总结：</p><p>1、对于方法（即通过对象调用了该函数），普通函数中的<code>this</code>总是指向它的调用者。<br>2、对于一般函数，this指向全局变量（非严格模式下）或者<code>undefined</code>（严格模式下）。在上例中setTimeout中的function未被任何对象调用，因此它的<code>this</code>指向还是<code>window</code>对象。因此，这也可以总结成：javascript 的<code>this</code>可以简单的认为是后期绑定，没有地方绑定的时候，默认绑定<code>window</code>或<code>undefined</code>。</p><p>如果我们希望可以在上例的setTimeout函数中使用<code>this</code>要怎么做呢？在箭头函数出现之前，我们往往会使用以下两种方法：</p><p>1、在setTimeout函数的外部，也就是上层函数<code>foo</code>内部通过将<code>this</code>值赋给一个临时变量来实现。</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">var</span> that  = <span class="keyword">this</span>;</span><br><span class="line">        setTimeout(</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(that.a),<span class="number">3000</span>})</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">obj.foo(); <span class="comment">//1</span></span><br></pre></td></tr></tbody></table></figure><p>2、通过<code>bind()</code>来绑定<code>this</code>。</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a : <span class="number">1</span>,</span><br><span class="line">    foo : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        setTimeout(</span><br><span class="line">            <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="keyword">this</span>.a),<span class="number">3000</span>}.bind(<span class="keyword">this</span>))</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line">obj.foo(); <span class="comment">//1</span></span><br></pre></td></tr></tbody></table></figure><p>这种现象在ES6引入箭头函数后得到了改善。</p><h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>箭头函数是ES6中引入的新特性，使用方法为：</p><p>其中()内是要带入的参数，{}内是要执行的语句。箭头函数是函数式编程的一种体现，函数式编程将更多的关注点放在输入和输出的关系，省去了过程的一些因素，因此箭头函数中没有自己的<code>this</code>，<code>arguments</code>，<code>new target（ES6）</code>和 <code>super(ES6)</code>。箭头函数相当于匿名函数，因此不能使用<code>new</code>来作为构造函数使用。</p><p>箭头函数中的this始终指向其父级作用域中的<code>this</code>。换句话说，箭头函数会捕获其所在的上下文的<code>this</code>值，作为自己的<code>this</code>值。任何方法都改变不了其指向，如<code>call(), bind(), apply()</code>。在箭头函数中调用 <code>this</code>时，仅仅是简单的沿着作用域链向上寻找，找到最近的一个 this 拿来使用，它与调用时的上下文无关。我们用代码来解释一下。</p><figure class="highlight javascript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = {</span><br><span class="line">    a: <span class="number">10</span>,</span><br><span class="line">    b: <span class="function"><span class="params">()</span> =&gt;</span> {</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// undefined</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}</span></span><br><span class="line">    },</span><br><span class="line">    c: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// 10</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// {a: 10, b: ƒ, c: ƒ}</span></span><br><span class="line">    },</span><br><span class="line">    d:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="params">()</span>=&gt;</span>{</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a); <span class="comment">// 10</span></span><br><span class="line">        }</span><br><span class="line">    },</span><br><span class="line">    e:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</span><br><span class="line">      setTime</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">  }</span><br><span class="line">  obj.b(); </span><br><span class="line">  obj.c();</span><br><span class="line">  obj.d()();</span><br></pre></td></tr></tbody></table></figure><p>简单分析一下代码，obj.b（）中的<code>this</code>会继承父级上下文中的<code>this</code>值，也就是与obj有相同的<code>this</code>指向，为全局变量<code>window</code>。obj.c()的<code>this</code>指向即为调用者obj，obj.d().()中的<code>this</code>也继承自父级上下文中的<code>this</code>，即d的<code>this</code>指向，也就是obj。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>箭头函数没有自己的<code>this</code>，箭头函数的<code>this</code>不是调用的时候决定的，而是在定义的时候处在的对象就是它的<code>this</code>。<br>箭头函数的<code>this</code>看外层是否有函数，如果有，外层函数的<code>this</code>就是内部箭头函数的<code>this</code>，如果没有，则<code>this</code>，是<code>window</code>。</strong></p><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -965,10 +901,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WebPack5</a>
               </li>
              
@@ -986,6 +918,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Vue组件化开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1021,10 +957,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
               </li>
              
@@ -1038,6 +970,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">视频剪辑</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1069,11 +1005,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hexo搭建</a>
               </li>
              
               <li class="article-tag-list-item">
