@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.aqingya.cn/"/>
-  <updated>2020-08-15T02:32:10.002Z</updated>
+  <updated>2020-08-15T03:38:49.103Z</updated>
   <id>https://www.aqingya.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GET http::8080/sockjs-node/info?t=1597300795947 net::ERR_ADDRESS_UNREACHABLE</title>
+    <link href="https://www.aqingya.cn/articl/abd69df0.html"/>
+    <id>https://www.aqingya.cn/articl/abd69df0.html</id>
+    <published>2020-08-15T03:27:37.000Z</published>
+    <updated>2020-08-15T03:38:49.103Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://pic.downk.cc/item/5f37589b14195aa594e61816.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="迎刃而解" scheme="https://www.aqingya.cn/categories/%E8%BF%8E%E5%88%83%E8%80%8C%E8%A7%A3/"/>
+    
+    
+      <category term="Vue" scheme="https://www.aqingya.cn/tags/Vue/"/>
+    
+  </entry>
   
   <entry>
     <title>Vue中使用函数防抖和节流</title>
@@ -288,9 +309,9 @@
       <category term="CSS" scheme="https://www.aqingya.cn/categories/CSS/"/>
     
     
-      <category term="CSS" scheme="https://www.aqingya.cn/tags/CSS/"/>
-    
       <category term="CSS3" scheme="https://www.aqingya.cn/tags/CSS3/"/>
+    
+      <category term="CSS" scheme="https://www.aqingya.cn/tags/CSS/"/>
     
   </entry>
   
@@ -959,7 +980,7 @@
     <link href="https://www.aqingya.cn/articl/2cab4a69.html"/>
     <id>https://www.aqingya.cn/articl/2cab4a69.html</id>
     <published>2020-06-29T11:19:14.000Z</published>
-    <updated>2020-08-13T09:24:22.896Z</updated>
+    <updated>2020-08-15T03:44:48.979Z</updated>
     
     <summary type="html">
     
@@ -972,6 +993,8 @@
     
     
       <category term="工具网站" scheme="https://www.aqingya.cn/tags/%E5%B7%A5%E5%85%B7%E7%BD%91%E7%AB%99/"/>
+    
+      <category term="图床" scheme="https://www.aqingya.cn/tags/%E5%9B%BE%E5%BA%8A/"/>
     
   </entry>
   
@@ -1778,27 +1801,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/d88ecbcfd18a4cdf916f7ac8b500be31.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript --- forEach() 方法详解</title>
-    <link href="https://www.aqingya.cn/articl/6ea417ec.html"/>
-    <id>https://www.aqingya.cn/articl/6ea417ec.html</id>
-    <published>2020-04-29T05:41:29.000Z</published>
-    <updated>2020-08-02T05:42:50.074Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/bfa60f4389414aedbb61140ee5cdb8ab.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
