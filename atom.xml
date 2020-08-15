@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.aqingya.cn/"/>
-  <updated>2020-08-13T09:36:46.025Z</updated>
+  <updated>2020-08-15T02:32:10.002Z</updated>
   <id>https://www.aqingya.cn/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue中使用函数防抖和节流</title>
+    <link href="https://www.aqingya.cn/articl/cce40a5e.html"/>
+    <id>https://www.aqingya.cn/articl/cce40a5e.html</id>
+    <published>2020-08-15T02:15:51.000Z</published>
+    <updated>2020-08-15T02:32:10.002Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://pic.downk.cc/item/5f3748ae14195aa594e1b5c1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://www.aqingya.cn/categories/Vue/"/>
+    
+    
+      <category term="函数防抖" scheme="https://www.aqingya.cn/tags/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96/"/>
+    
+      <category term="函数节流" scheme="https://www.aqingya.cn/tags/%E5%87%BD%E6%95%B0%E8%8A%82%E6%B5%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决使用Better-Scroll可滚动区域的问题（事件总线，防抖操作）</title>
+    <link href="https://www.aqingya.cn/articl/88dd5720.html"/>
+    <id>https://www.aqingya.cn/articl/88dd5720.html</id>
+    <published>2020-08-15T02:15:38.000Z</published>
+    <updated>2020-08-15T02:32:14.261Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://pic.downk.cc/item/5f3748ae14195aa594e1b5be.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="https://www.aqingya.cn/categories/Vue/"/>
+    
+    
+      <category term="可滚动区域的问题" scheme="https://www.aqingya.cn/tags/%E5%8F%AF%E6%BB%9A%E5%8A%A8%E5%8C%BA%E5%9F%9F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="事件总线" scheme="https://www.aqingya.cn/tags/%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF/"/>
+    
+      <category term="防抖操作" scheme="https://www.aqingya.cn/tags/%E9%98%B2%E6%8A%96%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>流光按钮</title>
@@ -240,9 +288,9 @@
       <category term="CSS" scheme="https://www.aqingya.cn/categories/CSS/"/>
     
     
-      <category term="CSS3" scheme="https://www.aqingya.cn/tags/CSS3/"/>
-    
       <category term="CSS" scheme="https://www.aqingya.cn/tags/CSS/"/>
+    
+      <category term="CSS3" scheme="https://www.aqingya.cn/tags/CSS3/"/>
     
   </entry>
   
@@ -1751,48 +1799,6 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/bfa60f4389414aedbb61140ee5cdb8ab.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript中keys()和getOwnPropertyNames()详解。</title>
-    <link href="https://www.aqingya.cn/articl/9d1d8417.html"/>
-    <id>https://www.aqingya.cn/articl/9d1d8417.html</id>
-    <published>2020-04-29T03:51:01.000Z</published>
-    <updated>2020-08-02T05:42:50.045Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/34eecd91b0654f22af2538bc7c380cc3.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/categories/JavaScript/"/>
-    
-    
-      <category term="JavaScript" scheme="https://www.aqingya.cn/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js简单实现轮播图</title>
-    <link href="https://www.aqingya.cn/articl/98cfcd17.html"/>
-    <id>https://www.aqingya.cn/articl/98cfcd17.html</id>
-    <published>2020-04-27T03:55:11.000Z</published>
-    <updated>2020-08-02T05:42:50.028Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://gitee.com/wu_zhiguang/blog/raw/master/img/5ddc1a4438e546e0bd480c83cc37b5c1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
